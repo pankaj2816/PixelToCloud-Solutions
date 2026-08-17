@@ -43,10 +43,11 @@
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Favicon & Touch Icon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -80,20 +81,19 @@
 
     <nav class="nav-links">
       <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
-      <a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfolio & Demos</a>
-      <a href="#about" class="nav-link" data-i18n="nav_about">About Architect</a>
-      <a href="#estimator" class="nav-link" data-i18n="nav_estimator">Cost Estimator</a>
-      <a href="#devops" class="nav-link" data-i18n="nav_devops">DevOps & Cloud</a>
-      <a href="#apilab" class="nav-link" data-i18n="nav_apilab">API Lab</a>
+      <a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
+      <a href="#devops" class="nav-link" data-i18n="nav_devops">DevOps</a>
       <a href="#techstack" class="nav-link" data-i18n="nav_techstack">Tech Stack</a>
+      <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
       <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
-      <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
     </nav>
 
     <div class="nav-actions">
       <!-- Language Selector (English, Hindi, French, German, Russian) -->
       <div class="lang-selector-wrap">
-        <span style="font-size: 0.85rem;">🌐</span>
+        <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
         <select class="lang-select" id="language-selector" aria-label="Select Language">
           <option value="en">EN</option>
           <option value="hi">हिन्दी</option>
@@ -103,15 +103,11 @@
         </select>
       </div>
 
-      <button class="btn-magnetic btn-secondary open-scheduler-btn nav-schedule-btn" style="padding: 6px 12px; font-size: 0.82rem;">
-        <span>📅 <span data-i18n="nav_schedule">Book Call</span></span>
-      </button>
-
       <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
         <span class="theme-icon"></span>
       </button>
 
-      <a href="#contact" class="btn-magnetic btn-primary nav-cta-btn">
+      <a href="contact.html" class="btn-magnetic btn-primary nav-cta-btn">
         <span data-i18n="nav_cta">Get Instant Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -137,21 +133,21 @@
       </div>
 
       <div class="mobile-nav-links">
-        <a href="#services" class="mobile-nav-link">🚀 Services</a>
-        <a href="#portfolio" class="mobile-nav-link">💻 Portfolio & Live Demos</a>
-        <a href="#about" class="mobile-nav-link">👨‍💻 About Lead Engineer</a>
-        <a href="#estimator" class="mobile-nav-link">💰 Cost & Timeline Estimator</a>
-        <a href="#devops" class="mobile-nav-link">☁️ Cloud & DevOps Terminal</a>
-        <a href="#techstack" class="mobile-nav-link">⚙️ Tech Stack</a>
-        <a href="#process" class="mobile-nav-link">🗺️ Process Roadmap</a>
-        <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
-        <a href="#contact" class="mobile-nav-link">📩 Contact & Consultation</a>
+        <a href="#services" class="mobile-nav-link"><i class="fa-solid fa-rocket" style="margin-right: 8px;"></i>Services</a>
+        <a href="#portfolio" class="mobile-nav-link"><i class="fa-solid fa-laptop-code" style="margin-right: 8px;"></i>Portfolio & Live Demos</a>
+        <a href="#about" class="mobile-nav-link"><i class="fa-solid fa-user-gear" style="margin-right: 8px;"></i>About Lead Engineer</a>
+        <a href="#estimator" class="mobile-nav-link"><i class="fa-solid fa-calculator" style="margin-right: 8px;"></i>Cost & Timeline Estimator</a>
+        <a href="#devops" class="mobile-nav-link"><i class="fa-solid fa-server" style="margin-right: 8px;"></i>Cloud & DevOps Terminal</a>
+        <a href="#techstack" class="mobile-nav-link"><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i>Tech Stack</a>
+        <a href="#process" class="mobile-nav-link"><i class="fa-solid fa-route" style="margin-right: 8px;"></i>Process Roadmap</a>
+        <a href="#faq" class="mobile-nav-link"><i class="fa-solid fa-circle-question" style="margin-right: 8px;"></i>FAQ</a>
+        <a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>Contact & Consultation</a>
       </div>
 
       <!-- Mobile Language Switcher & Scheduler -->
       <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
         <div class="lang-selector-wrap" style="width: 100%; justify-content: space-between;">
-          <span style="font-size: 0.85rem; color: var(--text-secondary);">🌐 Select Language:</span>
+          <span style="font-size: 0.85rem; color: var(--text-secondary);"><i class="fa-solid fa-globe" style="margin-right: 4px;"></i> Select Language:</span>
           <select class="lang-select" id="mobile-language-selector" aria-label="Select Language">
             <option value="en">English (EN)</option>
             <option value="hi">हिन्दी (Hindi)</option>
@@ -162,7 +158,7 @@
         </div>
 
         <button class="btn-magnetic btn-secondary open-scheduler-btn" style="width: 100%; padding: 10px;">
-          <span>📅 Schedule 1-on-1 Call</span>
+          <span><i class="fa-regular fa-calendar-check" style="margin-right: 6px;"></i>Schedule 1-on-1 Call</span>
         </button>
       </div>
     </div>
@@ -553,38 +549,38 @@
         <!-- Before Layer (Legacy) -->
         <div class="ba-layer ba-before-layer">
           <div>
-            <span class="ba-tag ba-tag-before">⚠️ Outdated Legacy Website</span>
+            <span class="ba-tag ba-tag-before"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 6px;"></i>Outdated Legacy Website</span>
             <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #f87171;">Clunky & Slow (4.8s Load Time)</h3>
             <p style="font-size: 0.88rem; color: #fca5a5; max-width: 380px; margin-top: 8px;">
               Bloated code, failing Google Core Web Vitals, blurry non-responsive images, and 75% visitor drop-off.
             </p>
           </div>
           <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
-            <div>❌ PageSpeed: 38/100</div>
-            <div>❌ Total Weight: 6.8 MB</div>
-            <div>❌ Mobile: Broken Layout</div>
+            <div><i class="fa-solid fa-xmark" style="color: #f87171; margin-right: 4px;"></i>PageSpeed: 38/100</div>
+            <div><i class="fa-solid fa-xmark" style="color: #f87171; margin-right: 4px;"></i>Total Weight: 6.8 MB</div>
+            <div><i class="fa-solid fa-xmark" style="color: #f87171; margin-right: 4px;"></i>Mobile: Broken Layout</div>
           </div>
         </div>
 
         <!-- After Layer (PixelToCloud) -->
         <div class="ba-layer ba-after-layer">
           <div>
-            <span class="ba-tag ba-tag-after">⚡ PixelToCloud High-Speed Architecture</span>
+            <span class="ba-tag ba-tag-after"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>PixelToCloud High-Speed Architecture</span>
             <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #00f0ff;">Ultra-Fast & Modern (0.4s Load Time)</h3>
             <p style="font-size: 0.88rem; color: #bae6fd; max-width: 380px; margin-top: 8px;">
               Hardware-accelerated 60 FPS UI, sub-second edge routing, 100/100 SEO health, and 3.2x higher conversion rates.
             </p>
           </div>
           <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
-            <div>✔ PageSpeed: 99/100</div>
-            <div>✔ Weight: 92 kB Gzip</div>
-            <div>✔ Uptime: 99.99% Guaranteed</div>
+            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>PageSpeed: 99/100</div>
+            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Weight: 92 kB Gzip</div>
+            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Uptime: 99.99% Guaranteed</div>
           </div>
         </div>
 
         <!-- Draggable Handle -->
         <div class="ba-handle">
-          <span>⬌</span>
+          <span><i class="fa-solid fa-arrows-left-right"></i></span>
         </div>
       </div>
     </div>
@@ -648,7 +644,7 @@
         <!-- Currency Toggle Header -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
           <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-cyan);">
-            ⚡ Real-Time Algorithmic Estimator
+            <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Real-Time Algorithmic Estimator
           </div>
           <div style="display: flex; gap: 8px;">
             <button class="filter-btn currency-toggle-btn active" data-currency="INR">₹ INR (₹)</button>
@@ -702,7 +698,7 @@
               <div class="estimate-price-display">
                 <div class="estimate-cost-headline" id="estimator-total-price">₹ 35,200</div>
                 <div class="estimate-timeline-badge" id="estimator-total-timeline">
-                  ⚡ Ready in 14 - 18 Working Days
+                  <i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>Ready in 14 - 18 Working Days
                 </div>
               </div>
 
@@ -716,12 +712,12 @@
 
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <button class="btn-magnetic btn-primary" id="estimator-export-email" style="width: 100%; padding: 14px; font-size: 0.92rem; font-weight: 700;">
-                <span>✉️ Email Quote to Pankaj (Priority)</span>
+                <span><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email Quote to Pankaj (Priority)</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
 
               <button class="btn-magnetic btn-secondary" id="estimator-export-whatsapp" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 600;">
-                <span>💬 Export Estimate to WhatsApp</span>
+                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Export Estimate to WhatsApp</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </button>
 
@@ -756,24 +752,24 @@
       <!-- 4 Pipeline Stages Cards -->
       <div class="pipeline-steps-grid reveal">
         <div class="pipeline-step-card active">
-          <div class="pipeline-step-icon">📦</div>
+          <div class="pipeline-step-icon"><i class="fa-solid fa-box"></i></div>
           <div class="pipeline-step-title">1. Build & Test</div>
-          <div class="pipeline-step-status">✔ Complete</div>
+          <div class="pipeline-step-status"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Complete</div>
         </div>
         <div class="pipeline-step-card active">
-          <div class="pipeline-step-icon">🐳</div>
+          <div class="pipeline-step-icon"><i class="fa-brands fa-docker"></i></div>
           <div class="pipeline-step-title">2. Docker Container</div>
-          <div class="pipeline-step-status">✔ Complete</div>
+          <div class="pipeline-step-status"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Complete</div>
         </div>
         <div class="pipeline-step-card active">
-          <div class="pipeline-step-icon">⚡</div>
+          <div class="pipeline-step-icon"><i class="fa-solid fa-bolt"></i></div>
           <div class="pipeline-step-title">3. Nginx HTTP/2</div>
-          <div class="pipeline-step-status">✔ Complete</div>
+          <div class="pipeline-step-status"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Complete</div>
         </div>
         <div class="pipeline-step-card active">
-          <div class="pipeline-step-icon">🔒</div>
+          <div class="pipeline-step-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="pipeline-step-title">4. SSL & Edge Live</div>
-          <div class="pipeline-step-status">✔ Complete</div>
+          <div class="pipeline-step-status"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Complete</div>
         </div>
       </div>
 
@@ -788,10 +784,10 @@
           <div class="terminal-title">pankaj-cloud-engine :: /var/www/production-deploy</div>
           <div style="display: flex; gap: 10px;">
             <button id="terminal-toggle-btn" style="font-size: 0.72rem; color: var(--accent-cyan); background: rgba(0,240,255,0.1); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(0,240,255,0.3);">
-              ⏸ Pause Logs
+              <i class="fa-solid fa-pause" style="margin-right: 4px;"></i>Pause Logs
             </button>
             <button id="terminal-restart-btn" style="font-size: 0.72rem; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border-subtle);">
-              🔄 Re-Run
+              <i class="fa-solid fa-rotate-right" style="margin-right: 4px;"></i>Re-Run
             </button>
           </div>
         </div>
@@ -828,62 +824,62 @@
 
       <div class="tech-orbit-grid reveal">
         <div class="tech-tile">
-          <div class="tech-tile-icon">🌐</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-globe"></i></div>
           <div class="tech-tile-name">HTML5 / Modern JS</div>
           <div class="tech-tile-category">Frontend Core</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🎨</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-palette"></i></div>
           <div class="tech-tile-name">Vanilla CSS & Tokens</div>
           <div class="tech-tile-category">Styling Engine</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🧊</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-cube"></i></div>
           <div class="tech-tile-name">Three.js / WebGL</div>
           <div class="tech-tile-category">2D/3D Graphics</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">⚛️</div>
+          <div class="tech-tile-icon"><i class="fa-brands fa-react"></i></div>
           <div class="tech-tile-name">React / Next.js</div>
           <div class="tech-tile-category">Dynamic Apps</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🟢</div>
+          <div class="tech-tile-icon"><i class="fa-brands fa-node-js"></i></div>
           <div class="tech-tile-name">Node.js / Express</div>
           <div class="tech-tile-category">Backend API</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🐍</div>
+          <div class="tech-tile-icon"><i class="fa-brands fa-python"></i></div>
           <div class="tech-tile-name">Python / FastAPI</div>
           <div class="tech-tile-category">Microservices</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🐘</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-database"></i></div>
           <div class="tech-tile-name">PostgreSQL</div>
           <div class="tech-tile-category">Relational DB</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🍃</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-leaf"></i></div>
           <div class="tech-tile-name">MongoDB</div>
           <div class="tech-tile-category">Document DB</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🐳</div>
+          <div class="tech-tile-icon"><i class="fa-brands fa-docker"></i></div>
           <div class="tech-tile-name">Docker & Compose</div>
           <div class="tech-tile-category">Containers</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">⚡</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-bolt"></i></div>
           <div class="tech-tile-name">Nginx Server</div>
           <div class="tech-tile-category">Reverse Proxy</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">☁️</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-cloud"></i></div>
           <div class="tech-tile-name">Linux VPS & AWS</div>
           <div class="tech-tile-category">Cloud Server</div>
         </div>
         <div class="tech-tile">
-          <div class="tech-tile-icon">🛡️</div>
+          <div class="tech-tile-icon"><i class="fa-solid fa-shield"></i></div>
           <div class="tech-tile-name">Cloudflare DNS</div>
           <div class="tech-tile-category">Security & CDN</div>
         </div>
@@ -1083,70 +1079,133 @@
       <div class="section-header reveal">
         <div class="section-tag">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <span data-i18n="section_about_tag">Meet The Principal Architect</span>
+          <span data-i18n="section_about_tag">Meet The Founders & Engineering Leaders</span>
         </div>
         <h2 class="section-title">
-          <span data-i18n="section_about_title">Engineered with 8–10+ Years of Dual Mastery</span>
+          <span data-i18n="section_about_title">Driven by 8–10+ Years Architecture & 5+ Years Software Engineering</span>
         </h2>
         <p class="section-desc" data-i18n="section_about_desc">
-          Merging deep Software Engineering with low-level Hardware Architecture to build robust, ultra-fast, and mission-critical digital systems.
+          Merging deep Software Engineering with low-level Hardware & Full-Stack Development to build robust, ultra-fast, and mission-critical digital systems.
         </p>
       </div>
 
-      <div class="founder-card-wrap reveal">
-        <div class="founder-grid">
-          <!-- Founder Photo Frame with Edited Studio Portrait -->
-          <div class="founder-image-container">
-            <div class="founder-portrait-frame">
-              <img src="image/pankaj-profile.jpg" alt="Pankaj - Principal Software & Hardware Engineer" class="founder-portrait-img" loading="lazy">
+      <div style="display: flex; flex-direction: column; gap: 36px;">
+        <!-- Founder Card 1: Pankaj -->
+        <div class="founder-card-wrap reveal">
+          <div class="founder-grid">
+            <!-- Founder Photo Frame with Edited Studio Portrait -->
+            <div class="founder-image-container">
+              <div class="founder-portrait-frame">
+                <img src="image/pankaj-profile.jpg" alt="Pankaj - Principal Software & Hardware Engineer" class="founder-portrait-img" loading="lazy">
+              </div>
+              <div class="founder-exp-floating-badge">
+                <span class="live-status-dot"></span>
+                <span>8–10+ Years Engineering Mastery</span>
+              </div>
             </div>
-            <div class="founder-exp-floating-badge">
-              <span class="live-status-dot"></span>
-              <span>8–10+ Years Engineering Mastery</span>
+
+            <!-- Founder Details & Dual Experience -->
+            <div class="founder-details">
+              <div>
+                <div class="founder-role-tag">
+                  <span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Founder & Principal Systems Architect</span>
+                </div>
+                <h3 class="founder-name">Pankaj</h3>
+              </div>
+
+              <p class="founder-bio">
+                With over <strong>8 to 10 years of intensive software and hardware engineering experience</strong>, I architect end-to-end digital solutions that bridge high-level web applications with deep infrastructure precision. From mission-critical CA tax calculation hubs and doctor telemedicine suites to 60 FPS WebGL 3D software and dedicated Linux VPS deployments, every project is engineered for speed, security, and effortless scale.
+              </p>
+
+              <!-- Dual Specialty Grid (Software + Hardware) -->
+              <div class="dual-specialty-grid">
+                <div class="specialty-box">
+                  <div class="specialty-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                  <h4 class="specialty-title">Software & Cloud Architecture</h4>
+                  <p class="specialty-desc">
+                    Full-stack web apps, 2D/3D WebGL Three.js graphics, high-security financial & healthcare portals, Docker microservices, Nginx reverse proxy, and automated CI/CD pipelines.
+                  </p>
+                </div>
+
+                <div class="specialty-box">
+                  <div class="specialty-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                  <h4 class="specialty-title">Hardware & Embedded Systems</h4>
+                  <p class="specialty-desc">
+                    Low-level hardware-software interfacing, embedded microcontroller programming, IoT architectures, Linux kernel server hardware tuning, and robust system reliability.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Direct Consultation Callout -->
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.92rem; color: var(--text-muted); font-family: var(--font-mono);">
+                  <i class="fa-solid fa-handshake" style="margin-right: 6px;"></i>Direct 1-on-1 Founder Consultation & Technical Roadmapping
+                </div>
+                <a href="#contact" class="btn-magnetic btn-primary">
+                  <span>Consult with Pankaj</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
             </div>
           </div>
+        </div>
 
-          <!-- Founder Details & Dual Experience -->
-          <div class="founder-details">
-            <div>
-              <div class="founder-role-tag">
-                <span>⚡ Founder & Principal Systems Architect</span>
+        <!-- Founder Card 2: Co-Founder & Senior Software Developer -->
+        <div class="founder-card-wrap reveal reveal-delay-1">
+          <div class="founder-grid">
+            <!-- Co-Founder Photo Frame with Portrait -->
+            <div class="founder-image-container">
+              <div class="founder-portrait-frame">
+                <img src="image/cofounder-profile.jpg" alt="Tushar Singhal - Co-Founder & Senior Software Developer" class="founder-portrait-img" loading="lazy">
               </div>
-              <h3 class="founder-name">Pankaj</h3>
-            </div>
-
-            <p class="founder-bio">
-              With over <strong>8 to 10 years of intensive software and hardware engineering experience</strong>, I architect end-to-end digital solutions that bridge high-level web applications with deep infrastructure precision. From mission-critical CA tax calculation hubs and doctor telemedicine suites to 60 FPS WebGL 3D software and dedicated Linux VPS deployments, every project is engineered for speed, security, and effortless scale.
-            </p>
-
-            <!-- Dual Specialty Grid (Software + Hardware) -->
-            <div class="dual-specialty-grid">
-              <div class="specialty-box">
-                <div class="specialty-icon">💻</div>
-                <h4 class="specialty-title">Software & Cloud Architecture</h4>
-                <p class="specialty-desc">
-                  Full-stack web apps, 2D/3D WebGL Three.js graphics, high-security financial & healthcare portals, Docker microservices, Nginx reverse proxy, and automated CI/CD pipelines.
-                </p>
-              </div>
-
-              <div class="specialty-box">
-                <div class="specialty-icon">🔌</div>
-                <h4 class="specialty-title">Hardware & Embedded Systems</h4>
-                <p class="specialty-desc">
-                  Low-level hardware-software interfacing, embedded microcontroller programming, IoT architectures, Linux kernel server hardware tuning, and robust system reliability.
-                </p>
+              <div class="founder-exp-floating-badge">
+                <span class="live-status-dot" style="background: var(--accent-cyan);"></span>
+                <span>5+ Years Software Engineering</span>
               </div>
             </div>
 
-            <!-- Direct Consultation Callout -->
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--border-subtle);">
-              <div style="font-size: 0.92rem; color: var(--text-muted); font-family: var(--font-mono);">
-                🤝 Direct 1-on-1 Founder Consultation & Technical Roadmapping
+            <!-- Co-Founder Details & Experience -->
+            <div class="founder-details">
+              <div>
+                <div class="founder-role-tag" style="color: var(--accent-cyan);">
+                  <span><i class="fa-solid fa-code" style="margin-right: 6px;"></i>Co-Founder & Senior Software Developer</span>
+                </div>
+                <h3 class="founder-name">Tushar Singhal</h3>
               </div>
-              <a href="#contact" class="btn-magnetic btn-primary">
-                <span>Consult with Pankaj</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+
+              <p class="founder-bio">
+                With over <strong>5+ years of dedicated full-stack software development experience</strong>, I lead front-end engineering, modular API design, and dynamic client interaction systems. Specializing in high-concurrency web apps, 60 FPS UI micro-interactions, responsive cross-device layouts, and clean scalable codebases.
+              </p>
+
+              <!-- Dual Specialty Grid -->
+              <div class="dual-specialty-grid">
+                <div class="specialty-box">
+                  <div class="specialty-icon"><i class="fa-solid fa-layer-group"></i></div>
+                  <h4 class="specialty-title">Full-Stack Web Development</h4>
+                  <p class="specialty-desc">
+                    Modern JavaScript, React, SPA/PWA apps, custom DOM architectures, web component systems, and fluid responsive UI/UX design.
+                  </p>
+                </div>
+
+                <div class="specialty-box">
+                  <div class="specialty-icon"><i class="fa-solid fa-gears"></i></div>
+                  <h4 class="specialty-title">REST APIs & DB Optimization</h4>
+                  <p class="specialty-desc">
+                    High-performance API endpoints, real-time WebSocket communication, database query tuning, authentication & data security.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Consultation Callout -->
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.92rem; color: var(--text-muted); font-family: var(--font-mono);">
+                  <i class="fa-solid fa-laptop-code" style="margin-right: 6px;"></i>Full-Stack Code Quality & Web Architecture Lead
+                </div>
+                <a href="#contact" class="btn-magnetic btn-secondary">
+                  <span>Start Project Discussion</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1409,12 +1468,12 @@
 
             <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
               <button type="button" id="contact-submit-email" class="btn-magnetic btn-primary" style="width: 100%; padding: 15px; font-size: 0.95rem; font-weight: 700;">
-                <span>✉️ Send Inquiry via Email to Pankaj (Priority)</span>
+                <span><i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i>Send Inquiry via Email to Pankaj</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
 
               <button type="button" id="contact-submit-whatsapp" class="btn-magnetic btn-secondary" style="width: 100%; padding: 13px; font-size: 0.9rem; font-weight: 600;">
-                <span>💬 Connect & Send on WhatsApp</span>
+                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Connect & Send on WhatsApp</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </button>
             </div>
@@ -1464,7 +1523,7 @@
     <div class="ai-messages" id="ai-advisor-messages">
       <div class="ai-msg ai-msg-bot">
         <div class="ai-bubble">
-          👋 <strong>Hello! I'm PixelToCloud's AI Project Advisor.</strong><br><br>
+          <i class="fa-solid fa-hand" style="margin-right: 6px; color: #f59e0b;"></i><strong>Hello! I'm PixelToCloud's AI Project Advisor.</strong><br><br>
           I can instantly answer questions regarding:
           • Doctor/Clinic Booking Portals<br>
           • CA & Tax Suite Features<br>
@@ -1478,11 +1537,11 @@
 
     <!-- Quick Chips -->
     <div class="ai-chips-wrap" id="ai-advisor-chips">
-      <button class="ai-chip" data-query="How much does a doctor booking portal cost?">🩺 Doctor Portal Cost?</button>
-      <button class="ai-chip" data-query="What features are in the CA Tax portal?">💼 CA Tax Features</button>
-      <button class="ai-chip" data-query="Can you build 3D WebGL software?">🧊 3D WebGL</button>
-      <button class="ai-chip" data-query="How do you handle VPS and AWS server setup?">☁️ Server & VPS</button>
-      <button class="ai-chip" data-query="Who is Pankaj and what is his experience?">👨‍💻 About Pankaj</button>
+      <button class="ai-chip" data-query="How much does a doctor booking portal cost?"><i class="fa-solid fa-stethoscope" style="margin-right: 4px;"></i>Doctor Portal Cost?</button>
+      <button class="ai-chip" data-query="What features are in the CA Tax portal?"><i class="fa-solid fa-briefcase" style="margin-right: 4px;"></i>CA Tax Features</button>
+      <button class="ai-chip" data-query="Can you build 3D WebGL software?"><i class="fa-solid fa-cube" style="margin-right: 4px;"></i>3D WebGL</button>
+      <button class="ai-chip" data-query="How do you handle VPS and AWS server setup?"><i class="fa-solid fa-server" style="margin-right: 4px;"></i>Server & VPS</button>
+      <button class="ai-chip" data-query="Who is Pankaj and what is his experience?"><i class="fa-solid fa-user-gear" style="margin-right: 4px;"></i>About Pankaj</button>
     </div>
 
     <!-- Input Bar -->
@@ -1500,7 +1559,7 @@
       <button class="modal-close-btn" id="scheduler-close-btn" aria-label="Close Scheduler">✕</button>
       <div class="modal-body" style="padding: 32px;">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-          <div class="nav-logo-icon">📅</div>
+          <div class="nav-logo-icon"><i class="fa-regular fa-calendar-check"></i></div>
           <div>
             <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: #fff;">
               Schedule 1-on-1 Discovery Call
@@ -1575,7 +1634,7 @@
             <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span> <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-mono); margin-left: 4px;">by Pankaj</span></span>
           </div>
           <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; max-width: 320px; margin-bottom: 20px;">
-            From pixel-perfect UI/UX and 2D/3D WebGL software to full cloud infrastructure, Linux servers, and DevOps. Founded & engineered by Pankaj (8–10+ Years Experience).
+            From pixel-perfect UI/UX and 2D/3D WebGL software to full cloud infrastructure, Linux servers, and DevOps. Co-founded by Pankaj & Lead Software Engineers (8–10+ Years & 5+ Years Exp).
           </p>
           <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 8px;">
             <span class="live-status-dot"></span>
@@ -1608,10 +1667,10 @@
         <div>
           <h4 class="footer-col-title">Direct Connect</h4>
           <div class="footer-links-list">
-            <a href="mailto:pppankaj2816@gmail.com" class="copy-email-trigger">📧 Email: pppankaj2816@gmail.com</a>
-            <a href="https://wa.me/918219352124" target="_blank">📲 WhatsApp: +91 82193 52124</a>
-            <a href="#estimator">💰 Project Cost Estimator</a>
-            <a href="#contact">📅 Book Free Consultation</a>
+            <a href="mailto:pppankaj2816@gmail.com" class="copy-email-trigger"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email: pppankaj2816@gmail.com</a>
+            <a href="https://wa.me/918219352124" target="_blank"><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>WhatsApp: +91 82193 52124</a>
+            <a href="#estimator"><i class="fa-solid fa-calculator" style="margin-right: 6px;"></i>Project Cost Estimator</a>
+            <a href="#contact"><i class="fa-regular fa-calendar-check" style="margin-right: 6px;"></i>Book Free Consultation</a>
           </div>
         </div>
       </div>
@@ -1621,8 +1680,8 @@
           &copy; 2026 PixelToCloud Solutions. All Rights Reserved. Engineered with Precision by Pankaj.
         </div>
         <div style="display: flex; gap: 18px; font-size: 0.82rem; flex-wrap: wrap;">
-          <a href="#" id="open-privacy-modal" style="color: var(--text-muted); text-decoration: underline;">🔒 Privacy & Security Policy</a>
-          <a href="#" id="open-terms-modal" style="color: var(--text-muted); text-decoration: underline;">📜 Terms & Milestone Delivery</a>
+          <a href="#" id="open-privacy-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i>Privacy & Security Policy</a>
+          <a href="#" id="open-terms-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-file-contract" style="margin-right: 4px;"></i>Terms & Milestone Delivery</a>
         </div>
       </div>
     </div>
@@ -1636,7 +1695,7 @@
       <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
       <div style="padding: 24px;">
         <div class="section-tag" style="margin-bottom: 12px;">
-          <span>🔒 Privacy & Data Confidentiality</span>
+          <span><i class="fa-solid fa-shield-halved" style="margin-right: 6px;"></i>Privacy & Data Confidentiality</span>
         </div>
         <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
           Client Privacy & Data Security Commitment
@@ -1659,7 +1718,7 @@
       <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
       <div style="padding: 24px;">
         <div class="section-tag" style="margin-bottom: 12px;">
-          <span>📜 Terms of Service & Milestone Warranties</span>
+          <span><i class="fa-solid fa-file-contract" style="margin-right: 6px;"></i>Terms of Service & Milestone Warranties</span>
         </div>
         <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
           Engineering Standards & Deliverables

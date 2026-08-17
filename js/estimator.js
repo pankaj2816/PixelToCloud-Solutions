@@ -175,7 +175,7 @@ class ProjectEstimator {
 
     const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${subject}&body=${body}`;
     if (window.App) {
-      window.App.showToast('✉️ Opening direct email to pppankaj2816@gmail.com...');
+      window.App.showToast('Opening direct email to pppankaj2816@gmail.com...');
     }
     window.location.href = mailtoUrl;
   }
@@ -239,7 +239,7 @@ class ProjectEstimator {
       priceDisplay.textContent = this.formatPrice(totalCost);
     }
     if (timelineDisplay) {
-      timelineDisplay.textContent = `⚡ Ready in ${totalDays} - ${totalDays + 4} Working Days`;
+      timelineDisplay.innerHTML = `<i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>Ready in ${totalDays} - ${totalDays + 4} Working Days`;
     }
     if (breakdownContainer) {
       breakdownContainer.innerHTML = breakdownHTML;
@@ -258,12 +258,12 @@ class ProjectEstimator {
     if (!this.lastCalculation) return;
 
     const phoneNumber = "918219352124"; // Developer WhatsApp Link
-    const text = `👋 Hello Pankaj (PixelToCloud Solutions),\n\nI just configured an estimate on your website for my project:\n` +
-      `📌 *Scope:* ${this.lastCalculation.project}\n` +
-      `💰 *Estimated Budget:* ${this.lastCalculation.totalCost}\n` +
-      `⏱️ *Target Delivery:* ${this.lastCalculation.totalDays}\n` +
-      `🌐 *Infrastructure:* ${this.lastCalculation.infra.join(', ') || 'Standard'}\n` +
-      `✨ *Add-ons:* ${this.lastCalculation.addons.join(', ') || 'None'}\n\n` +
+    const text = `Hello Pankaj (PixelToCloud Solutions),\n\nI just configured an estimate on your website for my project:\n` +
+      `*Scope:* ${this.lastCalculation.project}\n` +
+      `*Estimated Budget:* ${this.lastCalculation.totalCost}\n` +
+      `*Target Delivery:* ${this.lastCalculation.totalDays}\n` +
+      `*Infrastructure:* ${this.lastCalculation.infra.join(', ') || 'Standard'}\n` +
+      `*Add-ons:* ${this.lastCalculation.addons.join(', ') || 'None'}\n\n` +
       `Can we schedule a quick call to discuss details and kick off development?`;
 
     const encoded = encodeURIComponent(text);
@@ -285,7 +285,7 @@ class ProjectEstimator {
     }
 
     if (window.App) {
-      window.App.showToast('✅ Estimate configuration transferred to Contact Form!');
+      window.App.showToast('Estimate configuration transferred to Contact Form!');
     }
   }
 }

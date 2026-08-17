@@ -182,19 +182,19 @@ END:VCALENDAR`;
     if (!modalBody || !this.lastBooking) return;
 
     const gcalUrl = this.getGoogleCalendarUrl();
-    const whatsappText = `📅 *1-ON-1 CALL CONFIRMED - PIXELTOCLOUD SOLUTIONS*\n\n` +
-      `👤 *Name:* ${this.lastBooking.name}\n` +
-      `📧 *Email:* ${this.lastBooking.email}\n` +
-      `📆 *Date:* ${this.lastBooking.date}\n` +
-      `⏰ *Time:* ${this.lastBooking.slot}\n` +
-      `🎯 *Topic:* ${this.lastBooking.topic}\n\n` +
+    const whatsappText = `1-ON-1 CALL CONFIRMED - PIXELTOCLOUD SOLUTIONS\n\n` +
+      `Name: ${this.lastBooking.name}\n` +
+      `Email: ${this.lastBooking.email}\n` +
+      `Date: ${this.lastBooking.date}\n` +
+      `Time: ${this.lastBooking.slot}\n` +
+      `Topic: ${this.lastBooking.topic}\n\n` +
       `Looking forward to speaking with Pankaj!`;
     const whatsappUrl = `https://wa.me/918219352124?text=${encodeURIComponent(whatsappText)}`;
 
     modalBody.innerHTML = `
       <div style="text-align: center; padding: 20px 10px;">
         <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);">
-          ✓
+          <i class="fa-solid fa-check"></i>
         </div>
         <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
           Discovery Call Requested & Synced!
@@ -207,15 +207,15 @@ END:VCALENDAR`;
 
         <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
           <a href="${gcalUrl}" target="_blank" class="btn-magnetic btn-primary" style="width: 100%; padding: 13px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>📅 Add to Google Calendar</span>
+            <span><i class="fa-regular fa-calendar-plus" style="margin-right: 6px;"></i>Add to Google Calendar</span>
           </a>
 
           <button id="sched-download-ics-btn" class="btn-magnetic btn-secondary" style="width: 100%; padding: 12px; font-weight: 600;">
-            <span>📥 Download .ics Calendar File</span>
+            <span><i class="fa-solid fa-download" style="margin-right: 6px;"></i>Download .ics Calendar File</span>
           </button>
 
           <a href="${whatsappUrl}" target="_blank" class="btn-magnetic btn-secondary" style="width: 100%; padding: 12px; font-weight: 600; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>💬 Confirm & Chat on WhatsApp</span>
+            <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Confirm & Chat on WhatsApp</span>
           </a>
         </div>
       </div>
@@ -225,7 +225,7 @@ END:VCALENDAR`;
     if (icsBtn) {
       icsBtn.addEventListener('click', () => {
         this.downloadICS();
-        if (window.App) window.App.showToast('📥 .ics Calendar file downloaded!');
+        if (window.App) window.App.showToast('.ics Calendar file downloaded!');
       });
     }
 

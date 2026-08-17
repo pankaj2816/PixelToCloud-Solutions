@@ -15,27 +15,27 @@ class LiveDeploymentTerminal {
       { step: 0, type: 'cmd', text: 'git checkout main && git pull origin main' },
       { step: 0, type: 'info', text: '-> Remote branch up-to-date. Commit hash: #7f3a9e2' },
       { step: 0, type: 'cmd', text: 'npm run test && npm run build --prod' },
-      { step: 0, type: 'success', text: '✔ Automated Unit & E2E tests: 142/142 passed (0 warnings)' },
-      { step: 0, type: 'info', text: '✔ Production bundles minified: 84.2 kB gzip (PageSpeed score: 99)' },
+      { step: 0, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Automated Unit & E2E tests: 142/142 passed (0 warnings)' },
+      { step: 0, type: 'info', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Production bundles minified: 84.2 kB gzip (PageSpeed score: 99)' },
       
       { step: 1, type: 'cmd', text: 'docker build -t pixeltocloud/app:v3.2.0 .' },
       { step: 1, type: 'info', text: '[+] Building 4.8s (12/12) FINISHED' },
       { step: 1, type: 'info', text: '=> [internal] load build definition from Dockerfile' },
       { step: 1, type: 'info', text: '=> exporting to image -- alpine-node-nginx runtime' },
-      { step: 1, type: 'success', text: '✔ Image pankaj-prod/app:v3.2.0 created & pushed to local registry' },
+      { step: 1, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Image pankaj-prod/app:v3.2.0 created & pushed to local registry' },
 
       { step: 2, type: 'cmd', text: 'docker-compose up -d --no-deps --build app' },
       { step: 2, type: 'info', text: 'Recreating container: app-blue ... done (0 downtime switch)' },
       { step: 2, type: 'cmd', text: 'nginx -t && nginx -s reload' },
-      { step: 2, type: 'success', text: '✔ Nginx configuration syntax test is successful' },
-      { step: 2, type: 'success', text: '✔ Nginx reverse proxy reloaded with HTTP/2 & Gzip compression' },
+      { step: 2, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Nginx configuration syntax test is successful' },
+      { step: 2, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Nginx reverse proxy reloaded with HTTP/2 & Gzip compression' },
 
       { step: 3, type: 'cmd', text: 'certbot --nginx -d clientdomain.com --non-interactive' },
       { step: 3, type: 'info', text: 'Verifying DNS challenge with Cloudflare API...' },
-      { step: 3, type: 'success', text: '✔ SSL Certificate generated & renewed automatically (A+ Rating)' },
+      { step: 3, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>SSL Certificate generated & renewed automatically (A+ Rating)' },
       { step: 3, type: 'cmd', text: 'curl -I https://clientdomain.com' },
-      { step: 3, type: 'success', text: '✔ HTTP/2 200 OK | TTFB: 42ms | Cloudflare Edge Cache: HIT' },
-      { step: 3, type: 'info', text: '🚀 SYSTEM LIVE: Deployment completed in 3.84s.' }
+      { step: 3, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>HTTP/2 200 OK | TTFB: 42ms | Cloudflare Edge Cache: HIT' },
+      { step: 3, type: 'info', text: '<i class="fa-solid fa-rocket" style="margin-right: 4px;"></i>SYSTEM LIVE: Deployment completed in 3.84s.' }
     ];
 
     this.currentIndex = 0;

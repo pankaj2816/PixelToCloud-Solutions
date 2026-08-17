@@ -42,7 +42,7 @@ class AppEngine {
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('pixelToCloud_theme', next);
       this.updateThemeIcons(next);
-      this.showToast(`Switched to ${next === 'light' ? '☀️ Studio Frost Light Mode' : '🌙 Cyber Dark Mode'}`);
+      this.showToast(`Switched to ${next === 'light' ? 'Studio Frost Light Mode' : 'Cyber Dark Mode'}`);
     };
 
     if (this.themeToggleBtn) this.themeToggleBtn.addEventListener('click', toggleHandler);
@@ -50,14 +50,14 @@ class AppEngine {
   }
 
   updateThemeIcons(theme) {
-    const icon = theme === 'light' ? '☀️' : '🌙';
+    const iconHtml = theme === 'light' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     const label = theme === 'light' ? 'Light' : 'Dark';
     if (this.themeToggleBtn) {
-      this.themeToggleBtn.innerHTML = `<span>${icon}</span>`;
+      this.themeToggleBtn.innerHTML = `<span>${iconHtml}</span>`;
       this.themeToggleBtn.setAttribute('aria-label', `Current theme is ${label}. Click to switch.`);
     }
     if (this.themeToggleMobile) {
-      this.themeToggleMobile.innerHTML = `<span>${icon}</span>`;
+      this.themeToggleMobile.innerHTML = `<span>${iconHtml}</span>`;
       this.themeToggleMobile.setAttribute('aria-label', `Current theme is ${label}. Click to switch.`);
     }
   }

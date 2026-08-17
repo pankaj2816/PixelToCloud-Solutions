@@ -59,13 +59,13 @@ class ApiLabManager {
         if (this.ipResultBox) {
           this.ipResultBox.innerHTML = `
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; font-size: 0.85rem; font-family: monospace;">
-              <div>🌐 <strong style="color: var(--text-primary);">Public IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">${data.ip || '103.212.14.82'}</span></div>
-              <div>📍 <strong style="color: var(--text-primary);">Location:</strong> <span style="color: var(--text-secondary);">${data.city || 'Delhi'}, ${data.country_name || 'India'}</span></div>
-              <div>🏢 <strong style="color: var(--text-primary);">ISP / Org:</strong> <span style="color: var(--text-secondary);">${data.org || 'Broadband ISP'}</span></div>
-              <div>⚡ <strong style="color: var(--text-primary);">Latency:</strong> <span style="color: #10b981; font-weight: 700;">${latency} ms</span></div>
+              <div><i class="fa-solid fa-globe" style="margin-right: 4px; color: var(--accent-cyan);"></i> <strong style="color: var(--text-primary);">Public IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">${data.ip || '103.212.14.82'}</span></div>
+              <div><i class="fa-solid fa-location-dot" style="margin-right: 4px; color: #ef4444;"></i> <strong style="color: var(--text-primary);">Location:</strong> <span style="color: var(--text-secondary);">${data.city || 'Delhi'}, ${data.country_name || 'India'}</span></div>
+              <div><i class="fa-solid fa-building" style="margin-right: 4px; color: #3b82f6;"></i> <strong style="color: var(--text-primary);">ISP / Org:</strong> <span style="color: var(--text-secondary);">${data.org || 'Broadband ISP'}</span></div>
+              <div><i class="fa-solid fa-bolt" style="margin-right: 4px; color: #10b981;"></i> <strong style="color: var(--text-primary);">Latency:</strong> <span style="color: #10b981; font-weight: 700;">${latency} ms</span></div>
             </div>
             <div style="margin-top: 8px; font-size: 0.75rem; color: #10b981; font-family: monospace; font-weight: 600;">
-              🟢 Live IP Geolocation Feed Connected (TLS 1.3)
+              <i class="fa-solid fa-circle" style="font-size: 0.6rem; color: #10b981; margin-right: 6px;"></i>Live IP Geolocation Feed Connected (TLS 1.3)
             </div>
           `;
         }
@@ -73,13 +73,13 @@ class ApiLabManager {
         if (this.ipResultBox) {
           this.ipResultBox.innerHTML = `
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; font-size: 0.85rem; font-family: monospace;">
-              <div>🌐 <strong style="color: var(--text-primary);">Client IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">Local Client</span></div>
-              <div>📍 <strong style="color: var(--text-primary);">Network:</strong> <span style="color: var(--text-secondary);">Direct Connection</span></div>
-              <div>🛡️ <strong style="color: var(--text-primary);">Protocol:</strong> <span style="color: var(--text-secondary);">HTTPS Secure</span></div>
-              <div>⚡ <strong style="color: var(--text-primary);">Status:</strong> <span style="color: #10b981; font-weight: 700;">Connected</span></div>
+              <div><i class="fa-solid fa-globe" style="margin-right: 4px; color: var(--accent-cyan);"></i> <strong style="color: var(--text-primary);">Client IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">Local Client</span></div>
+              <div><i class="fa-solid fa-network-wired" style="margin-right: 4px; color: #3b82f6;"></i> <strong style="color: var(--text-primary);">Network:</strong> <span style="color: var(--text-secondary);">Direct Connection</span></div>
+              <div><i class="fa-solid fa-shield-halved" style="margin-right: 4px; color: #10b981;"></i> <strong style="color: var(--text-primary);">Protocol:</strong> <span style="color: var(--text-secondary);">HTTPS Secure</span></div>
+              <div><i class="fa-solid fa-bolt" style="margin-right: 4px; color: #10b981;"></i> <strong style="color: var(--text-primary);">Status:</strong> <span style="color: #10b981; font-weight: 700;">Connected</span></div>
             </div>
             <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">
-              ℹ️ Simulated Benchmark Preview (Public Geolocation API Unreachable)
+              <i class="fa-solid fa-circle-info" style="margin-right: 4px;"></i>Simulated Benchmark Preview (Public Geolocation API Unreachable)
             </div>
           `;
         }
@@ -208,7 +208,7 @@ class ApiLabManager {
             ${rawAmount.toLocaleString()} ${from} = ${formatted} ${to}
           </div>
           <div style="font-size: 0.76rem; color: #10b981; font-family: monospace; margin-top: 4px;">
-            ✔ 1 ${from} = ${unitRate} ${to} (${isLiveFeed ? 'Live Bank Feed' : 'Synced Exchange Rate'})
+            <i class="fa-solid fa-check" style="margin-right: 4px;"></i> 1 ${from} = ${unitRate} ${to} (${isLiveFeed ? 'Live Bank Feed' : 'Synced Exchange Rate'})
           </div>
         `;
       }
@@ -295,7 +295,7 @@ class ApiLabManager {
         if (this.speedResultBox) {
           this.speedResultBox.innerHTML = `
             <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: var(--radius-md); padding: 22px; text-align: center;">
-              <div style="font-size: 1.8rem; margin-bottom: 6px;">⚠️</div>
+              <div style="font-size: 1.8rem; margin-bottom: 6px; color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i></div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #ef4444; margin-bottom: 4px;">Invalid URL Format</h4>
               <p style="font-size: 0.84rem; color: #cbd5e1;">Please enter a valid website address with a domain extension (e.g., <code>drneerajrathee.com</code>, <code>google.com</code>).</p>
             </div>
@@ -306,7 +306,7 @@ class ApiLabManager {
 
       this.isAuditing = true;
       this.speedBtn.disabled = true;
-      this.speedBtn.innerHTML = '<span>⚡ Verifying Live DNS & Auditing Speed...</span>';
+      this.speedBtn.innerHTML = '<span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Verifying Live DNS & Auditing Speed...</span>';
 
       if (this.speedResultBox) {
         this.speedResultBox.innerHTML = `
@@ -331,7 +331,7 @@ class ApiLabManager {
         if (this.speedResultBox) {
           this.speedResultBox.innerHTML = `
             <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: var(--radius-md); padding: 24px; text-align: center;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">🌐❌</div>
+              <div style="font-size: 2rem; margin-bottom: 8px; color: #ef4444;"><i class="fa-solid fa-globe"></i> <i class="fa-solid fa-circle-xmark"></i></div>
               <h4 style="font-size: 1.15rem; font-weight: 700; color: #ef4444; margin-bottom: 6px;">Domain Does Not Exist (NXDOMAIN)</h4>
               <p style="font-size: 0.86rem; color: #cbd5e1; max-width: 520px; margin: 0 auto 16px auto; line-height: 1.5;">
                 The domain <strong>"${domain}"</strong> is not registered or has no active DNS servers configured on the global internet.
@@ -391,19 +391,19 @@ class ApiLabManager {
         const scoreBg = isLight
           ? (metrics.score >= 90 ? '#dcfce7' : (metrics.score >= 60 ? '#fef3c7' : '#fee2e2'))
           : (metrics.score >= 90 ? 'rgba(16, 185, 129, 0.2)' : (metrics.score >= 60 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)'));
-        const scoreIcon = metrics.score >= 90 ? '✔' : (metrics.score >= 60 ? '⚠️' : '❌');
+        const scoreIconHtml = metrics.score >= 90 ? '<i class="fa-solid fa-check"></i>' : (metrics.score >= 60 ? '<i class="fa-solid fa-triangle-exclamation"></i>' : '<i class="fa-solid fa-xmark"></i>');
         
         const cardBgLeft = isLight ? '#ffffff' : 'rgba(255, 255, 255, 0.02)';
         const cardBgRight = isLight ? '#f0fdf4' : 'rgba(16, 185, 129, 0.06)';
         const cardBorderRight = isLight ? '#86efac' : 'rgba(16, 185, 129, 0.4)';
 
         const dataSourceBadge = isLiveGoogle 
-          ? `<span style="color: ${isLight ? '#059669' : '#10b981'}; font-size: 0.76rem; background: ${isLight ? '#dcfce7' : 'rgba(16,185,129,0.15)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#86efac' : 'rgba(16,185,129,0.3)'}; font-weight: 700;">🟢 Live Google PageSpeed API</span>`
-          : `<span style="color: ${isLight ? '#475569' : '#94a3b8'}; font-size: 0.76rem; background: ${isLight ? '#f1f5f9' : 'rgba(148,163,184,0.12)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#cbd5e1' : 'rgba(148,163,184,0.25)'}; font-weight: 700;">📊 Estimated Benchmark Simulation</span>`;
+          ? `<span style="color: ${isLight ? '#059669' : '#10b981'}; font-size: 0.76rem; background: ${isLight ? '#dcfce7' : 'rgba(16,185,129,0.15)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#86efac' : 'rgba(16,185,129,0.3)'}; font-weight: 700;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle; margin-right: 4px;"></i>Live Google PageSpeed API</span>`
+          : `<span style="color: ${isLight ? '#475569' : '#94a3b8'}; font-size: 0.76rem; background: ${isLight ? '#f1f5f9' : 'rgba(148,163,184,0.12)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#cbd5e1' : 'rgba(148,163,184,0.25)'}; font-weight: 700;"><i class="fa-solid fa-chart-simple" style="margin-right: 4px;"></i>Estimated Benchmark Simulation</span>`;
 
         this.speedResultBox.innerHTML = `
           <div style="margin-bottom: 12px; font-family: monospace; font-size: 0.84rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-            <span>🌐 <strong style="color: var(--text-primary);">ACTIVE DOMAIN:</strong> <span style="color: var(--text-primary); font-weight: 800;">${domain}</span></span>
+            <span><i class="fa-solid fa-globe" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">ACTIVE DOMAIN:</strong> <span style="color: var(--text-primary); font-weight: 800;">${domain}</span></span>
             <div>${dataSourceBadge}</div>
           </div>
 
@@ -412,13 +412,13 @@ class ApiLabManager {
             <div style="background: ${cardBgLeft}; border: 1px solid ${scoreColor}; border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <span style="font-size: 0.8rem; font-family: monospace; color: ${scoreColor}; font-weight: 800;">CURRENT (${domain.toUpperCase()})</span>
-                <span style="padding: 4px 10px; border-radius: 20px; background: ${scoreBg}; color: ${scoreColor}; font-weight: 800; font-size: 0.88rem;">${metrics.score} / 100 ${scoreIcon}</span>
+                <span style="padding: 4px 10px; border-radius: 20px; background: ${scoreBg}; color: ${scoreColor}; font-weight: 800; font-size: 0.88rem;">${metrics.score} / 100 ${scoreIconHtml}</span>
               </div>
               <div style="font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-                <div>⏱️ <strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.loadTime}</span></div>
-                <div>📦 <strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.weight}</span></div>
-                <div>⚡ <strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.ttfb}</span></div>
-                <div>🔍 <strong style="color: var(--text-primary);">Detected Bottleneck:</strong> <span style="color: var(--text-secondary); font-size: 0.82rem; font-weight: 500;">${metrics.bottleneck}</span></div>
+                <div><i class="fa-solid fa-stopwatch" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.loadTime}</span></div>
+                <div><i class="fa-solid fa-box" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.weight}</span></div>
+                <div><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.ttfb}</span></div>
+                <div><i class="fa-solid fa-magnifying-glass" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Detected Bottleneck:</strong> <span style="color: var(--text-secondary); font-size: 0.82rem; font-weight: 500;">${metrics.bottleneck}</span></div>
               </div>
             </div>
 
@@ -426,13 +426,13 @@ class ApiLabManager {
             <div style="background: ${cardBgRight}; border: 1px solid ${cardBorderRight}; border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <span style="font-size: 0.8rem; font-family: monospace; color: ${isLight ? '#059669' : '#10b981'}; font-weight: 800;">WITH PIXELTOCLOUD OPTIMIZATION</span>
-                <span style="padding: 4px 10px; border-radius: 20px; background: ${isLight ? '#dcfce7' : 'rgba(16, 185, 129, 0.2)'}; color: ${isLight ? '#059669' : '#10b981'}; font-weight: 800; font-size: 0.88rem;">99 / 100 ⚡</span>
+                <span style="padding: 4px 10px; border-radius: 20px; background: ${isLight ? '#dcfce7' : 'rgba(16, 185, 129, 0.2)'}; color: ${isLight ? '#059669' : '#10b981'}; font-weight: 800; font-size: 0.88rem;">99 / 100 <i class="fa-solid fa-bolt" style="margin-left: 4px;"></i></span>
               </div>
               <div style="font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-                <div>⏱️ <strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">0.3s - 0.4s (Instant)</span></div>
-                <div>📦 <strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">84 kB (Gzip Minified)</span></div>
-                <div>⚡ <strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">32ms (Cloudflare Edge)</span></div>
-                <div>🚀 <strong style="color: var(--text-primary);">Core Web Vitals:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">100% Perfect Green SEO</span></div>
+                <div><i class="fa-solid fa-stopwatch" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">0.3s - 0.4s (Instant)</span></div>
+                <div><i class="fa-solid fa-box" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">84 kB (Gzip Minified)</span></div>
+                <div><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">32ms (Cloudflare Edge)</span></div>
+                <div><i class="fa-solid fa-rocket" style="margin-right: 6px;"></i><strong style="color: var(--text-primary);">Core Web Vitals:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">100% Perfect Green SEO</span></div>
               </div>
             </div>
           </div>
