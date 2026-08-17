@@ -1,0 +1,217 @@
+/* ===================================================================
+   PANKAJ TECH STUDIO - LIVE DEVOPS & TERMINAL DEPLOYMENT PIPELINE
+   Real-time DevOps visualization, Bash simulation, interactive CLI
+   =================================================================== */
+
+class LiveDeploymentTerminal {
+  constructor() {
+    this.body = document.getElementById('terminal-log-body');
+    this.pipelineCards = document.querySelectorAll('.pipeline-step-card');
+    this.cliInput = document.getElementById('terminal-cli-input');
+    this.playPauseBtn = document.getElementById('terminal-toggle-btn');
+    this.restartBtn = document.getElementById('terminal-restart-btn');
+
+    this.logs = [
+      { step: 0, type: 'cmd', text: 'git checkout main && git pull origin main' },
+      { step: 0, type: 'info', text: '-> Remote branch up-to-date. Commit hash: #7f3a9e2' },
+      { step: 0, type: 'cmd', text: 'npm run test && npm run build --prod' },
+      { step: 0, type: 'success', text: '✔ Automated Unit & E2E tests: 142/142 passed (0 warnings)' },
+      { step: 0, type: 'info', text: '✔ Production bundles minified: 84.2 kB gzip (PageSpeed score: 99)' },
+      
+      { step: 1, type: 'cmd', text: 'docker build -t pixeltocloud/app:v3.2.0 .' },
+      { step: 1, type: 'info', text: '[+] Building 4.8s (12/12) FINISHED' },
+      { step: 1, type: 'info', text: '=> [internal] load build definition from Dockerfile' },
+      { step: 1, type: 'info', text: '=> exporting to image -- alpine-node-nginx runtime' },
+      { step: 1, type: 'success', text: '✔ Image pankaj-prod/app:v3.2.0 created & pushed to local registry' },
+
+      { step: 2, type: 'cmd', text: 'docker-compose up -d --no-deps --build app' },
+      { step: 2, type: 'info', text: 'Recreating container: app-blue ... done (0 downtime switch)' },
+      { step: 2, type: 'cmd', text: 'nginx -t && nginx -s reload' },
+      { step: 2, type: 'success', text: '✔ Nginx configuration syntax test is successful' },
+      { step: 2, type: 'success', text: '✔ Nginx reverse proxy reloaded with HTTP/2 & Gzip compression' },
+
+      { step: 3, type: 'cmd', text: 'certbot --nginx -d clientdomain.com --non-interactive' },
+      { step: 3, type: 'info', text: 'Verifying DNS challenge with Cloudflare API...' },
+      { step: 3, type: 'success', text: '✔ SSL Certificate generated & renewed automatically (A+ Rating)' },
+      { step: 3, type: 'cmd', text: 'curl -I https://clientdomain.com' },
+      { step: 3, type: 'success', text: '✔ HTTP/2 200 OK | TTFB: 42ms | Cloudflare Edge Cache: HIT' },
+      { step: 3, type: 'info', text: '🚀 SYSTEM LIVE: Deployment completed in 3.84s.' }
+    ];
+
+    this.currentIndex = 0;
+    this.isRunning = true;
+    this.intervalId = null;
+
+    this.init();
+  }
+
+  init() {
+    if (!this.body) return;
+    this.startSimulation();
+    this.bindControls();
+    this.bindInteractiveCLI();
+  }
+
+  startSimulation() {
+    this.isRunning = true;
+    if (this.playPauseBtn) this.playPauseBtn.innerHTML = '⏸ Pause Logs';
+
+    this.intervalId = setInterval(() => {
+      if (this.currentIndex < this.logs.length) {
+        this.appendLog(this.logs[this.currentIndex]);
+        this.updatePipelineStep(this.logs[this.currentIndex].step);
+        this.currentIndex++;
+      } else {
+        clearInterval(this.intervalId);
+        // Add waiting interactive prompt line
+        this.appendLine('info', 'Type "help" in the terminal input below for interactive CLI commands.');
+      }
+    }, 900);
+  }
+
+  pauseSimulation() {
+    this.isRunning = false;
+    clearInterval(this.intervalId);
+    if (this.playPauseBtn) this.playPauseBtn.innerHTML = '▶ Resume Logs';
+  }
+
+  restartSimulation() {
+    clearInterval(this.intervalId);
+    this.currentIndex = 0;
+    if (this.body) this.body.innerHTML = '';
+    this.startSimulation();
+  }
+
+  appendLog(log) {
+    let lineHTML = '';
+    if (log.type === 'cmd') {
+      lineHTML = `
+        <div class="terminal-line">
+          <span class="terminal-prompt">deployer@pixeltocloud-engine:~$</span>
+          <span style="color: #f8fafc; font-weight: 500;">${log.text}</span>
+        </div>
+      `;
+    } else if (log.type === 'success') {
+      lineHTML = `
+        <div class="terminal-line">
+          <span class="terminal-success">${log.text}</span>
+        </div>
+      `;
+    } else {
+      lineHTML = `
+        <div class="terminal-line">
+          <span class="terminal-info">${log.text}</span>
+        </div>
+      `;
+    }
+
+    this.body.insertAdjacentHTML('beforeend', lineHTML);
+    this.body.scrollTop = this.body.scrollHeight;
+  }
+
+  appendLine(type, text) {
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    if (type === 'cmd') {
+      line.innerHTML = `<span class="terminal-prompt">user@guest:~$</span> <span>${text}</span>`;
+    } else if (type === 'success') {
+      line.innerHTML = `<span class="terminal-success">${text}</span>`;
+    } else if (type === 'error') {
+      line.innerHTML = `<span style="color: #ef4444;">${text}</span>`;
+    } else {
+      line.innerHTML = `<span class="terminal-info">${text}</span>`;
+    }
+    this.body.appendChild(line);
+    this.body.scrollTop = this.body.scrollHeight;
+  }
+
+  updatePipelineStep(stepIndex) {
+    if (!this.pipelineCards || this.pipelineCards.length === 0) return;
+
+    this.pipelineCards.forEach((card, idx) => {
+      if (idx <= stepIndex) {
+        card.classList.add('active');
+        const status = card.querySelector('.pipeline-step-status');
+        if (status) status.textContent = '✔ Complete';
+      } else {
+        card.classList.remove('active');
+        const status = card.querySelector('.pipeline-step-status');
+        if (status) status.textContent = 'Pending';
+      }
+    });
+  }
+
+  bindControls() {
+    if (this.playPauseBtn) {
+      this.playPauseBtn.addEventListener('click', () => {
+        if (this.isRunning) {
+          this.pauseSimulation();
+        } else {
+          this.startSimulation();
+        }
+      });
+    }
+
+    if (this.restartBtn) {
+      this.restartBtn.addEventListener('click', () => {
+        this.restartSimulation();
+      });
+    }
+  }
+
+  bindInteractiveCLI() {
+    if (!this.cliInput) return;
+
+    this.cliInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const cmd = this.cliInput.value.trim().toLowerCase();
+        this.cliInput.value = '';
+        if (!cmd) return;
+
+        this.appendLine('cmd', cmd);
+        this.handleCLICommand(cmd);
+      }
+    });
+  }
+
+  handleCLICommand(cmd) {
+    switch (cmd) {
+      case 'help':
+        this.appendLine('info', 'Available commands: [status, services, deploy, clear, contact, uptime, quote, whoami]');
+        break;
+      case 'status':
+        this.appendLine('success', '✔ All Systems Operational: Docker Cluster (Healthy), Nginx (Active), DNS (Propagated), Latency (24ms).');
+        break;
+      case 'services':
+        this.appendLine('info', 'Services: Website Dev, 2D/3D WebGL Software, CA Tax Hubs, Doctor Portals, Art Ecommerce, VPS/Cloud DevOps, Domain/Mail.');
+        break;
+      case 'deploy':
+        this.appendLine('info', 'Triggering live re-deploy simulation...');
+        this.restartSimulation();
+        break;
+      case 'clear':
+        if (this.body) this.body.innerHTML = '';
+        break;
+      case 'contact':
+        this.appendLine('success', 'Direct Phone/WhatsApp: +91 99999 99999 | Email: pankaj.innovations@gmail.com');
+        break;
+      case 'uptime':
+        this.appendLine('success', 'Server Uptime: 99.998% | Total requests served: 1,420,890');
+        break;
+      case 'quote':
+        this.appendLine('info', 'Opening Project Cost & Timeline Estimator section...');
+        document.getElementById('estimator')?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'whoami':
+        this.appendLine('info', 'You are browsing PixelToCloud Solutions - Founded & Engineered by Pankaj.');
+        break;
+      default:
+        this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of available commands.`);
+    }
+  }
+}
+
+// Global initialization
+document.addEventListener('DOMContentLoaded', () => {
+  window.terminalInstance = new LiveDeploymentTerminal();
+});
