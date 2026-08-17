@@ -801,7 +801,7 @@ class PortfolioManager {
 
     render();
 
-    // Mouse drag rotation
+    // Mouse & Touch drag rotation
     canvas.addEventListener('mousedown', (e) => {
       isDragging = true;
       lastMouseX = e.clientX;
@@ -809,6 +809,10 @@ class PortfolioManager {
     });
 
     window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    window.addEventListener('blur', () => {
       isDragging = false;
     });
 
@@ -821,6 +825,29 @@ class PortfolioManager {
       lastMouseX = e.clientX;
       lastMouseY = e.clientY;
     });
+
+    // Touch support for mobile 3D interaction
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        isDragging = true;
+        lastMouseX = e.touches[0].clientX;
+        lastMouseY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging || e.touches.length === 0) return;
+      const dx = e.touches[0].clientX - lastMouseX;
+      const dy = e.touches[0].clientY - lastMouseY;
+      rotY += dx * 0.015;
+      rotX += dy * 0.015;
+      lastMouseX = e.touches[0].clientX;
+      lastMouseY = e.touches[0].clientY;
+    }, { passive: true });
 
     // Material Switcher Buttons
     document.querySelectorAll('.sim-3d-mat-btn').forEach(btn => {

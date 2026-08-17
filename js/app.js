@@ -241,6 +241,12 @@ class AppController {
         return;
       }
 
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        this.showToast('⚠️ Please enter a valid email address (e.g. name@company.com).');
+        return;
+      }
+
       // Prepare WhatsApp message payload for direct instant conversion
       const whatsappText = `🚀 *NEW CLIENT INQUIRY - PIXELTOCLOUD SOLUTIONS*\n\n` +
         `👤 *Name:* ${name}\n` +
@@ -264,27 +270,56 @@ class AppController {
     });
   }
 
-  // ================= QUICK CONNECT & COPY =================
+  // ================= QUICK CONNECT & COPY (WITH FALLBACK) =================
   bindQuickConnect() {
     const copyEmailBtns = document.querySelectorAll('.copy-email-trigger');
     copyEmailBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const email = 'pppankaj2816@gmail.com';
-        navigator.clipboard.writeText(email).then(() => {
-          this.showToast(`📋 Copied "${email}" to clipboard!`);
-        });
+        this.copyToClipboard(email, `📋 Copied "${email}" to clipboard!`);
       });
     });
 
     const copyPhoneBtns = document.querySelectorAll('.copy-phone-trigger');
     copyPhoneBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const phone = '+91 82193 52124';
-        navigator.clipboard.writeText(phone).then(() => {
-          this.showToast(`📋 Copied "${phone}" to clipboard!`);
-        });
+        this.copyToClipboard(phone, `📋 Copied "${phone}" to clipboard!`);
       });
     });
+  }
+
+  copyToClipboard(text, successMsg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        this.showToast(successMsg);
+      }).catch(() => {
+        this.fallbackCopyText(text, successMsg);
+      });
+    } else {
+      this.fallbackCopyText(text, successMsg);
+    }
+  }
+
+  fallbackCopyText(text, successMsg) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      this.showToast(successMsg);
+    } catch (err) {
+      this.showToast('📋 ' + text);
+    }
+    document.body.removeChild(textArea);
   }
 
   // ================= SCROLL REVEAL (INTERSECTION OBSERVER) =================

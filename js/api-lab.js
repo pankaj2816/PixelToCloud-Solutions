@@ -22,6 +22,8 @@ class ApiLabManager {
     this.speedBtn = document.getElementById('speed-audit-btn');
     this.speedResultBox = document.getElementById('speed-audit-result');
 
+    this.isAuditing = false;
+
     this.init();
   }
 
@@ -37,6 +39,11 @@ class ApiLabManager {
     if (!this.ipLookupBtn) return;
 
     this.ipLookupBtn.addEventListener('click', async () => {
+      if (!navigator.onLine) {
+        if (window.App) window.App.showToast('⚠️ Network appears offline. Please check your internet connection.');
+        return;
+      }
+
       this.ipLookupBtn.disabled = true;
       this.ipLookupBtn.innerHTML = '<span>⚡ Probing Network...</span>';
       if (this.ipResultBox) {
@@ -88,8 +95,15 @@ class ApiLabManager {
     if (!this.dnsLookupBtn) return;
 
     this.dnsLookupBtn.addEventListener('click', async () => {
-      const domain = (this.dnsInput?.value || 'google.com').trim().replace(/https?:\/\//, '').replace(/^www\./, '').split('/')[0];
-      if (!domain) return;
+      const rawDomain = (this.dnsInput?.value || 'google.com').trim();
+      const domain = this.sanitizeDomainInput(rawDomain);
+
+      if (!domain) {
+        if (this.dnsResultBox) {
+          this.dnsResultBox.innerHTML = `<div style="color: #ef4444; font-family: monospace; font-size: 0.82rem;">⚠️ Please enter a valid domain name (e.g. google.com).</div>`;
+        }
+        return;
+      }
 
       this.dnsLookupBtn.disabled = true;
       this.dnsLookupBtn.innerHTML = '<span>Scanning DNS...</span>';
@@ -130,7 +144,7 @@ class ApiLabManager {
     });
   }
 
-  // 3. Live Forex & Multi-Currency Converter
+  // 3. Live Forex & Multi-Currency Converter (With Edge-Case Clamping)
   bindCurrencyConverter() {
     if (!this.fxConvertBtn) return;
 
@@ -143,17 +157,26 @@ class ApiLabManager {
     };
 
     const convert = () => {
-      const amount = parseFloat(this.fxAmount?.value) || 1000;
+      let rawAmount = parseFloat(this.fxAmount?.value);
+      
+      // Corner case hardening: Clamping negative numbers, NaN, or extreme values
+      if (isNaN(rawAmount) || rawAmount < 0) {
+        rawAmount = 0;
+      }
+      if (rawAmount > 1000000000000) {
+        rawAmount = 1000000000000; // Cap at 1 Trillion
+      }
+
       const from = this.fxFrom?.value || 'USD';
       const to = this.fxTo?.value || 'INR';
 
       const rate = rates[from]?.[to] || 1;
-      const converted = (amount * rate).toLocaleString('en-US', { maximumFractionDigits: 2 });
+      const converted = (rawAmount * rate).toLocaleString('en-US', { maximumFractionDigits: 2 });
 
       if (this.fxResult) {
         this.fxResult.innerHTML = `
           <div style="font-size: 1.25rem; font-weight: 800; color: var(--accent-cyan);">
-            ${amount.toLocaleString()} ${from} = ${converted} ${to}
+            ${rawAmount.toLocaleString()} ${from} = ${converted} ${to}
           </div>
           <div style="font-size: 0.76rem; color: var(--text-muted); font-family: monospace; margin-top: 4px;">
             * Live Exchange Rates synced with Global Banking REST APIs
@@ -170,7 +193,38 @@ class ApiLabManager {
     convert();
   }
 
-  // Helper: Real-time DNS Domain Verification via Cloudflare / Google DoH
+  // Sanitizes and cleans domain input
+  sanitizeDomainInput(raw) {
+    if (!raw) return null;
+    let domain = raw.trim().toLowerCase();
+    
+    // Strip protocol (http://, https://)
+    domain = domain.replace(/^https?:\/\//i, '');
+    
+    // Strip leading www.
+    domain = domain.replace(/^www\./i, '');
+    
+    // Strip path, query params, hashes
+    domain = domain.split('/')[0].split('?')[0].split('#')[0];
+    
+    // Strip port numbers
+    domain = domain.split(':')[0];
+
+    // Reject localhost, 127.0.0.1, or empty
+    if (domain === 'localhost' || domain === '127.0.0.1' || domain.length < 3) {
+      return null;
+    }
+
+    // Must contain a dot with valid TLD structure
+    const domainRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i;
+    if (!domainRegex.test(domain)) {
+      return null;
+    }
+
+    return domain;
+  }
+
+  // Real-time DNS Domain Verification via Cloudflare DoH
   async verifyDomainDns(domain) {
     try {
       const url = `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`;
@@ -178,11 +232,10 @@ class ApiLabManager {
         headers: { 'Accept': 'application/dns-json' },
         cache: 'no-cache'
       });
-      if (!res.ok) return { exists: true }; // Fallback
+      if (!res.ok) return { exists: true };
       const json = await res.json();
       
-      // Status 3 = NXDOMAIN (Does not exist)
-      // Status 0 = NOERROR (Exists)
+      // Status 3 = NXDOMAIN
       if (json.Status === 3 || (!json.Answer && !json.Authority)) {
         return { exists: false };
       }
@@ -190,11 +243,10 @@ class ApiLabManager {
       const aRecord = json.Answer?.find(r => r.type === 1);
       return {
         exists: true,
-        ip: aRecord ? aRecord.data : 'Configured',
+        ip: aRecord ? aRecord.data : 'Routed',
         ttl: aRecord ? aRecord.TTL : 300
       };
     } catch (e) {
-      // If DNS lookup fails due to network, allow audit to proceed
       return { exists: true };
     }
   }
@@ -204,12 +256,12 @@ class ApiLabManager {
     if (!this.speedBtn) return;
 
     const runAudit = async () => {
+      if (this.isAuditing) return; // Prevent spam clicks
+      
       const rawInput = (this.speedInput?.value || 'mycompanywebsite.com').trim();
-      const domain = rawInput.replace(/https?:\/\//, '').replace(/^www\./, '').split('/')[0].toLowerCase();
-      if (!domain) return;
+      const domain = this.sanitizeDomainInput(rawInput);
 
-      // Basic TLD check (must contain a dot and at least 2 char extension)
-      if (!domain.includes('.') || domain.endsWith('.')) {
+      if (!domain) {
         if (this.speedResultBox) {
           this.speedResultBox.innerHTML = `
             <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: var(--radius-md); padding: 22px; text-align: center;">
@@ -222,6 +274,7 @@ class ApiLabManager {
         return;
       }
 
+      this.isAuditing = true;
       this.speedBtn.disabled = true;
       this.speedBtn.innerHTML = '<span>⚡ Verifying Live DNS & Auditing Speed...</span>';
 
@@ -241,6 +294,7 @@ class ApiLabManager {
       const dnsStatus = await this.verifyDomainDns(domain);
 
       if (!dnsStatus.exists) {
+        this.isAuditing = false;
         this.speedBtn.disabled = false;
         this.speedBtn.innerHTML = '<span>Run Instant Speed Audit</span>';
 
@@ -355,6 +409,7 @@ class ApiLabManager {
         `;
       }
 
+      this.isAuditing = false;
       this.speedBtn.disabled = false;
       this.speedBtn.innerHTML = '<span>Run Instant Speed Audit</span>';
     };

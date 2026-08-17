@@ -108,6 +108,20 @@ class HeroCanvas {
       this.mouse.targetX = null;
       this.mouse.targetY = null;
     });
+
+    // Pause animation when tab is inactive to conserve battery & GPU
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (this.animationFrameId) {
+          cancelAnimationFrame(this.animationFrameId);
+          this.animationFrameId = null;
+        }
+      } else {
+        if (!this.animationFrameId) {
+          this.animate();
+        }
+      }
+    });
   }
 
   updateMousePhysics() {

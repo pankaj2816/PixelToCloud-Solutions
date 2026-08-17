@@ -15,9 +15,11 @@ class PixelToCloudAIAdvisor {
     this.sendBtn = document.getElementById('ai-advisor-send');
     this.chipsContainer = document.getElementById('ai-advisor-chips');
 
+    this.isProcessing = false;
+
     this.knowledgeBase = [
       {
-        keywords: ['doctor', 'clinic', 'hospital', 'medical', 'appointment', 'telehealth', 'patient'],
+        keywords: ['doctor', 'clinic', 'hospital', 'medical', 'appointment', 'telehealth', 'patient', 'health', 'cancer', 'oncology'],
         response: "🩺 **Doctor & Clinic Telehealth Portals:**\nWe build full medical suites featuring real-time appointment booking with calendar sync, encrypted patient EHR records, digital PDF prescription generators, video consultation rooms (WebRTC), and instant WhatsApp/SMS booking notifications. Typical turnaround: 10–14 days."
       },
       {
@@ -120,13 +122,17 @@ class PixelToCloudAIAdvisor {
     if (this.sendBtn && this.input) {
       this.sendBtn.addEventListener('click', () => this.handleSendMessage());
       this.input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') this.handleSendMessage();
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          this.handleSendMessage();
+        }
       });
     }
 
     // Quick prompt chips
     if (this.chipsContainer) {
       this.chipsContainer.addEventListener('click', (e) => {
+        if (this.isProcessing) return;
         const chip = e.target.closest('.ai-chip');
         if (chip) {
           const query = chip.getAttribute('data-query');
@@ -142,17 +148,25 @@ class PixelToCloudAIAdvisor {
   toggleModal(show) {
     if (!this.chatModal) return;
     if (show) {
+      // Close other modals if active to prevent overlapping z-indexes
+      const schedModal = document.getElementById('scheduler-modal');
+      const portModal = document.getElementById('portfolio-modal-overlay');
+      if (schedModal) schedModal.classList.remove('active');
+      if (portModal) portModal.classList.remove('active');
+
       this.chatModal.classList.add('active');
-      if (this.input) this.input.focus();
+      if (this.input) {
+        setTimeout(() => this.input.focus(), 150);
+      }
     } else {
       this.chatModal.classList.remove('active');
     }
   }
 
   handleSendMessage() {
-    if (!this.input) return;
+    if (this.isProcessing || !this.input) return;
     const text = this.input.value.trim();
-    if (!text) return;
+    if (!text || text.length === 0) return;
 
     this.input.value = '';
     this.sendUserMessage(text);
@@ -170,6 +184,7 @@ class PixelToCloudAIAdvisor {
 
   processBotResponse(userText) {
     if (!this.messagesContainer) return;
+    this.isProcessing = true;
 
     // Show typing indicator
     const typingEl = document.createElement('div');
@@ -180,6 +195,7 @@ class PixelToCloudAIAdvisor {
 
     setTimeout(() => {
       typingEl.remove();
+      this.isProcessing = false;
 
       const matched = this.findAnswer(userText);
       const botMsg = document.createElement('div');
@@ -188,11 +204,13 @@ class PixelToCloudAIAdvisor {
       let formattedText = matched.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       formattedText = formattedText.replace(/\n/g, '<br>');
 
+      const encodedUserQuery = encodeURIComponent(userText.substring(0, 100));
+
       botMsg.innerHTML = `
         <div class="ai-bubble">
           ${formattedText}
           <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/918219352124?text=${encodeURIComponent('Hi Pankaj, I was chatting with PixelToCloud AI about: ' + userText)}" target="_blank" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px; background: rgba(37,211,102,0.15); border-color: #25d366; color: #25d366;">
+            <a href="https://wa.me/918219352124?text=${encodeURIComponent('Hi Pankaj, I was chatting with PixelToCloud AI about: ') + encodedUserQuery}" target="_blank" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px; background: rgba(37,211,102,0.15); border-color: #25d366; color: #25d366;">
               📲 Chat on WhatsApp
             </a>
             <button onclick="document.getElementById('estimator')?.scrollIntoView({behavior:'smooth'}); window.aiAdvisorInstance?.toggleModal(false);" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px;">

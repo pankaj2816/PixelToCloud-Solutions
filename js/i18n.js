@@ -514,10 +514,16 @@ class I18nManager {
     this.currentLang = lang;
     localStorage.setItem('p2c_lang', lang);
 
+    // Synchronize both desktop and mobile dropdown selectors
+    if (this.selector) this.selector.value = lang;
+    const mobileSelector = document.getElementById('mobile-language-selector');
+    if (mobileSelector) mobileSelector.value = lang;
+
     document.querySelectorAll('[data-i18n]').forEach(elem => {
       const key = elem.getAttribute('data-i18n');
-      if (I18N_DICTIONARY[lang] && I18N_DICTIONARY[lang][key]) {
-        elem.textContent = I18N_DICTIONARY[lang][key];
+      const translation = I18N_DICTIONARY[lang]?.[key] || I18N_DICTIONARY['en']?.[key];
+      if (translation) {
+        elem.textContent = translation;
       }
     });
 

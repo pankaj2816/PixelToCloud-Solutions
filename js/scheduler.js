@@ -111,6 +111,12 @@ class MeetingScheduler {
           return;
         }
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          if (window.App) window.App.showToast('⚠️ Please enter a valid email address (e.g. name@company.com).');
+          return;
+        }
+
         const text = `📅 *NEW 1-ON-1 DISCOVERY CALL SCHEDULED*\n\n` +
           `👤 *Name:* ${name}\n` +
           `📧 *Email:* ${email}\n` +
@@ -136,6 +142,10 @@ class MeetingScheduler {
 
   openModal() {
     if (this.modal) {
+      // Close AI advisor modal if active to prevent overlapping z-indexes
+      const aiModal = document.getElementById('ai-advisor-modal');
+      if (aiModal) aiModal.classList.remove('active');
+
       this.modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
