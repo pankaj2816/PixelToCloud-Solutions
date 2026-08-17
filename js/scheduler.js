@@ -67,6 +67,13 @@ class MeetingScheduler {
       });
     }
 
+    // Escape key listener
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.modal && this.modal.classList.contains('active')) {
+        this.closeModal();
+      }
+    });
+
     // Date selection
     if (this.datesContainer) {
       this.datesContainer.addEventListener('click', (e) => {

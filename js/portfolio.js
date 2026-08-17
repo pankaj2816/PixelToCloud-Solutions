@@ -885,6 +885,16 @@ class PortfolioManager {
     if (!this.modalOverlay) return;
     this.modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
+
+    // Clean up active 3D animation loop and intervals to conserve memory
+    if (this.active3DAnimId) {
+      cancelAnimationFrame(this.active3DAnimId);
+      this.active3DAnimId = null;
+    }
+    if (this.activeSimInterval) {
+      clearInterval(this.activeSimInterval);
+      this.activeSimInterval = null;
+    }
   }
 
   static requestQuoteFor(projectName) {
