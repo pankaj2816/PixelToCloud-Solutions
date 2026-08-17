@@ -218,6 +218,8 @@ class HeroCanvas {
 
     // Connect mouse to nearby particles with electric ray
     if (this.mouse.x !== null && this.mouse.y !== null) {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const rayColor = isLight ? '#0284c7' : '#00f0ff';
       for (let i = 0; i < this.particles.length; i++) {
         const p = this.particles[i];
         const dx = this.mouse.x - p.x;
@@ -229,10 +231,10 @@ class HeroCanvas {
           this.ctx.beginPath();
           this.ctx.moveTo(this.mouse.x, this.mouse.y);
           this.ctx.lineTo(p.x, p.y);
-          this.ctx.strokeStyle = '#00f0ff';
+          this.ctx.strokeStyle = rayColor;
           this.ctx.globalAlpha = (1 - dist / 130) * 0.4;
           this.ctx.lineWidth = 1.2;
-          this.ctx.shadowColor = '#00f0ff';
+          this.ctx.shadowColor = rayColor;
           this.ctx.shadowBlur = 8;
           this.ctx.stroke();
           this.ctx.restore();
