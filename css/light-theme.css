@@ -54,7 +54,7 @@
     color: #0284c7 !important;
   }
 
-  .mobile-drawer {
+  .mobile-nav-drawer, .mobile-drawer {
     background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
     border-left: 1px solid rgba(148, 163, 184, 0.3) !important;
     box-shadow: -15px 0 40px rgba(15, 23, 42, 0.08) !important;
@@ -356,6 +356,50 @@
   .process-step p {
     color: #334155 !important;
     font-weight: 500 !important;
+  }
+
+  /* 10. DevOps Interactive Terminal */
+  .terminal-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(148, 163, 184, 0.4) !important;
+    box-shadow: 0 16px 40px -4px rgba(15, 23, 42, 0.08) !important;
+  }
+  .terminal-header {
+    background: #f8fafc !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.3) !important;
+  }
+  .terminal-title {
+    color: #475569 !important;
+    font-weight: 600 !important;
+  }
+  .terminal-body {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+  }
+  .terminal-line {
+    color: #0f172a !important;
+  }
+  .terminal-line span {
+    color: #0f172a !important;
+  }
+  .terminal-success {
+    color: #059669 !important;
+    font-weight: 700 !important;
+  }
+  .terminal-info {
+    color: #0284c7 !important;
+    font-weight: 700 !important;
+  }
+  .terminal-prompt {
+    color: #0284c7 !important;
+    font-weight: 800 !important;
+  }
+  .terminal-input-bar {
+    background: #ffffff !important;
+    border-top: 1px solid rgba(148, 163, 184, 0.3) !important;
+  }
+  .terminal-cli-input {
+    color: #0f172a !important;
   }
 
   /* 11. Lead Architect Spotlight */

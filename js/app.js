@@ -10,7 +10,7 @@ class AppEngine {
     this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
     this.mobileDrawer = document.getElementById('mobile-drawer');
     this.drawerOverlay = document.getElementById('drawer-overlay');
-    this.drawerCloseBtn = document.getElementById('drawer-close-btn');
+    this.drawerCloseBtn = document.getElementById('mobile-drawer-close') || document.getElementById('drawer-close-btn');
     this.navbar = document.getElementById('navbar');
     this.cursorGlow = document.querySelector('.cursor-glow');
 

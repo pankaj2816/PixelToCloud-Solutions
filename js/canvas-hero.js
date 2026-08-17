@@ -242,6 +242,10 @@ class HeroCanvas {
       }
     }
 
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return; // Stop animation loop if reduced motion is requested
+    }
+
     this.animationFrameId = requestAnimationFrame(() => this.animate());
   }
 

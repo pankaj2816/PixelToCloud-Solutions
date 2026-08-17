@@ -58,28 +58,28 @@ class ApiLabManager {
 
         if (this.ipResultBox) {
           this.ipResultBox.innerHTML = `
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.85rem; font-family: monospace;">
-              <div>🌐 <strong>Public IP:</strong> <span style="color: #00f0ff;">${data.ip || '103.212.14.82'}</span></div>
-              <div>📍 <strong>Location:</strong> <span style="color: #38bdf8;">${data.city || 'Delhi'}, ${data.country_name || 'India'}</span></div>
-              <div>🏢 <strong>ISP / Org:</strong> <span style="color: #cbd5e1;">${data.org || 'Jio Fiber / Airtel Broadband'}</span></div>
-              <div>⚡ <strong>Latency:</strong> <span style="color: #10b981;">${latency} ms (Fast)</span></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; font-size: 0.85rem; font-family: monospace;">
+              <div>🌐 <strong style="color: var(--text-primary);">Public IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">${data.ip || '103.212.14.82'}</span></div>
+              <div>📍 <strong style="color: var(--text-primary);">Location:</strong> <span style="color: var(--text-secondary);">${data.city || 'Delhi'}, ${data.country_name || 'India'}</span></div>
+              <div>🏢 <strong style="color: var(--text-primary);">ISP / Org:</strong> <span style="color: var(--text-secondary);">${data.org || 'Broadband ISP'}</span></div>
+              <div>⚡ <strong style="color: var(--text-primary);">Latency:</strong> <span style="color: #10b981; font-weight: 700;">${latency} ms</span></div>
             </div>
-            <div style="margin-top: 8px; font-size: 0.75rem; color: #10b981; font-family: monospace;">
-              ✔ Live API Handshake Successful (TLS 1.3 / HTTP 2.0)
+            <div style="margin-top: 8px; font-size: 0.75rem; color: #10b981; font-family: monospace; font-weight: 600;">
+              🟢 Live IP Geolocation Feed Connected (TLS 1.3)
             </div>
           `;
         }
       } catch (err) {
         if (this.ipResultBox) {
           this.ipResultBox.innerHTML = `
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.85rem; font-family: monospace;">
-              <div>🌐 <strong>Client IP:</strong> <span style="color: #00f0ff;">103.212.14.82 (Active)</span></div>
-              <div>📍 <strong>Region:</strong> <span style="color: #38bdf8;">New Delhi, IN</span></div>
-              <div>🛡️ <strong>Security:</strong> <span style="color: #10b981;">Cloudflare Protected</span></div>
-              <div>⚡ <strong>Edge Speed:</strong> <span style="color: #10b981;">32 ms</span></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; font-size: 0.85rem; font-family: monospace;">
+              <div>🌐 <strong style="color: var(--text-primary);">Client IP:</strong> <span style="color: var(--accent-cyan); font-weight: 700;">Local Client</span></div>
+              <div>📍 <strong style="color: var(--text-primary);">Network:</strong> <span style="color: var(--text-secondary);">Direct Connection</span></div>
+              <div>🛡️ <strong style="color: var(--text-primary);">Protocol:</strong> <span style="color: var(--text-secondary);">HTTPS Secure</span></div>
+              <div>⚡ <strong style="color: var(--text-primary);">Status:</strong> <span style="color: #10b981; font-weight: 700;">Connected</span></div>
             </div>
-            <div style="margin-top: 8px; font-size: 0.75rem; color: #38bdf8; font-family: monospace;">
-              ✔ Verified via Cloudflare Edge Network
+            <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">
+              ℹ️ Simulated Benchmark Preview (Public Geolocation API Unreachable)
             </div>
           `;
         }
@@ -124,18 +124,18 @@ class ApiLabManager {
             `;
           } else {
             this.dnsResultBox.innerHTML = `
-              <div style="font-family: monospace; font-size: 0.82rem; color: #cbd5e1; line-height: 1.6;">
-                <div style="color: #00f0ff;"><strong>TARGET:</strong> ${domain} (A Record Active)</div>
-                <div>🔹 <strong>Resolved IP:</strong> ${dnsData.ip || '172.217.167.78'} | TTL: ${dnsData.ttl || 300}s</div>
-                <div>🔹 <strong>Status:</strong> NOERROR (Active & Routed)</div>
-                <div style="color: #10b981; margin-top: 4px;">✔ DNS Propagation: 100% Worldwide Synced</div>
+              <div style="font-family: monospace; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+                <div style="color: var(--accent-cyan); font-weight: 700;">TARGET: ${domain} (A Record Active)</div>
+                <div>🔹 <strong style="color: var(--text-primary);">Resolved IP:</strong> ${dnsData.ip || 'Cloudflare Anycast'} | TTL: ${dnsData.ttl || 300}s</div>
+                <div>🔹 <strong style="color: var(--text-primary);">Status:</strong> NOERROR (Active & Globally Routed)</div>
+                <div style="color: #10b981; margin-top: 4px; font-weight: 600;">🟢 Live Cloudflare DNS-over-HTTPS (DoH) Validated</div>
               </div>
             `;
           }
         }
       } catch (e) {
         if (this.dnsResultBox) {
-          this.dnsResultBox.innerHTML = `<div style="color: #10b981; font-family: monospace; font-size: 0.82rem;">✔ DNS Query Processed for ${domain}</div>`;
+          this.dnsResultBox.innerHTML = `<div style="color: var(--text-muted); font-family: monospace; font-size: 0.82rem;">ℹ️ DNS Query Timed Out for ${domain}</div>`;
         }
       } finally {
         this.dnsLookupBtn.disabled = false;
@@ -398,8 +398,8 @@ class ApiLabManager {
         const cardBorderRight = isLight ? '#86efac' : 'rgba(16, 185, 129, 0.4)';
 
         const dataSourceBadge = isLiveGoogle 
-          ? `<span style="color: ${isLight ? '#059669' : '#10b981'}; font-size: 0.76rem; background: ${isLight ? '#dcfce7' : 'rgba(16,185,129,0.15)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#86efac' : 'rgba(16,185,129,0.3)'}; font-weight: 700;">✔ Live Google API Connected</span>`
-          : `<span style="color: ${isLight ? '#0284c7' : '#38bdf8'}; font-size: 0.76rem; background: ${isLight ? '#e0f2fe' : 'rgba(56,189,248,0.12)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#7dd3fc' : 'rgba(56,189,248,0.25)'}; font-weight: 700;">⚡ Verified Live DNS Diagnostic</span>`;
+          ? `<span style="color: ${isLight ? '#059669' : '#10b981'}; font-size: 0.76rem; background: ${isLight ? '#dcfce7' : 'rgba(16,185,129,0.15)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#86efac' : 'rgba(16,185,129,0.3)'}; font-weight: 700;">🟢 Live Google PageSpeed API</span>`
+          : `<span style="color: ${isLight ? '#475569' : '#94a3b8'}; font-size: 0.76rem; background: ${isLight ? '#f1f5f9' : 'rgba(148,163,184,0.12)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#cbd5e1' : 'rgba(148,163,184,0.25)'}; font-weight: 700;">📊 Estimated Benchmark Simulation</span>`;
 
         this.speedResultBox.innerHTML = `
           <div style="margin-bottom: 12px; font-family: monospace; font-size: 0.84rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">

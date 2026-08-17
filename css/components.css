@@ -835,6 +835,25 @@
   animation: terminalBlink 1s infinite;
 }
 
+.terminal-input-bar {
+  background: #090d16;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.terminal-cli-input {
+  flex-grow: 1;
+  color: #f8fafc;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
 .pipeline-steps-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -82,6 +82,7 @@ const I18N_DICTIONARY = {
     // Founder Section
     section_about_tag: "Meet The Principal Architect",
     section_about_title: "Engineered with 8–10+ Years of Dual Mastery",
+    section_about_desc: "Merging deep Software Engineering with low-level Hardware Architecture to build robust, ultra-fast, and mission-critical digital systems.",
     about_role: "Lead Systems Architect & Founder",
     about_badge: "8–10+ Years Experience",
     about_bio_1: "With over 8–10+ years of deep engineering expertise spanning both Software Architecture and Hardware Systems Engineering, I build digital products with obsessive attention to code quality, sub-second speed, and bulletproof server resilience.",
@@ -178,6 +179,7 @@ const I18N_DICTIONARY = {
 
     section_about_tag: "मुख्य वास्तुकार से मिलें",
     section_about_title: "8-10+ वर्षों के सॉफ्टवेयर और हार्डवेयर अनुभव के साथ",
+    section_about_desc: "मजबूत, अल्ट्रा-फास्ट और सुरक्षित डिजिटल सिस्टम बनाने के लिए सॉफ्टवेयर इंजीनियरिंग और हार्डवेयर आर्किटेक्चर का बेजोड़ संगम।",
     about_role: "मुख्य सिस्टम्स आर्किटेक्ट व संस्थापक",
     about_badge: "8-10+ वर्षों का अनुभव",
     about_bio_1: "सॉफ्टवेयर आर्किटेक्चर और हार्डवेयर इंजीनियरिंग दोनों में 8-10+ वर्षों के अनुभव के साथ, मैं अत्यधिक गति और विश्वसनीयता वाले सिस्टम बनाता हूं।",
@@ -272,6 +274,7 @@ const I18N_DICTIONARY = {
 
     section_about_tag: "L'Architecte Principal",
     section_about_title: "Conçu avec 8–10+ Ans de Double Maîtrise",
+    section_about_desc: "Fusionner l'ingénierie logicielle avancée et l'architecture matérielle pour concevoir des systèmes numériques ultra-rapides et robustes.",
     about_role: "Architecte Systèmes Principal & Fondateur",
     about_badge: "8–10+ Ans d'Expérience",
     about_bio_1: "Avec plus de 8–10 ans d'expertise en ingénierie logicielle et matérielle, je développe des systèmes alliant rapidité et robustesse.",
@@ -366,6 +369,7 @@ const I18N_DICTIONARY = {
 
     section_about_tag: "Chef-Architekt",
     section_about_title: "Entwickelt mit 8–10+ Jahren Software- & Hardware-Expertise",
+    section_about_desc: "Verbindung von hochentwickelter Softwarearchitektur mit robuster Hardwaretechnik für blitzschnelle und ausfallsichere Systeme.",
     about_role: "Leitender Systemarchitekt & Gründer",
     about_badge: "8–10+ Jahre Erfahrung",
     about_bio_1: "Mit über 8–10 Jahren fundierter Erfahrung in Softwarearchitektur und Hardware-Engineering baue ich extrem schnelle und sichere Systeme.",
@@ -460,6 +464,7 @@ const I18N_DICTIONARY = {
 
     section_about_tag: "Главный Архитектор",
     section_about_title: "Создано с 8–10+ Летним Опытом в ПО и Hardware",
+    section_about_desc: "Слияние глубокой программной инженерии и аппаратной архитектуры для создания сверхбыстрых и надежных цифровых систем.",
     about_role: "Главный Системный Архитектор и Основатель",
     about_badge: "8–10+ Лет Опыта",
     about_bio_1: "С опытом более 8–10 лет в разработке программных и аппаратных систем, я создаю проекты с акцентом на скорость и надежность.",

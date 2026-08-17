@@ -925,9 +925,13 @@ class PortfolioManager {
   }
 
   static requestQuoteFor(projectName) {
-    const modalOverlay = document.getElementById('portfolio-modal-overlay');
-    if (modalOverlay) modalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    if (window.portfolioManagerInstance) {
+      window.portfolioManagerInstance.closeModal();
+    } else {
+      const modalOverlay = document.getElementById('portfolio-modal-overlay');
+      if (modalOverlay) modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
     // Scroll to contact form and pre-fill details
     const contactSection = document.getElementById('contact');
