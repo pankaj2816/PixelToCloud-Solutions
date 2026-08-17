@@ -193,7 +193,7 @@ class LiveDeploymentTerminal {
         if (this.body) this.body.innerHTML = '';
         break;
       case 'contact':
-        this.appendLine('success', 'Direct Phone/WhatsApp: +91 99999 99999 | Email: pankaj.innovations@gmail.com');
+        this.appendLine('success', 'Direct Phone/WhatsApp: +91 82193 52124 | Email: pppankaj2816@gmail.com');
         break;
       case 'uptime':
         this.appendLine('success', 'Server Uptime: 99.998% | Total requests served: 1,420,890');

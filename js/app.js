@@ -252,7 +252,7 @@ class AppController {
         `⚡ Sent via PixelToCloud Solutions (Lead Architect: Pankaj)`;
 
       const encoded = encodeURIComponent(whatsappText);
-      const whatsappUrl = `https://wa.me/919999999999?text=${encoded}`;
+      const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
 
       // Reset form & Notify user
       form.reset();
@@ -269,7 +269,7 @@ class AppController {
     const copyEmailBtns = document.querySelectorAll('.copy-email-trigger');
     copyEmailBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const email = 'pankaj.innovations@gmail.com';
+        const email = 'pppankaj2816@gmail.com';
         navigator.clipboard.writeText(email).then(() => {
           this.showToast(`📋 Copied "${email}" to clipboard!`);
         });
@@ -279,7 +279,7 @@ class AppController {
     const copyPhoneBtns = document.querySelectorAll('.copy-phone-trigger');
     copyPhoneBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const phone = '+91 99999 99999';
+        const phone = '+91 82193 52124';
         navigator.clipboard.writeText(phone).then(() => {
           this.showToast(`📋 Copied "${phone}" to clipboard!`);
         });
