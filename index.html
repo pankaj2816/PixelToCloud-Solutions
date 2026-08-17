@@ -1397,7 +1397,10 @@
           </div>
         </div>
       </div>
-      <button id="ai-advisor-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 4px;">✕</button>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <button id="ai-advisor-minimize" class="ai-header-btn" title="Minimize AI Chat" aria-label="Minimize">━</button>
+        <button id="ai-advisor-close" class="ai-header-btn ai-header-close" title="Close AI Chat (or press Esc)" aria-label="Close">✕</button>
+      </div>
     </div>
 
     <div class="ai-messages" id="ai-advisor-messages">

@@ -9,6 +9,7 @@ class PixelToCloudAIAdvisor {
     this.chatModal = document.getElementById('ai-advisor-modal');
     this.openBtn = document.getElementById('ai-advisor-trigger');
     this.closeBtn = document.getElementById('ai-advisor-close');
+    this.minimizeBtn = document.getElementById('ai-advisor-minimize');
     this.messagesContainer = document.getElementById('ai-advisor-messages');
     this.input = document.getElementById('ai-advisor-input');
     this.sendBtn = document.getElementById('ai-advisor-send');
@@ -67,13 +68,55 @@ class PixelToCloudAIAdvisor {
   }
 
   bindEvents() {
+    // Toggle on FAB button click
     if (this.openBtn) {
-      this.openBtn.addEventListener('click', () => this.toggleModal(true));
-    }
-    if (this.closeBtn) {
-      this.closeBtn.addEventListener('click', () => this.toggleModal(false));
+      this.openBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = this.chatModal && this.chatModal.classList.contains('active');
+        this.toggleModal(!isOpen);
+      });
     }
 
+    // Close button
+    if (this.closeBtn) {
+      this.closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleModal(false);
+      });
+    }
+
+    // Minimize button
+    if (this.minimizeBtn) {
+      this.minimizeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleModal(false);
+      });
+    }
+
+    // Close when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.chatModal && this.chatModal.classList.contains('active')) {
+        this.toggleModal(false);
+      }
+    });
+
+    // Close when clicking outside of modal
+    document.addEventListener('click', (e) => {
+      if (this.chatModal && this.chatModal.classList.contains('active')) {
+        if (!this.chatModal.contains(e.target) && !this.openBtn?.contains(e.target)) {
+          this.toggleModal(false);
+        }
+      }
+    });
+
+    // Prevent clicks inside modal from propagating to document
+    if (this.chatModal) {
+      this.chatModal.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // Send button & enter key
     if (this.sendBtn && this.input) {
       this.sendBtn.addEventListener('click', () => this.handleSendMessage());
       this.input.addEventListener('keydown', (e) => {
