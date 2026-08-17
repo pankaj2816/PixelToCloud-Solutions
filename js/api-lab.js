@@ -160,7 +160,7 @@ class ApiLabManager {
   bindSpeedAudit() {
     if (!this.speedBtn) return;
 
-    this.speedBtn.addEventListener('click', () => {
+    const runAudit = () => {
       const rawInput = (this.speedInput?.value || 'mycompanywebsite.com').trim();
       const domain = rawInput.replace(/https?:\/\//, '').replace(/^www\./, '').split('/')[0].toLowerCase();
       if (!domain) return;
@@ -172,7 +172,10 @@ class ApiLabManager {
         this.speedResultBox.innerHTML = `
           <div style="text-align: center; padding: 24px 0; color: var(--accent-cyan); font-family: monospace;">
             <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">[+] Analyzing Real Performance & Assets for "${domain}"...</div>
-            <div style="font-size: 0.82rem; color: var(--text-muted);">Measuring FCP, LCP, TTFB, DOM complexity, uncompressed scripts & network payload...</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">Measuring FCP, LCP, TTFB, DOM complexity, uncompressed scripts & network payload...</div>
+            <div style="width: 100%; max-width: 320px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 auto; overflow: hidden;">
+              <div style="width: 100%; height: 100%; background: var(--accent-cyan); animation: pulseGlow 0.8s infinite alternate;"></div>
+            </div>
           </div>
         `;
       }
@@ -235,8 +238,22 @@ class ApiLabManager {
         }
         this.speedBtn.disabled = false;
         this.speedBtn.innerHTML = '<span>Run Instant Speed Audit</span>';
-      }, 900);
-    });
+      }, 700);
+    };
+
+    this.speedBtn.addEventListener('click', runAudit);
+
+    if (this.speedInput) {
+      this.speedInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          runAudit();
+        }
+      });
+    }
+
+    // Initialize with first default evaluation
+    runAudit();
   }
 
   // Domain evaluation algorithm for realistic, domain-specific metrics
