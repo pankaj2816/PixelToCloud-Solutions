@@ -140,6 +140,11 @@ class ProjectEstimator {
     });
 
     // Action Buttons
+    const exportEmailBtn = document.getElementById('estimator-export-email');
+    if (exportEmailBtn) {
+      exportEmailBtn.addEventListener('click', () => this.exportToEmail());
+    }
+
     const exportWhatsAppBtn = document.getElementById('estimator-export-whatsapp');
     if (exportWhatsAppBtn) {
       exportWhatsAppBtn.addEventListener('click', () => this.exportToWhatsApp());
@@ -149,6 +154,30 @@ class ProjectEstimator {
     if (applyContactBtn) {
       applyContactBtn.addEventListener('click', () => this.applyToContactForm());
     }
+  }
+
+  exportToEmail() {
+    if (!this.lastCalculation) return;
+
+    const subject = encodeURIComponent(`Project Estimation Quote - ${this.lastCalculation.project} (${this.lastCalculation.totalCost})`);
+    const body = encodeURIComponent(
+      `Dear Pankaj,\n\n` +
+      `I configured a project estimate on PixelToCloud Solutions website:\n\n` +
+      `--- ESTIMATE SUMMARY ---\n` +
+      `📌 Project Scope: ${this.lastCalculation.project}\n` +
+      `💰 Total Investment: ${this.lastCalculation.totalCost}\n` +
+      `⏱️ Estimated Delivery: ${this.lastCalculation.totalDays}\n` +
+      `🌐 Infrastructure Stack: ${this.lastCalculation.infra.join(', ') || 'Standard'}\n` +
+      `✨ Add-on Features: ${this.lastCalculation.addons.join(', ') || 'None'}\n\n` +
+      `I would like to schedule a discussion to review the architecture and timeline.\n\n` +
+      `Best regards`
+    );
+
+    const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${subject}&body=${body}`;
+    if (window.App) {
+      window.App.showToast('✉️ Opening direct email to pppankaj2816@gmail.com...');
+    }
+    window.location.href = mailtoUrl;
   }
 
   formatPrice(inrAmount) {

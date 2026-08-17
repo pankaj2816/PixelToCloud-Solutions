@@ -216,21 +216,20 @@ class AppController {
     });
   }
 
-  // ================= CONTACT FORM & VALIDATION =================
+  // ================= CONTACT FORM DISPATCH (EMAIL PRIORITY & WHATSAPP) =================
   bindContactForm() {
     const form = document.getElementById('contact-form');
+    const emailBtn = document.getElementById('contact-submit-email');
+    const whatsappBtn = document.getElementById('contact-submit-whatsapp');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
+    const validateForm = () => {
       const name = document.getElementById('contact-name')?.value.trim();
       const email = document.getElementById('contact-email')?.value.trim();
       const phone = document.getElementById('contact-phone')?.value.trim();
       const budget = document.getElementById('contact-budget')?.value;
       const message = document.getElementById('contact-message')?.value.trim();
 
-      // Collect selected service checkboxes
       const selectedServices = [];
       document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
         selectedServices.push(cb.value);
@@ -238,35 +237,70 @@ class AppController {
 
       if (!name || !email || !message) {
         this.showToast('⚠️ Please fill in all required fields (Name, Email, Project Details).');
-        return;
+        return null;
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         this.showToast('⚠️ Please enter a valid email address (e.g. name@company.com).');
-        return;
+        return null;
       }
 
-      // Prepare WhatsApp message payload for direct instant conversion
+      return { name, email, phone, budget, message, selectedServices };
+    };
+
+    // 1. Direct Priority Email Dispatch
+    const sendViaEmail = () => {
+      const data = validateForm();
+      if (!data) return;
+
+      const subject = encodeURIComponent(`🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`);
+      const body = encodeURIComponent(
+        `Dear Pankaj,\n\n` +
+        `I would like to discuss a project with PixelToCloud Solutions.\n\n` +
+        `--- CLIENT CONTACT DETAILS ---\n` +
+        `👤 Name: ${data.name}\n` +
+        `📧 Email: ${data.email}\n` +
+        `📱 Phone / WhatsApp: ${data.phone || 'N/A'}\n` +
+        `💼 Estimated Budget: ${data.budget}\n` +
+        `🛠️ Services Needed: ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
+        `--- PROJECT OVERVIEW & REQUIREMENTS ---\n` +
+        `${data.message}\n\n` +
+        `Best regards,\n${data.name}`
+      );
+
+      const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${subject}&body=${body}`;
+      this.showToast('✉️ Opening direct email to pppankaj2816@gmail.com...');
+      window.location.href = mailtoUrl;
+    };
+
+    // 2. Direct WhatsApp Dispatch
+    const sendViaWhatsApp = () => {
+      const data = validateForm();
+      if (!data) return;
+
       const whatsappText = `🚀 *NEW CLIENT INQUIRY - PIXELTOCLOUD SOLUTIONS*\n\n` +
-        `👤 *Name:* ${name}\n` +
-        `📧 *Email:* ${email}\n` +
-        `📱 *Phone:* ${phone || 'N/A'}\n` +
-        `💼 *Estimated Budget:* ${budget || 'Flexible'}\n` +
-        `🛠️ *Services Needed:* ${selectedServices.join(', ') || 'Custom Solution'}\n\n` +
-        `📝 *Project Overview:*\n${message}\n\n` +
+        `👤 *Name:* ${data.name}\n` +
+        `📧 *Email:* ${data.email}\n` +
+        `📱 *Phone:* ${data.phone || 'N/A'}\n` +
+        `💼 *Estimated Budget:* ${data.budget || 'Flexible'}\n` +
+        `🛠️ *Services Needed:* ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
+        `📝 *Project Overview:*\n${data.message}\n\n` +
         `⚡ Sent via PixelToCloud Solutions (Lead Architect: Pankaj)`;
 
       const encoded = encodeURIComponent(whatsappText);
       const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
 
-      // Reset form & Notify user
-      form.reset();
-      this.showToast('🚀 Inquiry Sent Successfully! Opening direct WhatsApp chat...');
+      this.showToast('💬 Opening direct WhatsApp chat with Pankaj...');
+      window.open(whatsappUrl, '_blank');
+    };
 
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-      }, 800);
+    if (emailBtn) emailBtn.addEventListener('click', sendViaEmail);
+    if (whatsappBtn) whatsappBtn.addEventListener('click', sendViaWhatsApp);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sendViaEmail();
     });
   }
 

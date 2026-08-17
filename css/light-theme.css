@@ -1,63 +1,252 @@
 /* ===================================================================
    17. COMPREHENSIVE LIGHT THEME ("DAY LIGHT" MODE) REFINEMENT & CONTRAST
-   High-contrast typography, crisp glass cards, and accessible form controls
+   High-contrast typography, crystal-clear reading, pure white cards & zero eye strain
    =================================================================== */
 
 [data-theme="light"] {
+  /* Global Background & Body */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.98);
+  --bg-glass-strong: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --text-accent: #0284c7;
+
+  --border-subtle: #cbd5e1;
+  --border-medium: #94a3b8;
+  --border-focus: #0284c7;
+
+  background-color: #f8fafc;
+  color: #0f172a;
+
+  /* Sections */
+  section.section {
+    background: transparent !important;
+  }
+
   /* Navbar & Navigation */
-  .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.94);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  .navbar {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   }
 
   .nav-link {
-    color: #334155;
+    color: #1e293b !important;
+    font-weight: 600 !important;
   }
   .nav-link:hover, .nav-link.active {
-    color: #0284c7;
+    color: #0284c7 !important;
   }
 
   .mobile-drawer {
-    background: #ffffff;
-    border-left: 1px solid rgba(15, 23, 42, 0.12);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+    background: #ffffff !important;
+    border-left: 1px solid #cbd5e1 !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* Typography & Badges */
+  /* Hero Section */
+  .hero-section {
+    background: #f8fafc !important;
+  }
+
+  .hero-status-pill {
+    background: #e0f2fe !important;
+    border: 1px solid #7dd3fc !important;
+    color: #0369a1 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12) !important;
+  }
+
+  .hero-title {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+  }
+
+  .hero-title .highlight-text {
+    color: #0284c7 !important;
+    text-shadow: none !important;
+    font-weight: 800 !important;
+  }
+
+  .hero-subtitle {
+    color: #334155 !important;
+    font-weight: 500 !important;
+  }
+
+  /* Typography, Badges & Section Tags */
   .section-tag, .hero-badge {
-    background: #e0f2fe;
-    color: #0369a1;
-    border-color: #bae6fd;
-    font-weight: 700;
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+    border-color: #bae6fd !important;
+    font-weight: 700 !important;
   }
 
   .section-title {
-    color: #0f172a;
+    color: #0f172a !important;
+    font-weight: 800 !important;
   }
+
+  .section-title .text-gradient {
+    background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
   .section-desc {
-    color: #334155;
+    color: #334155 !important;
+    font-weight: 500 !important;
   }
 
   /* Cards & Glass Containers */
-  .glass-card, .service-card, .pricing-card, .faq-item, .stat-card, .process-card, .architect-card {
+  .glass-card, .service-card, .pricing-card, .faq-item, .stat-card, .process-card, .architect-card, .portfolio-card, .tech-tile {
     background: #ffffff !important;
-    border: 1px solid rgba(15, 23, 42, 0.12) !important;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
   }
 
-  .glass-card:hover, .service-card:hover, .pricing-card:hover, .faq-item:hover {
+  .glass-card:hover, .service-card:hover, .pricing-card:hover, .faq-item:hover, .portfolio-card:hover, .tech-tile:hover {
     background: #ffffff !important;
     border-color: #0284c7 !important;
     box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12), 0 2px 6px rgba(15, 23, 42, 0.04) !important;
   }
 
-  .service-card h3, .pricing-card h3, .faq-question h3, .process-card h3, .project-card-title {
+  .service-card h3, .pricing-card h3, .faq-question h3, .process-card h3, .project-card-title, .tech-tile-name, .architect-name {
     color: #0f172a !important;
+    font-weight: 700 !important;
   }
 
-  .service-card p, .pricing-card p, .faq-answer, .process-card p, .project-card-desc {
+  .service-card p, .pricing-card p, .faq-answer, .process-card p, .project-card-desc, .architect-bio p {
     color: #334155 !important;
+    font-weight: 500 !important;
+  }
+
+  .service-feature-item {
+    color: #334155 !important;
+  }
+
+  /* Before / After Transformation Slider */
+  .before-after-box {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08) !important;
+    background: #ffffff !important;
+  }
+  .ba-before-layer {
+    background: #fef2f2 !important;
+  }
+  .ba-tag-before {
+    background: #fee2e2 !important;
+    border: 1px solid #fca5a5 !important;
+    color: #b91c1c !important;
+    font-weight: 700 !important;
+  }
+  .ba-before-layer h3 {
+    color: #b91c1c !important;
+    font-weight: 800 !important;
+  }
+  .ba-before-layer p {
+    color: #7f1d1d !important;
+    font-weight: 500 !important;
+  }
+  .ba-before-layer div {
+    color: #991b1b !important;
+    font-weight: 600 !important;
+  }
+  .ba-after-layer {
+    background: #f0fdf4 !important;
+  }
+  .ba-tag-after {
+    background: #dcfce7 !important;
+    border: 1px solid #86efac !important;
+    color: #15803d !important;
+    font-weight: 700 !important;
+  }
+  .ba-after-layer h3 {
+    color: #15803d !important;
+    font-weight: 800 !important;
+  }
+  .ba-after-layer p {
+    color: #166534 !important;
+    font-weight: 500 !important;
+  }
+  .ba-after-layer div {
+    color: #14532d !important;
+    font-weight: 600 !important;
+  }
+  .ba-handle {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.4) !important;
+  }
+
+  /* Cost Estimator */
+  .estimator-step-block {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  }
+  .step-label span:last-child {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+  .estimator-option-card {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+  .estimator-option-card:hover {
+    background: #f8fafc !important;
+    border-color: #0284c7 !important;
+  }
+  .estimator-option-card.selected {
+    background: #e0f2fe !important;
+    border-color: #0284c7 !important;
+  }
+  .estimator-option-title {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+  .estimator-option-desc {
+    color: #475569 !important;
+  }
+  .estimator-option-cost {
+    color: #0284c7 !important;
+    font-weight: 700 !important;
+  }
+
+  .estimator-summary-panel {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08) !important;
+  }
+  .estimate-cost-headline {
+    color: #0284c7 !important;
+    font-weight: 900 !important;
+  }
+  .estimate-timeline-badge {
+    color: #059669 !important;
+    font-weight: 700 !important;
+  }
+  .estimate-items-breakdown {
+    color: #0f172a !important;
+  }
+  .breakdown-row {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+  }
+  .breakdown-row span {
+    color: #0f172a !important;
+  }
+  .breakdown-row strong {
+    color: #0284c7 !important;
+    font-weight: 800 !important;
   }
 
   /* Inputs, Selects, & Form Controls */
@@ -66,6 +255,7 @@
     border: 1px solid #cbd5e1 !important;
     color: #0f172a !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    font-weight: 500 !important;
   }
 
   input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
@@ -80,81 +270,21 @@
   }
 
   select option {
-    background: #ffffff;
-    color: #0f172a;
+    background: #ffffff !important;
+    color: #0f172a !important;
   }
 
   /* Service Pills in Contact Form */
   .service-pill-checkbox span {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    color: #334155;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+    font-weight: 600 !important;
   }
   .service-pill-checkbox input:checked + span {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
-  }
-
-  /* Cost Estimator */
-  .estimator-card {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-  }
-  .estimator-type-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    color: #0f172a;
-  }
-  .estimator-type-card:hover {
-    background: #ffffff;
-    border-color: #0284c7;
-  }
-  .estimator-type-card.selected {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
-  }
-  .estimator-type-card h4 {
-    color: #0f172a;
-  }
-  .estimator-type-card p {
-    color: #475569;
-  }
-
-  .estimator-summary-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-  }
-  .estimator-price-tag {
-    color: #0284c7;
-  }
-
-  /* Before / After Slider */
-  .before-after-container {
-    border: 1px solid rgba(15, 23, 42, 0.15);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  }
-  .before-side {
-    background: #fff1f2;
-    color: #9f1239;
-  }
-  .before-side h3 {
-    color: #dc2626 !important;
-  }
-  .before-side p {
-    color: #991b1b !important;
-  }
-  .after-side {
-    background: #f0fdf4;
-    color: #065f46;
-  }
-  .after-side h3 {
-    color: #059669 !important;
-  }
-  .after-side p {
-    color: #047857 !important;
+    background: #e0f2fe !important;
+    border-color: #0284c7 !important;
+    color: #0369a1 !important;
   }
 
   /* DevOps Terminal */
@@ -171,7 +301,7 @@
     color: #e5e7eb !important;
   }
   .terminal-log-entry {
-    color: #00f0ff;
+    color: #00f0ff !important;
   }
   #terminal-cli-input {
     color: #ffffff !important;
@@ -179,61 +309,58 @@
   }
 
   /* API Lab & Speed Audit */
-  .api-card {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-  }
   .api-result-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    color: #0f172a;
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
   }
   .api-result-box strong {
-    color: #0f172a;
+    color: #0f172a !important;
   }
 
   /* AI Chat Advisor */
   .ai-chat-modal {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.15);
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18) !important;
   }
   .ai-chat-header {
-    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
   }
   .ai-chat-header div {
     color: #ffffff !important;
   }
   .ai-messages-container {
-    background: #f8fafc;
+    background: #f8fafc !important;
   }
   .ai-msg-bot .ai-bubble {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #0f172a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
   }
   .ai-msg-bot .ai-bubble strong {
-    color: #0f172a;
+    color: #0f172a !important;
   }
   .ai-msg-user .ai-bubble {
-    background: #0284c7;
-    color: #ffffff;
+    background: #0284c7 !important;
+    color: #ffffff !important;
   }
   .ai-chip {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #0f172a;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    font-weight: 600 !important;
   }
   .ai-chip:hover {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
+    background: #e0f2fe !important;
+    border-color: #0284c7 !important;
+    color: #0369a1 !important;
   }
   .ai-input-bar {
-    background: #ffffff;
-    border-top: 1px solid #e2e8f0;
+    background: #ffffff !important;
+    border-top: 1px solid #e2e8f0 !important;
   }
   .ai-input-bar input {
     background: #f8fafc !important;
@@ -243,9 +370,9 @@
 
   /* Scheduler Modal */
   .modal-dialog {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.15);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
   }
   .modal-dialog h3, .modal-dialog h4 {
     color: #0f172a !important;
@@ -254,79 +381,71 @@
     color: #334155 !important;
   }
   .scheduler-date-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #0f172a;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
   }
   .scheduler-date-card:hover {
-    background: #f8fafc;
-    border-color: #0284c7;
+    background: #f8fafc !important;
+    border-color: #0284c7 !important;
   }
   .scheduler-date-card.selected {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
+    background: #e0f2fe !important;
+    border-color: #0284c7 !important;
+    color: #0369a1 !important;
   }
   .scheduler-date-card div {
-    color: #0f172a;
+    color: #0f172a !important;
   }
   .scheduler-slot-btn {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #0f172a;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    font-weight: 600 !important;
   }
   .scheduler-slot-btn:hover {
-    background: #f8fafc;
-    border-color: #0284c7;
+    background: #f8fafc !important;
+    border-color: #0284c7 !important;
   }
   .scheduler-slot-btn.active {
-    background: #0284c7;
-    color: #ffffff;
-    border-color: #0284c7;
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
   }
 
-  /* Portfolio Case Studies */
+  /* Portfolio Tabs */
   .portfolio-tab-btn {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    color: #334155;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+    font-weight: 600 !important;
   }
   .portfolio-tab-btn:hover {
-    background: #ffffff;
-    color: #0284c7;
+    background: #ffffff !important;
+    color: #0284c7 !important;
   }
   .portfolio-tab-btn.active {
-    background: #0284c7;
-    color: #ffffff;
-    border-color: #0284c7;
-  }
-
-  .portfolio-card {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
-  }
-  .portfolio-card:hover {
-    box-shadow: 0 16px 36px rgba(2, 132, 199, 0.12);
-    border-color: #0284c7;
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
   }
 
   /* Footer */
   .footer {
-    background: #f1f5f9;
-    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    background: #f1f5f9 !important;
+    border-top: 1px solid #cbd5e1 !important;
   }
   .footer-col h4 {
-    color: #0f172a;
+    color: #0f172a !important;
   }
   .footer-col p, .footer-col a {
-    color: #475569;
+    color: #475569 !important;
   }
   .footer-col a:hover {
-    color: #0284c7;
+    color: #0284c7 !important;
   }
   .footer-bottom {
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
-    color: #64748b;
+    border-top: 1px solid #e2e8f0 !important;
+    color: #64748b !important;
   }
 }
