@@ -245,7 +245,8 @@ class HeroCanvas {
 
   drawCyberGrid() {
     this.ctx.save();
-    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.015)';
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    this.ctx.strokeStyle = isLight ? 'rgba(15, 23, 42, 0.035)' : 'rgba(255, 255, 255, 0.015)';
     this.ctx.lineWidth = 1;
     const gridSize = 60;
     

@@ -1,0 +1,332 @@
+/* ===================================================================
+   17. COMPREHENSIVE LIGHT THEME ("DAY LIGHT" MODE) REFINEMENT & CONTRAST
+   High-contrast typography, crisp glass cards, and accessible form controls
+   =================================================================== */
+
+[data-theme="light"] {
+  /* Navbar & Navigation */
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-link {
+    color: #334155;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: #0284c7;
+  }
+
+  .mobile-drawer {
+    background: #ffffff;
+    border-left: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Typography & Badges */
+  .section-tag, .hero-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+    font-weight: 700;
+  }
+
+  .section-title {
+    color: #0f172a;
+  }
+  .section-desc {
+    color: #334155;
+  }
+
+  /* Cards & Glass Containers */
+  .glass-card, .service-card, .pricing-card, .faq-item, .stat-card, .process-card, .architect-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+  }
+
+  .glass-card:hover, .service-card:hover, .pricing-card:hover, .faq-item:hover {
+    background: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12), 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+  }
+
+  .service-card h3, .pricing-card h3, .faq-question h3, .process-card h3, .project-card-title {
+    color: #0f172a !important;
+  }
+
+  .service-card p, .pricing-card p, .faq-answer, .process-card p, .project-card-desc {
+    color: #334155 !important;
+  }
+
+  /* Inputs, Selects, & Form Controls */
+  input[type="text"], input[type="number"], input[type="email"], select, textarea, .form-control {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    border-color: #0284c7 !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.18) !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #94a3b8 !important;
+  }
+
+  select option {
+    background: #ffffff;
+    color: #0f172a;
+  }
+
+  /* Service Pills in Contact Form */
+  .service-pill-checkbox span {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #334155;
+  }
+  .service-pill-checkbox input:checked + span {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+  }
+
+  /* Cost Estimator */
+  .estimator-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+  }
+  .estimator-type-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+  }
+  .estimator-type-card:hover {
+    background: #ffffff;
+    border-color: #0284c7;
+  }
+  .estimator-type-card.selected {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+  }
+  .estimator-type-card h4 {
+    color: #0f172a;
+  }
+  .estimator-type-card p {
+    color: #475569;
+  }
+
+  .estimator-summary-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .estimator-price-tag {
+    color: #0284c7;
+  }
+
+  /* Before / After Slider */
+  .before-after-container {
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  }
+  .before-side {
+    background: #fff1f2;
+    color: #9f1239;
+  }
+  .before-side h3 {
+    color: #dc2626 !important;
+  }
+  .before-side p {
+    color: #991b1b !important;
+  }
+  .after-side {
+    background: #f0fdf4;
+    color: #065f46;
+  }
+  .after-side h3 {
+    color: #059669 !important;
+  }
+  .after-side p {
+    color: #047857 !important;
+  }
+
+  /* DevOps Terminal */
+  .terminal-box {
+    background: #0b0f19 !important;
+    border: 1px solid rgba(15, 23, 42, 0.25) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2) !important;
+  }
+  .terminal-header {
+    background: #111827 !important;
+    border-bottom: 1px solid #1f2937 !important;
+  }
+  .terminal-title {
+    color: #e5e7eb !important;
+  }
+  .terminal-log-entry {
+    color: #00f0ff;
+  }
+  #terminal-cli-input {
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+
+  /* API Lab & Speed Audit */
+  .api-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+  }
+  .api-result-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+  }
+  .api-result-box strong {
+    color: #0f172a;
+  }
+
+  /* AI Chat Advisor */
+  .ai-chat-modal {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  }
+  .ai-chat-header {
+    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    color: #ffffff;
+  }
+  .ai-chat-header div {
+    color: #ffffff !important;
+  }
+  .ai-messages-container {
+    background: #f8fafc;
+  }
+  .ai-msg-bot .ai-bubble {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .ai-msg-bot .ai-bubble strong {
+    color: #0f172a;
+  }
+  .ai-msg-user .ai-bubble {
+    background: #0284c7;
+    color: #ffffff;
+  }
+  .ai-chip {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+  }
+  .ai-chip:hover {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+  }
+  .ai-input-bar {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+  }
+  .ai-input-bar input {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+
+  /* Scheduler Modal */
+  .modal-dialog {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  }
+  .modal-dialog h3, .modal-dialog h4 {
+    color: #0f172a !important;
+  }
+  .modal-dialog p {
+    color: #334155 !important;
+  }
+  .scheduler-date-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+  }
+  .scheduler-date-card:hover {
+    background: #f8fafc;
+    border-color: #0284c7;
+  }
+  .scheduler-date-card.selected {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+  }
+  .scheduler-date-card div {
+    color: #0f172a;
+  }
+  .scheduler-slot-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+  }
+  .scheduler-slot-btn:hover {
+    background: #f8fafc;
+    border-color: #0284c7;
+  }
+  .scheduler-slot-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+
+  /* Portfolio Case Studies */
+  .portfolio-tab-btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+  }
+  .portfolio-tab-btn:hover {
+    background: #ffffff;
+    color: #0284c7;
+  }
+  .portfolio-tab-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+
+  .portfolio-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  }
+  .portfolio-card:hover {
+    box-shadow: 0 16px 36px rgba(2, 132, 199, 0.12);
+    border-color: #0284c7;
+  }
+
+  /* Footer */
+  .footer {
+    background: #f1f5f9;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+  }
+  .footer-col h4 {
+    color: #0f172a;
+  }
+  .footer-col p, .footer-col a {
+    color: #475569;
+  }
+  .footer-col a:hover {
+    color: #0284c7;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    color: #64748b;
+  }
+}

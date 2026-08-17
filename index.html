@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/light-theme.css">
 </head>
 <body>
 
@@ -910,9 +911,9 @@
               Domain DNS Inspector
             </h3>
             <div style="display: flex; gap: 8px; margin-bottom: 14px;">
-              <input type="text" id="api-dns-input" value="google.com" placeholder="e.g. yourdomain.com" style="flex-grow: 1; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.85rem; font-family: monospace;">
+              <input type="text" id="api-dns-input" value="google.com" placeholder="e.g. yourdomain.com" class="form-control" style="flex-grow: 1; padding: 8px 12px; font-size: 0.85rem; font-family: monospace;">
             </div>
-            <div id="api-dns-result" style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; min-height: 90px; margin-bottom: 18px; font-size: 0.82rem; color: var(--text-muted);">
+            <div id="api-dns-result" class="api-result-box" style="padding: 14px; min-height: 90px; margin-bottom: 18px; font-size: 0.82rem; border-radius: var(--radius-md);">
               Ready to resolve global A-records, Nameservers & SSL status.
             </div>
           </div>
@@ -932,15 +933,15 @@
               Live Currency Calculator
             </h3>
             <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 8px; margin-bottom: 14px;">
-              <input type="number" id="api-fx-amount" value="1000" style="padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.85rem;">
-              <select id="api-fx-from" style="padding: 8px; background: #111726; border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.85rem;">
+              <input type="number" id="api-fx-amount" value="1000" class="form-control" style="padding: 8px 10px; font-size: 0.85rem;">
+              <select id="api-fx-from" class="form-control" style="padding: 8px; font-size: 0.85rem;">
                 <option value="USD">USD ($)</option>
                 <option value="INR">INR (₹)</option>
                 <option value="EUR">EUR (€)</option>
                 <option value="GBP">GBP (£)</option>
                 <option value="AED">AED (د.إ)</option>
               </select>
-              <select id="api-fx-to" style="padding: 8px; background: #111726; border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.85rem;">
+              <select id="api-fx-to" class="form-control" style="padding: 8px; font-size: 0.85rem;">
                 <option value="INR" selected>INR (₹)</option>
                 <option value="USD">USD ($)</option>
                 <option value="EUR">EUR (€)</option>
@@ -948,7 +949,7 @@
                 <option value="AED">AED (د.إ)</option>
               </select>
             </div>
-            <div id="api-fx-result" style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; min-height: 80px; margin-bottom: 18px; text-align: center;">
+            <div id="api-fx-result" class="api-result-box" style="padding: 14px; min-height: 80px; margin-bottom: 18px; text-align: center; border-radius: var(--radius-md);">
               <!-- Calculated dynamically -->
             </div>
           </div>
@@ -977,7 +978,7 @@
         </p>
 
         <div style="display: flex; gap: 12px; max-width: 680px; margin-bottom: 20px; flex-wrap: wrap;">
-          <input type="text" id="speed-audit-url" placeholder="Enter your website URL (e.g. mycompany.com)" value="mycompanywebsite.com" style="flex: 1; min-width: 240px; padding: 14px 18px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); color: #fff; font-family: monospace; font-size: 0.92rem;">
+          <input type="text" id="speed-audit-url" placeholder="Enter your website URL (e.g. mycompany.com)" value="mycompanywebsite.com" class="form-control" style="flex: 1; min-width: 240px; padding: 14px 18px; font-family: monospace; font-size: 0.92rem;">
           <button class="btn-magnetic btn-primary" id="speed-audit-btn" style="padding: 14px 24px;">
             <span>Run Instant Speed Audit</span>
           </button>
@@ -1588,15 +1589,15 @@
   </footer>
 
   <!-- Scripts with Cache-Busting Versioning -->
-  <script src="js/i18n.js?v=4.5"></script>
-  <script src="js/canvas-hero.js?v=4.5"></script>
-  <script src="js/before-after.js?v=4.5"></script>
-  <script src="js/portfolio.js?v=4.5"></script>
-  <script src="js/estimator.js?v=4.5"></script>
-  <script src="js/terminal.js?v=4.5"></script>
-  <script src="js/api-lab.js?v=4.5"></script>
-  <script src="js/ai-advisor.js?v=4.5"></script>
-  <script src="js/scheduler.js?v=4.5"></script>
-  <script src="js/app.js?v=4.5"></script>
+  <script src="js/i18n.js?v=5.0"></script>
+  <script src="js/canvas-hero.js?v=5.0"></script>
+  <script src="js/before-after.js?v=5.0"></script>
+  <script src="js/portfolio.js?v=5.0"></script>
+  <script src="js/estimator.js?v=5.0"></script>
+  <script src="js/terminal.js?v=5.0"></script>
+  <script src="js/api-lab.js?v=5.0"></script>
+  <script src="js/ai-advisor.js?v=5.0"></script>
+  <script src="js/scheduler.js?v=5.0"></script>
+  <script src="js/app.js?v=5.0"></script>
 </body>
 </html>
