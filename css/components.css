@@ -1088,11 +1088,11 @@
   bottom: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(8, 11, 17, 0.95);
+  background: var(--bg-card);
   border: 1px solid var(--accent-cyan);
   padding: 10px 20px;
   border-radius: var(--radius-full);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px var(--accent-cyan-glow);
   display: flex;
   align-items: center;
   gap: 10px;

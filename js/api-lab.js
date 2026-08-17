@@ -384,45 +384,55 @@ class ApiLabManager {
       }
 
       if (this.speedResultBox) {
-        const scoreColor = metrics.score >= 90 ? '#10b981' : (metrics.score >= 60 ? '#f59e0b' : '#ef4444');
-        const scoreBg = metrics.score >= 90 ? 'rgba(16, 185, 129, 0.2)' : (metrics.score >= 60 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)');
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const scoreColor = metrics.score >= 90 
+          ? (isLight ? '#059669' : '#10b981') 
+          : (metrics.score >= 60 ? (isLight ? '#b45309' : '#f59e0b') : (isLight ? '#b91c1c' : '#ef4444'));
+        const scoreBg = isLight
+          ? (metrics.score >= 90 ? '#dcfce7' : (metrics.score >= 60 ? '#fef3c7' : '#fee2e2'))
+          : (metrics.score >= 90 ? 'rgba(16, 185, 129, 0.2)' : (metrics.score >= 60 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)'));
         const scoreIcon = metrics.score >= 90 ? '✔' : (metrics.score >= 60 ? '⚠️' : '❌');
+        
+        const cardBgLeft = isLight ? '#ffffff' : 'rgba(255, 255, 255, 0.02)';
+        const cardBgRight = isLight ? '#f0fdf4' : 'rgba(16, 185, 129, 0.06)';
+        const cardBorderRight = isLight ? '#86efac' : 'rgba(16, 185, 129, 0.4)';
+
         const dataSourceBadge = isLiveGoogle 
-          ? '<span style="color: #10b981; font-size: 0.76rem; background: rgba(16,185,129,0.15); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.3);">✔ Live Google API Connected</span>'
-          : '<span style="color: #38bdf8; font-size: 0.76rem; background: rgba(56,189,248,0.12); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.25);">⚡ Verified Live DNS Diagnostic</span>';
+          ? `<span style="color: ${isLight ? '#059669' : '#10b981'}; font-size: 0.76rem; background: ${isLight ? '#dcfce7' : 'rgba(16,185,129,0.15)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#86efac' : 'rgba(16,185,129,0.3)'}; font-weight: 700;">✔ Live Google API Connected</span>`
+          : `<span style="color: ${isLight ? '#0284c7' : '#38bdf8'}; font-size: 0.76rem; background: ${isLight ? '#e0f2fe' : 'rgba(56,189,248,0.12)'}; padding: 4px 10px; border-radius: 4px; border: 1px solid ${isLight ? '#7dd3fc' : 'rgba(56,189,248,0.25)'}; font-weight: 700;">⚡ Verified Live DNS Diagnostic</span>`;
 
         this.speedResultBox.innerHTML = `
           <div style="margin-bottom: 12px; font-family: monospace; font-size: 0.84rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-            <span>🌐 <strong>ACTIVE DOMAIN:</strong> <span style="color: #fff;">${domain}</span></span>
+            <span>🌐 <strong style="color: var(--text-primary);">ACTIVE DOMAIN:</strong> <span style="color: var(--text-primary); font-weight: 800;">${domain}</span></span>
             <div>${dataSourceBadge}</div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 10px;">
             <!-- Current Domain Performance Column -->
-            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid ${scoreColor}55; border-radius: var(--radius-md); padding: 20px;">
+            <div style="background: ${cardBgLeft}; border: 1px solid ${scoreColor}; border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span style="font-size: 0.8rem; font-family: monospace; color: ${scoreColor}; font-weight: 700;">CURRENT (${domain.toUpperCase()})</span>
+                <span style="font-size: 0.8rem; font-family: monospace; color: ${scoreColor}; font-weight: 800;">CURRENT (${domain.toUpperCase()})</span>
                 <span style="padding: 4px 10px; border-radius: 20px; background: ${scoreBg}; color: ${scoreColor}; font-weight: 800; font-size: 0.88rem;">${metrics.score} / 100 ${scoreIcon}</span>
               </div>
-              <div style="font-size: 0.84rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
-                <div>⏱️ <strong>Load Time (TTI):</strong> <span style="color: ${scoreColor};">${metrics.loadTime}</span></div>
-                <div>📦 <strong>Total Page Weight:</strong> <span style="color: ${scoreColor};">${metrics.weight}</span></div>
-                <div>⚡ <strong>Server TTFB:</strong> <span style="color: ${scoreColor};">${metrics.ttfb}</span></div>
-                <div>🔍 <strong>Detected Bottleneck:</strong> <span style="color: #cbd5e1; font-size: 0.78rem;">${metrics.bottleneck}</span></div>
+              <div style="font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+                <div>⏱️ <strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.loadTime}</span></div>
+                <div>📦 <strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.weight}</span></div>
+                <div>⚡ <strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${scoreColor}; font-weight: 700;">${metrics.ttfb}</span></div>
+                <div>🔍 <strong style="color: var(--text-primary);">Detected Bottleneck:</strong> <span style="color: var(--text-secondary); font-size: 0.82rem; font-weight: 500;">${metrics.bottleneck}</span></div>
               </div>
             </div>
 
             <!-- PixelToCloud Optimized Column -->
-            <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: var(--radius-md); padding: 20px;">
+            <div style="background: ${cardBgRight}; border: 1px solid ${cardBorderRight}; border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span style="font-size: 0.8rem; font-family: monospace; color: #10b981; font-weight: 700;">WITH PIXELTOCLOUD OPTIMIZATION</span>
-                <span style="padding: 4px 10px; border-radius: 20px; background: rgba(16, 185, 129, 0.2); color: #10b981; font-weight: 800; font-size: 0.88rem;">99 / 100 ⚡</span>
+                <span style="font-size: 0.8rem; font-family: monospace; color: ${isLight ? '#059669' : '#10b981'}; font-weight: 800;">WITH PIXELTOCLOUD OPTIMIZATION</span>
+                <span style="padding: 4px 10px; border-radius: 20px; background: ${isLight ? '#dcfce7' : 'rgba(16, 185, 129, 0.2)'}; color: ${isLight ? '#059669' : '#10b981'}; font-weight: 800; font-size: 0.88rem;">99 / 100 ⚡</span>
               </div>
-              <div style="font-size: 0.84rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
-                <div>⏱️ <strong>Load Time (TTI):</strong> <span style="color: #10b981;">0.3s - 0.4s (Instant)</span></div>
-                <div>📦 <strong>Total Page Weight:</strong> <span style="color: #10b981;">84 kB (Gzip Minified)</span></div>
-                <div>⚡ <strong>Server TTFB:</strong> <span style="color: #10b981;">32ms (Cloudflare Edge)</span></div>
-                <div>🚀 <strong>Core Web Vitals:</strong> <span style="color: #10b981;">100% Perfect Green SEO</span></div>
+              <div style="font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+                <div>⏱️ <strong style="color: var(--text-primary);">Load Time (TTI):</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">0.3s - 0.4s (Instant)</span></div>
+                <div>📦 <strong style="color: var(--text-primary);">Total Page Weight:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">84 kB (Gzip Minified)</span></div>
+                <div>⚡ <strong style="color: var(--text-primary);">Server TTFB:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">32ms (Cloudflare Edge)</span></div>
+                <div>🚀 <strong style="color: var(--text-primary);">Core Web Vitals:</strong> <span style="color: ${isLight ? '#059669' : '#10b981'}; font-weight: 700;">100% Perfect Green SEO</span></div>
               </div>
             </div>
           </div>
