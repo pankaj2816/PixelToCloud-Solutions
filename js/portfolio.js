@@ -124,9 +124,11 @@ class PortfolioManager {
   constructor() {
     this.grid = document.getElementById('portfolio-grid');
     this.filterButtons = document.querySelectorAll('.filter-btn');
+    this.searchInput = document.getElementById('portfolio-search-input');
     this.modalOverlay = document.getElementById('portfolio-modal-overlay');
     this.modalContainer = document.getElementById('portfolio-modal-content');
     this.activeFilter = 'all';
+    this.searchQuery = '';
     this.currentSimInstance = null;
 
     this.init();
@@ -135,6 +137,7 @@ class PortfolioManager {
   init() {
     this.renderProjects(this.activeFilter);
     this.bindFilterEvents();
+    this.bindSearchEvents();
     this.bindModalCloseEvents();
   }
 
@@ -149,14 +152,76 @@ class PortfolioManager {
     });
   }
 
+  bindSearchEvents() {
+    if (!this.searchInput) {
+      this.searchInput = document.getElementById('portfolio-search-input');
+    }
+    if (!this.searchInput) return;
+    this.searchInput.addEventListener('input', (e) => {
+      this.searchQuery = e.target.value.toLowerCase().trim();
+      this.renderProjects(this.activeFilter);
+    });
+  }
+
   renderProjects(filter) {
     if (!this.grid) return;
 
-    const filtered = filter === 'all' 
-      ? PROJECTS_DATA 
-      : PROJECTS_DATA.filter(p => p.category === filter);
+    const isFeatured = this.grid.hasAttribute('data-featured');
+
+    let filtered = PROJECTS_DATA;
+
+    // Apply category filter if set and no search query
+    if (filter !== 'all' && !this.searchQuery) {
+      filtered = filtered.filter(p => p.category === filter);
+    }
+
+    // Apply search query across all fields if present
+    if (this.searchQuery) {
+      filtered = PROJECTS_DATA.filter(p => 
+        p.title.toLowerCase().includes(this.searchQuery) ||
+        p.tagline.toLowerCase().includes(this.searchQuery) ||
+        p.description.toLowerCase().includes(this.searchQuery) ||
+        p.categoryLabel.toLowerCase().includes(this.searchQuery) ||
+        p.badge.toLowerCase().includes(this.searchQuery) ||
+        p.techStack.some(t => t.toLowerCase().includes(this.searchQuery))
+      );
+    }
+
+    if (isFeatured) {
+      filtered = filtered.slice(0, 4); // Featured limit on homepage
+    }
 
     this.grid.innerHTML = '';
+
+    if (filtered.length === 0) {
+      this.grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px;" class="glass-card">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 14px; display: block;"></i>
+          <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+            No Projects Found matching "${this.searchQuery}"
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px;">
+            Try searching for "WebGL", "CA Tax", "Doctor", "React", "DevOps", or "E-Commerce".
+          </p>
+          <button class="btn-magnetic btn-primary" id="reset-search-btn" style="padding: 10px 24px;">
+            <span>Clear Search & Show All</span>
+          </button>
+        </div>
+      `;
+
+      const resetBtn = document.getElementById('reset-search-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (this.searchInput) this.searchInput.value = '';
+          this.searchQuery = '';
+          this.activeFilter = 'all';
+          this.filterButtons.forEach(b => b.classList.remove('active'));
+          if (this.filterButtons[0]) this.filterButtons[0].classList.add('active');
+          this.renderProjects('all');
+        });
+      }
+      return;
+    }
 
     filtered.forEach((project, index) => {
       const card = document.createElement('div');

@@ -117,70 +117,99 @@ class AppEngine {
     document.body.style.overflow = '';
   }
 
-  // ================= SCROLL & HEADER EFFECTS =================
+  // ================= SCROLL & HEADER EFFECTS (THROTTLED WITH rAF) =================
   bindScrollEffects() {
+    let ticking = false;
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
     window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-      if (this.navbar) {
-        if (scrollY > 50) {
-          this.navbar.classList.add('scrolled');
-        } else {
-          this.navbar.classList.remove('scrolled');
-        }
-      }
-
-      // Active nav link spy
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        const height = section.offsetHeight;
-        const id = section.getAttribute('id');
-
-        if (scrollY >= top && scrollY < top + height) {
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.pageYOffset;
+          if (this.navbar) {
+            if (scrollY > 50) {
+              this.navbar.classList.add('scrolled');
             } else {
-              link.classList.remove('active');
+              this.navbar.classList.remove('scrolled');
+            }
+          }
+
+          // Active nav link spy
+          sections.forEach(section => {
+            const top = section.offsetTop - 140;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+
+            if (scrollY >= top && scrollY < top + height) {
+              navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${id}`) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              });
             }
           });
-        }
-      });
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
 
-  // ================= CURSOR GLOW =================
+  // ================= CURSOR GLOW (GPU ACCELERATED WITH rAF) =================
   bindCursorGlow() {
     if (!this.cursorGlow) return;
+    let mouseX = 0, mouseY = 0;
+    let scheduled = false;
 
     window.addEventListener('mousemove', (e) => {
-      this.cursorGlow.style.left = `${e.clientX}px`;
-      this.cursorGlow.style.top = `${e.clientY}px`;
-    });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!scheduled) {
+        requestAnimationFrame(() => {
+          this.cursorGlow.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+          scheduled = false;
+        });
+        scheduled = true;
+      }
+    }, { passive: true });
   }
 
-  // ================= 3D CARD TILT EFFECT =================
+  // ================= 3D CARD TILT EFFECT (THROTTLED) =================
   bindCard3DTilt() {
     const cards = document.querySelectorAll('.glass-card, .service-card, .project-card');
 
     cards.forEach(card => {
+      let isHovered = false;
+      let cardTicking = false;
+
+      card.addEventListener('mouseenter', () => { isHovered = true; });
+
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        if (!isHovered || cardTicking) return;
+        cardTicking = true;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
 
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          cardTicking = false;
+        });
+      }, { passive: true });
 
       card.addEventListener('mouseleave', () => {
+        isHovered = false;
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
       });
     });

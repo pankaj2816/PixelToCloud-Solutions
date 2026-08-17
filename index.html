@@ -76,16 +76,16 @@
   <header class="navbar" id="navbar">
     <a href="#" class="nav-brand">
       <div class="nav-logo-icon">P2C</div>
-      <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span> <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-mono); margin-left: 4px;">by Pankaj</span></span>
+      <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
     </a>
 
     <nav class="nav-links">
       <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
-      <a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
       <a href="#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
       <a href="#devops" class="nav-link" data-i18n="nav_devops">DevOps</a>
       <a href="#techstack" class="nav-link" data-i18n="nav_techstack">Tech Stack</a>
-      <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+      <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
       <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
       <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
     </nav>
@@ -564,17 +564,19 @@
 
         <!-- After Layer (PixelToCloud) -->
         <div class="ba-layer ba-after-layer">
-          <div>
-            <span class="ba-tag ba-tag-after"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>PixelToCloud High-Speed Architecture</span>
-            <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #00f0ff;">Ultra-Fast & Modern (0.4s Load Time)</h3>
-            <p style="font-size: 0.88rem; color: #bae6fd; max-width: 380px; margin-top: 8px;">
-              Hardware-accelerated 60 FPS UI, sub-second edge routing, 100/100 SEO health, and 3.2x higher conversion rates.
-            </p>
-          </div>
-          <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
-            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>PageSpeed: 99/100</div>
-            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Weight: 92 kB Gzip</div>
-            <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Uptime: 99.99% Guaranteed</div>
+          <div class="ba-after-inner">
+            <div>
+              <span class="ba-tag ba-tag-after"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>PixelToCloud High-Speed Architecture</span>
+              <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #00f0ff;">Ultra-Fast & Modern (0.4s Load Time)</h3>
+              <p style="font-size: 0.88rem; color: #bae6fd; max-width: 380px; margin-top: 8px;">
+                Hardware-accelerated 60 FPS UI, sub-second edge routing, 100/100 SEO health, and 3.2x higher conversion rates.
+              </p>
+            </div>
+            <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
+              <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>PageSpeed: 99/100</div>
+              <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Weight: 92 kB Gzip</div>
+              <div><i class="fa-solid fa-check" style="color: #00f0ff; margin-right: 4px;"></i>Uptime: 99.99% Guaranteed</div>
+            </div>
           </div>
         </div>
 
@@ -615,9 +617,17 @@
         <button class="filter-btn" data-filter="devops">Cloud & DevOps</button>
       </div>
 
-      <!-- Dynamic Portfolio Grid -->
-      <div class="portfolio-grid" id="portfolio-grid">
+      <!-- Dynamic Portfolio Grid (Featured 4 Flagship Systems) -->
+      <div class="portfolio-grid" id="portfolio-grid" data-featured="true">
         <!-- Rendered by portfolio.js -->
+      </div>
+
+      <!-- View All Projects CTA -->
+      <div style="text-align: center; margin-top: 36px;" class="reveal">
+        <a href="portfolio.html" class="btn-magnetic btn-primary" style="padding: 14px 32px; font-size: 1rem; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;">
+          <span><i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>Explore Full Portfolio & All Live Demos</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>

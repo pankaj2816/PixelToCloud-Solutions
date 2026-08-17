@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About PixelToCloud Solutions — Co-founded by Lead Systems Architect Pankaj (8–10+ Yrs Exp) & Senior Software Developer Tushar Singhal (5+ Yrs Exp). Specializing in custom full-stack web applications, 2D/3D WebGL graphics, and Linux VPS DevOps.">
+  <meta name="keywords" content="PixelToCloud Founders, Pankaj Lead Architect, Tushar Singhal Developer, Full-Stack Web Agency, Linux VPS DevOps, WebGL Developers India">
+  <meta name="author" content="PixelToCloud Solutions by Pankaj & Tushar Singhal">
+  <meta name="theme-color" content="#080b11">
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Founders & Studio | PixelToCloud Solutions">
+  <meta property="og:description" content="Meet Lead Systems Architect Pankaj & Senior Software Developer Tushar Singhal. Driven by 8-10+ years of software architecture and 5+ years of full-stack engineering.">
+  <meta property="og:url" content="https://pankaj2816.github.io/PixelToCloud-Solutions/about.html">
+  <meta property="og:image" content="https://pankaj2816.github.io/PixelToCloud-Solutions/image/pankaj-profile.jpg">
+
+  <link rel="canonical" href="https://pankaj2816.github.io/PixelToCloud-Solutions/about.html">
+  <title>About Us & Founders | PixelToCloud Solutions</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css?v=11.0">
+  <link rel="stylesheet" href="css/animations.css?v=11.0">
+  <link rel="stylesheet" href="css/components.css?v=11.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=11.0">
+
+  <style>
+    .about-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .founders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-top: 50px;
+    }
+    .founder-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-normal);
+    }
+    .founder-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 240, 255, 0.12);
+      transform: translateY(-4px);
+    }
+    .founder-img-wrap {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .timeline-wrap {
+      position: relative;
+      max-width: 800px;
+      margin: 50px auto 0;
+      padding-left: 28px;
+      border-left: 2px dashed rgba(0, 240, 255, 0.3);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -35px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 12px var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Interactive Cursor Glow (Desktop) -->
+  <div class="cursor-glow"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="ambient-glow glow-cyan" style="top: 10%; left: 5%; width: 500px; height: 500px;"></div>
+  <div class="ambient-glow glow-purple" style="top: 40%; right: 5%; width: 600px; height: 600px;"></div>
+
+  <!-- ===================================================================
+       HEADER & FLOATING NAVBAR
+       =================================================================== -->
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo-icon">P2C</div>
+      <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="index.html#estimator" class="nav-link">Estimator</a>
+      <a href="index.html#devops" class="nav-link">DevOps</a>
+      <a href="index.html#techstack" class="nav-link">Tech Stack</a>
+      <a href="about.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">About</a>
+      <a href="index.html#faq" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang-selector-wrap">
+        <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
+        <select class="lang-select" id="language-selector" aria-label="Select Language">
+          <option value="en">EN</option>
+          <option value="hi">हिन्दी</option>
+          <option value="fr">FR</option>
+          <option value="de">DE</option>
+          <option value="ru">RU</option>
+        </select>
+      </div>
+
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+        <span class="theme-icon"></span>
+      </button>
+
+      <a href="contact.html" class="btn-magnetic btn-primary nav-cta-btn">
+        <span>Get Instant Quote</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="nav-brand">
+        <div class="nav-logo-icon">P2C</div>
+        <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+      </div>
+      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Navigation Menu">✕</button>
+    </div>
+    <div class="drawer-body">
+      <nav class="drawer-links">
+        <a href="index.html#services" class="drawer-link"><i class="fa-solid fa-code" style="margin-right: 8px;"></i>Services</a>
+        <a href="portfolio.html" class="drawer-link"><i class="fa-solid fa-briefcase" style="margin-right: 8px;"></i>Portfolio</a>
+        <a href="index.html#estimator" class="drawer-link"><i class="fa-solid fa-calculator" style="margin-right: 8px;"></i>Estimator</a>
+        <a href="index.html#devops" class="drawer-link"><i class="fa-solid fa-server" style="margin-right: 8px;"></i>DevOps</a>
+        <a href="index.html#techstack" class="drawer-link"><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i>Tech Stack</a>
+        <a href="about.html" class="drawer-link active"><i class="fa-solid fa-user-gear" style="margin-right: 8px;"></i>About Studio</a>
+        <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>Contact Us</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       ABOUT HERO SECTION
+       =================================================================== -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="section-tag reveal">
+        <i class="fa-solid fa-user-gear" style="margin-right: 6px; color: var(--accent-cyan);"></i>
+        <span>Founders & Engineering Leadership</span>
+      </div>
+      <h1 class="section-title reveal" style="font-size: clamp(2.2rem, 5vw, 3.6rem); max-width: 920px; margin: 16px auto;">
+        Architecting Next-Gen Web & <span class="text-gradient">Cloud-Native Systems</span>
+      </h1>
+      <p class="section-desc reveal" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7;">
+        PixelToCloud Solutions is a high-performance software engineering studio co-founded by <strong>Pankaj</strong> & <strong>Tushar Singhal</strong>. We bridge pixel-perfect frontend design, 60 FPS WebGL 3D graphics, automated CA tax hubs, telehealth portals, and hardened Linux server DevOps.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOUNDERS DEEP-DIVE SHOWCASE
+       =================================================================== -->
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">
+          <i class="fa-solid fa-users" style="margin-right: 6px; color: var(--accent-cyan);"></i>
+          <span>Meet The Team</span>
+        </div>
+        <h2 class="section-title">
+          Driven by <span class="text-gradient">8–10+ & 5+ Years</span> of Engineering Mastery
+        </h2>
+      </div>
+
+      <div class="founders-grid reveal">
+        <!-- Founder 1: Pankaj -->
+        <div class="founder-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <img src="image/pankaj-profile.jpg" alt="Pankaj - Lead Systems Architect & Founder" class="founder-img-wrap">
+              <span class="badge badge-cyan">8–10+ Years Experience</span>
+            </div>
+            <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">
+              Pankaj
+            </h3>
+            <div style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.86rem; font-weight: 600; margin-bottom: 14px;">
+              Lead Systems Architect & Co-Founder
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Over 8–10+ years of hands-on expertise building enterprise web applications, high-load REST/GraphQL microservices, 2D/3D WebGL Three.js engines, and Linux VPS server infrastructure. Pankaj oversees end-to-end system architecture, security hardening, and performance SLAs.
+            </p>
+
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 0.76rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Core Architecture Domains:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="badge badge-cyan">Full-Stack Architecture</span>
+                <span class="badge badge-purple">WebGL & Three.js</span>
+                <span class="badge badge-blue">Linux VPS DevOps</span>
+                <span class="badge badge-emerald">PostgreSQL & Redis</span>
+                <span class="badge badge-amber">Docker Clusters</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-solid fa-shield-halved" style="color: var(--accent-emerald); margin-right: 4px;"></i>50+ Enterprise Projects</span>
+            <a href="mailto:pppankaj2816@gmail.com" class="btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">
+              <span><i class="fa-solid fa-envelope" style="margin-right: 4px;"></i>Email Pankaj</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Founder 2: Tushar Singhal -->
+        <div class="founder-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <img src="image/cofounder-profile.jpg" alt="Tushar Singhal - Co-Founder & Senior Software Developer" class="founder-img-wrap" style="border-color: var(--accent-purple);">
+              <span class="badge badge-purple">5+ Years Experience</span>
+            </div>
+            <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">
+              Tushar Singhal
+            </h3>
+            <div style="color: var(--accent-purple); font-family: var(--font-mono); font-size: 0.86rem; font-weight: 600; margin-bottom: 14px;">
+              Co-Founder & Senior Software Developer
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              5+ years of specialized experience in full-stack web application development, complex API integration, fast database queries, and custom UI components. Tushar focuses on robust client logic, automated workflows, and delivering ultra-responsive digital products.
+            </p>
+
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 0.76rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Core Engineering Domains:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="badge badge-purple">Full-Stack Web Dev</span>
+                <span class="badge badge-cyan">REST APIs & Integrations</span>
+                <span class="badge badge-emerald">DB Query Optimization</span>
+                <span class="badge badge-amber">React & Modern JS</span>
+                <span class="badge badge-blue">Cloud Infrastructure</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-solid fa-code-commit" style="color: var(--accent-purple); margin-right: 4px;"></i>High-Scale Web Systems</span>
+            <a href="contact.html" class="btn-outline" style="padding: 6px 14px; font-size: 0.8rem; border-color: rgba(139, 92, 246, 0.4); color: var(--accent-purple);">
+              <span><i class="fa-solid fa-comments" style="margin-right: 4px;"></i>Connect with Tushar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studio Stats Highlights -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 60px;" class="reveal">
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan);">50+</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Shipped Web Systems</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Production Deployed & Live</div>
+        </div>
+
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent-purple);">8–10+ / 5+</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Years Combined Mastery</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Pankaj & Tushar Leadership</div>
+        </div>
+
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: #10b981;">99.99%</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Guaranteed Uptime SLA</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Linux VPS & Nginx Hardening</div>
+        </div>
+
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: #3b82f6;">100%</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Source Code Ownership</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Git Repos & Root Transfer</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       STUDIO CORE VALUES & PHILOSOPHY
+       =================================================================== -->
+  <section class="section" style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">
+          <i class="fa-solid fa-compass" style="margin-right: 6px; color: var(--accent-cyan);"></i>
+          <span>Engineering Principles</span>
+        </div>
+        <h2 class="section-title">
+          Our Core <span class="text-gradient">Studio Philosophy</span>
+        </h2>
+      </div>
+
+      <div class="values-grid reveal">
+        <div class="glass-card" style="padding: 28px;">
+          <div style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 12px;"><i class="fa-solid fa-bolt"></i></div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Zero-Bloat Performance</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            We write clean, efficient ES6+ JavaScript and modular CSS tokens without unnecessary heavy frameworks that slow down load speed. Every page is optimized for 95-100 PageSpeed scores.
+          </p>
+        </div>
+
+        <div class="glass-card" style="padding: 28px;">
+          <div style="font-size: 1.8rem; color: var(--accent-purple); margin-bottom: 12px;"><i class="fa-solid fa-cube"></i></div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">60 FPS WebGL & 3D Hardware Canvas</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            We build interactive 3D model visualizers, WebGL canvas shaders, and micro-animations that run silky smooth at 60 FPS on both mobile phones and desktop displays.
+          </p>
+        </div>
+
+        <div class="glass-card" style="padding: 28px;">
+          <div style="font-size: 1.8rem; color: #10b981; margin-bottom: 12px;"><i class="fa-solid fa-lock"></i></div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Bank-Grade Security & Encrypted Infrastructure</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            From 256-bit AES file vaults for CA & FinTech platforms to HIPAA-compliant medical records and Linux VPS firewall hardening, security is built into our core architecture.
+          </p>
+        </div>
+
+        <div class="glass-card" style="padding: 28px;">
+          <div style="font-size: 1.8rem; color: #3b82f6; margin-bottom: 12px;"><i class="fa-solid fa-handshake"></i></div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Direct Founder Communication</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            No account managers or middleman delays. You talk directly with Founders Pankaj & Tushar Singhal for daily updates, architecture scoping, and code execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       READY TO BUILD CTA BANNER
+       =================================================================== -->
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+      <!-- Callout CTA Banner -->
+      <div class="glass-card reveal" style="padding: 40px; text-align: center; border-color: rgba(0, 240, 255, 0.3);">
+        <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
+          Ready to Build Your Project with Pankaj & Tushar?
+        </h3>
+        <p style="font-size: 1rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto 24px; line-height: 1.6;">
+          Whether you need a full-stack web application, a 3D WebGL product configurator, or Linux VPS DevOps, we're ready to engineer your solution.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn-magnetic btn-primary" style="padding: 13px 28px;">
+            <span><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Contact Us</span>
+          </a>
+          <a href="index.html#estimator" class="btn-magnetic btn-secondary" style="padding: 13px 28px;">
+            <span><i class="fa-solid fa-calculator" style="margin-right: 6px;"></i>Estimate Project Cost</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       PIXELTOCLOUD AI VIRTUAL PROJECT ADVISOR (CHATBOT)
+       =================================================================== -->
+  <div class="ai-advisor-fab" id="ai-advisor-trigger" title="Chat with PixelToCloud AI Advisor">
+    <div class="ai-advisor-fab-badge">AI</div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><rect x="4" y="6" width="16" height="12" rx="2"></rect><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M9 16h6"></path><path d="M2 12h2"></path><path d="M20 12h2"></path></svg>
+  </div>
+
+  <div class="ai-advisor-modal" id="ai-advisor-modal">
+    <div class="ai-header">
+      <div class="ai-bot-info">
+        <div class="ai-avatar">AI</div>
+        <div>
+          <div style="font-weight: 700; font-size: 0.92rem; color: #fff;">PixelToCloud AI Advisor</div>
+          <div style="font-size: 0.72rem; color: #10b981; display: flex; align-items: center; gap: 4px;">
+            <span class="live-status-dot"></span> Online (Pankaj & Tushar AI Agent)
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <button id="ai-advisor-minimize" class="ai-header-btn" title="Minimize AI Chat" aria-label="Minimize">━</button>
+        <button id="ai-advisor-close" class="ai-header-btn ai-header-close" title="Close AI Chat" aria-label="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="ai-messages" id="ai-advisor-messages">
+      <div class="ai-msg ai-msg-bot">
+        <div class="ai-bubble">
+          <i class="fa-solid fa-hand" style="margin-right: 6px; color: #f59e0b;"></i><strong>Hello! Welcome to PixelToCloud About Page.</strong><br><br>
+          Want to know more about Lead Architect Pankaj (8-10+ Yrs Exp) or Senior Software Developer Tushar Singhal (5+ Yrs Exp)? Ask me anything!
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-chips-wrap" id="ai-advisor-chips">
+      <button class="ai-chip" data-query="Tell me about Pankaj's experience"><i class="fa-solid fa-user-gear" style="margin-right: 4px;"></i>Pankaj Bio</button>
+      <button class="ai-chip" data-query="Tell me about Tushar Singhal"><i class="fa-solid fa-code" style="margin-right: 4px;"></i>Tushar Bio</button>
+      <button class="ai-chip" data-query="How do I book a consultation call?"><i class="fa-regular fa-calendar-check" style="margin-right: 4px;"></i>Book Discovery Call</button>
+    </div>
+
+    <div class="ai-input-bar">
+      <input type="text" id="ai-advisor-input" placeholder="Ask about founders, experience, technologies...">
+      <button id="ai-advisor-send" aria-label="Send Message">➤</button>
+    </div>
+  </div>
+
+  <!-- Floating Direct WhatsApp Quick Action -->
+  <a href="https://wa.me/918219352124?text=Hello%20Pankaj%20%26%20Tushar,%20I%20would%20like%20to%20discuss%20a%20website%20and%20software%20project." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="nav-brand" style="margin-bottom: 16px;">
+            <div class="nav-logo-icon">P2C</div>
+            <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span> <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-mono); margin-left: 4px;">by Pankaj & Tushar</span></span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; max-width: 320px; margin-bottom: 20px;">
+            From pixel-perfect UI/UX and 2D/3D WebGL software to full cloud infrastructure, Linux servers, and DevOps. Co-founded by Pankaj & Tushar Singhal.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 8px;">
+            <span class="live-status-dot"></span>
+            <span>All Systems Operational & Online</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <div class="footer-links-list">
+            <a href="index.html#services">Custom Web Development</a>
+            <a href="index.html#services">2D/3D WebGL Software</a>
+            <a href="index.html#services">CA & FinTech Hubs</a>
+            <a href="index.html#services">Doctor & Telehealth Portals</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Infrastructure</h4>
+          <div class="footer-links-list">
+            <a href="index.html#devops">Linux VPS Setup</a>
+            <a href="index.html#devops">Docker Containerization</a>
+            <a href="index.html#devops">Nginx Reverse Proxy</a>
+            <a href="index.html#devops">Cloudflare & SSL Setup</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Connect</h4>
+          <div class="footer-links-list">
+            <a href="mailto:pppankaj2816@gmail.com" class="copy-email-trigger"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email: pppankaj2816@gmail.com</a>
+            <a href="https://wa.me/918219352124" target="_blank"><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>WhatsApp: +91 82193 52124</a>
+            <a href="index.html#estimator"><i class="fa-solid fa-calculator" style="margin-right: 6px;"></i>Project Cost Estimator</a>
+            <a href="contact.html"><i class="fa-regular fa-calendar-check" style="margin-right: 6px;"></i>Book Free Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 PixelToCloud Solutions. All Rights Reserved. Engineered with Precision by Pankaj & Tushar Singhal.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js?v=11.0"></script>
+  <script src="js/app.js?v=11.0"></script>
+  <script src="js/scheduler.js?v=11.0"></script>
+  <script src="js/ai-advisor.js?v=11.0"></script>
+
+</body>
+</html>
