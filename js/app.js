@@ -1,97 +1,103 @@
 /* ===================================================================
-   PANKAJ TECH STUDIO - MASTER CONTROLLER (APP.JS)
-   Theme switching, navigation, cursor glow, animations, contact form
+   PIXELTOCLOUD SOLUTIONS - CORE CLIENT APPLICATION ENGINE
+   Smooth scroll, magnetic physics, 3D tilt, dark/light theme, serverless form & a11y
    =================================================================== */
 
-class AppController {
+class AppEngine {
   constructor() {
-    this.theme = localStorage.getItem('pankaj_theme') || 'dark';
-    this.navbar = document.querySelector('.navbar');
+    this.themeToggleBtn = document.getElementById('theme-toggle');
+    this.themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
     this.mobileDrawer = document.getElementById('mobile-drawer');
     this.drawerOverlay = document.getElementById('drawer-overlay');
+    this.drawerCloseBtn = document.getElementById('drawer-close-btn');
+    this.navbar = document.getElementById('navbar');
     this.cursorGlow = document.querySelector('.cursor-glow');
-    this.toastContainer = document.getElementById('toast-container');
 
     this.init();
   }
 
   init() {
-    this.applyTheme(this.theme);
-    this.bindThemeToggle();
+    this.initTheme();
     this.bindNavigation();
     this.bindScrollEffects();
+    this.bindScrollReveal();
     this.bindCursorGlow();
     this.bindCard3DTilt();
     this.bindFAQAccordion();
     this.bindContactForm();
     this.bindQuickConnect();
-    this.bindScrollReveals();
+    this.bindLegalModals();
   }
 
-  // ================= THEME TOGGLE =================
-  applyTheme(theme) {
-    this.theme = theme;
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('pankaj_theme', theme);
+  // ================= THEME TOGGLE (DARK / DAY LIGHT MODE) =================
+  initTheme() {
+    const savedTheme = localStorage.getItem('pixelToCloud_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    this.updateThemeIcons(savedTheme);
 
-    const themeIcons = document.querySelectorAll('.theme-icon');
-    themeIcons.forEach(icon => {
-      if (theme === 'light') {
-        icon.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-      } else {
-        icon.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-      }
-    });
+    const toggleHandler = () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('pixelToCloud_theme', next);
+      this.updateThemeIcons(next);
+      this.showToast(`Switched to ${next === 'light' ? '☀️ Studio Frost Light Mode' : '🌙 Cyber Dark Mode'}`);
+    };
+
+    if (this.themeToggleBtn) this.themeToggleBtn.addEventListener('click', toggleHandler);
+    if (this.themeToggleMobile) this.themeToggleMobile.addEventListener('click', toggleHandler);
   }
 
-  bindThemeToggle() {
-    const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const newTheme = this.theme === 'dark' ? 'light' : 'dark';
-        this.applyTheme(newTheme);
-        this.showToast(`Switched to ${newTheme === 'dark' ? 'Obsidian Dark' : 'Titanium Light'} Mode`);
-      });
-    });
+  updateThemeIcons(theme) {
+    const icon = theme === 'light' ? '☀️' : '🌙';
+    const label = theme === 'light' ? 'Light' : 'Dark';
+    if (this.themeToggleBtn) {
+      this.themeToggleBtn.innerHTML = `<span>${icon}</span>`;
+      this.themeToggleBtn.setAttribute('aria-label', `Current theme is ${label}. Click to switch.`);
+    }
+    if (this.themeToggleMobile) {
+      this.themeToggleMobile.innerHTML = `<span>${icon}</span>`;
+      this.themeToggleMobile.setAttribute('aria-label', `Current theme is ${label}. Click to switch.`);
+    }
   }
 
-  // ================= NAVIGATION & DRAWER =================
+  // ================= NAVIGATION & MOBILE DRAWER (A11Y ENHANCED) =================
   bindNavigation() {
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('mobile-drawer-close');
-    const drawerLinks = document.querySelectorAll('.mobile-nav-link');
-
-    if (menuBtn) {
-      menuBtn.addEventListener('click', () => this.openDrawer());
+    if (this.mobileMenuBtn) {
+      this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      this.mobileMenuBtn.setAttribute('aria-controls', 'mobile-drawer');
+      this.mobileMenuBtn.addEventListener('click', () => this.openDrawer());
     }
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.closeDrawer());
+    if (this.drawerCloseBtn) {
+      this.drawerCloseBtn.addEventListener('click', () => this.closeDrawer());
     }
-
     if (this.drawerOverlay) {
       this.drawerOverlay.addEventListener('click', () => this.closeDrawer());
     }
 
-    drawerLinks.forEach(link => {
+    // Close drawer when clicking mobile links
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
       link.addEventListener('click', () => this.closeDrawer());
     });
 
-    // Smooth scroll for all hash links with offset
+    // Escape key closes mobile drawer
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.mobileDrawer?.classList.contains('open')) {
+        this.closeDrawer();
+      }
+    });
+
+    // Smooth Anchor Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         const href = anchor.getAttribute('href');
-        if (href === '#') return;
-        
+        if (href === '#' || href.startsWith('#!')) return;
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const navHeight = 90;
-          const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-          window.scrollTo({
-            top: targetPos,
-            behavior: 'smooth'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
@@ -100,12 +106,14 @@ class AppController {
   openDrawer() {
     if (this.mobileDrawer) this.mobileDrawer.classList.add('open');
     if (this.drawerOverlay) this.drawerOverlay.classList.add('active');
+    if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
 
   closeDrawer() {
     if (this.mobileDrawer) this.mobileDrawer.classList.remove('open');
     if (this.drawerOverlay) this.drawerOverlay.classList.remove('active');
+    if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
@@ -163,13 +171,9 @@ class AppController {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Set CSS variables for spotlight hover lighting
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-
-        // Subtle 3D tilt calculation
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
+
         const rotateX = ((y - centerY) / centerY) * -5;
         const rotateY = ((x - centerX) / centerX) * 5;
 
@@ -177,12 +181,36 @@ class AppController {
       });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
       });
     });
   }
 
-  // ================= FAQ ACCORDION =================
+  // ================= SCROLL REVEAL OBSERVER =================
+  bindScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('active'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // ================= FAQ ACCORDION (A11Y EXPANDED STATE) =================
   bindFAQAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
 
@@ -191,6 +219,7 @@ class AppController {
       const answerWrap = item.querySelector('.faq-answer-wrap');
 
       if (btn && answerWrap) {
+        btn.setAttribute('aria-expanded', 'false');
         btn.addEventListener('click', () => {
           const isActive = item.classList.contains('active');
 
@@ -198,6 +227,8 @@ class AppController {
           faqItems.forEach(other => {
             if (other !== item) {
               other.classList.remove('active');
+              const otherBtn = other.querySelector('.faq-question-btn');
+              if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
               const otherWrap = other.querySelector('.faq-answer-wrap');
               if (otherWrap) otherWrap.style.maxHeight = null;
             }
@@ -206,9 +237,11 @@ class AppController {
           // Toggle current
           if (isActive) {
             item.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
             answerWrap.style.maxHeight = null;
           } else {
             item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
             answerWrap.style.maxHeight = answerWrap.scrollHeight + 'px';
           }
         });
@@ -216,7 +249,7 @@ class AppController {
     });
   }
 
-  // ================= CONTACT FORM DISPATCH (EMAIL PRIORITY & WHATSAPP) =================
+  // ================= CONTACT FORM DISPATCH (SERVERLESS DIRECT EMAIL & WHATSAPP) =================
   bindContactForm() {
     const form = document.getElementById('contact-form');
     const emailBtn = document.getElementById('contact-submit-email');
@@ -250,14 +283,19 @@ class AppController {
     };
 
     // 1. Direct Priority Email Dispatch
-    const sendViaEmail = () => {
+    const sendViaEmail = async () => {
       const data = validateForm();
       if (!data) return;
 
-      const subject = encodeURIComponent(`🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`);
-      const body = encodeURIComponent(
+      if (emailBtn) {
+        emailBtn.disabled = true;
+        emailBtn.innerHTML = '<span>✉️ Dispatching Inquiry to Pankaj...</span>';
+      }
+
+      const subject = `🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`;
+      const body = 
         `Dear Pankaj,\n\n` +
-        `I would like to discuss a project with PixelToCloud Solutions.\n\n` +
+        `I would like to discuss a new software project with PixelToCloud Solutions.\n\n` +
         `--- CLIENT CONTACT DETAILS ---\n` +
         `👤 Name: ${data.name}\n` +
         `📧 Email: ${data.email}\n` +
@@ -266,12 +304,20 @@ class AppController {
         `🛠️ Services Needed: ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
         `--- PROJECT OVERVIEW & REQUIREMENTS ---\n` +
         `${data.message}\n\n` +
-        `Best regards,\n${data.name}`
-      );
+        `Best regards,\n${data.name}`;
 
-      const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${subject}&body=${body}`;
-      this.showToast('✉️ Opening direct email to pppankaj2816@gmail.com...');
+      const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Execute mailto client dispatch
+      this.showToast('✉️ Opening direct email draft to pppankaj2816@gmail.com...');
       window.location.href = mailtoUrl;
+
+      setTimeout(() => {
+        if (emailBtn) {
+          emailBtn.disabled = false;
+          emailBtn.innerHTML = '<span>✉️ Send Inquiry via Email to Pankaj (Priority)</span>';
+        }
+      }, 2000);
     };
 
     // 2. Direct WhatsApp Dispatch
@@ -304,6 +350,53 @@ class AppController {
     });
   }
 
+  // ================= LEGAL MODALS (PRIVACY & TERMS) =================
+  bindLegalModals() {
+    const privacyBtn = document.getElementById('open-privacy-modal');
+    const termsBtn = document.getElementById('open-terms-modal');
+    const privacyModal = document.getElementById('privacy-modal');
+    const termsModal = document.getElementById('terms-modal');
+
+    const openModal = (modal) => {
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const closeModal = (modal) => {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    };
+
+    if (privacyBtn) privacyBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(privacyModal); });
+    if (termsBtn) termsBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(termsModal); });
+
+    document.querySelectorAll('.legal-modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        closeModal(privacyModal);
+        closeModal(termsModal);
+      });
+    });
+
+    [privacyModal, termsModal].forEach(modal => {
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal(modal);
+        });
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal(privacyModal);
+        closeModal(termsModal);
+      }
+    });
+  }
+
   // ================= QUICK CONNECT & COPY (WITH FALLBACK) =================
   bindQuickConnect() {
     const copyEmailBtns = document.querySelectorAll('.copy-email-trigger');
@@ -319,31 +412,30 @@ class AppController {
     copyPhoneBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const phone = '+91 82193 52124';
+        const phone = '+918219352124';
         this.copyToClipboard(phone, `📋 Copied "${phone}" to clipboard!`);
       });
     });
   }
 
   copyToClipboard(text, successMsg) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(() => {
         this.showToast(successMsg);
       }).catch(() => {
-        this.fallbackCopyText(text, successMsg);
+        this.fallbackCopy(text, successMsg);
       });
     } else {
-      this.fallbackCopyText(text, successMsg);
+      this.fallbackCopy(text, successMsg);
     }
   }
 
-  fallbackCopyText(text, successMsg) {
+  fallbackCopy(text, successMsg) {
     const textArea = document.createElement('textarea');
     textArea.value = text;
     textArea.style.position = 'fixed';
-    textArea.style.top = '0';
-    textArea.style.left = '0';
-    textArea.style.opacity = '0';
+    textArea.style.top = '-9999px';
+    textArea.style.left = '-9999px';
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
@@ -351,49 +443,28 @@ class AppController {
       document.execCommand('copy');
       this.showToast(successMsg);
     } catch (err) {
-      this.showToast('📋 ' + text);
+      this.showToast(`ℹ️ Copy manually: ${text}`);
     }
     document.body.removeChild(textArea);
   }
 
-  // ================= SCROLL REVEAL (INTERSECTION OBSERVER) =================
-  bindScrollReveals() {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      reveals.forEach(el => el.classList.add('active'));
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
-    });
-
-    reveals.forEach(el => observer.observe(el));
-  }
-
   // ================= TOAST NOTIFICATION SYSTEM =================
   showToast(message, duration = 3500) {
-    if (!this.toastContainer) return;
+    const container = document.getElementById('toast-container');
+    if (!container) return;
 
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
       <span>${message}</span>
     `;
 
-    this.toastContainer.appendChild(toast);
+    container.appendChild(toast);
 
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
+      toast.style.transform = 'translateY(15px)';
       toast.style.transition = 'all 0.3s ease';
       setTimeout(() => toast.remove(), 300);
     }, duration);
@@ -402,5 +473,5 @@ class AppController {
 
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
-  window.App = new AppController();
+  window.App = new AppEngine();
 });

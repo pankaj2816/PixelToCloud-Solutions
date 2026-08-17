@@ -503,19 +503,25 @@
   }
 
   /* 17. AI Advisor & Scheduler Modals */
-  .ai-chat-modal {
+  .ai-advisor-modal, .ai-chat-modal {
     background: #ffffff !important;
     border: 1px solid rgba(148, 163, 184, 0.4) !important;
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18) !important;
   }
-  .ai-chat-header {
+  .ai-header, .ai-chat-header {
     background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
     color: #ffffff !important;
+    border-bottom: 1px solid rgba(2, 132, 199, 0.3) !important;
   }
-  .ai-chat-header div {
+  .ai-header div, .ai-chat-header div, .ai-bot-info div {
     color: #ffffff !important;
   }
-  .ai-messages-container {
+  .ai-header-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+  }
+  .ai-messages, .ai-messages-container {
     background: #f8fafc !important;
   }
   .ai-msg-bot .ai-bubble {
@@ -530,6 +536,10 @@
   .ai-msg-user .ai-bubble {
     background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
     color: #ffffff !important;
+  }
+  .ai-chips-wrap {
+    background: #f1f5f9 !important;
+    border-top: 1px solid #cbd5e1 !important;
   }
   .ai-chip {
     background: #ffffff !important;
