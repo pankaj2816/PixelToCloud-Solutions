@@ -290,10 +290,11 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 22px 28px;
-  background: rgba(14, 19, 31, 0.7);
+  background: var(--bg-card);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .metric-item {
@@ -696,8 +697,8 @@
 }
 
 .estimator-summary-panel {
-  background: rgba(10, 14, 23, 0.85);
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 30px;
   display: flex;
@@ -706,6 +707,7 @@
   position: sticky;
   top: 100px;
   height: fit-content;
+  box-shadow: var(--shadow-md);
 }
 
 .estimate-price-display {
@@ -1377,7 +1379,7 @@
 .form-control {
   width: 100%;
   padding: 14px 18px;
-  background: rgba(10, 14, 23, 0.6);
+  background: var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   color: var(--text-primary);
@@ -1387,8 +1389,8 @@
 
 .form-control:focus {
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-  background: rgba(14, 20, 32, 0.8);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+  background: var(--bg-card);
 }
 
 .form-services-checkboxes {
