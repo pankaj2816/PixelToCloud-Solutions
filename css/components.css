@@ -1624,3 +1624,381 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
+/* ===================================================================
+   13. MULTI-LANGUAGE SELECTOR
+   =================================================================== */
+.lang-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.lang-select {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.lang-select option {
+  background: #0d121c;
+  color: #fff;
+}
+
+/* ===================================================================
+   14. INTERACTIVE BEFORE VS AFTER TRANSFORMATION SLIDER
+   =================================================================== */
+.before-after-box {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: var(--shadow-lg);
+  user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
+  background: #080d1a;
+}
+
+@media (max-width: 768px) {
+  .before-after-box {
+    height: 380px;
+  }
+}
+
+.ba-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.ba-before-layer {
+  background: radial-gradient(circle at top right, #1a0f0f 0%, #0a0707 100%);
+  color: #f87171;
+  z-index: 1;
+}
+
+.ba-after-layer {
+  background: radial-gradient(circle at top left, #071a1c 0%, #060b14 100%);
+  color: #38bdf8;
+  z-index: 2;
+  width: 50%;
+  border-right: 2px solid var(--accent-cyan);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ba-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.ba-tag-before {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.ba-tag-after {
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: var(--accent-cyan);
+}
+
+/* ===================================================================
+   15. PIXELTOCLOUD AI VIRTUAL PROJECT ADVISOR WIDGET
+   =================================================================== */
+.ai-advisor-fab {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+  color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.5);
+  z-index: 990;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+}
+
+.ai-advisor-fab:hover {
+  transform: scale(1.1) rotate(6deg);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.7);
+}
+
+.ai-advisor-fab-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #10b981;
+  color: #042f2e;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+.ai-advisor-modal {
+  position: fixed;
+  bottom: 170px;
+  right: 28px;
+  width: min(90vw, 380px);
+  height: 520px;
+  background: rgba(10, 14, 23, 0.96);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9) translateY(20px);
+  transition: all var(--transition-smooth);
+}
+
+.ai-advisor-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+
+.ai-header {
+  padding: 16px 20px;
+  background: rgba(14, 20, 32, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-bot-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #050b14;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.ai-messages {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.86rem;
+}
+
+.ai-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 86%;
+}
+
+.ai-msg-user {
+  align-self: flex-end;
+}
+
+.ai-msg-user .ai-bubble {
+  background: linear-gradient(135deg, #00f0ff 0%, #00a3ff 100%);
+  color: #050b14;
+  font-weight: 600;
+  border-radius: 14px 14px 2px 14px;
+  padding: 10px 14px;
+}
+
+.ai-msg-bot {
+  align-self: flex-start;
+}
+
+.ai-msg-bot .ai-bubble {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: 14px 14px 14px 2px;
+  padding: 12px 14px;
+  line-height: 1.55;
+}
+
+.ai-chips-wrap {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.ai-chip {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ai-chip:hover {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.ai-input-bar {
+  padding: 12px 16px;
+  background: rgba(14, 20, 32, 0.9);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  gap: 8px;
+}
+
+.ai-input-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-size: 0.86rem;
+}
+
+.ai-input-bar button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Typing Dots Animation */
+.ai-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  animation: pulseGlow 1s infinite alternate;
+}
+.ai-dot:nth-child(2) { animation-delay: 0.2s; }
+.ai-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ===================================================================
+   16. 1-ON-1 DISCOVERY CALL SCHEDULER MODAL
+   =================================================================== */
+.scheduler-date-card {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.scheduler-date-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-medium);
+}
+
+.scheduler-date-card.selected {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.scheduler-slot-btn {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.scheduler-slot-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.scheduler-slot-btn.active {
+  background: var(--accent-cyan);
+  color: #050b14;
+  font-weight: 700;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+

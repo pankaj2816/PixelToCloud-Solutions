@@ -62,12 +62,28 @@
     </nav>
 
     <div class="nav-actions">
+      <!-- Language Selector (English, Hindi, French, German, Russian) -->
+      <div class="lang-selector-wrap">
+        <span style="font-size: 0.85rem;">🌐</span>
+        <select class="lang-select" id="language-selector" aria-label="Select Language">
+          <option value="en">EN</option>
+          <option value="hi">हिन्दी</option>
+          <option value="fr">FR</option>
+          <option value="de">DE</option>
+          <option value="ru">RU</option>
+        </select>
+      </div>
+
+      <button class="btn-magnetic btn-secondary open-scheduler-btn nav-schedule-btn" style="padding: 6px 12px; font-size: 0.82rem;">
+        <span>📅 <span data-i18n="nav_schedule">Book Call</span></span>
+      </button>
+
       <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
         <span class="theme-icon"></span>
       </button>
 
       <a href="#contact" class="btn-magnetic btn-primary nav-cta-btn">
-        <span>Get Instant Quote</span>
+        <span data-i18n="nav_cta">Get Instant Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
 
@@ -463,6 +479,65 @@
             </div>
             <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       2.5 INTERACTIVE BEFORE & AFTER TRANSFORMATION SLIDER
+       =================================================================== -->
+  <section class="section" id="transformation" style="background: rgba(8, 11, 17, 0.6);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+          <span data-i18n="section_before_after_tag">Visual Impact</span>
+        </div>
+        <h2 class="section-title">
+          Interactive <span class="text-gradient" data-i18n="section_before_after_title">Before & After Transformation</span>
+        </h2>
+        <p class="section-desc">
+          Drag the interactive handle horizontally to compare an outdated legacy website with PixelToCloud's high-speed, modern architecture.
+        </p>
+      </div>
+
+      <div class="before-after-box reveal" id="before-after-container">
+        <!-- Before Layer (Legacy) -->
+        <div class="ba-layer ba-before-layer">
+          <div>
+            <span class="ba-tag ba-tag-before">⚠️ Outdated Legacy Website</span>
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #f87171;">Clunky & Slow (4.8s Load Time)</h3>
+            <p style="font-size: 0.88rem; color: #fca5a5; max-width: 380px; margin-top: 8px;">
+              Bloated code, failing Google Core Web Vitals, blurry non-responsive images, and 75% visitor drop-off.
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
+            <div>❌ PageSpeed: 38/100</div>
+            <div>❌ Total Weight: 6.8 MB</div>
+            <div>❌ Mobile: Broken Layout</div>
+          </div>
+        </div>
+
+        <!-- After Layer (PixelToCloud) -->
+        <div class="ba-layer ba-after-layer">
+          <div>
+            <span class="ba-tag ba-tag-after">⚡ PixelToCloud High-Speed Architecture</span>
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-top: 14px; color: #00f0ff;">Ultra-Fast & Modern (0.4s Load Time)</h3>
+            <p style="font-size: 0.88rem; color: #bae6fd; max-width: 380px; margin-top: 8px;">
+              Hardware-accelerated 60 FPS UI, sub-second edge routing, 100/100 SEO health, and 3.2x higher conversion rates.
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; font-family: monospace; font-size: 0.82rem; flex-wrap: wrap;">
+            <div>✔ PageSpeed: 99/100</div>
+            <div>✔ Weight: 92 kB Gzip</div>
+            <div>✔ Uptime: 99.99% Guaranteed</div>
+          </div>
+        </div>
+
+        <!-- Draggable Handle -->
+        <div class="ba-handle">
+          <span>⬌</span>
         </div>
       </div>
     </div>
@@ -1303,6 +1378,122 @@
     </div>
   </div>
 
+  <!-- ===================================================================
+       PIXELTOCLOUD AI VIRTUAL PROJECT ADVISOR (CHATBOT)
+       =================================================================== -->
+  <div class="ai-advisor-fab" id="ai-advisor-trigger" title="Chat with PixelToCloud AI Advisor">
+    <div class="ai-advisor-fab-badge">AI</div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><rect x="4" y="6" width="16" height="12" rx="2"></rect><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M9 16h6"></path><path d="M2 12h2"></path><path d="M20 12h2"></path></svg>
+  </div>
+
+  <div class="ai-advisor-modal" id="ai-advisor-modal">
+    <div class="ai-header">
+      <div class="ai-bot-info">
+        <div class="ai-avatar">AI</div>
+        <div>
+          <div style="font-weight: 700; font-size: 0.92rem; color: #fff;">PixelToCloud AI Advisor</div>
+          <div style="font-size: 0.72rem; color: #10b981; display: flex; align-items: center; gap: 4px;">
+            <span class="live-status-dot"></span> Online (Pankaj AI Agent)
+          </div>
+        </div>
+      </div>
+      <button id="ai-advisor-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 4px;">✕</button>
+    </div>
+
+    <div class="ai-messages" id="ai-advisor-messages">
+      <div class="ai-msg ai-msg-bot">
+        <div class="ai-bubble">
+          👋 <strong>Hello! I'm PixelToCloud's AI Project Advisor.</strong><br><br>
+          I can instantly answer questions regarding:
+          • Doctor/Clinic Booking Portals<br>
+          • CA & Tax Suite Features<br>
+          • 2D/3D WebGL Software<br>
+          • Server, Linux VPS & AWS Deployments<br>
+          • Timelines & Custom Estimates<br><br>
+          What are you looking to build today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Chips -->
+    <div class="ai-chips-wrap" id="ai-advisor-chips">
+      <button class="ai-chip" data-query="How much does a doctor booking portal cost?">🩺 Doctor Portal Cost?</button>
+      <button class="ai-chip" data-query="What features are in the CA Tax portal?">💼 CA Tax Features</button>
+      <button class="ai-chip" data-query="Can you build 3D WebGL software?">🧊 3D WebGL</button>
+      <button class="ai-chip" data-query="How do you handle VPS and AWS server setup?">☁️ Server & VPS</button>
+      <button class="ai-chip" data-query="Who is Pankaj and what is his experience?">👨‍💻 About Pankaj</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="ai-input-bar">
+      <input type="text" id="ai-advisor-input" placeholder="Ask about services, pricing, tech stack...">
+      <button id="ai-advisor-send" aria-label="Send Message">➤</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       1-ON-1 DISCOVERY CALL SCHEDULER MODAL
+       =================================================================== -->
+  <div class="modal-overlay" id="scheduler-modal">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <button class="modal-close-btn" id="scheduler-close-btn" aria-label="Close Scheduler">✕</button>
+      <div class="modal-body" style="padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <div class="nav-logo-icon">📅</div>
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: #fff;">
+              Schedule 1-on-1 Discovery Call
+            </h3>
+            <div style="font-size: 0.82rem; color: var(--accent-cyan); font-family: monospace;">
+              Direct Technical Consultation with Pankaj (Principal Architect)
+            </div>
+          </div>
+        </div>
+
+        <form id="scheduler-form" style="margin-top: 20px;">
+          <div style="margin-bottom: 16px;">
+            <label class="form-label">1. Select Preferred Date:</label>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;" id="scheduler-dates">
+              <!-- Populated by scheduler.js -->
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label class="form-label">2. Select Time Slot (IST / Online):</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;" id="scheduler-slots">
+              <button type="button" class="scheduler-slot-btn active">11:00 AM</button>
+              <button type="button" class="scheduler-slot-btn">02:30 PM</button>
+              <button type="button" class="scheduler-slot-btn">04:00 PM</button>
+              <button type="button" class="scheduler-slot-btn">06:30 PM</button>
+              <button type="button" class="scheduler-slot-btn">08:00 PM</button>
+              <button type="button" class="scheduler-slot-btn">09:30 PM</button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div>
+              <label class="form-label">Your Name *</label>
+              <input type="text" id="sched-name" class="form-control" placeholder="e.g. Dr. Roy / Rahul" required>
+            </div>
+            <div>
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="sched-email" class="form-control" placeholder="name@domain.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Project Topic / Discussion Goal</label>
+            <input type="text" id="sched-topic" class="form-control" placeholder="e.g. CA Portal architecture, 3D WebGL app, VPS setup">
+          </div>
+
+          <button type="submit" class="btn-magnetic btn-primary" style="width: 100%; padding: 14px; margin-top: 10px;">
+            <span>Confirm Booking & Receive WhatsApp Calendar Invite</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Direct WhatsApp Quick Action -->
   <a href="https://wa.me/918219352124?text=Hello%20Pankaj,%20I%20would%20like%20to%20discuss%20a%20website%20and%20software%20project." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -1376,11 +1567,15 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/canvas-hero.js"></script>
+  <script src="js/before-after.js"></script>
   <script src="js/portfolio.js"></script>
   <script src="js/estimator.js"></script>
   <script src="js/terminal.js"></script>
   <script src="js/api-lab.js"></script>
+  <script src="js/ai-advisor.js"></script>
+  <script src="js/scheduler.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

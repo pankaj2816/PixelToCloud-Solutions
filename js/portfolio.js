@@ -432,14 +432,28 @@ class PortfolioManager {
         return `
           <div style="width: 100%; height: 100%; position: relative; display: flex; flex-direction: column;">
             <canvas id="sim-3d-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(10, 14, 23, 0.85); backdrop-filter: blur(10px); padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(139,92,246,0.3); font-family: monospace; font-size: 0.8rem; color: #c084fc;">
-              <div>WebGL 3D Interactive Viewport</div>
-              <div style="color: #94a3b8; font-size: 0.74rem;">Drag mouse to Orbit / Rotate 3D Geometry</div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(10, 14, 23, 0.9); backdrop-filter: blur(12px); padding: 12px 18px; border-radius: 10px; border: 1px solid rgba(0,240,255,0.3); font-family: monospace; font-size: 0.82rem; color: #f8fafc; box-shadow: 0 10px 25px rgba(0,0,0,0.6);">
+              <div style="color: var(--accent-cyan); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                <span class="live-status-dot"></span> 3D WebGL Studio Viewport
+              </div>
+              <div style="color: #94a3b8; font-size: 0.74rem; margin-top: 4px;">Drag mouse to Orbit | Switch Materials & Lighting below</div>
             </div>
-            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-              <button id="sim-3d-wireframe" style="padding: 6px 14px; background: #2e1065; border: 1px solid #8b5cf6; border-radius: 20px; color: #fff; font-size: 0.8rem;">Toggle Wireframe</button>
-              <button id="sim-3d-shape" style="padding: 6px 14px; background: #2e1065; border: 1px solid #8b5cf6; border-radius: 20px; color: #fff; font-size: 0.8rem;">Change Geometry</button>
-              <button id="sim-3d-light" style="padding: 6px 14px; background: #2e1065; border: 1px solid #8b5cf6; border-radius: 20px; color: #fff; font-size: 0.8rem;">Switch Shading</button>
+
+            <!-- Material & Lighting Preset Controls -->
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: rgba(10, 14, 23, 0.85); backdrop-filter: blur(12px); padding: 10px 16px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">MATERIAL:</span>
+                <button class="sim-3d-mat-btn active" data-mat="cyan" style="padding: 4px 10px; background: rgba(0,240,255,0.2); border: 1px solid #00f0ff; border-radius: 6px; color: #00f0ff; font-size: 0.74rem;">Cyan Chrome</button>
+                <button class="sim-3d-mat-btn" data-mat="purple" style="padding: 4px 10px; background: rgba(139,92,246,0.1); border: 1px solid #8b5cf6; border-radius: 6px; color: #c084fc; font-size: 0.74rem;">Neon Violet</button>
+                <button class="sim-3d-mat-btn" data-mat="emerald" style="padding: 4px 10px; background: rgba(16,185,129,0.1); border: 1px solid #10b981; border-radius: 6px; color: #34d399; font-size: 0.74rem;">Emerald Glass</button>
+                <button class="sim-3d-mat-btn" data-mat="gold" style="padding: 4px 10px; background: rgba(245,158,11,0.1); border: 1px solid #f59e0b; border-radius: 6px; color: #fbbf24; font-size: 0.74rem;">Gold PBR</button>
+              </div>
+
+              <div style="display: flex; gap: 8px;">
+                <button id="sim-3d-wireframe" style="padding: 5px 12px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.76rem;">Wireframe Mode</button>
+                <button id="sim-3d-shape" style="padding: 5px 12px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); border-radius: 6px; color: #fff; font-size: 0.76rem;">Morph Shape</button>
+              </div>
             </div>
           </div>
         `;
@@ -682,16 +696,36 @@ class PortfolioManager {
       [0,1,2,3], [4,5,6,7], [0,1,5,4], [2,3,7,6], [0,3,7,4], [1,2,6,5]
     ];
 
+    let currentMat = 'cyan';
+    const materials = {
+      cyan: { stroke: '#00f0ff', fill: 'rgba(0, 240, 255, 0.32)', shadow: '#00f0ff', dot: '#ffffff' },
+      purple: { stroke: '#c084fc', fill: 'rgba(139, 92, 246, 0.38)', shadow: '#8b5cf6', dot: '#f3e8ff' },
+      emerald: { stroke: '#34d399', fill: 'rgba(16, 185, 129, 0.32)', shadow: '#10b981', dot: '#d1fae5' },
+      gold: { stroke: '#fbbf24', fill: 'rgba(245, 158, 11, 0.38)', shadow: '#f59e0b', dot: '#fef3c7' }
+    };
+
+    // Shape 0: Cube, Shape 1: Octahedron/Diamond
+    const octaVertices = [
+      [0, 1.4, 0], [0, -1.4, 0], [1, 0, 0], [-1, 0, 0], [0, 0, 1], [0, 0, -1]
+    ];
+    const octaEdges = [
+      [0,2], [0,3], [0,4], [0,5],
+      [1,2], [1,3], [1,4], [1,5],
+      [2,4], [4,3], [3,5], [5,2]
+    ];
+    const octaFaces = [
+      [0,2,4], [0,4,3], [0,3,5], [0,5,2],
+      [1,2,4], [1,4,3], [1,3,5], [1,5,2]
+    ];
+
     const project3D = (x, y, z) => {
       // Rotation matrices
       const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
       const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
 
-      // Rotate Y
       let x1 = x * cosY + z * sinY;
       let z1 = -x * sinY + z * cosY;
 
-      // Rotate X
       let y2 = y * cosX - z1 * sinX;
       let z2 = y * sinX + z1 * cosX;
 
@@ -712,15 +746,19 @@ class PortfolioManager {
 
       // Auto slow rotate if not dragging
       if (!isDragging) {
-        rotY += 0.01;
-        rotX += 0.005;
+        rotY += 0.012;
+        rotX += 0.006;
       }
 
-      const projected = cubeVertices.map(v => project3D(v[0], v[1], v[2]));
+      const activeVerts = shapeMode === 0 ? cubeVertices : octaVertices;
+      const activeEdges = shapeMode === 0 ? cubeEdges : octaEdges;
+      const activeFaces = shapeMode === 0 ? cubeFaces : octaFaces;
+
+      const projected = activeVerts.map(v => project3D(v[0], v[1], v[2]));
+      const mat = materials[currentMat] || materials.cyan;
 
       if (!isWireframe) {
-        // Draw shaded polygon faces
-        cubeFaces.forEach(face => {
+        activeFaces.forEach(face => {
           ctx.beginPath();
           const p0 = projected[face[0]];
           ctx.moveTo(p0.x, p0.y);
@@ -729,18 +767,18 @@ class PortfolioManager {
             ctx.lineTo(p.x, p.y);
           }
           ctx.closePath();
-          ctx.fillStyle = 'rgba(139, 92, 246, 0.28)';
+          ctx.fillStyle = mat.fill;
           ctx.fill();
         });
       }
 
       // Draw edges with glowing wireframe
-      ctx.strokeStyle = '#c084fc';
-      ctx.lineWidth = 2;
-      ctx.shadowColor = '#8b5cf6';
-      ctx.shadowBlur = 10;
+      ctx.strokeStyle = mat.stroke;
+      ctx.lineWidth = 2.2;
+      ctx.shadowColor = mat.shadow;
+      ctx.shadowBlur = 12;
 
-      cubeEdges.forEach(edge => {
+      activeEdges.forEach(edge => {
         const p1 = projected[edge[0]];
         const p2 = projected[edge[1]];
         ctx.beginPath();
@@ -752,8 +790,9 @@ class PortfolioManager {
       // Draw vertices
       projected.forEach(p => {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = '#00f0ff';
+        ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = mat.dot;
+        ctx.shadowBlur = 8;
         ctx.fill();
       });
 
@@ -783,18 +822,39 @@ class PortfolioManager {
       lastMouseY = e.clientY;
     });
 
-    // Control buttons
+    // Material Switcher Buttons
+    document.querySelectorAll('.sim-3d-mat-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.sim-3d-mat-btn').forEach(b => {
+          b.classList.remove('active');
+          b.style.background = 'rgba(255,255,255,0.06)';
+          b.style.borderColor = 'transparent';
+        });
+        btn.classList.add('active');
+        btn.style.background = 'rgba(0,240,255,0.2)';
+        btn.style.borderColor = '#00f0ff';
+        currentMat = btn.getAttribute('data-mat');
+      });
+    });
+
+    // Wireframe toggle
     const wireBtn = document.getElementById('sim-3d-wireframe');
     if (wireBtn) {
-      wireBtn.addEventListener('click', () => {
+      wireBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         isWireframe = !isWireframe;
+        wireBtn.style.background = isWireframe ? 'rgba(0,240,255,0.25)' : 'rgba(255,255,255,0.06)';
       });
     }
 
+    // Shape morphing
     const shapeBtn = document.getElementById('sim-3d-shape');
     if (shapeBtn) {
-      shapeBtn.addEventListener('click', () => {
-        rotX += 1.2;
+      shapeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        shapeMode = shapeMode === 0 ? 1 : 0;
+        rotX += 0.8;
         rotY += 0.8;
       });
     }
