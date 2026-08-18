@@ -1,6 +1,6 @@
 /* ===================================================================
    BHAVYANSH TECH STUDIO - LIVE DEVOPS & TERMINAL DEPLOYMENT PIPELINE
-   Real-time DevOps visualization, Bash simulation, interactive CLI
+   Real-time DevOps visualization, Bash simulation, interactive CLI & Easter Eggs
    =================================================================== */
 
 class LiveDeploymentTerminal {
@@ -10,6 +10,8 @@ class LiveDeploymentTerminal {
     this.cliInput = document.getElementById('terminal-cli-input');
     this.playPauseBtn = document.getElementById('terminal-toggle-btn');
     this.restartBtn = document.getElementById('terminal-restart-btn');
+    this.audioEnabled = false;
+    this.audioCtx = null;
 
     this.logs = [
       { step: 0, type: 'cmd', text: 'git checkout main && git pull origin main' },
@@ -52,6 +54,27 @@ class LiveDeploymentTerminal {
     this.bindInteractiveCLI();
   }
 
+  playKeySound() {
+    if (!this.audioEnabled) return;
+    try {
+      if (!this.audioCtx) {
+        this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      const osc = this.audioCtx.createOscillator();
+      const gain = this.audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600 + Math.random() * 200, this.audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.04, this.audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.audioCtx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.audioCtx.destination);
+      osc.start();
+      osc.stop(this.audioCtx.currentTime + 0.04);
+    } catch (e) {
+      // Audio not supported or blocked by browser policy
+    }
+  }
+
   startSimulation() {
     this.isRunning = true;
     if (this.playPauseBtn) this.playPauseBtn.innerHTML = '⏸ Pause Logs';
@@ -63,8 +86,7 @@ class LiveDeploymentTerminal {
         this.currentIndex++;
       } else {
         clearInterval(this.intervalId);
-        // Add waiting interactive prompt line
-        this.appendLine('info', 'Type "help" in the terminal input below for interactive CLI commands.');
+        this.appendLine('info', 'Type "help" in the CLI input below to explore commands & Easter eggs (matrix, benchmark, founders, coffee, audio).');
       }
     }, 900);
   }
@@ -83,6 +105,7 @@ class LiveDeploymentTerminal {
   }
 
   appendLog(log) {
+    this.playKeySound();
     let lineHTML = '';
     if (log.type === 'cmd') {
       lineHTML = `
@@ -110,6 +133,7 @@ class LiveDeploymentTerminal {
   }
 
   appendLine(type, text) {
+    this.playKeySound();
     const line = document.createElement('div');
     line.className = 'terminal-line';
     if (type === 'cmd') {
@@ -177,7 +201,7 @@ class LiveDeploymentTerminal {
   handleCLICommand(cmd) {
     switch (cmd) {
       case 'help':
-        this.appendLine('info', 'Available commands: [status, services, deploy, clear, contact, uptime, quote, whoami]');
+        this.appendLine('info', 'Available commands: [status, services, deploy, clear, contact, uptime, quote, whoami, matrix, benchmark, founders, coffee, audio]');
         break;
       case 'status':
         this.appendLine('success', '✔ All Systems Operational: Docker Cluster (Healthy), Nginx (Active), DNS (Propagated), Latency (24ms).');
@@ -193,17 +217,55 @@ class LiveDeploymentTerminal {
         if (this.body) this.body.innerHTML = '';
         break;
       case 'contact':
-        this.appendLine('success', 'Direct Phone/WhatsApp: +91 82193 52124 | Email: pppankaj2816@gmail.com');
+        this.appendLine('success', 'Direct WhatsApp/Phone: +91 82193 52124 | Email: pppankaj2816@gmail.com');
         break;
       case 'uptime':
         this.appendLine('success', 'Server Uptime: 99.998% | Total requests served: 1,420,890');
         break;
       case 'quote':
-        this.appendLine('info', 'Opening Project Cost & Timeline Estimator section...');
+        this.appendLine('info', 'Opening Technical Solution Builder & Scope Estimator...');
         document.getElementById('estimator')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'whoami':
-        this.appendLine('info', 'You are browsing PixelToCloud Solutions - Founded & Engineered by Bhavyansh.');
+        this.appendLine('info', 'You are connected to PixelToCloud Engine (Co-Founded by Bhavyansh & Tushar Singhal).');
+        break;
+      case 'matrix':
+        this.appendLine('success', 'Wake up, Neo... The Matrix has you. 🟢 Follow the white rabbit.');
+        for (let i = 0; i < 4; i++) {
+          const binary = Array.from({ length: 32 }, () => Math.random() > 0.5 ? '1' : '0').join(' ');
+          this.appendLine('success', binary);
+        }
+        break;
+      case 'benchmark':
+        const fps = Math.floor(58 + Math.random() * 4);
+        this.appendLine('success', `⚡ GPU Canvas Render Test: ${fps} FPS | Memory Heap: 18.2 MB | WebGL2: Hardware-Accelerated.`);
+        break;
+      case 'founders':
+        this.appendLine('info', `
+╔══════════════════════════════════════════════════════════════╗
+║  PIXELTOCLOUD SOLUTIONS - LEADERSHIP & ENGINEERING LEADERS   ║
+╠══════════════════════════════════════════════════════════════╣
+║  • Pankaj: Founder & Principal Systems Architect             ║
+║    (8–10+ Years Software & Hardware Engineering Mastery)     ║
+║  • Tushar Singhal: Co-Founder & Senior Software Developer    ║
+║    (5+ Years Full-Stack Software Engineering)                ║
+╚══════════════════════════════════════════════════════════════╝`);
+        break;
+      case 'coffee':
+        this.appendLine('info', `
+    (  )   (   )  )
+     ) (   )  (  (
+     ( )  (    ) )
+   .----------------.
+   |  PixelToCloud  |==.
+   |  DevOps Fuel   |  |
+   |   [Espresso]   |=='
+   '----------------'`);
+        break;
+      case 'audio':
+        this.audioEnabled = !this.audioEnabled;
+        this.appendLine('success', this.audioEnabled ? '🔊 Terminal mechanical audio feedback ENABLED' : '🔇 Terminal audio MUTED');
+>>>>>>> origin/main
         break;
       default:
         this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of available commands.`);

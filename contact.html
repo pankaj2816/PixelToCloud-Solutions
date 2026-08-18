@@ -18,6 +18,38 @@
   <link rel="canonical" href="https://pankaj2816.github.io/PixelToCloud-Solutions/contact.html">
   <title>Contact Us | PixelToCloud Solutions - Direct Technical Consultation</title>
 
+  <!-- Google JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact PixelToCloud Solutions",
+    "url": "https://pankaj2816.github.io/PixelToCloud-Solutions/contact.html",
+    "description": "Direct technical consultation with Founders Pankaj & Tushar Singhal.",
+    "mainEntity": {
+      "@type": "ProfessionalService",
+      "name": "PixelToCloud Solutions",
+      "image": "https://pankaj2816.github.io/PixelToCloud-Solutions/image/pankaj-profile.jpg",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Pankaj",
+          "jobTitle": "Founder & Principal Systems Architect"
+        },
+        {
+          "@type": "Person",
+          "name": "Tushar Singhal",
+          "jobTitle": "Co-Founder & Senior Software Developer"
+        }
+      ],
+      "telephone": "+918219352124",
+      "email": "pppankaj2816@gmail.com",
+      "priceRange": "$$",
+      "openingHours": "Mo-Sa 09:00-20:00"
+    }
+  }
+  </script>
+
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,10 +60,10 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="css/main.css?v=11.0">
-  <link rel="stylesheet" href="css/animations.css?v=11.0">
-  <link rel="stylesheet" href="css/components.css?v=11.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=11.0">
+  <link rel="stylesheet" href="css/main.css?v=14.0">
+  <link rel="stylesheet" href="css/animations.css?v=14.0">
+  <link rel="stylesheet" href="css/components.css?v=14.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=14.0">
 
   <style>
     .contact-hero {
@@ -117,14 +149,14 @@
     </a>
 
     <nav class="nav-links">
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="index.html#estimator" class="nav-link">Estimator</a>
-      <a href="index.html#devops" class="nav-link">DevOps</a>
-      <a href="index.html#techstack" class="nav-link">Tech Stack</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="index.html#faq" class="nav-link">FAQ</a>
-      <a href="contact.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">Contact</a>
+      <a href="index.html#services" class="nav-link" data-i18n="nav_services">Services</a>
+      <a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="index.html#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
+      <a href="index.html#devops" class="nav-link" data-i18n="nav_devops">DevOps</a>
+      <a href="index.html#techstack" class="nav-link" data-i18n="nav_techstack">Tech Stack</a>
+      <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
+      <a href="index.html#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+      <a href="contact.html" class="nav-link active" data-i18n="nav_contact" style="color: var(--accent-cyan); font-weight: 700;">Contact</a>
     </nav>
 
     <div class="nav-actions">
@@ -144,7 +176,7 @@
       </button>
 
       <a href="#inquiry-form" class="btn-magnetic btn-primary nav-cta-btn">
-        <span>Get Instant Quote</span>
+        <span data-i18n="nav_cta">Get Instant Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
 
@@ -270,9 +302,13 @@
 
           <!-- Founders Direct Access Card -->
           <div class="founders-direct-badge">
-            <div class="founders-avatars-stack">
-              <img src="image/bhavyansh-profile.jpg" alt="Bhavyansh">
-              <img src="image/cofounder-profile.jpg" alt="Tushar Singhal">
+            <div class="founders-avatars-stack" style="display: flex; align-items: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent-cyan); display: inline-block;">
+                <img src="image/bhavyansh-profile.jpg" alt="Bhavyansh" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid #a855f7; display: inline-block; margin-left: -12px;">
+                <img src="image/cofounder-profile.jpg" alt="Tushar Singhal" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
             </div>
             <div>
               <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">Bhavyansh & Tushar Singhal</div>
@@ -309,12 +345,12 @@
                 <input type="tel" id="contact-phone" class="form-control" placeholder="+91 98765 43210">
               </div>
               <div class="form-group">
-                <label class="form-label" for="contact-budget">Estimated Budget Range</label>
+                <label class="form-label" for="contact-budget">Project Scope & Budget Tier</label>
                 <select id="contact-budget" class="form-control">
-                  <option value="₹ 15k - ₹ 35k">₹ 15,000 - ₹ 35,000 ($200 - $450)</option>
-                  <option value="₹ 35k - ₹ 75k" selected>₹ 35,000 - ₹ 75,000 ($450 - $950)</option>
-                  <option value="₹ 75k - ₹ 1.5L+">₹ 75,000 - ₹ 1,50,000+ ($950 - $2k+)</option>
-                  <option value="Enterprise / Custom">Enterprise Scale / Custom</option>
+                  <option value="Starter MVP">🌱 Starter MVP / Local Business Friendly</option>
+                  <option value="Growth Platform" selected>🚀 Growth & Scale (Full Custom Platform)</option>
+                  <option value="Enterprise / 3D Cloud">🏢 Enterprise & High-Performance 3D / Cloud</option>
+                  <option value="Flexible / Discuss Milestone">💬 Flexible / Let's Discuss Milestone Budget</option>
                 </select>
               </div>
             </div>
@@ -593,15 +629,69 @@
         <div>
           &copy; 2026 PixelToCloud Solutions. All Rights Reserved. Engineered with Precision by Bhavyansh & Tushar Singhal.
         </div>
+        <div style="display: flex; gap: 18px; font-size: 0.82rem; flex-wrap: wrap;">
+          <a href="#" id="open-privacy-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i>Privacy & Security Policy</a>
+          <a href="#" id="open-terms-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-file-contract" style="margin-right: 4px;"></i>Terms & Milestone Delivery</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- ===================================================================
+       LEGAL MODALS (PRIVACY POLICY & TERMS OF ENGAGEMENT)
+       =================================================================== -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal-dialog" style="max-width: 650px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
+      <div style="padding: 24px;">
+        <div class="section-tag" style="margin-bottom: 12px;">
+          <span><i class="fa-solid fa-shield-halved" style="margin-right: 6px;"></i>Privacy & Data Confidentiality</span>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
+          Client Privacy & Data Security Commitment
+        </h3>
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 12px;">
+          <p>At <strong>PixelToCloud Solutions</strong>, we hold client confidentiality, proprietary software logic, and infrastructure data to bank-grade standards.</p>
+          <div><strong>1. Zero Data Harvesting:</strong> We do not track, sell, or profile your business. Public API queries performed on our developer playground (DNS/IP probes) are processed strictly on client-side requests and never stored.</div>
+          <div><strong>2. Non-Disclosure by Default:</strong> All conversations, source code blueprints, database schemas, and business metrics shared during project discovery are protected under mutual non-disclosure principles.</div>
+          <div><strong>3. Direct Client Infrastructure:</strong> All production servers, domains, AWS accounts, and Docker registries are configured under your direct ownership. We never hold client assets hostage.</div>
+        </div>
+        <button class="btn-magnetic btn-primary legal-modal-close" style="width: 100%; margin-top: 20px; padding: 12px;">
+          <span>Understood & Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="terms-modal">
+    <div class="modal-dialog" style="max-width: 650px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
+      <div style="padding: 24px;">
+        <div class="section-tag" style="margin-bottom: 12px;">
+          <span><i class="fa-solid fa-file-contract" style="margin-right: 6px;"></i>Terms of Service & Milestone Warranties</span>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
+          Engineering Standards & Deliverables
+        </h3>
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 12px;">
+          <div><strong>1. 100% Intellectual Property Ownership:</strong> Upon final project milestone completion, 100% full intellectual property rights, Git repositories, Docker compose manifests, and server root access are transferred exclusively to the client.</div>
+          <div><strong>2. Transparent Milestone Payments:</strong> Work is broken into agreed milestones (Architecture & Wireframe &rarr; Full-Stack Engineering &rarr; Server Deployment & Production Handover). You inspect working software before approving milestone payments.</div>
+          <div><strong>3. 30-Day Post-Launch Warranty:</strong> Every system deployed by PixelToCloud includes 30 days of complimentary technical support, server monitoring, bug fixes, and SSL/DNS tuning.</div>
+        </div>
+        <button class="btn-magnetic btn-primary legal-modal-close" style="width: 100%; margin-top: 20px; padding: 12px;">
+          <span>Understood & Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/i18n.js?v=11.0"></script>
-  <script src="js/app.js?v=11.0"></script>
-  <script src="js/scheduler.js?v=11.0"></script>
-  <script src="js/ai-advisor.js?v=11.0"></script>
+  <script src="js/i18n.js?v=14.0"></script>
+  <script src="js/magnetic-cards.js?v=14.0"></script>
+  <script src="js/founder-avatars.js?v=14.0"></script>
+  <script src="js/app.js?v=14.0"></script>
+  <script src="js/scheduler.js?v=14.0"></script>
+  <script src="js/ai-advisor.js?v=14.0"></script>
 
 </body>
 </html>

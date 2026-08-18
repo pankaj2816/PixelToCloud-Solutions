@@ -44,7 +44,7 @@ class PixelToCloudAIAdvisor {
       },
       {
         keywords: ['price', 'cost', 'budget', 'rate', 'how much', 'quote', 'pricing', 'charges', 'fees'],
-        response: "💰 **Pricing & Investment:**\nOur projects range from ₹12,000 ($150) for modern business websites to ₹28,000–₹48,000 ($350–$600+) for custom full-stack web apps, 3D WebGL software, and enterprise cloud portals. You can use our interactive **Cost Estimator** above for an exact breakdown!"
+        response: "💰 **Flexible Milestone-Based Investment:**\nWe tailor our architecture and milestone roadmap to your exact business stage—from budget-friendly local MVPs to high-scale enterprise cloud systems. All work is structured into transparent, pay-per-milestone deliverables with zero upfront risk. Use our interactive **Solution Builder & Scope Estimator** above to configure your roadmap!"
       },
       {
         keywords: ['bhavyansh', 'pankaj', 'experience', 'who', 'founder', 'architect', 'hardware', 'background'],

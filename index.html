@@ -29,15 +29,22 @@
     "@type": "ProfessionalService",
     "name": "PixelToCloud Solutions",
     "image": "https://pankaj2816.github.io/PixelToCloud-Solutions/image/bhavyansh-profile.jpg",
-    "founder": {
-      "@type": "Person",
-      "name": "Bhavyansh",
-      "jobTitle": "Lead Systems Architect & Full-Stack Engineer"
-    },
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Bhavyansh",
+        "jobTitle": "Founder & Principal Systems Architect"
+      },
+      {
+        "@type": "Person",
+        "name": "Tushar Singhal",
+        "jobTitle": "Co-Founder & Senior Software Developer"
+      }
+    ],
     "url": "https://pankaj2816.github.io/PixelToCloud-Solutions/",
     "telephone": "+918219352124",
     "email": "pppankaj2816@gmail.com",
-    "description": "High-performance custom software engineering, 2D/3D WebGL graphics, and dedicated Linux VPS cloud infrastructure by Bhavyansh.",
+    "description": "High-performance custom software engineering, 2D/3D WebGL graphics, CA & doctor web portals, and dedicated Linux VPS cloud infrastructure by Bhavyansh & Tushar Singhal.",
     "priceRange": "$$",
     "openingHours": "Mo-Sa 09:00-20:00"
   }
@@ -54,10 +61,10 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- CSS Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/main.css?v=11.0">
-  <link rel="stylesheet" href="css/animations.css?v=11.0">
-  <link rel="stylesheet" href="css/components.css?v=11.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=11.0">
+  <link rel="stylesheet" href="css/main.css?v=14.0">
+  <link rel="stylesheet" href="css/animations.css?v=14.0">
+  <link rel="stylesheet" href="css/components.css?v=14.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=14.0">
 </head>
 <body>
 
@@ -524,6 +531,85 @@
           </div>
         </div>
       </div>
+
+      <!-- Live Interactive Sandboxes (Doctor EHR & CA Tax Hub) -->
+      <div class="sandboxes-grid reveal" style="margin-top: 40px;">
+        <!-- Doctor Telehealth Sandbox -->
+        <div class="sandbox-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div class="section-tag" style="margin-bottom: 0;">
+                <span><i class="fa-solid fa-heart-pulse" style="color: #10b981; margin-right: 6px;"></i>Live Telemedicine Engine</span>
+              </div>
+              <span class="badge badge-emerald"><span class="live-status-dot" style="background:#10b981;"></span>60 FPS EHR</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+              Doctor & Clinic Telehealth Sandbox
+            </h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              Interactive patient ECG monitor, WebRTC video consultation room, and instant RSA-signed clinical prescription generator.
+            </p>
+
+            <div class="sandbox-video-box" id="sandbox-video-preview">
+              <canvas id="sandbox-ecg-canvas" width="300" height="70" style="position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: 70px; opacity: 0.85;"></canvas>
+              <div style="position: absolute; bottom: 10px; left: 14px; font-family: var(--font-mono); font-size: 0.75rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
+                <span class="live-status-dot" style="background:#10b981;"></span>
+                <span>Resting HR: 72 BPM // HIPAA Encrypted</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn-magnetic btn-primary" id="sandbox-rx-download-btn" style="width: 100%; padding: 11px; font-size: 0.85rem;">
+              <span><i class="fa-solid fa-file-medical" style="margin-right: 6px;"></i>Generate & Download Sample Rx</span>
+            </button>
+            <button class="btn-magnetic btn-secondary" id="sandbox-video-toggle-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
+              <span><i class="fa-solid fa-video" style="margin-right: 6px;"></i>Test WebRTC Encrypted Room</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CA FinTech Sandbox -->
+        <div class="sandbox-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div class="section-tag" style="margin-bottom: 0;">
+                <span><i class="fa-solid fa-calculator" style="color: var(--accent-cyan); margin-right: 6px;"></i>Live FinTech Ledger</span>
+              </div>
+              <span class="badge badge-cyan">GST & TDS Engine</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+              CA & Financial Tax Calculator Sandbox
+            </h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              Drag the annual turnover slider to see instant automated GST, TDS deduction balancing, and legal compliance calculation.
+            </p>
+
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
+                <span style="color: var(--text-secondary);">Annual Turnover:</span>
+                <strong id="ca-sandbox-income-val" style="color: var(--accent-cyan); font-family: var(--font-mono);">₹ 25,00,000</strong>
+              </div>
+              <input type="range" id="ca-sandbox-slider" min="500000" max="10000000" step="250000" value="2500000" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer;">
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem;">
+                <div>
+                  <span style="color: var(--text-muted); display: block;">GST (18%):</span>
+                  <span id="ca-sandbox-gst-val" style="color: #38bdf8; font-weight: bold;">₹ 4,50,000</span>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Tax Savings:</span>
+                  <span id="ca-sandbox-savings-val" style="color: #10b981; font-weight: bold;">₹ 2,12,500</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-magnetic btn-primary" id="ca-sandbox-download-btn" style="width: 100%; padding: 11px; font-size: 0.85rem;">
+            <span><i class="fa-solid fa-download" style="margin-right: 6px;"></i>Download Encrypted Audit Ledger</span>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -585,6 +671,68 @@
           <span><i class="fa-solid fa-arrows-left-right"></i></span>
         </div>
       </div>
+
+      <!-- Speedometer & Network Race Benchmark -->
+      <div class="speed-comparison-wrapper reveal" id="speed-comparison-section" style="margin-top: 36px;">
+        <!-- Left: Animated SVG Speedometer Dial -->
+        <div class="speed-gauge-card">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+            Google PageSpeed Score
+          </div>
+          <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
+            <svg class="speed-svg-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="54"></circle>
+              <circle class="gauge-progress" id="speed-gauge-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339.29; stroke-dashoffset: 0;"></circle>
+            </svg>
+            <div style="position: absolute; text-align: center;">
+              <div id="speed-gauge-score" style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: #10b981; line-height: 1;">100</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">PERFECT</div>
+            </div>
+          </div>
+          <div style="font-size: 0.82rem; color: #10b981; font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-circle-check"></i> Core Web Vitals Passed
+          </div>
+        </div>
+
+        <!-- Right: Real-Time Race Simulation -->
+        <div class="race-track-wrapper">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">
+                Sub-Second Network Loading Benchmark
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-muted);">
+                Simulated real-world 4G connection loading performance comparison.
+              </p>
+            </div>
+            <button class="btn-magnetic btn-secondary" id="speed-race-btn" style="padding: 8px 16px; font-size: 0.82rem;">
+              <span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Simulate Live Speed Race</span>
+            </button>
+          </div>
+
+          <!-- Fast Track: PixelToCloud -->
+          <div class="race-track-item">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <strong style="color: var(--text-primary);"><i class="fa-solid fa-rocket" style="color: var(--accent-cyan); margin-right: 6px;"></i>PixelToCloud Architecture (Nginx + Brotli + Clean JS)</strong>
+              <span id="race-time-fast" style="color: #10b981; font-weight: bold; font-family: var(--font-mono);">⚡ 0.38s (Instant)</span>
+            </div>
+            <div class="race-track-bar-container">
+              <div class="race-track-bar-fill" id="race-bar-fast" style="width: 100%; background: linear-gradient(90deg, #00f0ff 0%, #10b981 100%);"></div>
+            </div>
+          </div>
+
+          <!-- Slow Track: Legacy WordPress / Bloated Template -->
+          <div class="race-track-item">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span style="color: var(--text-muted);"><i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; margin-right: 6px;"></i>Standard Bloated Template / Shared Hosting</span>
+              <span id="race-time-slow" style="color: #ef4444; font-family: var(--font-mono);">❌ 4.2s (Slow TTFB)</span>
+            </div>
+            <div class="race-track-bar-container">
+              <div class="race-track-bar-fill" id="race-bar-slow" style="width: 100%; background: #ef4444;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -640,25 +788,27 @@
       <div class="section-header reveal">
         <div class="section-tag">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-          <span data-i18n="section_estimator_tag">Transparent Pricing</span>
+          <span data-i18n="section_estimator_tag">Milestone-Based Scoping</span>
         </div>
         <h2 class="section-title">
-          <span data-i18n="section_estimator_title">Interactive Project Cost & Timeline Estimator</span>
+          <span data-i18n="section_estimator_title">Technical Solution Builder & Scope Estimator</span>
         </h2>
         <p class="section-desc" data-i18n="section_estimator_desc">
-          Configure your desired project scope, infrastructure requirements, and add-on features to generate an instant estimate and timeline breakdown.
+          Configure your custom architecture, infrastructure requirements, and capability add-ons to generate a transparent delivery roadmap and milestone plan.
         </p>
       </div>
 
       <div class="estimator-wrapper reveal" id="estimator-interactive-container">
-        <!-- Currency Toggle Header -->
+        <!-- Solution Scope Header -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
           <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-cyan);">
-            <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Real-Time Algorithmic Estimator
+            <i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>Full-Stack Architecture & Sprint Configurator
           </div>
           <div style="display: flex; gap: 8px;">
-            <button class="filter-btn currency-toggle-btn active" data-currency="INR">₹ INR (₹)</button>
-            <button class="filter-btn currency-toggle-btn" data-currency="USD">$ USD ($)</button>
+            <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.08); padding: 6px 14px; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
+              <span class="live-status-dot" style="background: var(--accent-emerald);"></span>
+              <span>100% Flexible Milestone Payments</span>
+            </div>
           </div>
         </div>
 
@@ -691,7 +841,7 @@
             <div class="estimator-step-block">
               <div class="step-label">
                 <span class="step-number">3</span>
-                <span>Select Security, SEO & Maintenance Add-ons</span>
+                <span>Select Security, SEO & Feature Add-ons</span>
               </div>
               <div class="estimator-options-grid" id="estimator-addon-options">
                 <!-- Rendered dynamically by estimator.js -->
@@ -702,37 +852,39 @@
           <!-- Real-Time Calculation Sticky Panel Right Column -->
           <div class="estimator-summary-panel">
             <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">
-                Estimated Investment:
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                Architecture Complexity & Tier:
               </div>
-              <div class="estimate-price-display">
-                <div class="estimate-cost-headline" id="estimator-total-price">₹ 35,200</div>
-                <div class="estimate-timeline-badge" id="estimator-total-timeline">
-                  <i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>Ready in 14 - 18 Working Days
+              <div class="estimate-price-display" style="padding: 18px 0;">
+                <div class="estimate-cost-headline" id="estimator-total-price" style="font-size: 1.6rem; color: var(--text-primary); font-weight: 800;">
+                  Professional Scale
+                </div>
+                <div class="estimate-timeline-badge" id="estimator-total-timeline" style="margin-top: 10px;">
+                  <i class="fa-solid fa-clock" style="margin-right: 6px;"></i>Estimated Sprints: 12 - 16 Working Days
                 </div>
               </div>
 
-              <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase;">
-                Scope Breakdown:
+              <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+                Technical Spec Summary:
               </div>
               <div class="estimate-items-breakdown" id="estimator-breakdown-list">
                 <!-- Dynamically updated -->
               </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
               <button class="btn-magnetic btn-primary" id="estimator-export-email" style="width: 100%; padding: 14px; font-size: 0.92rem; font-weight: 700;">
-                <span><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email Quote to Bhavyansh (Priority)</span>
+                <span><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email Scope to Bhavyansh & Founders (Priority)</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
 
               <button class="btn-magnetic btn-secondary" id="estimator-export-whatsapp" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 600;">
-                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Export Estimate to WhatsApp</span>
+                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Discuss Scope on WhatsApp</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </button>
 
               <button class="btn-magnetic btn-secondary" id="estimator-apply-contact" style="width: 100%; padding: 10px; font-size: 0.82rem;">
-                <span>Apply to Contact Form &darr;</span>
+                <span>Apply Specification to Contact Form &darr;</span>
               </button>
             </div>
           </div>
@@ -809,6 +961,53 @@
         <div class="terminal-input-bar">
           <span style="color: var(--accent-cyan); font-family: monospace; font-size: 0.85rem;">guest@cli:~$</span>
           <input type="text" id="terminal-cli-input" class="terminal-cli-input" placeholder="Type 'help', 'status', 'deploy', 'uptime', 'quote' and press Enter...">
+        </div>
+      </div>
+
+      <!-- Interactive System Topology & Cloud Traffic Visualizer -->
+      <div class="topology-wrapper reveal" style="margin-top: 36px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;">
+          <div>
+            <div class="section-tag" style="margin-bottom: 4px;">
+              <span><i class="fa-solid fa-network-wired" style="color: var(--accent-cyan); margin-right: 6px;"></i>Live System Topology Visualizer</span>
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">
+              Client-to-Cloud Distributed Architecture & Data Flow
+            </h3>
+          </div>
+          <button class="btn-magnetic btn-primary" id="topology-spike-btn" style="padding: 10px 20px; font-size: 0.85rem;">
+            <span><i class="fa-solid fa-chart-line" style="margin-right: 6px;"></i>Simulate 10,000 Traffic Spike</span>
+          </button>
+        </div>
+
+        <div class="topology-canvas-container">
+          <canvas id="topology-canvas"></canvas>
+        </div>
+
+        <!-- Telemetry Details Grid -->
+        <div class="topology-telemetry-grid">
+          <div class="topology-telemetry-card">
+            <div class="topology-telemetry-title" id="topology-telemetry-title">
+              ⚡ Nginx Proxy (SSL & Load Balancer)
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">Inspection Target Node</div>
+          </div>
+          <div class="topology-telemetry-card">
+            <div class="topology-telemetry-title"><i class="fa-solid fa-bolt" style="color: #10b981;"></i>Throughput Rate</div>
+            <div class="topology-telemetry-val" id="topology-metric-rps">4,850 req/s</div>
+          </div>
+          <div class="topology-telemetry-card">
+            <div class="topology-telemetry-title"><i class="fa-solid fa-clock" style="color: #38bdf8;"></i>Internal Latency</div>
+            <div class="topology-telemetry-val" id="topology-metric-latency">0.8ms</div>
+          </div>
+          <div class="topology-telemetry-card">
+            <div class="topology-telemetry-title"><i class="fa-solid fa-shield-check" style="color: #10b981;"></i>Security State</div>
+            <div class="topology-telemetry-val" id="topology-metric-status" style="font-size: 0.95rem; color: #10b981;">TLS 1.3 Active</div>
+          </div>
+        </div>
+
+        <div id="topology-live-log" style="margin-top: 14px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 10px 14px; border-radius: var(--radius-sm); max-height: 70px; overflow-y: auto;">
+          <div style="color: #10b981;">✔ [SYSTEM HEALTH]: Cloudflare Edge -> Nginx Reverse Proxy -> Docker Mesh -> PostgreSQL healthy.</div>
         </div>
       </div>
     </div>
@@ -1103,14 +1302,14 @@
         <!-- Founder Card 1: Bhavyansh -->
         <div class="founder-card-wrap reveal">
           <div class="founder-grid">
-            <!-- Founder Photo Frame with Edited Studio Portrait -->
+            <!-- Founder 3D Quantum Silicon Core Canvas -->
             <div class="founder-image-container">
               <div class="founder-portrait-frame">
                 <img src="image/bhavyansh-profile.jpg" alt="Bhavyansh - Principal Software & Hardware Engineer" class="founder-portrait-img" loading="lazy">
               </div>
               <div class="founder-exp-floating-badge">
                 <span class="live-status-dot"></span>
-                <span>8–10+ Years Engineering Mastery</span>
+                <span>8–10+ Years Hardware & Systems Mastery</span>
               </div>
             </div>
 
@@ -1163,14 +1362,14 @@
         <!-- Founder Card 2: Co-Founder & Senior Software Developer -->
         <div class="founder-card-wrap reveal reveal-delay-1">
           <div class="founder-grid">
-            <!-- Co-Founder Photo Frame with Portrait -->
+            <!-- Co-Founder 3D Polyhedral Code Prism Canvas -->
             <div class="founder-image-container">
-              <div class="founder-portrait-frame">
-                <img src="image/cofounder-profile.jpg" alt="Tushar Singhal - Co-Founder & Senior Software Developer" class="founder-portrait-img" loading="lazy">
+              <div class="founder-portrait-frame" style="border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(168, 85, 247, 0.2);">
+                <canvas class="founder-avatar-canvas tushar-avatar-canvas" width="340" height="450"></canvas>
               </div>
-              <div class="founder-exp-floating-badge">
+              <div class="founder-exp-floating-badge" style="border-color: #a855f7;">
                 <span class="live-status-dot" style="background: var(--accent-cyan);"></span>
-                <span>5+ Years Software Engineering</span>
+                <span>5+ Years Full-Stack Development</span>
               </div>
             </div>
 
@@ -1435,12 +1634,12 @@
                 <input type="tel" id="contact-phone" class="form-control" placeholder="+91 98765 43210">
               </div>
               <div class="form-group">
-                <label class="form-label" for="contact-budget">Estimated Budget</label>
+                <label class="form-label" for="contact-budget">Project Scope & Budget Tier</label>
                 <select id="contact-budget" class="form-control">
-                  <option value="₹ 15k - ₹ 35k">₹ 15,000 - ₹ 35,000 ($200 - $450)</option>
-                  <option value="₹ 35k - ₹ 75k" selected>₹ 35,000 - ₹ 75,000 ($450 - $950)</option>
-                  <option value="₹ 75k - ₹ 1.5L+">₹ 75,000 - ₹ 1,50,000+ ($950 - $2k+)</option>
-                  <option value="Enterprise / Flexible">Enterprise Scale / Custom</option>
+                  <option value="Starter MVP">🌱 Starter MVP / Local Business Friendly</option>
+                  <option value="Growth Platform" selected>🚀 Growth & Scale (Full Custom Platform)</option>
+                  <option value="Enterprise / 3D Cloud">🏢 Enterprise & High-Performance 3D / Cloud</option>
+                  <option value="Flexible / Discuss Milestone">💬 Flexible / Let's Discuss Milestone Budget</option>
                 </select>
               </div>
             </div>
@@ -1746,15 +1945,20 @@
   </div>
 
   <!-- Scripts with Cache-Busting Versioning -->
-  <script src="js/i18n.js?v=11.0"></script>
-  <script src="js/canvas-hero.js?v=11.0"></script>
-  <script src="js/before-after.js?v=11.0"></script>
-  <script src="js/portfolio.js?v=11.0"></script>
-  <script src="js/estimator.js?v=11.0"></script>
-  <script src="js/terminal.js?v=11.0"></script>
-  <script src="js/api-lab.js?v=11.0"></script>
-  <script src="js/ai-advisor.js?v=11.0"></script>
-  <script src="js/scheduler.js?v=11.0"></script>
-  <script src="js/app.js?v=11.0"></script>
+  <script src="js/i18n.js?v=14.0"></script>
+  <script src="js/canvas-hero.js?v=14.0"></script>
+  <script src="js/magnetic-cards.js?v=14.0"></script>
+  <script src="js/micro-sandboxes.js?v=14.0"></script>
+  <script src="js/speed-compare.js?v=14.0"></script>
+  <script src="js/before-after.js?v=14.0"></script>
+  <script src="js/portfolio.js?v=14.0"></script>
+  <script src="js/estimator.js?v=14.0"></script>
+  <script src="js/terminal.js?v=14.0"></script>
+  <script src="js/system-topology.js?v=14.0"></script>
+  <script src="js/api-lab.js?v=14.0"></script>
+  <script src="js/ai-advisor.js?v=14.0"></script>
+  <script src="js/scheduler.js?v=14.0"></script>
+  <script src="js/founder-avatars.js?v=14.0"></script>
+  <script src="js/app.js?v=14.0"></script>
 </body>
 </html>

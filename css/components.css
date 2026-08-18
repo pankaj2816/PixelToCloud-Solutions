@@ -1142,6 +1142,14 @@
   aspect-ratio: 3/4;
 }
 
+.founder-avatar-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #080b11;
+}
+
 .founder-portrait-img {
   width: 100%;
   height: 100%;
@@ -1149,8 +1157,9 @@
   transition: transform var(--transition-smooth);
 }
 
-.founder-image-container:hover .founder-portrait-img {
-  transform: scale(1.04);
+.founder-image-container:hover .founder-portrait-img,
+.founder-image-container:hover .founder-avatar-canvas {
+  transform: scale(1.02);
 }
 
 .founder-exp-floating-badge {
@@ -2115,5 +2124,212 @@
   font-weight: 700;
   border-color: var(--accent-cyan);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* ===================================================================
+   3D SPECULAR LIGHTING & MAGNETIC GLARE
+   =================================================================== */
+.card-specular-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+/* ===================================================================
+   SYSTEM TOPOLOGY & CLOUD TRAFFIC VISUALIZER
+   =================================================================== */
+.topology-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 32px;
+}
+
+.topology-canvas-container {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+#topology-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.topology-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.topology-telemetry-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.topology-telemetry-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.topology-telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+/* ===================================================================
+   PAGE SPEED 100 SPEEDOMETER & NETWORK RACE
+   =================================================================== */
+.speed-comparison-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  margin-top: 32px;
+}
+
+@media (max-width: 900px) {
+  .speed-comparison-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.speed-gauge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.speed-svg-gauge {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 10;
+}
+
+.gauge-progress {
+  fill: none;
+  stroke: #10b981;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.race-track-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.race-track-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.race-track-bar-container {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.race-track-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease-out;
+}
+
+/* ===================================================================
+   LIVE DOCTOR & CA INTERACTIVE MICRO-SANDBOXES
+   =================================================================== */
+.sandboxes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.sandbox-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s ease;
+}
+
+.sandbox-card:hover {
+  border-color: var(--accent-cyan);
+}
+
+.sandbox-video-box {
+  width: 100%;
+  height: 140px;
+  background: #020617;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  margin-bottom: 16px;
+}
+
+.sandbox-video-box.active-stream {
+  border-style: solid;
+  border-color: #10b981;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, #020617 80%);
 }
 

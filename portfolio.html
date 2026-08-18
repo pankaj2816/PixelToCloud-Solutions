@@ -28,10 +28,10 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="css/main.css?v=11.0">
-  <link rel="stylesheet" href="css/animations.css?v=11.0">
-  <link rel="stylesheet" href="css/components.css?v=11.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=11.0">
+  <link rel="stylesheet" href="css/main.css?v=14.0">
+  <link rel="stylesheet" href="css/animations.css?v=14.0">
+  <link rel="stylesheet" href="css/components.css?v=14.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=14.0">
 
   <style>
     .portfolio-hero {
@@ -684,16 +684,70 @@
         <div>
           &copy; 2026 PixelToCloud Solutions. All Rights Reserved. Engineered with Precision by Bhavyansh & Tushar Singhal.
         </div>
+        <div style="display: flex; gap: 18px; font-size: 0.82rem; flex-wrap: wrap;">
+          <a href="#" id="open-privacy-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i>Privacy & Security Policy</a>
+          <a href="#" id="open-terms-modal" style="color: var(--text-muted); text-decoration: underline;"><i class="fa-solid fa-file-contract" style="margin-right: 4px;"></i>Terms & Milestone Delivery</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- ===================================================================
+       LEGAL MODALS (PRIVACY POLICY & TERMS OF ENGAGEMENT)
+       =================================================================== -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal-dialog" style="max-width: 650px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
+      <div style="padding: 24px;">
+        <div class="section-tag" style="margin-bottom: 12px;">
+          <span><i class="fa-solid fa-shield-halved" style="margin-right: 6px;"></i>Privacy & Data Confidentiality</span>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
+          Client Privacy & Data Security Commitment
+        </h3>
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 12px;">
+          <p>At <strong>PixelToCloud Solutions</strong>, we hold client confidentiality, proprietary software logic, and infrastructure data to bank-grade standards.</p>
+          <div><strong>1. Zero Data Harvesting:</strong> We do not track, sell, or profile your business. Public API queries performed on our developer playground (DNS/IP probes) are processed strictly on client-side requests and never stored.</div>
+          <div><strong>2. Non-Disclosure by Default:</strong> All conversations, source code blueprints, database schemas, and business metrics shared during project discovery are protected under mutual non-disclosure principles.</div>
+          <div><strong>3. Direct Client Infrastructure:</strong> All production servers, domains, AWS accounts, and Docker registries are configured under your direct ownership. We never hold client assets hostage.</div>
+        </div>
+        <button class="btn-magnetic btn-primary legal-modal-close" style="width: 100%; margin-top: 20px; padding: 12px;">
+          <span>Understood & Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="terms-modal">
+    <div class="modal-dialog" style="max-width: 650px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close-btn legal-modal-close" aria-label="Close Modal">✕</button>
+      <div style="padding: 24px;">
+        <div class="section-tag" style="margin-bottom: 12px;">
+          <span><i class="fa-solid fa-file-contract" style="margin-right: 6px;"></i>Terms of Service & Milestone Warranties</span>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
+          Engineering Standards & Deliverables
+        </h3>
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 12px;">
+          <div><strong>1. 100% Intellectual Property Ownership:</strong> Upon final project milestone completion, 100% full intellectual property rights, Git repositories, Docker compose manifests, and server root access are transferred exclusively to the client.</div>
+          <div><strong>2. Transparent Milestone Payments:</strong> Work is broken into agreed milestones (Architecture & Wireframe &rarr; Full-Stack Engineering &rarr; Server Deployment & Production Handover). You inspect working software before approving milestone payments.</div>
+          <div><strong>3. 30-Day Post-Launch Warranty:</strong> Every system deployed by PixelToCloud includes 30 days of complimentary technical support, server monitoring, bug fixes, and SSL/DNS tuning.</div>
+        </div>
+        <button class="btn-magnetic btn-primary legal-modal-close" style="width: 100%; margin-top: 20px; padding: 12px;">
+          <span>Understood & Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/i18n.js?v=11.0"></script>
-  <script src="js/portfolio.js?v=11.0"></script>
-  <script src="js/app.js?v=11.0"></script>
-  <script src="js/scheduler.js?v=11.0"></script>
-  <script src="js/ai-advisor.js?v=11.0"></script>
+  <script src="js/i18n.js?v=14.0"></script>
+  <script src="js/magnetic-cards.js?v=14.0"></script>
+  <script src="js/founder-avatars.js?v=14.0"></script>
+  <script src="js/portfolio.js?v=14.0"></script>
+  <script src="js/app.js?v=14.0"></script>
+  <script src="js/scheduler.js?v=14.0"></script>
+  <script src="js/ai-advisor.js?v=14.0"></script>
 
 </body>
 </html>
