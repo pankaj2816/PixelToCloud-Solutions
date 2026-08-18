@@ -716,4 +716,31 @@
     border-top: 1px solid rgba(148, 163, 184, 0.25) !important;
     color: #64748b !important;
   }
+
+  /* 19. System Topology, Speed Comparison & Micro-Sandboxes */
+  .topology-wrapper, .speed-comparison-wrapper, .sandbox-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(148, 163, 184, 0.35) !important;
+    box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.06) !important;
+  }
+  .topology-canvas-container {
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+  }
+  .topology-telemetry-card, .speed-gauge-card, .race-track-item {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  .topology-telemetry-title {
+    color: #0f172a !important;
+  }
+  .gauge-bg {
+    stroke: #e2e8f0 !important;
+  }
+  .race-track-bar-container {
+    background: #e2e8f0 !important;
+  }
+  .sandbox-video-box {
+    background: #0f172a !important;
+  }
 }
