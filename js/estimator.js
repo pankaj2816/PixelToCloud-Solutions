@@ -1,5 +1,5 @@
 /* ===================================================================
-   PANKAJ TECH STUDIO - INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR
+   BHAVYANSH TECH STUDIO - INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR
    Dynamic multi-step calculator with instant quote generator & WhatsApp export
    =================================================================== */
 
@@ -161,7 +161,7 @@ class ProjectEstimator {
 
     const subject = encodeURIComponent(`Project Estimation Quote - ${this.lastCalculation.project} (${this.lastCalculation.totalCost})`);
     const body = encodeURIComponent(
-      `Dear Pankaj,\n\n` +
+      `Dear Bhavyansh,\n\n` +
       `I configured a project estimate on PixelToCloud Solutions website:\n\n` +
       `--- ESTIMATE SUMMARY ---\n` +
       `📌 Project Scope: ${this.lastCalculation.project}\n` +
@@ -258,7 +258,7 @@ class ProjectEstimator {
     if (!this.lastCalculation) return;
 
     const phoneNumber = "918219352124"; // Developer WhatsApp Link
-    const text = `Hello Pankaj (PixelToCloud Solutions),\n\nI just configured an estimate on your website for my project:\n` +
+    const text = `Hello Bhavyansh (PixelToCloud Solutions),\n\nI just configured an estimate on your website for my project:\n` +
       `*Scope:* ${this.lastCalculation.project}\n` +
       `*Estimated Budget:* ${this.lastCalculation.totalCost}\n` +
       `*Target Delivery:* ${this.lastCalculation.totalDays}\n` +

@@ -1,5 +1,5 @@
 /* ===================================================================
-   PANKAJ TECH STUDIO - LIVE DEVOPS & TERMINAL DEPLOYMENT PIPELINE
+   BHAVYANSH TECH STUDIO - LIVE DEVOPS & TERMINAL DEPLOYMENT PIPELINE
    Real-time DevOps visualization, Bash simulation, interactive CLI
    =================================================================== */
 
@@ -22,7 +22,7 @@ class LiveDeploymentTerminal {
       { step: 1, type: 'info', text: '[+] Building 4.8s (12/12) FINISHED' },
       { step: 1, type: 'info', text: '=> [internal] load build definition from Dockerfile' },
       { step: 1, type: 'info', text: '=> exporting to image -- alpine-node-nginx runtime' },
-      { step: 1, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Image pankaj-prod/app:v3.2.0 created & pushed to local registry' },
+      { step: 1, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Image bhavyansh-prod/app:v3.2.0 created & pushed to local registry' },
 
       { step: 2, type: 'cmd', text: 'docker-compose up -d --no-deps --build app' },
       { step: 2, type: 'info', text: 'Recreating container: app-blue ... done (0 downtime switch)' },
@@ -203,7 +203,7 @@ class LiveDeploymentTerminal {
         document.getElementById('estimator')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'whoami':
-        this.appendLine('info', 'You are browsing PixelToCloud Solutions - Founded & Engineered by Pankaj.');
+        this.appendLine('info', 'You are browsing PixelToCloud Solutions - Founded & Engineered by Bhavyansh.');
         break;
       default:
         this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of available commands.`);

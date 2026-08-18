@@ -47,8 +47,8 @@ class PixelToCloudAIAdvisor {
         response: "💰 **Pricing & Investment:**\nOur projects range from ₹12,000 ($150) for modern business websites to ₹28,000–₹48,000 ($350–$600+) for custom full-stack web apps, 3D WebGL software, and enterprise cloud portals. You can use our interactive **Cost Estimator** above for an exact breakdown!"
       },
       {
-        keywords: ['pankaj', 'experience', 'who', 'founder', 'architect', 'hardware', 'background'],
-        response: "👨‍💻 **About Lead Architect Pankaj:**\nPankaj is a Principal Systems Architect with **8–10+ years of dual software and hardware engineering experience**. He specializes in bridging full-stack web architecture, 3D graphics, and deep Linux server infrastructure for 99.99% uptime."
+        keywords: ['bhavyansh', 'pankaj', 'experience', 'who', 'founder', 'architect', 'hardware', 'background'],
+        response: "👨‍💻 **About Lead Architect Bhavyansh:**\nBhavyansh is a Principal Systems Architect with **8–10+ years of dual software and hardware engineering experience**. He specializes in bridging full-stack web architecture, 3D graphics, and deep Linux server infrastructure for 99.99% uptime."
       },
       {
         keywords: ['timeline', 'delivery', 'time', 'how long', 'days'],
@@ -56,11 +56,11 @@ class PixelToCloudAIAdvisor {
       },
       {
         keywords: ['contact', 'whatsapp', 'call', 'phone', 'email', 'talk', 'meeting', 'hire', 'connect'],
-        response: "📲 **Direct Connect:**\nYou can reach Pankaj directly on WhatsApp at **+91 82193 52124** or via email at **pppankaj2816@gmail.com**. Click the button below to start a direct chat!"
+        response: "📲 **Direct Connect:**\nYou can reach Bhavyansh directly on WhatsApp at **+91 82193 52124** or via email at **pppankaj2816@gmail.com**. Click the button below to start a direct chat!"
       }
     ];
 
-    this.defaultResponse = "💡 **PixelToCloud AI:** I can help you with Custom Website Development, 2D/3D WebGL Software, CA & Doctor Portals, Art Boutiques, Linux VPS & AWS Server Deployments, and Pricing estimates.\n\nWould you like to connect directly with lead architect **Pankaj** on WhatsApp (+91 82193 52124)?";
+    this.defaultResponse = "💡 **PixelToCloud AI:** I can help you with Custom Website Development, 2D/3D WebGL Software, CA & Doctor Portals, Art Boutiques, Linux VPS & AWS Server Deployments, and Pricing estimates.\n\nWould you like to connect directly with lead architect **Bhavyansh** on WhatsApp (+91 82193 52124)?";
 
     this.init();
   }
@@ -210,7 +210,7 @@ class PixelToCloudAIAdvisor {
         <div class="ai-bubble">
           ${formattedText}
           <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://wa.me/918219352124?text=${encodeURIComponent('Hi Pankaj, I was chatting with PixelToCloud AI about: ') + encodedUserQuery}" target="_blank" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px; background: rgba(37,211,102,0.15); border-color: #25d366; color: #25d366;">
+            <a href="https://wa.me/918219352124?text=${encodeURIComponent('Hi Bhavyansh, I was chatting with PixelToCloud AI about: ') + encodedUserQuery}" target="_blank" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px; background: rgba(37,211,102,0.15); border-color: #25d366; color: #25d366;">
               📲 Chat on WhatsApp
             </a>
             <button onclick="document.getElementById('estimator')?.scrollIntoView({behavior:'smooth'}); window.aiAdvisorInstance?.toggleModal(false);" class="btn-outline" style="font-size: 0.76rem; padding: 4px 12px;">

@@ -1,5 +1,5 @@
 /* ===================================================================
-   PANKAJ TECH STUDIO - PORTFOLIO & INTERACTIVE SIMULATORS
+   BHAVYANSH TECH STUDIO - PORTFOLIO & INTERACTIVE SIMULATORS
    Dynamic project showcase, category filtering, and live demo modals
    =================================================================== */
 
@@ -1005,7 +1005,7 @@ class PortfolioManager {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
     if (msgBox) {
-      msgBox.value = `Hi Pankaj, I am interested in building a project similar to: "${projectName}". Please share details on timeline, architecture, and quote.`;
+      msgBox.value = `Hi Bhavyansh, I am interested in building a project similar to: "${projectName}". Please share details on timeline, architecture, and quote.`;
     }
   }
 }
