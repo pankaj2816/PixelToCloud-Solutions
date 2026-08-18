@@ -315,20 +315,44 @@
             </div>
           </div>
 
+          <!-- Real-Time Interactive Web Lab Preview -->
           <div class="service-preview-pane">
-            <div style="text-align: center; padding: 20px;">
-              <div style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 12px;">
-                <i class="fa-solid fa-laptop-code"></i>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--accent-cyan);">
+                <i class="fa-solid fa-display" style="margin-right: 4px;"></i>RESPONSIVE VIEWPORT LAB
               </div>
-              <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
-                Sub-Second Web Delivery
+              <div style="display: flex; gap: 4px;">
+                <button class="filter-btn web-device-btn active" data-device="desktop" style="padding: 4px 8px; font-size: 0.72rem;"><i class="fa-solid fa-desktop"></i></button>
+                <button class="filter-btn web-device-btn" data-device="tablet" style="padding: 4px 8px; font-size: 0.72rem;"><i class="fa-solid fa-tablet-screen-button"></i></button>
+                <button class="filter-btn web-device-btn" data-device="mobile" style="padding: 4px 8px; font-size: 0.72rem;"><i class="fa-solid fa-mobile-screen"></i></button>
               </div>
-              <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
-                Every pixel is optimized with semantic HTML5, hardware-accelerated CSS, and minified Brotli compression.
-              </p>
-              <div style="display: inline-flex; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
-                <span class="live-status-dot" style="background: #10b981;"></span>
-                <span>PageSpeed SLA: 98+ Guaranteed</span>
+            </div>
+
+            <!-- Frame Container -->
+            <div style="display: flex; justify-content: center; margin-bottom: 14px;">
+              <div id="web-preview-frame" style="width: 100%; height: 160px; background: rgba(0,0,0,0.3); border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; padding: 12px; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);">
+                <div id="web-live-target" style="width: 100%; height: 100%; border-radius: var(--radius-sm); border: 2px solid var(--accent-cyan); background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10px; transition: border-color 0.2s ease, box-shadow 0.2s ease;">
+                  <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Interactive 60 FPS Component</div>
+                  <div style="font-size: 0.72rem; color: #10b981; font-family: var(--font-mono); margin-top: 4px;">● Lighthouse: 100 // TTFB: 38ms</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic UI Theme Token Sliders -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); background: rgba(255,255,255,0.02); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span>Glow Hue:</span>
+                  <span id="web-token-color-val" style="color: var(--accent-cyan);">185°</span>
+                </div>
+                <input type="range" id="web-token-color" min="0" max="360" value="185" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer;">
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                  <span>Glass Blur:</span>
+                  <span id="web-token-blur-val" style="color: var(--accent-purple);">12px</span>
+                </div>
+                <input type="range" id="web-token-blur" min="0" max="24" value="12" style="width: 100%; accent-color: var(--accent-purple); cursor: pointer;">
               </div>
             </div>
           </div>
@@ -372,10 +396,28 @@
             </div>
           </div>
 
-          <div class="service-preview-pane" style="padding: 12px;">
-            <canvas id="service-3d-canvas" width="280" height="220" style="width: 100%; height: 220px; border-radius: var(--radius-sm);"></canvas>
-            <div style="font-size: 0.75rem; text-align: center; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px;">
-              ⚡ Real-time 60 FPS Canvas Torus Mesh
+          <!-- Real-Time 3D WebGL Canvas Lab -->
+          <div class="service-preview-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div style="font-size: 0.78rem; font-family: var(--font-mono); color: #a855f7;">
+                <i class="fa-solid fa-cube" style="margin-right: 4px;"></i>3D SPATIAL ORBIT LAB (Drag to Rotate)
+              </div>
+              <div style="font-size: 0.72rem; color: #10b981; font-family: var(--font-mono);">⚡ 60.0 FPS</div>
+            </div>
+
+            <canvas id="service-3d-canvas" width="280" height="150" style="width: 100%; height: 150px; border-radius: var(--radius-sm); cursor: grab; background: #090e1a;"></canvas>
+
+            <!-- 3D Controls -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; gap: 8px; flex-wrap: wrap;">
+              <div style="display: flex; gap: 4px;">
+                <button class="filter-btn lab-3d-geom-btn active" data-geom="torus" style="padding: 4px 10px; font-size: 0.72rem;">Torus</button>
+                <button class="filter-btn lab-3d-geom-btn" data-geom="cube" style="padding: 4px 10px; font-size: 0.72rem;">Matrix Cube</button>
+                <button class="filter-btn lab-3d-geom-btn" data-geom="node" style="padding: 4px 10px; font-size: 0.72rem;">Quantum Node</button>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+                <span>Density:</span>
+                <input type="range" id="lab-3d-density" min="8" max="24" value="14" style="width: 60px; accent-color: #a855f7; cursor: pointer;">
+              </div>
             </div>
           </div>
         </div>
@@ -418,20 +460,28 @@
             </div>
           </div>
 
+          <!-- Real-Time Doctor Lab Preview -->
           <div class="service-preview-pane">
-            <div class="sandbox-video-box" id="sandbox-video-preview">
+            <div class="sandbox-video-box" id="sandbox-video-preview" style="height: 120px; margin-bottom: 10px;">
               <canvas id="sandbox-ecg-canvas" width="300" height="70" style="position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: 70px; opacity: 0.85;"></canvas>
-              <div style="position: absolute; bottom: 10px; left: 14px; font-family: var(--font-mono); font-size: 0.75rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
+              <div style="position: absolute; bottom: 8px; left: 14px; font-family: var(--font-mono); font-size: 0.72rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
                 <span class="live-status-dot" style="background:#10b981;"></span>
-                <span>Resting HR: 72 BPM // HIPAA Encrypted</span>
+                <span>Resting HR: <strong id="doctor-hr-val">72 BPM</strong> // HIPAA Encrypted</span>
               </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <button class="btn-magnetic btn-primary" id="sandbox-rx-download-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
-                <span><i class="fa-solid fa-file-medical" style="margin-right: 6px;"></i>Generate & Download Sample Rx</span>
+
+            <!-- HR Pulse Slider -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); background: rgba(255,255,255,0.02); padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <span>Heart Rate:</span>
+              <input type="range" id="doctor-hr-slider" min="50" max="140" value="72" style="width: 130px; accent-color: #10b981; cursor: pointer;">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button class="btn-magnetic btn-primary" id="sandbox-rx-download-btn" style="padding: 9px; font-size: 0.78rem;">
+                <span><i class="fa-solid fa-file-medical" style="margin-right: 4px;"></i>Download Rx</span>
               </button>
-              <button class="btn-magnetic btn-secondary" id="sandbox-video-toggle-btn" style="width: 100%; padding: 9px; font-size: 0.8rem;">
-                <span><i class="fa-solid fa-video" style="margin-right: 6px;"></i>Test WebRTC Encrypted Room</span>
+              <button class="btn-magnetic btn-secondary" id="sandbox-video-toggle-btn" style="padding: 9px; font-size: 0.78rem;">
+                <span><i class="fa-solid fa-video" style="margin-right: 4px;"></i>Test WebRTC</span>
               </button>
             </div>
           </div>
@@ -475,25 +525,37 @@
             </div>
           </div>
 
+          <!-- Real-Time FinTech Lab Preview -->
           <div class="service-preview-pane">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
-              <span style="color: var(--text-secondary);">Annual Turnover:</span>
+            <!-- Entity Type Switcher -->
+            <div style="display: flex; gap: 4px; margin-bottom: 10px;">
+              <button class="filter-btn ca-entity-btn active" data-entity="pvt" style="padding: 4px 8px; font-size: 0.72rem;">Pvt Ltd</button>
+              <button class="filter-btn ca-entity-btn" data-entity="proprietor" style="padding: 4px 8px; font-size: 0.72rem;">Proprietorship</button>
+              <button class="filter-btn ca-entity-btn" data-entity="llp" style="padding: 4px 8px; font-size: 0.72rem;">LLP</button>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 6px;">
+              <span style="color: var(--text-secondary);">Turnover:</span>
               <strong id="ca-sandbox-income-val" style="color: var(--accent-cyan); font-family: var(--font-mono);">₹ 25,00,000</strong>
             </div>
-            <input type="range" id="ca-sandbox-slider" min="500000" max="10000000" step="250000" value="2500000" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer;">
+            <input type="range" id="ca-sandbox-slider" min="500000" max="10000000" step="250000" value="2500000" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer; margin-bottom: 10px;">
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0; padding: 10px 0; border-top: 1px dashed var(--border-subtle); border-bottom: 1px dashed var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 10px; padding: 8px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.25); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.72rem;">
               <div>
                 <span style="color: var(--text-muted); display: block;">GST (18%):</span>
                 <span id="ca-sandbox-gst-val" style="color: #38bdf8; font-weight: bold;">₹ 4,50,000</span>
               </div>
               <div>
-                <span style="color: var(--text-muted); display: block;">Tax Savings:</span>
+                <span style="color: var(--text-muted); display: block;">Tax Est.:</span>
+                <span id="ca-sandbox-tax-val" style="color: #f59e0b; font-weight: bold;">₹ 1,92,500</span>
+              </div>
+              <div>
+                <span style="color: var(--text-muted); display: block;">Savings:</span>
                 <span id="ca-sandbox-savings-val" style="color: #10b981; font-weight: bold;">₹ 2,12,500</span>
               </div>
             </div>
 
-            <button class="btn-magnetic btn-primary" id="ca-sandbox-download-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
+            <button class="btn-magnetic btn-primary" id="ca-sandbox-download-btn" style="width: 100%; padding: 9px; font-size: 0.8rem;">
               <span><i class="fa-solid fa-download" style="margin-right: 6px;"></i>Download Encrypted Audit Ledger</span>
             </button>
           </div>
@@ -537,15 +599,29 @@
             </div>
           </div>
 
-          <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.78rem;">
-            <div style="color: #38bdf8; font-weight: 700; margin-bottom: 8px;">
-              <i class="fa-solid fa-terminal" style="margin-right: 6px;"></i>DEPLOYMENT TELEMETRY
+          <!-- Real-Time DevOps Lab Preview -->
+          <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="color: #38bdf8; font-weight: 700;"><i class="fa-solid fa-server" style="margin-right: 4px;"></i>BLUE/GREEN DOCKER MESH</span>
+              <div style="display: flex; gap: 6px;">
+                <span id="devops-cluster-blue" style="color: #00f0ff; background: rgba(0,240,255,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(0,240,255,0.3);">Blue: LIVE</span>
+                <span id="devops-cluster-green" style="color: #10b981; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.3); opacity: 0.35;">Green: STANDBY</span>
+              </div>
             </div>
-            <div style="background: #020617; border-radius: var(--radius-sm); padding: 14px; color: #94a3b8; line-height: 1.6; border: 1px solid var(--border-subtle);">
-              <div><span style="color:#10b981;">✔</span> docker-compose up -d --build</div>
-              <div><span style="color:#10b981;">✔</span> nginx syntax test: successful</div>
-              <div><span style="color:#10b981;">✔</span> SSL certbot auto-renewal: active</div>
-              <div><span style="color:#10b981;">✔</span> TTFB: 42ms | Cloudflare Edge: HIT</div>
+
+            <!-- Console Log Box -->
+            <div id="devops-live-console" style="height: 100px; background: #020617; border-radius: var(--radius-sm); padding: 8px 12px; color: #94a3b8; line-height: 1.5; border: 1px solid var(--border-subtle); overflow-y: auto; margin-bottom: 10px;">
+              <div style="color: #10b981;">✔ [STATUS]: Nginx Reverse Proxy Active | HTTP/2 200 OK | TTFB: 28ms</div>
+              <div style="color: #00f0ff;">✔ [ROUTER]: 100% Traffic dispatched to Container blue_prod_v3.2.0</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button class="btn-magnetic btn-secondary" id="devops-switch-cluster-btn" style="padding: 8px; font-size: 0.75rem;">
+                <span><i class="fa-solid fa-rotate" style="margin-right: 4px;"></i>Switch Blue/Green</span>
+              </button>
+              <button class="btn-magnetic btn-primary" id="devops-spike-btn" style="padding: 8px; font-size: 0.75rem;">
+                <span><i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>Inject 5k Spike</span>
+              </button>
             </div>
           </div>
         </div>
@@ -588,16 +664,44 @@
             </div>
           </div>
 
-          <div class="service-preview-pane" style="text-align: center;">
-            <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 8px;">
-              <i class="fa-solid fa-credit-card"></i>
+          <!-- Real-Time E-Commerce Lab Preview -->
+          <div class="service-preview-pane">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div style="font-size: 0.78rem; font-family: var(--font-mono); color: #f59e0b;">
+                <i class="fa-solid fa-palette" style="margin-right: 4px;"></i>360° ART GALLERY LIGHTING
+              </div>
+              <!-- Currency Switcher -->
+              <div style="display: flex; gap: 3px;">
+                <button class="filter-btn ecom-curr-btn active" data-curr="USD" style="padding: 2px 6px; font-size: 0.7rem;">USD</button>
+                <button class="filter-btn ecom-curr-btn" data-curr="INR" style="padding: 2px 6px; font-size: 0.7rem;">INR</button>
+                <button class="filter-btn ecom-curr-btn" data-curr="EUR" style="padding: 2px 6px; font-size: 0.7rem;">EUR</button>
+                <button class="filter-btn ecom-curr-btn" data-curr="AED" style="padding: 2px 6px; font-size: 0.7rem;">AED</button>
+              </div>
             </div>
-            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
-              Global Multi-Currency Checkout
+
+            <!-- Interactive Gallery Showcase Box -->
+            <div id="ecom-art-preview-box" style="height: 110px; border-radius: var(--radius-sm); background: radial-gradient(circle at center, #334155 0%, #090e1a 100%); display: flex; align-items: center; justify-content: space-between; padding: 14px; border: 1px solid var(--border-subtle); transition: all 0.3s ease; margin-bottom: 10px;">
+              <div>
+                <div style="font-size: 0.92rem; font-weight: 700; color: #ffffff;">"Abstract Horizon" (Original)</div>
+                <div style="font-size: 0.72rem; color: #94a3b8;">Oil on Canvas // Certificate Verified</div>
+              </div>
+              <div style="text-align: right;">
+                <div id="ecom-item-price" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #f59e0b;">$ 450</div>
+                <div style="font-size: 0.68rem; color: #10b981; font-family: var(--font-mono);">In Stock</div>
+              </div>
             </div>
-            <p style="font-size: 0.84rem; color: var(--text-muted);">
-              Supports 135+ currencies, Apple Pay, Google Pay, UPI, and instant webhooks.
-            </p>
+
+            <!-- Lighting Studio Controls & Checkout -->
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+              <div style="display: flex; gap: 4px;">
+                <button class="filter-btn ecom-light-btn active" data-light="studio" style="padding: 4px 8px; font-size: 0.72rem;">Studio</button>
+                <button class="filter-btn ecom-light-btn" data-light="warm" style="padding: 4px 8px; font-size: 0.72rem;">Warm</button>
+                <button class="filter-btn ecom-light-btn" data-light="cyber" style="padding: 4px 8px; font-size: 0.72rem;">Cyber</button>
+              </div>
+              <button class="btn-magnetic btn-primary" id="ecom-mock-checkout-btn" style="padding: 8px 14px; font-size: 0.78rem;">
+                <span><i class="fa-brands fa-apple" style="margin-right: 4px;"></i>Instant 1-Click Pay</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -639,16 +743,28 @@
             </div>
           </div>
 
-          <div class="service-preview-pane" style="text-align: center;">
-            <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 8px;">
-              <i class="fa-solid fa-lock"></i>
+          <!-- Real-Time Security Threat Lab Preview -->
+          <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="color: #10b981; font-weight: 700;"><i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i>THREAT SHIELD</span>
+              <span id="sec-shield-status" style="color: #10b981; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.3);">ZERO-TRUST SHIELD ACTIVE</span>
             </div>
-            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
-              Zero-Trust Security & Backup Vault
+
+            <!-- Threat Log -->
+            <div id="sec-live-threat-log" style="height: 100px; background: #020617; border-radius: var(--radius-sm); padding: 8px 12px; color: #94a3b8; line-height: 1.5; border: 1px solid var(--border-subtle); overflow-y: auto; margin-bottom: 10px;">
+              <div style="color: #10b981;">✔ Cloudflare WAF: Zero active vulnerabilities</div>
+              <div style="color: #38bdf8;">✔ SSL Let's Encrypt: A+ Rating (TLS 1.3 Strict)</div>
+              <div style="color: #10b981;">✔ Daily S3 Offsite Backup: Complete (Hash Verified)</div>
             </div>
-            <p style="font-size: 0.84rem; color: var(--text-muted);">
-              Encrypted snapshots, DDoS deflection, and 99.99% uptime SLA compliance.
-            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button class="btn-magnetic btn-secondary" id="sec-simulate-attack-btn" style="padding: 8px; font-size: 0.75rem;">
+                <span><i class="fa-solid fa-bug" style="margin-right: 4px;"></i>Simulate Threat</span>
+              </button>
+              <button class="btn-magnetic btn-primary" id="sec-snapshot-btn" style="padding: 8px; font-size: 0.75rem;">
+                <span><i class="fa-solid fa-cloud-arrow-up" style="margin-right: 4px;"></i>Trigger S3 Backup</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
