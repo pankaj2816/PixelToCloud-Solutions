@@ -1,5 +1,5 @@
 /* ===================================================================
-   PANKAJ TECH STUDIO - INTERACTIVE 3D PARTICLE & CYBER MESH CANVAS
+   BHAVYANSH TECH STUDIO - INTERACTIVE 3D PARTICLE & CYBER MESH CANVAS
    Fluid physics, mouse repulsion/attraction, ambient depth nodes
    =================================================================== */
 

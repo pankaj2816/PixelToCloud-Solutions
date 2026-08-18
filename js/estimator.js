@@ -1,5 +1,5 @@
 /* ===================================================================
-   PIXELTOCLOUD SOLUTIONS - TECHNICAL SOLUTION BUILDER & SCOPE ESTIMATOR
+   BHAVYANSH TECH STUDIO - TECHNICAL SOLUTION BUILDER & SCOPE ESTIMATOR
    Dynamic multi-step architecture configurator with custom milestone scoping
    =================================================================== */
 
@@ -244,7 +244,7 @@ class ProjectEstimator {
 
     const subject = encodeURIComponent(`Project Architecture Scope Request - ${this.lastCalculation.project}`);
     const body = encodeURIComponent(
-      `Dear Pankaj & Tushar,\n\n` +
+      `Dear Bhavyansh & Tushar,\n\n` +
       `I configured a project architecture scope on PixelToCloud Solutions website:\n\n` +
       `--- TECHNICAL SPECIFICATION ---\n` +
       `📌 Base Architecture: ${this.lastCalculation.project}\n` +
@@ -334,7 +334,7 @@ class ProjectEstimator {
     if (!this.lastCalculation) return;
 
     const phoneNumber = "918219352124"; // Developer WhatsApp Link
-    const text = `Hello Pankaj & Tushar (PixelToCloud Solutions),\n\nI just configured an architecture scope on your website:\n` +
+    const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just configured an architecture scope on your website:\n` +
       `*Architecture:* ${this.lastCalculation.project}\n` +
       `*Scope Tier:* ${this.lastCalculation.tier}\n` +
       `*Target Timeline:* ${this.lastCalculation.totalDays}\n` +
