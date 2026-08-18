@@ -302,9 +302,13 @@
 
           <!-- Founders Direct Access Card -->
           <div class="founders-direct-badge">
-            <div class="founders-avatars-stack">
-              <img src="image/pankaj-profile.jpg" alt="Pankaj">
-              <img src="image/cofounder-profile.jpg" alt="Tushar Singhal">
+            <div class="founders-avatars-stack" style="display: flex; align-items: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent-cyan); display: inline-block;">
+                <canvas class="founder-avatar-canvas pankaj-avatar-canvas" width="88" height="88" style="width: 100%; height: 100%;"></canvas>
+              </div>
+              <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid #a855f7; display: inline-block; margin-left: -12px;">
+                <canvas class="founder-avatar-canvas tushar-avatar-canvas" width="88" height="88" style="width: 100%; height: 100%;"></canvas>
+              </div>
             </div>
             <div>
               <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">Pankaj & Tushar Singhal</div>
@@ -684,6 +688,7 @@
   <!-- Scripts -->
   <script src="js/i18n.js?v=14.0"></script>
   <script src="js/magnetic-cards.js?v=14.0"></script>
+  <script src="js/founder-avatars.js?v=14.0"></script>
   <script src="js/app.js?v=14.0"></script>
   <script src="js/scheduler.js?v=14.0"></script>
   <script src="js/ai-advisor.js?v=14.0"></script>

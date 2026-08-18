@@ -1142,6 +1142,14 @@
   aspect-ratio: 3/4;
 }
 
+.founder-avatar-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #080b11;
+}
+
 .founder-portrait-img {
   width: 100%;
   height: 100%;
@@ -1149,8 +1157,9 @@
   transition: transform var(--transition-smooth);
 }
 
-.founder-image-container:hover .founder-portrait-img {
-  transform: scale(1.04);
+.founder-image-container:hover .founder-portrait-img,
+.founder-image-container:hover .founder-avatar-canvas {
+  transform: scale(1.02);
 }
 
 .founder-exp-floating-badge {
