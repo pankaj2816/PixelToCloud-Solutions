@@ -1,6 +1,6 @@
 /* ===================================================================
    PIXELTOCLOUD SOLUTIONS - ADVANCED CLIENT-TO-CLOUD DISTRIBUTED TOPOLOGY
-   Enterprise Multi-Tier Architecture, Live Telemetry, Failover & WAF Defense
+   Multi-Tier Global Architecture, Live Payload Decoder, Latency Oscilloscope & WAF
    =================================================================== */
 
 class AdvancedSystemTopologyEngine {
@@ -8,10 +8,12 @@ class AdvancedSystemTopologyEngine {
     this.canvas = document.getElementById('topology-canvas');
     this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
     this.packets = [];
+    this.particles = [];
     this.nodes = [];
     this.activeNodeIndex = 2; // Default to Nginx Ingress
     this.currentScenario = 'normal'; // 'normal', 'spike', 'ddos', 'failover', 'backup'
     this.currentProtocol = 'http3'; // 'http3', 'websocket', 'grpc'
+    this.latencyHistory = [0.45, 0.42, 0.48, 0.44, 0.46, 0.45, 0.43, 0.47, 0.45];
     this.animationFrameId = null;
 
     if (this.canvas && this.ctx) {
@@ -31,7 +33,7 @@ class AdvancedSystemTopologyEngine {
     if (!this.canvas) return;
     const rect = this.canvas.parentElement.getBoundingClientRect();
     this.canvas.width = rect.width;
-    this.canvas.height = Math.max(300, Math.min(360, rect.width * 0.4));
+    this.canvas.height = Math.max(320, Math.min(380, rect.width * 0.42));
     this.setupNodes();
   }
 
@@ -40,17 +42,18 @@ class AdvancedSystemTopologyEngine {
     const h = this.canvas.height;
 
     // Multi-Tier Branching Layout
-    const yTop = h * 0.32;
-    const yMid = h * 0.52;
-    const yBottom = h * 0.72;
+    const yTop = h * 0.28;
+    const yMid = h * 0.50;
+    const yBottom = h * 0.74;
 
     this.nodes = [
-      // 0. Client Layer
+      // 0. Multi-Region Global Edge Clients
       {
         id: 'clients',
-        name: 'Multi-Region Clients',
-        category: 'Edge Ingress',
-        protocol: 'HTTP/3 QUIC & TLS 1.3',
+        name: 'Multi-Region Ingress',
+        category: 'Edge Clients',
+        region: 'US / EU / IN / SG',
+        protocol: 'HTTP/3 QUIC (0-RTT)',
         x: w * 0.08,
         y: yMid,
         icon: '📱',
@@ -59,15 +62,22 @@ class AdvancedSystemTopologyEngine {
           throughput: '8,450 req/s',
           latency: '0.12ms',
           state: 'Optimal (Global Anycast)',
-          detail: 'Mobile, Desktop & Telehealth WebRTC Streams'
+          detail: 'Mobile, Desktop & Telehealth WebRTC Stream Sessions'
+        },
+        payload: {
+          method: 'GET /api/v2/stream HTTP/3',
+          handshake: 'TLS 1.3 Strict // 0-RTT Session Resumption',
+          client_ip: '103.21.244.18 (AP-South-1)',
+          compression: 'Brotli (br: 11) // 96% Data Savings'
         }
       },
-      // 1. Cloudflare Anycast WAF
+      // 1. Cloudflare Anycast WAF & Edge Cache
       {
         id: 'cloudflare',
         name: 'Cloudflare Edge WAF',
         category: 'DDoS & Static CDN',
-        protocol: 'Anycast DNS / SSL Offload',
+        region: '330+ Global PoPs',
+        protocol: 'Anycast DNS / SSL Scrubber',
         x: w * 0.24,
         y: yMid,
         icon: '🛡️',
@@ -76,7 +86,13 @@ class AdvancedSystemTopologyEngine {
           throughput: '142 Tbps Capacity',
           latency: '12ms TTFB',
           state: '88.4% Cache Hit Ratio',
-          detail: 'Automated Bot Blocker & Brotli Static Scrubber'
+          detail: 'Automated Bot Blocker & Brotli Static Edge Scrubber'
+        },
+        payload: {
+          waf_status: 'RULE_BLOCK_SQLI: ACTIVE // 0 FP',
+          ddos_capacity: '142 Tbps Anycast Mesh',
+          edge_cache: 'HIT (max-age=31536000, immutable)',
+          ssl_cert: 'ECDSA P-384 // A+ Security Rating'
         }
       },
       // 2. Nginx Ingress Reverse Proxy
@@ -84,6 +100,7 @@ class AdvancedSystemTopologyEngine {
         id: 'nginx',
         name: 'Nginx HA Ingress',
         category: 'Load Balancer',
+        region: 'Private Cloud VPC',
         protocol: 'HTTP/2 Keep-Alive Stream',
         x: w * 0.42,
         y: yMid,
@@ -94,6 +111,12 @@ class AdvancedSystemTopologyEngine {
           latency: '0.45ms',
           state: 'TLS 1.3 Terminated',
           detail: 'Least-Conn Dynamic Upstream Round-Robin Pool'
+        },
+        payload: {
+          worker_processes: 'auto (8 Cores // 65,535 conns/core)',
+          load_balancing: 'least_conn upstream_pool_prod',
+          tcp_nodelay: 'on // zero-copy sendfile enabled',
+          upstream_latency: '0.38ms average response'
         }
       },
       // 3. Docker Container Microservices Mesh (Upper Branch)
@@ -101,7 +124,8 @@ class AdvancedSystemTopologyEngine {
         id: 'docker',
         name: 'Docker Microservices',
         category: 'Compute Cluster',
-        protocol: 'Node.js / Python FastAPIs',
+        region: 'Docker Engine Swarm',
+        protocol: 'Node.js & FastAPI Microservices',
         x: w * 0.62,
         y: yTop,
         icon: '🐳',
@@ -110,14 +134,21 @@ class AdvancedSystemTopologyEngine {
           throughput: '16 Replicas Live',
           latency: '1.8ms',
           state: 'Zero-Downtime Hot Swaps',
-          detail: 'Auth JWT, Telehealth WebRTC & Tax Engines'
+          detail: 'Auth JWT, Telehealth WebRTC & Tax Compilation Pods'
+        },
+        payload: {
+          containers: 'auth_v3, ehr_webrtc_v2, tax_engine_v4',
+          orchestration: 'Docker Compose v2.24 Auto-Restart',
+          memory_footprint: '48.2 MB average per container',
+          healthcheck: 'HTTP /healthz 200 OK (every 5s)'
         }
       },
-      // 4. Redis In-Memory Cluster (Middle Branch)
+      // 4. Redis In-Memory Cluster (Lower Branch)
       {
         id: 'redis',
         name: 'Redis In-Memory Tier',
         category: 'Cache & Pub/Sub',
+        region: 'In-Memory RAM Bus',
         protocol: 'TCP In-Memory Key/Value',
         x: w * 0.62,
         y: yBottom,
@@ -128,6 +159,12 @@ class AdvancedSystemTopologyEngine {
           latency: '0.22ms',
           state: 'Multi-AZ Replicated',
           detail: 'Session Store, Rate-Limiting & Pub/Sub Pipeline'
+        },
+        payload: {
+          used_memory_human: '124.6 MB',
+          connected_clients: '482 concurrent sockets',
+          instantaneous_ops_per_sec: '18,400 ops/s',
+          cache_hit_rate: '99.42% (0.22ms RAM latency)'
         }
       },
       // 5. PostgreSQL Enterprise Primary (Upper Right)
@@ -135,6 +172,7 @@ class AdvancedSystemTopologyEngine {
         id: 'postgres',
         name: 'PostgreSQL Database',
         category: 'ACID Relational Storage',
+        region: 'Encrypted NVMe Pool',
         protocol: 'WAL Streaming Replication',
         x: w * 0.88,
         y: yTop,
@@ -145,6 +183,12 @@ class AdvancedSystemTopologyEngine {
           latency: '0.85ms',
           state: 'Primary + Read Replicas',
           detail: 'Row-Level AES-256 Encryption & Strict ACID'
+        },
+        payload: {
+          isolation_level: 'READ COMMITTED // ACID Strict',
+          wal_replication_lag: '0.08ms streaming to replica',
+          encryption: 'LUKS AES-256-XTS at rest',
+          max_connections: '500 pooled (PgBouncer Active)'
         }
       },
       // 6. AWS S3 Encrypted Backup Vault (Lower Right)
@@ -152,7 +196,8 @@ class AdvancedSystemTopologyEngine {
         id: 's3',
         name: 'AWS S3 Snapshot Vault',
         category: 'Offsite Cloud Backup',
-        protocol: 'HTTPS REST (us-east-1)',
+        region: 'AWS us-east-1 Vault',
+        protocol: 'HTTPS REST Object Store',
         x: w * 0.88,
         y: yBottom,
         icon: '☁️',
@@ -161,12 +206,18 @@ class AdvancedSystemTopologyEngine {
           throughput: '11 9s Durability',
           latency: '24ms',
           state: 'SHA-256 Immutable',
-          detail: 'Automated Hourly WAL Backups & Asset Storage'
+          detail: 'Automated Hourly WAL Backups & Static Asset Storage'
+        },
+        payload: {
+          bucket_arn: 'arn:aws:s3:::pixeltocloud-vault-offsite',
+          kms_key_id: 'alias/aws/s3-encrypted-wal',
+          versioning: 'ENABLED (Object Lock Immutable 90 Days)',
+          durability: '99.999999999% SLA'
         }
       }
     ];
 
-    // Branching Links
+    // Multi-Tier Branching Links
     this.links = [
       { from: 0, to: 1 }, // Client -> Cloudflare
       { from: 1, to: 2 }, // Cloudflare -> Nginx
@@ -209,10 +260,10 @@ class AdvancedSystemTopologyEngine {
 
       this.nodes.forEach((node, idx) => {
         const dist = Math.hypot(node.x - x, node.y - y);
-        if (dist < 38) {
+        if (dist < 40) {
           this.activeNodeIndex = idx;
           this.updateTelemetryCard(node);
-          this.logSystemEvent(`🔍 Node Inspected: [${node.name}] - State: ${node.metrics.state}`, node.color);
+          this.logSystemEvent(`🔍 Node Inspected: [${node.name}] - Region: ${node.region} - State: ${node.metrics.state}`, node.color);
         }
       });
     });
@@ -231,7 +282,7 @@ class AdvancedSystemTopologyEngine {
     const descEl = document.getElementById('topology-telemetry-desc');
 
     if (titleEl) {
-      titleEl.innerHTML = `<span style="margin-right: 6px;">${node.icon}</span> ${node.name} <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-left: 6px;">[${node.category}]</span>`;
+      titleEl.innerHTML = `<span style="margin-right: 6px;">${node.icon}</span> ${node.name} <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal; margin-left: 6px;">[${node.category} // ${node.region}]</span>`;
     }
     if (rpsEl) rpsEl.textContent = node.metrics.throughput;
     if (latencyEl) latencyEl.textContent = node.metrics.latency;
@@ -239,8 +290,9 @@ class AdvancedSystemTopologyEngine {
       statusEl.textContent = node.metrics.state;
       statusEl.style.color = node.color;
     }
-    if (descEl) {
-      descEl.textContent = `${node.protocol} — ${node.metrics.detail}`;
+    if (descEl && node.payload) {
+      const keys = Object.keys(node.payload);
+      descEl.innerHTML = keys.map(k => `<div><span style="color: #64748b;">${k}:</span> <strong style="color: #cbd5e1;">${node.payload[k]}</strong></div>`).join('');
     }
   }
 
@@ -259,9 +311,9 @@ class AdvancedSystemTopologyEngine {
   // =================================================================
   triggerSpike() {
     this.currentScenario = 'spike';
-    this.logSystemEvent('⚡ [TRAFFIC SURGE]: 10,000 concurrent requests arriving. Anycast edge absorbing 88.4% cached assets.', '#f59e0b');
+    this.logSystemEvent('⚡ [TRAFFIC SURGE]: 10,000 concurrent requests arriving across 4 multi-region PoPs.', '#f59e0b');
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 45; i++) {
       this.spawnPacket({ isSurge: true });
     }
 
@@ -275,7 +327,7 @@ class AdvancedSystemTopologyEngine {
     this.currentScenario = 'ddos';
     this.logSystemEvent('🚨 [DDOS ATTACK]: 50 Gbps SYN Flood / Layer 7 Attack detected on Anycast edge IP.', '#ef4444');
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 35; i++) {
       this.spawnPacket({ isThreat: true });
     }
 
@@ -299,7 +351,7 @@ class AdvancedSystemTopologyEngine {
     this.currentScenario = 'backup';
     this.logSystemEvent('☁️ [AWS S3 BACKUP]: Streaming PostgreSQL WAL snapshot to S3 Immutable Storage Bucket...', '#0284c7');
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 18; i++) {
       this.spawnPacket({ isBackup: true });
     }
 
@@ -332,8 +384,7 @@ class AdvancedSystemTopologyEngine {
       progress: 0,
       speed: isSurge ? 0.038 : (isThreat ? 0.045 : 0.018 + Math.random() * 0.008),
       color: isThreat ? '#ef4444' : (isSurge ? '#fbbf24' : (isBackup ? '#0284c7' : '#00f0ff')),
-      size: isThreat ? 4 : (isSurge ? 4 : 3),
-      isResponse: false
+      size: isThreat ? 4.5 : (isSurge ? 4 : 3)
     });
   }
 
@@ -476,6 +527,33 @@ class AdvancedSystemTopologyEngine {
       ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
       ctx.fillText(n.category, n.x, n.y + radius + 25);
     });
+
+    // 4. Draw Oscilloscope Latency Waveform at Bottom Left
+    const ox = 20;
+    const oy = h - 24;
+    const ow = 130;
+    const oh = 18;
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    ctx.fillRect(ox - 4, oy - 14, ow + 8, oh + 16);
+    ctx.strokeStyle = 'rgba(0, 240, 255, 0.2)';
+    ctx.strokeRect(ox - 4, oy - 14, ow + 8, oh + 16);
+
+    ctx.font = '8px Fira Code, monospace';
+    ctx.fillStyle = '#00f0ff';
+    ctx.textAlign = 'left';
+    ctx.fillText('RTT OSCILLOSCOPE: 0.45ms', ox, oy - 4);
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#10b981';
+    ctx.lineWidth = 1.5;
+    for (let x = 0; x < ow; x += 4) {
+      const freq = Math.sin(tick * 0.15 + x * 0.2) * 5;
+      const py = oy + 8 + freq;
+      if (x === 0) ctx.moveTo(ox + x, py);
+      else ctx.lineTo(ox + x, py);
+    }
+    ctx.stroke();
   }
 }
 
