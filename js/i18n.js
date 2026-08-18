@@ -75,9 +75,9 @@ const I18N_DICTIONARY = {
     port_filter_cloud: "Cloud & DevOps",
 
     // Estimator Section
-    section_estimator_tag: "Transparent Pricing",
-    section_estimator_title: "Interactive Project Cost & Timeline Estimator",
-    section_estimator_desc: "Get an immediate, transparent estimate tailored to your exact technical specifications, infrastructure needs, and deadline.",
+    section_estimator_tag: "Milestone-Based Scoping",
+    section_estimator_title: "Technical Solution Builder & Scope Estimator",
+    section_estimator_desc: "Configure your custom architecture, server stack, and capabilities to generate an estimated delivery roadmap and milestone plan.",
 
     // Founder Section
     section_about_tag: "Meet The Principal Architect",
@@ -173,9 +173,9 @@ const I18N_DICTIONARY = {
     port_filter_specialty: "CA और स्वास्थ्य",
     port_filter_cloud: "क्लाउड व सर्वर",
 
-    section_estimator_tag: "पारदर्शी मूल्य निर्धारण",
-    section_estimator_title: "इंटरएक्टिव प्रोजेक्ट लागत व समय कैलकुलेटर",
-    section_estimator_desc: "अपनी तकनीकी आवश्यकताओं और समय-सीमा के अनुसार तुरंत सटीक पारदर्शी अनुमान प्राप्त करें।",
+    section_estimator_tag: "माइलस्टोन-आधारित स्कोपिंग",
+    section_estimator_title: "टेक्निकल सॉल्यूशन बिल्डर और स्कोप एस्टीमेटर",
+    section_estimator_desc: "अपनी प्रोजेक्ट आवश्यकताओं, सर्वर इन्फ्रास्ट्रक्चर और फीचर्स को कॉन्फ़िगर करके डिलीवरी रोडमैप और माइलस्टोन प्लान तैयार करें।",
 
     section_about_tag: "मुख्य वास्तुकार से मिलें",
     section_about_title: "8-10+ वर्षों के सॉफ्टवेयर और हार्डवेयर अनुभव के साथ",
@@ -268,9 +268,9 @@ const I18N_DICTIONARY = {
     port_filter_specialty: "Santé & Finance",
     port_filter_cloud: "Cloud & Serveurs",
 
-    section_estimator_tag: "Tarification Transparente",
-    section_estimator_title: "Estimateur Interactif de Coût & Délais",
-    section_estimator_desc: "Obtenez une estimation claire et transparente basée sur vos spécifications techniques exactes.",
+    section_estimator_tag: "Cadrage par Jalons",
+    section_estimator_title: "Générateur d'Architecture & Estimation de Portée",
+    section_estimator_desc: "Configurez votre architecture personnalisée, infrastructure serveur et fonctionnalités pour générer une feuille de route claire.",
 
     section_about_tag: "L'Architecte Principal",
     section_about_title: "Conçu avec 8–10+ Ans de Double Maîtrise",
@@ -363,9 +363,9 @@ const I18N_DICTIONARY = {
     port_filter_specialty: "Finanzen & Medizin",
     port_filter_cloud: "Cloud & DevOps",
 
-    section_estimator_tag: "Transparente Preise",
-    section_estimator_title: "Interaktiver Kosten- und Zeitplan-Rechner",
-    section_estimator_desc: "Erhalten Sie eine sofortige, transparente Kostenschätzung basierend auf Ihren individuellen Anforderungen.",
+    section_estimator_tag: "Meilenstein-basierte Planung",
+    section_estimator_title: "Technischer Lösungs- & Umfangs-Konfigurator",
+    section_estimator_desc: "Konfigurieren Sie Ihre individuelle Architektur und Serverinfrastruktur für einen transparenten Projekt- und Zeitplan.",
 
     section_about_tag: "Chef-Architekt",
     section_about_title: "Entwickelt mit 8–10+ Jahren Software- & Hardware-Expertise",
@@ -458,9 +458,9 @@ const I18N_DICTIONARY = {
     port_filter_specialty: "Финансы и Медицина",
     port_filter_cloud: "Облако и DevOps",
 
-    section_estimator_tag: "Прозрачные Цены",
-    section_estimator_title: "Интерактивный Калькулятор Стоимости и Сроков",
-    section_estimator_desc: "Получите точную и прозрачную смету под ваши технические задачи и требования.",
+    section_estimator_tag: "Поэтапное Планирование",
+    section_estimator_title: "Конфигуратор Архитектуры и Оценка Объема Проекта",
+    section_estimator_desc: "Настройте архитектуру проекта, стек серверов и функции для формирования прозрачного плана разработки.",
 
     section_about_tag: "Главный Архитектор",
     section_about_title: "Создано с 8–10+ Летним Опытом в ПО и Hardware",
