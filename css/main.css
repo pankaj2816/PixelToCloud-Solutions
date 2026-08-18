@@ -271,22 +271,24 @@ ul, ol {
 .ambient-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(90px);
   pointer-events: none;
-  z-index: 0;
   opacity: 0.35;
+  z-index: 0;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .glow-cyan {
   background: radial-gradient(circle, var(--accent-cyan) 0%, rgba(0, 240, 255, 0) 70%);
 }
 
-.glow-blue {
-  background: radial-gradient(circle, var(--accent-blue) 0%, rgba(59, 130, 246, 0) 70%);
-}
-
 .glow-purple {
   background: radial-gradient(circle, var(--accent-purple) 0%, rgba(139, 92, 246, 0) 70%);
+}
+
+.glow-blue {
+  background: radial-gradient(circle, var(--accent-blue) 0%, rgba(59, 130, 246, 0) 70%);
 }
 
 .glow-emerald {
@@ -296,16 +298,16 @@ ul, ol {
 /* Custom Interactive Cursor Glow */
 .cursor-glow {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -200px;
+  left: -200px;
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(0, 240, 255, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  will-change: transform;
   z-index: 999;
-  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 @media (max-width: 992px) {

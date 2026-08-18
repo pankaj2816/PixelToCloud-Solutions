@@ -10,6 +10,7 @@ class BeforeAfterSlider {
 
     this.sliderHandle = this.container.querySelector('.ba-handle');
     this.afterImage = this.container.querySelector('.ba-after-layer');
+    this.afterInner = this.container.querySelector('.ba-after-inner');
     this.isDragging = false;
 
     this.init();
@@ -17,7 +18,16 @@ class BeforeAfterSlider {
 
   init() {
     this.bindEvents();
+    this.updateInnerWidth();
     this.setSplit(50);
+
+    window.addEventListener('resize', () => this.updateInnerWidth(), { passive: true });
+  }
+
+  updateInnerWidth() {
+    if (this.afterInner && this.container) {
+      this.afterInner.style.width = `${this.container.offsetWidth}px`;
+    }
   }
 
   bindEvents() {
@@ -57,6 +67,7 @@ class BeforeAfterSlider {
     if (this.sliderHandle) {
       this.sliderHandle.style.left = `${percentage}%`;
     }
+    this.updateInnerWidth();
   }
 }
 

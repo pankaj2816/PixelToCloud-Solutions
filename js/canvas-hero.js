@@ -31,7 +31,22 @@ class HeroCanvas {
     this.resize();
     this.createParticles();
     this.bindEvents();
+    this.setupIntersectionObserver();
+    this.isVisible = true;
     this.animate();
+  }
+
+  setupIntersectionObserver() {
+    if (!('IntersectionObserver' in window)) return;
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        this.isVisible = entry.isIntersecting;
+        if (this.isVisible && !this.animationFrameId) {
+          this.animate();
+        }
+      });
+    }, { threshold: 0.05 });
+    this.observer.observe(this.canvas);
   }
 
   resize() {
@@ -197,17 +212,12 @@ class HeroCanvas {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.connectionDistance) {
-          const alpha = (1 - dist / this.connectionDistance) * 0.28;
+          const alpha = (1 - dist / this.connectionDistance) * 0.25;
           this.ctx.save();
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
-          
-          const grad = this.ctx.createLinearGradient(p.x, p.y, p2.x, p2.y);
-          grad.addColorStop(0, p.color);
-          grad.addColorStop(1, p2.color);
-          
-          this.ctx.strokeStyle = grad;
+          this.ctx.strokeStyle = p.color;
           this.ctx.globalAlpha = alpha;
           this.ctx.lineWidth = 1;
           this.ctx.stroke();
@@ -234,8 +244,6 @@ class HeroCanvas {
           this.ctx.strokeStyle = rayColor;
           this.ctx.globalAlpha = (1 - dist / 130) * 0.4;
           this.ctx.lineWidth = 1.2;
-          this.ctx.shadowColor = rayColor;
-          this.ctx.shadowBlur = 8;
           this.ctx.stroke();
           this.ctx.restore();
         }
@@ -244,6 +252,11 @@ class HeroCanvas {
 
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return; // Stop animation loop if reduced motion is requested
+    }
+
+    if (!this.isVisible) {
+      this.animationFrameId = null;
+      return;
     }
 
     this.animationFrameId = requestAnimationFrame(() => this.animate());
