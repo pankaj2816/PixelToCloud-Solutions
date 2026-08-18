@@ -61,10 +61,10 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- CSS Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/main.css?v=14.0">
-  <link rel="stylesheet" href="css/animations.css?v=14.0">
-  <link rel="stylesheet" href="css/components.css?v=14.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=14.0">
+  <link rel="stylesheet" href="css/main.css?v=15.0">
+  <link rel="stylesheet" href="css/animations.css?v=15.0">
+  <link rel="stylesheet" href="css/components.css?v=15.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=15.0">
 </head>
 <body>
 
@@ -246,57 +246,107 @@
           <span data-i18n="section_services_title">Everything You Need to Build, Scale & Deploy</span>
         </h2>
         <p class="section-desc" data-i18n="section_services_desc">
-          I deliver complete turnkey solutions from pristine frontend design and complex backend architecture to dedicated server provisioning, domain routing, and continuous maintenance.
+          Click any technical category below to explore capabilities, core deliverables, and live interactive architecture previews.
         </p>
       </div>
 
-      <div class="services-grid">
-        <!-- Service 1: Custom Full-Stack Web Development -->
-        <div class="glass-card service-card reveal reveal-delay-1">
+      <!-- Category Filter Tabs -->
+      <div class="services-nav-tabs reveal">
+        <button class="service-nav-tab active" data-service-tab="web">
+          <i class="fa-solid fa-code"></i><span>Full-Stack Web</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="3d">
+          <i class="fa-solid fa-cube"></i><span>2D/3D WebGL</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="doctor">
+          <i class="fa-solid fa-heart-pulse"></i><span>Doctor & Telehealth</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="fintech">
+          <i class="fa-solid fa-calculator"></i><span>CA & FinTech</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="devops">
+          <i class="fa-solid fa-server"></i><span>Linux VPS & DevOps</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="ecommerce">
+          <i class="fa-solid fa-cart-shopping"></i><span>Art & E-Commerce</span>
+        </button>
+        <button class="service-nav-tab" data-service-tab="security">
+          <i class="fa-solid fa-shield-halved"></i><span>Security & SLA</span>
+        </button>
+      </div>
+
+      <!-- Services Hub Container -->
+      <div class="services-hub-wrapper reveal">
+        <!-- 1. Full-Stack Web Pane (Active by default) -->
+        <div class="service-tab-pane active" data-pane-id="web">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>High-Performance Web Architecture</span>
             </div>
-            <h3 class="service-title">Full-Stack Web Development</h3>
-            <p class="service-desc">
-              High-speed, responsive, SEO-optimized websites and web applications built with modern architectures for maximum conversion and ultra-fast user experiences.
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Full-Stack Web Development
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              High-speed, responsive, SEO-optimized web applications engineered with pristine frontend aesthetics and rock-solid backend microservices. Zero bloat, instant loading, and maximum visitor conversion.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Mobile-First & Fluid Responsive Design</span>
+                <span>Mobile-First Fluid Responsive Design (60 FPS CSS/JS)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Dynamic Database Workflows & User Auth</span>
+                <span>Dynamic Database Workflows, Real-time APIs & Auth</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>100/100 Core Web Vitals & Technical SEO</span>
+                <span>100/100 Core Web Vitals & Production Technical SEO</span>
               </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-cyan">JavaScript</span>
+                <span class="badge badge-blue">React / Next.js</span>
+                <span class="badge badge-purple">Node.js</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
           </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-cyan">JavaScript</span>
-              <span class="badge badge-blue">React / Next.js</span>
-              <span class="badge badge-purple">Node.js</span>
+
+          <div class="service-preview-pane">
+            <div style="text-align: center; padding: 20px;">
+              <div style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 12px;">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+                Sub-Second Web Delivery
+              </div>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
+                Every pixel is optimized with semantic HTML5, hardware-accelerated CSS, and minified Brotli compression.
+              </p>
+              <div style="display: inline-flex; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
+                <span class="live-status-dot" style="background: #10b981;"></span>
+                <span>PageSpeed SLA: 98+ Guaranteed</span>
+              </div>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
           </div>
         </div>
 
-        <!-- Service 2: 2D & 3D Interactive Software -->
-        <div class="glass-card service-card reveal reveal-delay-2">
+        <!-- 2. 2D & 3D Interactive Software Pane -->
+        <div class="service-tab-pane" data-pane-id="3d">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-cubes" style="margin-right: 6px;"></i>WebGL & Spatial Computing</span>
             </div>
-            <h3 class="service-title">2D & 3D Interactive Software</h3>
-            <p class="service-desc">
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              2D & 3D Interactive Software
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               Hardware-accelerated browser-based 3D applications, WebGL visualizers, interactive product configurators, Canvas 2D CAD engines, and simulation tools.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>60 FPS Three.js & Custom WebGL Shaders</span>
@@ -307,139 +357,164 @@
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Interactive 2D Canvas & Vector Editors</span>
+                <span>Interactive 2D Canvas CAD & Vector Editors</span>
               </div>
             </div>
-          </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-purple">Three.js</span>
-              <span class="badge badge-purple">WebGL 2.0</span>
-              <span class="badge badge-cyan">GLSL</span>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-purple">Three.js</span>
+                <span class="badge badge-purple">WebGL 2.0</span>
+                <span class="badge badge-cyan">GLSL</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
+          </div>
+
+          <div class="service-preview-pane" style="padding: 12px;">
+            <canvas id="service-3d-canvas" width="280" height="220" style="width: 100%; height: 220px; border-radius: var(--radius-sm);"></canvas>
+            <div style="font-size: 0.75rem; text-align: center; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px;">
+              ⚡ Real-time 60 FPS Canvas Torus Mesh
+            </div>
           </div>
         </div>
 
-        <!-- Service 3: CA & Financial Enterprise Systems -->
-        <div class="glass-card service-card reveal reveal-delay-3">
+        <!-- 3. Doctor & Healthcare Pane (With Live ECG & Telehealth Sandbox) -->
+        <div class="service-tab-pane" data-pane-id="doctor">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-heart-pulse" style="color: #10b981; margin-right: 6px;"></i>HIPAA-Grade Healthcare</span>
             </div>
-            <h3 class="service-title">CA & FinTech Web Portals</h3>
-            <p class="service-desc">
-              Specialized portals for Chartered Accountants, tax consultants, and financial firms with live tax calculators, encrypted client lockers, and automated ledger tracking.
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Doctor & Clinic Web Portals
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Turnkey medical suites for doctors, specialty hospitals, and dental clinics with automated appointment slots, digital EHR patient records, and WebRTC telemedicine.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Automated GST & Income Tax Calculation Engine</span>
+                <span>Automated Slot-Based Appointment Scheduling</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>256-Bit Encrypted Client Document Vault</span>
+                <span>Digital EHR Patient Records & Encrypted Rx Generator</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Real-Time Invoicing & Audit Trail Records</span>
+                <span>Live Video Telehealth & WhatsApp Reminders</span>
               </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-emerald">HIPAA Compliant</span>
+                <span class="badge badge-cyan">WebRTC</span>
+                <span class="badge badge-blue">PostgreSQL</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
           </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-cyan">FinTech API</span>
-              <span class="badge badge-emerald">AES-256</span>
-              <span class="badge badge-blue">PostgreSQL</span>
+
+          <div class="service-preview-pane">
+            <div class="sandbox-video-box" id="sandbox-video-preview">
+              <canvas id="sandbox-ecg-canvas" width="300" height="70" style="position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: 70px; opacity: 0.85;"></canvas>
+              <div style="position: absolute; bottom: 10px; left: 14px; font-family: var(--font-mono); font-size: 0.75rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
+                <span class="live-status-dot" style="background:#10b981;"></span>
+                <span>Resting HR: 72 BPM // HIPAA Encrypted</span>
+              </div>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <button class="btn-magnetic btn-primary" id="sandbox-rx-download-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
+                <span><i class="fa-solid fa-file-medical" style="margin-right: 6px;"></i>Generate & Download Sample Rx</span>
+              </button>
+              <button class="btn-magnetic btn-secondary" id="sandbox-video-toggle-btn" style="width: 100%; padding: 9px; font-size: 0.8rem;">
+                <span><i class="fa-solid fa-video" style="margin-right: 6px;"></i>Test WebRTC Encrypted Room</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Service 4: Doctor & Healthcare Telemedicine -->
-        <div class="glass-card service-card reveal reveal-delay-1">
+        <!-- 4. CA & FinTech Portals Pane (With Live Tax Slider) -->
+        <div class="service-tab-pane" data-pane-id="fintech">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-calculator" style="color: var(--accent-cyan); margin-right: 6px;"></i>Financial Compliance</span>
             </div>
-            <h3 class="service-title">Doctor & Healthcare Portals</h3>
-            <p class="service-desc">
-              Comprehensive medical websites for clinics, hospitals, and private practitioners with smart patient appointment scheduling, prescription generators, and telemedicine rooms.
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              CA & Financial Tax Portals
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              End-to-end client portals for Chartered Accountants and Tax Firms with automated GST/ITR calculators, encrypted document vaults, and fee billing.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Instant Slot Booking & Calendar Sync</span>
+                <span>Automated GST, TDS & Income Tax Calculators</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Encrypted Patient EHR & PDF Prescriptions</span>
+                <span>Encrypted Client Document Upload & Audit Trail</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Instant WhatsApp / SMS Booking Alerts</span>
+                <span>Automated Tax Due Date Alerts & WhatsApp Updates</span>
               </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-cyan">FinTech</span>
+                <span class="badge badge-emerald">GST APIs</span>
+                <span class="badge badge-blue">AES-256 Vault</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
           </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-emerald">Telehealth</span>
-              <span class="badge badge-cyan">WebRTC</span>
-              <span class="badge badge-purple">HIPAA Ready</span>
+
+          <div class="service-preview-pane">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
+              <span style="color: var(--text-secondary);">Annual Turnover:</span>
+              <strong id="ca-sandbox-income-val" style="color: var(--accent-cyan); font-family: var(--font-mono);">₹ 25,00,000</strong>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
+            <input type="range" id="ca-sandbox-slider" min="500000" max="10000000" step="250000" value="2500000" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer;">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0; padding: 10px 0; border-top: 1px dashed var(--border-subtle); border-bottom: 1px dashed var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem;">
+              <div>
+                <span style="color: var(--text-muted); display: block;">GST (18%):</span>
+                <span id="ca-sandbox-gst-val" style="color: #38bdf8; font-weight: bold;">₹ 4,50,000</span>
+              </div>
+              <div>
+                <span style="color: var(--text-muted); display: block;">Tax Savings:</span>
+                <span id="ca-sandbox-savings-val" style="color: #10b981; font-weight: bold;">₹ 2,12,500</span>
+              </div>
+            </div>
+
+            <button class="btn-magnetic btn-primary" id="ca-sandbox-download-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
+              <span><i class="fa-solid fa-download" style="margin-right: 6px;"></i>Download Encrypted Audit Ledger</span>
+            </button>
           </div>
         </div>
 
-        <!-- Service 5: Art, Craft & E-Commerce Boutiques -->
-        <div class="glass-card service-card reveal reveal-delay-2">
+        <!-- 5. Linux VPS & DevOps Pane -->
+        <div class="service-tab-pane" data-pane-id="devops">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-server" style="color: #38bdf8; margin-right: 6px;"></i>Zero-Downtime Infrastructure</span>
             </div>
-            <h3 class="service-title">Art, Craft & E-Commerce</h3>
-            <p class="service-desc">
-              Bespoke aesthetic boutique websites for artists, sculptors, and creative brands featuring 360° product zoom inspectors, custom commission builders, and global checkout.
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Server Deployment & DevOps
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Dedicated Linux VPS configuration (Ubuntu/Debian), Docker containerization, Nginx reverse proxy, and zero-downtime CI/CD deployment pipelines.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Ultra-Crisp 360° Artwork Texture Zoom</span>
-              </div>
-              <div class="service-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Multi-Currency Stripe & Razorpay Payments</span>
-              </div>
-              <div class="service-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Automated Order Tracking & Inventory Sync</span>
-              </div>
-            </div>
-          </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-amber">E-Commerce</span>
-              <span class="badge badge-cyan">Stripe</span>
-              <span class="badge badge-emerald">Razorpay</span>
-            </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Service 6: Linux VPS, Docker & Cloud Server Deployments -->
-        <div class="glass-card service-card reveal reveal-delay-3">
-          <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <h3 class="service-title">Server Deployment & DevOps</h3>
-            <p class="service-desc">
-              Dedicated Linux VPS configuration (Ubuntu/Debian), AWS/DigitalOcean clusters, Docker containerization, Nginx reverse proxy, and zero-downtime CI/CD deployment pipelines.
-            </p>
-            <div class="service-features-list">
-              <div class="service-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Linux VPS Hardening (UFW Firewall, Fail2ban)</span>
+                <span>Linux VPS Hardening (UFW Firewall, Fail2ban, Root Lock)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -450,164 +525,131 @@
                 <span>Zero-Downtime Docker Container Deployments</span>
               </div>
             </div>
-          </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-blue">Linux VPS</span>
-              <span class="badge badge-cyan">Docker</span>
-              <span class="badge badge-emerald">Nginx</span>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-blue">Linux VPS</span>
+                <span class="badge badge-cyan">Docker</span>
+                <span class="badge badge-emerald">Nginx</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
+          </div>
+
+          <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: #38bdf8; font-weight: 700; margin-bottom: 8px;">
+              <i class="fa-solid fa-terminal" style="margin-right: 6px;"></i>DEPLOYMENT TELEMETRY
+            </div>
+            <div style="background: #020617; border-radius: var(--radius-sm); padding: 14px; color: #94a3b8; line-height: 1.6; border: 1px solid var(--border-subtle);">
+              <div><span style="color:#10b981;">✔</span> docker-compose up -d --build</div>
+              <div><span style="color:#10b981;">✔</span> nginx syntax test: successful</div>
+              <div><span style="color:#10b981;">✔</span> SSL certbot auto-renewal: active</div>
+              <div><span style="color:#10b981;">✔</span> TTFB: 42ms | Cloudflare Edge: HIT</div>
+            </div>
           </div>
         </div>
 
-        <!-- Service 7: Domain, DNS & Mail Configuration -->
-        <div class="glass-card service-card reveal reveal-delay-1">
+        <!-- 6. Art & E-Commerce Pane -->
+        <div class="service-tab-pane" data-pane-id="ecommerce">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-bag-shopping" style="color: #f59e0b; margin-right: 6px;"></i>High-Converting Commerce</span>
             </div>
-            <h3 class="service-title">Domain, DNS & Business Mail</h3>
-            <p class="service-desc">
-              Complete custom domain purchasing, Cloudflare DNS routing, DDoS shield, Let's Encrypt SSL automation, and professional business emails (SPF, DKIM, DMARC 10/10 deliverability).
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Art & E-Commerce Platforms
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              High-converting digital storefronts and art gallery portfolios with global payment gateway integration, automated invoice generation, and real-time inventory management.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Cloudflare Global CDN & Edge Caching</span>
+                <span>High-Resolution Zoom & 3D Interactive Art Gallery</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Automated Let's Encrypt SSL Certificates</span>
+                <span>Stripe, PayPal & Razorpay Multi-Currency Checkout</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Business Mailbox Setup (Google Workspace/Zoho)</span>
+                <span>Automated GST Invoice Generation & Order Tracking</span>
               </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-amber">E-Commerce</span>
+                <span class="badge badge-cyan">Stripe</span>
+                <span class="badge badge-emerald">Razorpay</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
           </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-amber">Cloudflare</span>
-              <span class="badge badge-cyan">DNS & SSL</span>
-              <span class="badge badge-emerald">DMARC</span>
+
+          <div class="service-preview-pane" style="text-align: center;">
+            <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 8px;">
+              <i class="fa-solid fa-credit-card"></i>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+              Global Multi-Currency Checkout
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">
+              Supports 135+ currencies, Apple Pay, Google Pay, UPI, and instant webhooks.
+            </p>
           </div>
         </div>
 
-        <!-- Service 8: 24/7 Security, Speed Hardening & Maintenance -->
-        <div class="glass-card service-card reveal reveal-delay-2">
+        <!-- 7. Security & SLA Maintenance Pane -->
+        <div class="service-tab-pane" data-pane-id="security">
           <div>
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-shield-halved" style="color: #10b981; margin-right: 6px;"></i>24/7 SLA Protection</span>
             </div>
-            <h3 class="service-title">Security & Maintenance</h3>
-            <p class="service-desc">
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Security & Proactive Maintenance
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               Long-term proactive maintenance, automated offsite database backups, penetration protection, vulnerability patching, and real-time server health monitoring.
             </p>
-            <div class="service-features-list">
+            <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Daily Automated Offsite Cloud Backups</span>
+                <span>Daily Automated Offsite Cloud Backups (AWS S3)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Continuous Server Uptime Monitoring & Alerts</span>
+                <span>Continuous Server Uptime Monitoring & Instant Alerts</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Priority Emergency Bug Fixing & Upgrades</span>
+                <span>Priority Emergency Bug Fixing & OS Patching</span>
               </div>
             </div>
-          </div>
-          <div class="service-card-footer">
-            <div class="service-tech-tags">
-              <span class="badge badge-emerald">24/7 SLA</span>
-              <span class="badge badge-purple">PenTest</span>
-              <span class="badge badge-blue">AWS S3</span>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <div class="service-tech-tags">
+                <span class="badge badge-emerald">24/7 SLA</span>
+                <span class="badge badge-purple">PenTest</span>
+                <span class="badge badge-blue">AWS S3</span>
+              </div>
+              <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
+                <span>Book This Service &rarr;</span>
+              </a>
             </div>
-            <a href="#contact" class="service-explore-btn">Book Service &rarr;</a>
           </div>
-        </div>
-      </div>
 
-      <!-- Live Interactive Sandboxes (Doctor EHR & CA Tax Hub) -->
-      <div class="sandboxes-grid reveal" style="margin-top: 40px;">
-        <!-- Doctor Telehealth Sandbox -->
-        <div class="sandbox-card">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div class="section-tag" style="margin-bottom: 0;">
-                <span><i class="fa-solid fa-heart-pulse" style="color: #10b981; margin-right: 6px;"></i>Live Telemedicine Engine</span>
-              </div>
-              <span class="badge badge-emerald"><span class="live-status-dot" style="background:#10b981;"></span>60 FPS EHR</span>
+          <div class="service-preview-pane" style="text-align: center;">
+            <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 8px;">
+              <i class="fa-solid fa-lock"></i>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
-              Doctor & Clinic Telehealth Sandbox
-            </h3>
-            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
-              Interactive patient ECG monitor, WebRTC video consultation room, and instant RSA-signed clinical prescription generator.
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+              Zero-Trust Security & Backup Vault
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">
+              Encrypted snapshots, DDoS deflection, and 99.99% uptime SLA compliance.
             </p>
-
-            <div class="sandbox-video-box" id="sandbox-video-preview">
-              <canvas id="sandbox-ecg-canvas" width="300" height="70" style="position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: 70px; opacity: 0.85;"></canvas>
-              <div style="position: absolute; bottom: 10px; left: 14px; font-family: var(--font-mono); font-size: 0.75rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
-                <span class="live-status-dot" style="background:#10b981;"></span>
-                <span>Resting HR: 72 BPM // HIPAA Encrypted</span>
-              </div>
-            </div>
           </div>
-
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <button class="btn-magnetic btn-primary" id="sandbox-rx-download-btn" style="width: 100%; padding: 11px; font-size: 0.85rem;">
-              <span><i class="fa-solid fa-file-medical" style="margin-right: 6px;"></i>Generate & Download Sample Rx</span>
-            </button>
-            <button class="btn-magnetic btn-secondary" id="sandbox-video-toggle-btn" style="width: 100%; padding: 10px; font-size: 0.82rem;">
-              <span><i class="fa-solid fa-video" style="margin-right: 6px;"></i>Test WebRTC Encrypted Room</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- CA FinTech Sandbox -->
-        <div class="sandbox-card">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div class="section-tag" style="margin-bottom: 0;">
-                <span><i class="fa-solid fa-calculator" style="color: var(--accent-cyan); margin-right: 6px;"></i>Live FinTech Ledger</span>
-              </div>
-              <span class="badge badge-cyan">GST & TDS Engine</span>
-            </div>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
-              CA & Financial Tax Calculator Sandbox
-            </h3>
-            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
-              Drag the annual turnover slider to see instant automated GST, TDS deduction balancing, and legal compliance calculation.
-            </p>
-
-            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-bottom: 14px;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
-                <span style="color: var(--text-secondary);">Annual Turnover:</span>
-                <strong id="ca-sandbox-income-val" style="color: var(--accent-cyan); font-family: var(--font-mono);">₹ 25,00,000</strong>
-              </div>
-              <input type="range" id="ca-sandbox-slider" min="500000" max="10000000" step="250000" value="2500000" style="width: 100%; accent-color: var(--accent-cyan); cursor: pointer;">
-
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border-subtle); font-family: var(--font-mono); font-size: 0.78rem;">
-                <div>
-                  <span style="color: var(--text-muted); display: block;">GST (18%):</span>
-                  <span id="ca-sandbox-gst-val" style="color: #38bdf8; font-weight: bold;">₹ 4,50,000</span>
-                </div>
-                <div>
-                  <span style="color: var(--text-muted); display: block;">Tax Savings:</span>
-                  <span id="ca-sandbox-savings-val" style="color: #10b981; font-weight: bold;">₹ 2,12,500</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="btn-magnetic btn-primary" id="ca-sandbox-download-btn" style="width: 100%; padding: 11px; font-size: 0.85rem;">
-            <span><i class="fa-solid fa-download" style="margin-right: 6px;"></i>Download Encrypted Audit Ledger</span>
-          </button>
         </div>
       </div>
     </div>
@@ -669,68 +711,6 @@
         <!-- Draggable Handle -->
         <div class="ba-handle">
           <span><i class="fa-solid fa-arrows-left-right"></i></span>
-        </div>
-      </div>
-
-      <!-- Speedometer & Network Race Benchmark -->
-      <div class="speed-comparison-wrapper reveal" id="speed-comparison-section" style="margin-top: 36px;">
-        <!-- Left: Animated SVG Speedometer Dial -->
-        <div class="speed-gauge-card">
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
-            Google PageSpeed Score
-          </div>
-          <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
-            <svg class="speed-svg-gauge" viewBox="0 0 120 120">
-              <circle class="gauge-bg" cx="60" cy="60" r="54"></circle>
-              <circle class="gauge-progress" id="speed-gauge-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339.29; stroke-dashoffset: 0;"></circle>
-            </svg>
-            <div style="position: absolute; text-align: center;">
-              <div id="speed-gauge-score" style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: #10b981; line-height: 1;">100</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">PERFECT</div>
-            </div>
-          </div>
-          <div style="font-size: 0.82rem; color: #10b981; font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-circle-check"></i> Core Web Vitals Passed
-          </div>
-        </div>
-
-        <!-- Right: Real-Time Race Simulation -->
-        <div class="race-track-wrapper">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-            <div>
-              <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">
-                Sub-Second Network Loading Benchmark
-              </h4>
-              <p style="font-size: 0.84rem; color: var(--text-muted);">
-                Simulated real-world 4G connection loading performance comparison.
-              </p>
-            </div>
-            <button class="btn-magnetic btn-secondary" id="speed-race-btn" style="padding: 8px 16px; font-size: 0.82rem;">
-              <span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>Simulate Live Speed Race</span>
-            </button>
-          </div>
-
-          <!-- Fast Track: PixelToCloud -->
-          <div class="race-track-item">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <strong style="color: var(--text-primary);"><i class="fa-solid fa-rocket" style="color: var(--accent-cyan); margin-right: 6px;"></i>PixelToCloud Architecture (Nginx + Brotli + Clean JS)</strong>
-              <span id="race-time-fast" style="color: #10b981; font-weight: bold; font-family: var(--font-mono);">⚡ 0.38s (Instant)</span>
-            </div>
-            <div class="race-track-bar-container">
-              <div class="race-track-bar-fill" id="race-bar-fast" style="width: 100%; background: linear-gradient(90deg, #00f0ff 0%, #10b981 100%);"></div>
-            </div>
-          </div>
-
-          <!-- Slow Track: Legacy WordPress / Bloated Template -->
-          <div class="race-track-item">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
-              <span style="color: var(--text-muted);"><i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; margin-right: 6px;"></i>Standard Bloated Template / Shared Hosting</span>
-              <span id="race-time-slow" style="color: #ef4444; font-family: var(--font-mono);">❌ 4.2s (Slow TTFB)</span>
-            </div>
-            <div class="race-track-bar-container">
-              <div class="race-track-bar-fill" id="race-bar-slow" style="width: 100%; background: #ef4444;"></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1945,20 +1925,20 @@
   </div>
 
   <!-- Scripts with Cache-Busting Versioning -->
-  <script src="js/i18n.js?v=14.0"></script>
-  <script src="js/canvas-hero.js?v=14.0"></script>
-  <script src="js/magnetic-cards.js?v=14.0"></script>
-  <script src="js/micro-sandboxes.js?v=14.0"></script>
-  <script src="js/speed-compare.js?v=14.0"></script>
-  <script src="js/before-after.js?v=14.0"></script>
-  <script src="js/portfolio.js?v=14.0"></script>
-  <script src="js/estimator.js?v=14.0"></script>
-  <script src="js/terminal.js?v=14.0"></script>
-  <script src="js/system-topology.js?v=14.0"></script>
-  <script src="js/api-lab.js?v=14.0"></script>
-  <script src="js/ai-advisor.js?v=14.0"></script>
-  <script src="js/scheduler.js?v=14.0"></script>
-  <script src="js/founder-avatars.js?v=14.0"></script>
-  <script src="js/app.js?v=14.0"></script>
+  <script src="js/i18n.js?v=15.0"></script>
+  <script src="js/canvas-hero.js?v=15.0"></script>
+  <script src="js/magnetic-cards.js?v=15.0"></script>
+  <script src="js/services-hub.js?v=15.0"></script>
+  <script src="js/micro-sandboxes.js?v=15.0"></script>
+  <script src="js/before-after.js?v=15.0"></script>
+  <script src="js/portfolio.js?v=15.0"></script>
+  <script src="js/estimator.js?v=15.0"></script>
+  <script src="js/terminal.js?v=15.0"></script>
+  <script src="js/system-topology.js?v=15.0"></script>
+  <script src="js/api-lab.js?v=15.0"></script>
+  <script src="js/ai-advisor.js?v=15.0"></script>
+  <script src="js/scheduler.js?v=15.0"></script>
+  <script src="js/founder-avatars.js?v=15.0"></script>
+  <script src="js/app.js?v=15.0"></script>
 </body>
 </html>
