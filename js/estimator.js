@@ -1,6 +1,7 @@
 /* ===================================================================
    BHAVYANSH TECH STUDIO - TECHNICAL SOLUTION BUILDER & SCOPE ESTIMATOR
    Dynamic multi-step architecture configurator with custom milestone scoping
+   and PDF Architecture Blueprint Generator
    =================================================================== */
 
 class ProjectEstimator {
@@ -118,58 +119,72 @@ class ProjectEstimator {
       },
       'seo-package': {
         name: 'Advanced Technical SEO & Rich JSON-LD Snippets',
-        badge: '📈 High Google Search Visibility',
+        badge: '🔍 Structured Search Schema',
         days: 1
       }
     };
 
-    // Selected state
+    // Initial Defaults
     this.selectedProject = 'fullstack-webapp';
     this.selectedInfra = ['vps-linux', 'domain-dns', 'ssl-security'];
-    this.selectedAddons = ['speed-boost', 'payment-gateways'];
+    this.selectedAddons = ['speed-boost', 'seo-package'];
+
+    this.lastCalculation = null;
 
     this.init();
   }
 
   init() {
-    this.renderUI();
+    this.renderOptions();
     this.bindEvents();
     this.calculate();
   }
 
-  renderUI() {
-    // Render Project Types Grid
-    const projectGrid = document.getElementById('estimator-project-types');
-    if (projectGrid) {
-      projectGrid.innerHTML = Object.entries(this.projectTypes).map(([key, item]) => `
-        <div class="estimator-option-card ${this.selectedProject === key ? 'selected' : ''}" data-type="project" data-id="${key}">
-          <div class="estimator-option-title">${item.name}</div>
-          <div class="estimator-option-desc">${item.desc}</div>
-          <div class="estimator-option-cost" style="color: var(--accent-cyan);"><i class="fa-solid fa-tag" style="margin-right: 4px;"></i>${item.badge}</div>
-        </div>
-      `).join('');
+  renderOptions() {
+    // 1. Project Types
+    const projContainer = document.getElementById('estimator-project-types');
+    if (projContainer) {
+      projContainer.innerHTML = Object.keys(this.projectTypes).map(key => {
+        const item = this.projectTypes[key];
+        const isSelected = key === this.selectedProject ? 'selected' : '';
+        return `
+          <div class="estimator-option-card ${isSelected}" data-type="project" data-key="${key}">
+            <div class="estimator-option-title">${item.name}</div>
+            <div class="estimator-option-desc">${item.desc}</div>
+            <div class="estimator-option-cost">${item.badge}</div>
+          </div>
+        `;
+      }).join('');
     }
 
-    // Render Infrastructure Grid
-    const infraGrid = document.getElementById('estimator-infra-options');
-    if (infraGrid) {
-      infraGrid.innerHTML = Object.entries(this.infraOptions).map(([key, item]) => `
-        <div class="estimator-option-card ${this.selectedInfra.includes(key) ? 'selected' : ''}" data-type="infra" data-id="${key}">
-          <div class="estimator-option-title">${item.name}</div>
-          <div class="estimator-option-cost" style="color: var(--accent-cyan);"><i class="fa-solid fa-server" style="margin-right: 4px;"></i>${item.badge}</div>
-        </div>
-      `).join('');
+    // 2. Infrastructure Options
+    const infraContainer = document.getElementById('estimator-infra-options');
+    if (infraContainer) {
+      infraContainer.innerHTML = Object.keys(this.infraOptions).map(key => {
+        const item = this.infraOptions[key];
+        const isSelected = this.selectedInfra.includes(key) ? 'selected' : '';
+        return `
+          <div class="estimator-option-card ${isSelected}" data-type="infra" data-key="${key}">
+            <div class="estimator-option-title">${item.name}</div>
+            <div class="estimator-option-cost">${item.badge}</div>
+          </div>
+        `;
+      }).join('');
     }
 
-    // Render Add-ons Grid
-    const addonGrid = document.getElementById('estimator-addon-options');
-    if (addonGrid) {
-      addonGrid.innerHTML = Object.entries(this.addonOptions).map(([key, item]) => `
-        <div class="estimator-option-card ${this.selectedAddons.includes(key) ? 'selected' : ''}" data-type="addon" data-id="${key}">
-          <div class="estimator-option-title">${item.name}</div>
-          <div class="estimator-option-cost" style="color: var(--accent-cyan);"><i class="fa-solid fa-shield-halved" style="margin-right: 4px;"></i>${item.badge}</div>
-        </div>
-      `).join('');
+    // 3. Addon Options
+    const addonContainer = document.getElementById('estimator-addon-options');
+    if (addonContainer) {
+      addonContainer.innerHTML = Object.keys(this.addonOptions).map(key => {
+        const item = this.addonOptions[key];
+        const isSelected = this.selectedAddons.includes(key) ? 'selected' : '';
+        return `
+          <div class="estimator-option-card ${isSelected}" data-type="addon" data-key="${key}">
+            <div class="estimator-option-title">${item.name}</div>
+            <div class="estimator-option-cost">${item.badge}</div>
+          </div>
+        `;
+      }).join('');
     }
   }
 
@@ -182,28 +197,26 @@ class ProjectEstimator {
       if (!card) return;
 
       const type = card.getAttribute('data-type');
-      const id = card.getAttribute('data-id');
+      const key = card.getAttribute('data-key');
 
       if (type === 'project') {
-        this.selectedProject = id;
+        this.selectedProject = key;
         container.querySelectorAll('[data-type="project"]').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
-      } 
-      else if (type === 'infra') {
-        if (this.selectedInfra.includes(id)) {
-          this.selectedInfra = this.selectedInfra.filter(x => x !== id);
+      } else if (type === 'infra') {
+        if (this.selectedInfra.includes(key)) {
+          this.selectedInfra = this.selectedInfra.filter(k => k !== key);
           card.classList.remove('selected');
         } else {
-          this.selectedInfra.push(id);
+          this.selectedInfra.push(key);
           card.classList.add('selected');
         }
-      } 
-      else if (type === 'addon') {
-        if (this.selectedAddons.includes(id)) {
-          this.selectedAddons = this.selectedAddons.filter(x => x !== id);
+      } else if (type === 'addon') {
+        if (this.selectedAddons.includes(key)) {
+          this.selectedAddons = this.selectedAddons.filter(k => k !== key);
           card.classList.remove('selected');
         } else {
-          this.selectedAddons.push(id);
+          this.selectedAddons.push(key);
           card.classList.add('selected');
         }
       }
@@ -211,57 +224,16 @@ class ProjectEstimator {
       this.calculate();
     });
 
-    // Scale Mode Switcher Buttons
-    const scaleButtons = document.querySelectorAll('.scale-toggle-btn');
-    scaleButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        scaleButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.scaleMode = btn.getAttribute('data-scale') || 'growth';
-        this.calculate();
-      });
-    });
+    // Buttons
+    const emailBtn = document.getElementById('estimator-export-email');
+    const waBtn = document.getElementById('estimator-export-whatsapp');
+    const contactBtn = document.getElementById('estimator-apply-contact');
+    const pdfBtn = document.getElementById('estimator-export-pdf');
 
-    // Action Buttons
-    const exportEmailBtn = document.getElementById('estimator-export-email');
-    if (exportEmailBtn) {
-      exportEmailBtn.addEventListener('click', () => this.exportToEmail());
-    }
-
-    const exportWhatsAppBtn = document.getElementById('estimator-export-whatsapp');
-    if (exportWhatsAppBtn) {
-      exportWhatsAppBtn.addEventListener('click', () => this.exportToWhatsApp());
-    }
-
-    const applyContactBtn = document.getElementById('estimator-apply-contact');
-    if (applyContactBtn) {
-      applyContactBtn.addEventListener('click', () => this.applyToContactForm());
-    }
-  }
-
-  exportToEmail() {
-    if (!this.lastCalculation) return;
-
-    const subject = encodeURIComponent(`Project Architecture Scope Request - ${this.lastCalculation.project}`);
-    const body = encodeURIComponent(
-      `Dear Bhavyansh & Tushar,\n\n` +
-      `I configured a project architecture scope on PixelToCloud Solutions website:\n\n` +
-      `--- TECHNICAL SPECIFICATION ---\n` +
-      `📌 Base Architecture: ${this.lastCalculation.project}\n` +
-      `🎯 Scope Complexity: ${this.lastCalculation.tier}\n` +
-      `⏱️ Estimated Delivery: ${this.lastCalculation.totalDays}\n` +
-      `🌐 Server & DevOps: ${this.lastCalculation.infra.join(', ') || 'Standard'}\n` +
-      `✨ Selected Capabilities: ${this.lastCalculation.addons.join(', ') || 'Standard'}\n` +
-      `🤝 Investment Model: Milestone-Based Payment (Pay per approved milestone)\n\n` +
-      `I would like to discuss our requirements, milestone roadmap, and get a tailored proposal.\n\n` +
-      `Best regards`
-    );
-
-    const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${subject}&body=${body}`;
-    if (window.App) {
-      window.App.showToast('Opening direct email to pppankaj2816@gmail.com...');
-    }
-    window.location.href = mailtoUrl;
+    if (emailBtn) emailBtn.addEventListener('click', () => this.applyToContactForm());
+    if (waBtn) waBtn.addEventListener('click', () => this.exportToWhatsApp());
+    if (contactBtn) contactBtn.addEventListener('click', () => this.applyToContactForm());
+    if (pdfBtn) pdfBtn.addEventListener('click', () => this.downloadBlueprintPDF());
   }
 
   calculate() {
@@ -330,10 +302,110 @@ class ProjectEstimator {
     };
   }
 
+  downloadBlueprintPDF() {
+    if (!this.lastCalculation) return;
+
+    const calc = this.lastCalculation;
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+      if (window.showToast) window.showToast('Please allow popups to export the Architecture Blueprint', 'warning');
+      return;
+    }
+
+    const blueprintHTML = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>PixelToCloud Solutions - Technical Architecture Blueprint</title>
+        <style>
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0f172a; padding: 40px; margin: 0; background: #fff; line-height: 1.6; }
+          .header { border-bottom: 2px solid #0284c7; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; }
+          .brand { font-size: 24px; font-weight: 800; color: #0f172a; }
+          .brand span { color: #0284c7; }
+          .tagline { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+          .meta-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 24px; }
+          .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+          .meta-item { font-size: 13px; }
+          .meta-label { color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 11px; }
+          .meta-val { color: #0f172a; font-weight: 700; font-size: 15px; margin-top: 2px; }
+          .section-title { font-size: 16px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin: 24px 0 12px 0; }
+          ul { margin: 0; padding-left: 20px; font-size: 14px; color: #334155; }
+          li { margin-bottom: 6px; }
+          .footer { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 12px; color: #64748b; display: flex; justify-content: space-between; }
+          .btn-print { background: #0284c7; color: #fff; padding: 10px 20px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; margin-bottom: 20px; }
+          @media print { .btn-print { display: none; } }
+        </style>
+      </head>
+      <body>
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <div class="header">
+          <div>
+            <div class="brand">PixelTo<span>Cloud</span> Solutions</div>
+            <div class="tagline">Enterprise Web Architecture & Cloud Systems</div>
+          </div>
+          <div style="text-align: right; font-size: 12px; color: #64748b;">
+            <div><strong>Date:</strong> ${new Date().toLocaleDateString()}</div>
+            <div><strong>Reference:</strong> #P2C-${Math.floor(100000 + Math.random() * 900000)}</div>
+          </div>
+        </div>
+
+        <div class="meta-box">
+          <div class="meta-grid">
+            <div class="meta-item">
+              <div class="meta-label">Selected System Architecture</div>
+              <div class="meta-val">${calc.project}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Scope Complexity Tier</div>
+              <div class="meta-val">${calc.tier}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Estimated Delivery Timeline</div>
+              <div class="meta-val">${calc.totalDays}</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Guaranteed Engineering SLA</div>
+              <div class="meta-val">99+ Google PageSpeed & 100% IP Handover</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">Selected Cloud Infrastructure & Server Stack</div>
+        <ul>
+          ${calc.infra.length > 0 ? calc.infra.map(i => `<li>${i}</li>`).join('') : '<li>Standard High-Speed Edge Deployment</li>'}
+        </ul>
+
+        <div class="section-title">Included Engineering Modules & Security Add-Ons</div>
+        <ul>
+          ${calc.addons.length > 0 ? calc.addons.map(a => `<li>${a}</li>`).join('') : '<li>Standard Core Web Vitals Optimization</li>'}
+        </ul>
+
+        <div class="section-title">Milestone Delivery & Quality Guarantees</div>
+        <ul>
+          <li><strong>Phase 1:</strong> Architecture Blueprint, Wireframe & Schema Design (Approved before coding)</li>
+          <li><strong>Phase 2:</strong> Agile Full-Stack Engineering & Continuous Milestone Demos</li>
+          <li><strong>Phase 3:</strong> Hardened Linux VPS / Cloud Deployment & SSL / DNS Propagation</li>
+          <li><strong>Handover:</strong> 100% Intellectual Property & Complete Git Repository Ownership transferred.</li>
+          <li><strong>Warranty:</strong> 30 Days of Complimentary Post-Launch Server Monitoring & Bug-Free SLA.</li>
+        </ul>
+
+        <div class="footer">
+          <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
+          <div><strong>WhatsApp:</strong> +91 82193 52124 | <strong>Email:</strong> pppankaj2816@gmail.com</div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    printWindow.document.write(blueprintHTML);
+    printWindow.document.close();
+    if (window.showToast) window.showToast('📄 Technical Architecture Blueprint opened for printing/PDF export!', 'success');
+  }
+
   exportToWhatsApp() {
     if (!this.lastCalculation) return;
 
-    const phoneNumber = "918219352124"; // Developer WhatsApp Link
+    const phoneNumber = "918219352124";
     const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just configured an architecture scope on your website:\n` +
       `*Architecture:* ${this.lastCalculation.project}\n` +
       `*Scope Tier:* ${this.lastCalculation.tier}\n` +
@@ -361,13 +433,12 @@ class ProjectEstimator {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    if (window.App) {
-      window.App.showToast('Technical specification transferred to Contact Form!');
+    if (window.showToast) {
+      window.showToast('Technical specification transferred to Contact Form!', 'info');
     }
   }
 }
 
-// Global initialization
 document.addEventListener('DOMContentLoaded', () => {
   window.estimatorInstance = new ProjectEstimator();
 });

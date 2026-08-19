@@ -30,28 +30,84 @@ class AppEngine {
     this.bindLegalModals();
   }
 
-  // ================= THEME TOGGLE (DARK / DAY LIGHT MODE) =================
+  // ================= THEME SYSTEM (CYBER DARK / CLEAN LIGHT / EMERALD MATRIX) =================
   initTheme() {
     const savedTheme = localStorage.getItem('pixelToCloud_theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    this.updateThemeIcons(savedTheme);
+    this.setTheme(savedTheme, false);
+
+    // Segmented theme switch buttons
+    const themeButtons = document.querySelectorAll('.theme-switch-btn');
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-set-theme');
+        if (theme) {
+          this.setTheme(theme, true);
+        }
+      });
+    });
 
     const toggleHandler = () => {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('pixelToCloud_theme', next);
-      this.updateThemeIcons(next);
-      this.showToast(`Switched to ${next === 'light' ? 'Studio Frost Light Mode' : 'Cyber Dark Mode'}`);
+      let next = 'light';
+      if (current === 'dark') next = 'light';
+      else if (current === 'light') next = 'emerald';
+      else next = 'dark';
+      this.setTheme(next, true);
     };
 
     if (this.themeToggleBtn) this.themeToggleBtn.addEventListener('click', toggleHandler);
     if (this.themeToggleMobile) this.themeToggleMobile.addEventListener('click', toggleHandler);
+
+    this.bindContextualWhatsApp();
+  }
+
+  setTheme(theme, notify = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('pixelToCloud_theme', theme);
+    this.updateThemeIcons(theme);
+
+    // Update segmented buttons
+    document.querySelectorAll('.theme-switch-btn').forEach(btn => {
+      if (btn.getAttribute('data-set-theme') === theme) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    if (notify) {
+      const names = { dark: 'Cyber Dark', light: 'Studio Clean Light', emerald: 'Emerald Matrix' };
+      this.showToast(`Switched to ${names[theme] || theme} Theme Mode`);
+    }
+  }
+
+  bindContextualWhatsApp() {
+    const waTopics = {
+      'doctor': "Hello Bhavyansh & Tushar, I'm interested in building a Doctor & Telehealth Medical Portal with PixelToCloud.",
+      'fintech': "Hello Bhavyansh & Tushar, I'd like to discuss a Chartered Accountancy & FinTech Portal with automated tax engines.",
+      '3d': "Hello Bhavyansh & Tushar, I'm looking to build interactive 2D/3D WebGL Three.js software for my project.",
+      'ecommerce': "Hello Bhavyansh & Tushar, I'd like to discuss a luxury Art & E-Commerce store with global payment checkout.",
+      'devops': "Hello Bhavyansh & Tushar, I need dedicated Linux VPS provisioning, Docker clustering, and zero-downtime DevOps.",
+      'blueprint': "Hello Bhavyansh & Tushar, I configured an Architecture Scope on your site and would like to review the technical blueprint.",
+      'general': "Hello Bhavyansh & Tushar, I would like to schedule a technical discovery call for my website and software project."
+    };
+
+    document.querySelectorAll('[data-wa-topic]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const topicKey = el.getAttribute('data-wa-topic') || 'general';
+        const msg = waTopics[topicKey] || waTopics['general'];
+        const url = `https://wa.me/918219352124?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      });
+    });
   }
 
   updateThemeIcons(theme) {
-    const iconHtml = theme === 'light' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    const label = theme === 'light' ? 'Light' : 'Dark';
+    let iconHtml = '<i class="fa-solid fa-moon"></i>';
+    if (theme === 'light') iconHtml = '<i class="fa-solid fa-sun"></i>';
+    else if (theme === 'emerald') iconHtml = '<i class="fa-solid fa-gem" style="color: #10b981;"></i>';
+
+    const label = theme.charAt(0).toUpperCase() + theme.slice(1);
     if (this.themeToggleBtn) {
       this.themeToggleBtn.innerHTML = `<span>${iconHtml}</span>`;
       this.themeToggleBtn.setAttribute('aria-label', `Current theme is ${label}. Click to switch.`);

@@ -171,7 +171,14 @@
         </select>
       </div>
 
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+      <!-- 3-Mode Segmented Theme Switcher (Cyber Dark, Studio Clean Light, Emerald Matrix) -->
+      <div class="theme-switch-segmented" id="theme-segmented-ctrl">
+        <button class="theme-switch-btn active" data-set-theme="dark" title="Cyber Dark Mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="theme-switch-btn" data-set-theme="light" title="Studio Clean Light Mode"><i class="fa-solid fa-sun"></i></button>
+        <button class="theme-switch-btn" data-set-theme="emerald" title="Emerald Matrix Mode"><i class="fa-solid fa-gem"></i></button>
+      </div>
+
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" style="display: none;">
         <span class="theme-icon"></span>
       </button>
 

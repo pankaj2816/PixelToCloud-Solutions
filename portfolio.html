@@ -132,7 +132,14 @@
         </select>
       </div>
 
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+      <!-- 3-Mode Segmented Theme Switcher (Cyber Dark, Studio Clean Light, Emerald Matrix) -->
+      <div class="theme-switch-segmented" id="theme-segmented-ctrl">
+        <button class="theme-switch-btn active" data-set-theme="dark" title="Cyber Dark Mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="theme-switch-btn" data-set-theme="light" title="Studio Clean Light Mode"><i class="fa-solid fa-sun"></i></button>
+        <button class="theme-switch-btn" data-set-theme="emerald" title="Emerald Matrix Mode"><i class="fa-solid fa-gem"></i></button>
+      </div>
+
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" style="display: none;">
         <span class="theme-icon"></span>
       </button>
 
@@ -341,9 +348,15 @@
               </ul>
             </div>
           </div>
-          <button class="btn-outline view-demo-btn" data-id="doctor-website" style="width: 100%; padding: 10px;">
-            <span><i class="fa-solid fa-stethoscope" style="margin-right: 6px;"></i>Launch MedPulse Live Demo</span>
-          </button>
+          <div style="display: flex; gap: 8px; margin-top: 10px;">
+            <button class="btn-outline view-demo-btn" data-id="doctor-website" style="flex: 1; padding: 10px;">
+              <span><i class="fa-solid fa-stethoscope" style="margin-right: 6px;"></i>Launch MedPulse Demo</span>
+            </button>
+            <a href="https://drneerajrathee.com" target="_blank" rel="noopener" class="btn-magnetic btn-primary" style="padding: 10px 14px; font-size: 0.8rem; background: linear-gradient(135deg, #10b981, #059669); text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <span>Live Site</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>

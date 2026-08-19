@@ -2471,3 +2471,139 @@
   }
 }
 
+/* ===================================================================
+   15. EMERALD MATRIX THEME (3-MODE THEME SYSTEM)
+   =================================================================== */
+[data-theme="emerald"] {
+  --bg-primary: #02140e;
+  --bg-secondary: #042017;
+  --bg-card: rgba(4, 32, 23, 0.75);
+  --border-subtle: rgba(16, 185, 129, 0.22);
+  --accent-cyan: #10b981;
+  --accent-cyan-glow: rgba(16, 185, 129, 0.4);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 50%, #34d399 100%);
+  --text-primary: #f0fdf4;
+  --text-secondary: #a7f3d0;
+  --text-muted: #6ee7b7;
+}
+
+.theme-switch-segmented {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+  align-items: center;
+}
+
+.theme-switch-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.25s ease;
+}
+
+.theme-switch-btn:hover {
+  color: var(--text-primary);
+}
+
+.theme-switch-btn.active {
+  background: var(--accent-cyan);
+  color: #050b14;
+  font-weight: 700;
+  box-shadow: 0 0 12px var(--accent-cyan-glow);
+}
+
+/* ===================================================================
+   16. SUBSCRIPTION SAVINGS & ROI CALCULATOR
+   =================================================================== */
+.roi-calculator-wrap {
+  background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.9), #050a14);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.roi-slider-group {
+  margin-bottom: 22px;
+}
+
+.roi-slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.roi-slider-val {
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.roi-range-input {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--accent-cyan);
+}
+
+/* ===================================================================
+   17. DOCTOR WEBSITE LIVE SPOTLIGHT & VERIFIED CERTIFICATIONS
+   =================================================================== */
+.doctor-spotlight-card {
+  background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), rgba(6, 11, 20, 0.95));
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.certifications-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cert-trust-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.cert-trust-pill:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 240, 255, 0.15);
+}
+
+
