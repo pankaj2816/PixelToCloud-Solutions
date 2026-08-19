@@ -297,7 +297,7 @@ class ApiLabManager {
             <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: var(--radius-md); padding: 22px; text-align: center;">
               <div style="font-size: 1.8rem; margin-bottom: 6px; color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i></div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #ef4444; margin-bottom: 4px;">Invalid URL Format</h4>
-              <p style="font-size: 0.84rem; color: #cbd5e1;">Please enter a valid website address with a domain extension (e.g., <code>drneerajrathee.com</code>, <code>google.com</code>).</p>
+              <p style="font-size: 0.84rem; color: #cbd5e1;">Please enter a valid website address with a domain extension (e.g., <code>example.com</code>, <code>google.com</code>).</p>
             </div>
           `;
         }
@@ -493,16 +493,7 @@ class ApiLabManager {
       };
     }
 
-    // 3. User's Doctor Website
-    if (domain.includes('drneerajrathee') || domain.includes('rathee')) {
-      return {
-        score: 78,
-        loadTime: '1.8s (Good)',
-        weight: '1.2 MB (Moderate)',
-        ttfb: '280ms',
-        bottleneck: 'External CDN dependencies (FontAwesome, Swiper CSS) and JPEG images lacking modern WebP compression.'
-      };
-    }
+
 
     // 4. Dynamic Calculation for Any Other Domain (Heuristic hash based on domain name)
     let hash = 0;

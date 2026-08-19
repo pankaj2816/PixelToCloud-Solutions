@@ -30,7 +30,7 @@ class AdvancedBeforeAfterEngine {
         titleAfter: 'Sub-Second EHR, WebRTC & Instant Slots',
         descAfter: 'HIPAA-grade encrypted database, 60 FPS WebRTC telehealth video, automated WhatsApp SMS slot confirmations, and 3.8x patient booking growth.',
         metricsAfter: { speed: '99/100', loadTime: '0.38s', weight: '96 kB Gzip', conversion: '3.8x Booking Growth' },
-        urlAfter: 'https://drneerajrathee.com (TLS 1.3 Strict)'
+        urlAfter: 'https://medpulse-telehealth.io (TLS 1.3 Strict)'
       },
       fintech: {
         tagBefore: 'Legacy CA Website (2014)',

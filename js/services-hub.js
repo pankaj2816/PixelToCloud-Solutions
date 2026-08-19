@@ -233,7 +233,7 @@ class AdvancedServicesHub {
 ======================================================================
 Date: ${date}             Rx ID: #EHR-${Math.floor(100000 + Math.random() * 900000)}
 Patient Name: Jane Doe                 Age/Gender: 34 / F
-Diagnosing Physician: Dr. Neeraj Rathee (Consultant Orthodontist & Dental Surgeon)
+Diagnosing Physician: Dr. Sarah Mitchell, MD (Lead Consultant Surgeon)
 Security Verification: SHA-256 RSA-2048 Digital Signature Encrypted
 
 ----------------------------------------------------------------------
