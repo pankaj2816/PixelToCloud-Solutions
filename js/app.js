@@ -474,13 +474,35 @@ class AppEngine {
       }
     });
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeModal(privacyModal);
-        closeModal(termsModal);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal(privacyModal);
+          closeModal(termsModal);
+        }
+      });
+
+      // Floating Mobile Dock Action Triggers
+      const dockAiBtn = document.getElementById('dock-ai-advisor-btn');
+      const dockSchedBtn = document.getElementById('dock-scheduler-btn');
+      if (dockAiBtn) {
+        dockAiBtn.addEventListener('click', () => {
+          const aiModal = document.getElementById('ai-advisor-modal');
+          if (aiModal) {
+            aiModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
       }
-    });
-  }
+      if (dockSchedBtn) {
+        dockSchedBtn.addEventListener('click', () => {
+          const schedModal = document.getElementById('scheduler-modal');
+          if (schedModal) {
+            schedModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      }
+    }
 
   // ================= QUICK CONNECT & COPY (WITH FALLBACK) =================
   bindQuickConnect() {

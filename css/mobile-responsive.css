@@ -1,0 +1,447 @@
+/* ===================================================================
+   PIXELTOCLOUD SOLUTIONS - ULTRA-MODERN MOBILE RESPONSIVE DESIGN SYSTEM
+   Native app-like touch interactions, floating bottom dock, swipeable tabs & mobile performance
+   =================================================================== */
+
+/* ===================================================================
+   1. FLOATING MOBILE BOTTOM DOCK (APP-LIKE QUICK ACTIONS)
+   =================================================================== */
+.mobile-bottom-dock {
+  display: none;
+  position: fixed;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  max-width: 440px;
+  margin: 0 auto;
+  z-index: 995;
+  background: rgba(8, 14, 26, 0.88);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 240, 255, 0.28);
+  border-radius: var(--radius-full);
+  padding: 6px 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 25px rgba(0, 240, 255, 0.15);
+  animation: slideUpDock 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[data-theme="light"] .mobile-bottom-dock {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15), 0 0 20px rgba(2, 132, 199, 0.1);
+}
+
+[data-theme="emerald"] .mobile-bottom-dock {
+  background: rgba(2, 20, 14, 0.92);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+@keyframes slideUpDock {
+  from { transform: translateY(80px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.dock-items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  align-items: center;
+}
+
+.dock-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dock-btn i {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  transition: transform 0.2s ease;
+}
+
+.dock-btn:active i {
+  transform: scale(1.2);
+}
+
+.dock-btn.dock-highlight {
+  color: #25D366;
+}
+
+.dock-btn.dock-primary {
+  color: var(--accent-cyan);
+}
+
+.dock-btn.dock-purple {
+  color: var(--accent-purple);
+}
+
+.dock-btn.dock-amber {
+  color: var(--accent-amber);
+}
+
+/* ===================================================================
+   2. MOBILE BREAKPOINT MEDIA QUERIES (<= 768px & <= 480px)
+   =================================================================== */
+@media (max-width: 768px) {
+  /* Show floating mobile dock */
+  .mobile-bottom-dock {
+    display: block;
+  }
+
+  /* Add bottom padding to body so dock doesn't obscure footer content */
+  body {
+    padding-bottom: 75px;
+  }
+
+  /* Hide old fixed floating whatsapp if dock is active to prevent overlap */
+  .floating-whatsapp {
+    bottom: 85px !important;
+  }
+
+  /* Container Padding */
+  .container, .container-wide {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Section Spacing */
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Header & Navbar */
+  .navbar {
+    top: 8px;
+    left: 10px;
+    right: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .nav-cta-btn {
+    display: none;
+  }
+
+  .theme-switch-segmented {
+    padding: 2px;
+  }
+
+  .theme-switch-btn {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 50px;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 8.5vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta-group .btn-magnetic {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  /* Hero Metrics & Certifications */
+  .hero-metrics-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 36px;
+    padding: 16px 12px;
+  }
+
+  .metric-value {
+    font-size: 1.6rem;
+  }
+
+  .metric-label {
+    font-size: 0.72rem;
+  }
+
+  /* Swipeable Certifications Strip on Mobile */
+  .certifications-trust-strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .certifications-trust-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cert-trust-pill {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
+    padding: 10px 14px;
+  }
+
+  /* Services Hub Mobile Tabs (Swipeable Pills) */
+  .services-nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 8px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .services-nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-nav-tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .service-tab-pane {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  /* Before / After Transformation Mobile */
+  .ba-case-tabs-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .before-after-box {
+    height: 480px;
+  }
+
+  .ba-handle {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Subscription ROI Calculator Mobile */
+  .roi-calculator-wrap {
+    padding: 20px 16px;
+  }
+
+  .roi-calculator-wrap > div {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* System Topology Mobile */
+  .topology-wrapper {
+    padding: 16px;
+  }
+
+  .topology-node-pills-bar {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 6px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .topology-node-pills-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topology-node-pill {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .topology-telemetry-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .topology-telemetry-card {
+    padding: 10px 12px;
+  }
+
+  .topology-telemetry-val {
+    font-size: 0.95rem;
+  }
+
+  /* Tech Stack Grid Mobile (2 Columns) */
+  .tech-orbit-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .tech-tile {
+    padding: 16px 12px;
+  }
+
+  .tech-tile-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+
+  .tech-tile-name {
+    font-size: 0.85rem;
+  }
+
+  /* Cloud & DevOps Terminal Mobile */
+  .terminal-window {
+    padding: 12px;
+  }
+
+  .terminal-body {
+    height: 220px;
+    font-size: 0.72rem;
+  }
+
+  .pipeline-step-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px;
+  }
+
+  /* Solution & Scope Estimator Mobile */
+  .estimator-interactive-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .estimator-options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .estimator-summary-panel {
+    padding: 20px 16px;
+  }
+
+  /* Public API Lab Mobile */
+  .api-lab-wrapper {
+    padding: 18px 14px;
+  }
+
+  .api-lab-tabs-bar {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .api-lab-tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .api-tab-btn {
+    flex: 0 0 auto;
+  }
+
+  /* Founder Bio Cards Mobile */
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .founder-card-wrap {
+    padding: 24px 16px;
+  }
+
+  .founder-image-container {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .dual-specialty-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    text-align: left;
+  }
+
+  /* Footer Mobile */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+}
+
+/* Extra Small Screens (<= 400px) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .tech-orbit-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .tech-tile {
+    padding: 12px 8px;
+  }
+
+  .tech-tile-name {
+    font-size: 0.78rem;
+  }
+
+  .tech-tile-category {
+    font-size: 0.65rem;
+  }
+}
