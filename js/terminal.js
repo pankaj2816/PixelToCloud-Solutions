@@ -24,7 +24,7 @@ class LiveDeploymentTerminal {
       { step: 1, type: 'info', text: '[+] Building 4.8s (12/12) FINISHED' },
       { step: 1, type: 'info', text: '=> [internal] load build definition from Dockerfile' },
       { step: 1, type: 'info', text: '=> exporting to image -- alpine-node-nginx runtime' },
-      { step: 1, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Image pankaj-prod/app:v3.2.0 created & pushed to local registry' },
+      { step: 1, type: 'success', text: '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Image prod/app:v3.2.0 created & pushed to local registry' },
 
       { step: 2, type: 'cmd', text: 'docker-compose up -d --no-deps --build app' },
       { step: 2, type: 'info', text: 'Recreating container: app-blue ... done (0 downtime switch)' },
@@ -250,44 +250,32 @@ class LiveDeploymentTerminal {
         window.location.hash = '#contact';
         break;
       case 'whoami':
-        this.appendLine('info', 'You are a valued guest exploring PixelToCloud Solutions.');
+        this.appendLine('info', 'You are connected to PixelToCloud Engine (Co-Founded by Bhavyansh Agarwal & Tushar Singhal).');
         break;
       case 'founders':
-        this.appendLine('info', 'Founders: Pankaj (8–10+ Yrs Hardware/Software Architect) & Tushar Singhal (5+ Yrs Full-Stack Lead).');
+        this.appendLine('info', 'Founders: Bhavyansh Agarwal (8–10+ Yrs Hardware/Software Architect) & Tushar Singhal (5+ Yrs Full-Stack Lead).');
         break;
       case 'matrix':
-        this.triggerMatrixEffect();
+        this.appendLine('success', 'Wake up, Neo... The Matrix has you. 🟢 Follow the white rabbit.');
+        for (let i = 0; i < 4; i++) {
+          const binary = Array.from({ length: 32 }, () => Math.random() > 0.5 ? '1' : '0').join(' ');
+          this.appendLine('success', binary);
+        }
         break;
       case 'benchmark':
-        this.runTerminalBenchmark();
+        const fps = Math.floor(58 + Math.random() * 4);
+        this.appendLine('success', `⚡ GPU Canvas Render Test: ${fps} FPS | Memory Heap: 18.2 MB | WebGL2: Hardware-Accelerated.`);
         break;
       case 'coffee':
         this.appendLine('success', '☕ Fresh coffee brewed! Ready to write clean, high-performance code.');
         break;
       case 'audio':
         this.audioEnabled = !this.audioEnabled;
-        this.appendLine('success', `Terminal audio feedback is now ${this.audioEnabled ? 'ENABLED' : 'DISABLED'}.`);
+        this.appendLine('success', this.audioEnabled ? '🔊 Terminal mechanical audio feedback ENABLED' : '🔇 Terminal audio MUTED');
         break;
       default:
         this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of valid commands.`);
     }
-  }
-
-  triggerMatrixEffect() {
-    this.appendLine('success', 'Entering Matrix Mode...');
-    const originalBG = this.body.style.background;
-    this.body.style.background = '#022c22';
-    setTimeout(() => {
-      this.body.style.background = originalBG;
-      this.appendLine('info', 'Exited Matrix Mode.');
-    }, 2000);
-  }
-
-  runTerminalBenchmark() {
-    this.appendLine('info', 'Running simulated system benchmark...');
-    setTimeout(() => {
-      this.appendLine('success', '✔ CPU Load: 12% | RAM Usage: 1.2GB/8GB | Network: 10Gbps Edge | Disk IOPS: 4,500');
-    }, 600);
   }
 }
 

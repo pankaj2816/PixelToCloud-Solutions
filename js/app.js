@@ -318,12 +318,12 @@ class AppEngine {
 
       if (emailBtn) {
         emailBtn.disabled = true;
-        emailBtn.innerHTML = '<span>✉️ Dispatching Inquiry to Pankaj...</span>';
+        emailBtn.innerHTML = '<span>✉️ Dispatching Inquiry to Bhavyansh Agarwal...</span>';
       }
 
       const subject = `🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`;
       const body = 
-        `Dear Pankaj,\n\n` +
+        `Dear Bhavyansh Agarwal,\n\n` +
         `I would like to discuss a new software project with PixelToCloud Solutions.\n\n` +
         `--- CLIENT CONTACT DETAILS ---\n` +
         `👤 Name: ${data.name}\n` +
@@ -344,7 +344,7 @@ class AppEngine {
       setTimeout(() => {
         if (emailBtn) {
           emailBtn.disabled = false;
-          emailBtn.innerHTML = '<span>✉️ Send Inquiry via Email to Pankaj (Priority)</span>';
+          emailBtn.innerHTML = '<span>✉️ Send Inquiry via Email to Bhavyansh Agarwal (Priority)</span>';
         }
       }, 2000);
     };
@@ -361,12 +361,12 @@ class AppEngine {
         `💼 *Estimated Budget:* ${data.budget || 'Flexible'}\n` +
         `🛠️ *Services Needed:* ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
         `📝 *Project Overview:*\n${data.message}\n\n` +
-        `⚡ Sent via PixelToCloud Solutions (Lead Architect: Pankaj)`;
+        `⚡ Sent via PixelToCloud Solutions (Lead Architect: Bhavyansh Agarwal)`;
 
       const encoded = encodeURIComponent(whatsappText);
       const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
 
-      this.showToast('💬 Opening direct WhatsApp chat with Pankaj...');
+      this.showToast('💬 Opening direct WhatsApp chat with Bhavyansh Agarwal...');
       window.open(whatsappUrl, '_blank');
     };
 
