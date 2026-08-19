@@ -41,7 +41,7 @@ class LiveDeploymentTerminal {
     ];
 
     this.currentIndex = 0;
-    this.isRunning = true;
+    this.isRunning = false;
     this.intervalId = null;
 
     this.init();
@@ -76,8 +76,19 @@ class LiveDeploymentTerminal {
   }
 
   startSimulation() {
+    clearInterval(this.intervalId);
+
+    // If at end, loop back
+    if (this.currentIndex >= this.logs.length) {
+      this.currentIndex = 0;
+      if (this.body) this.body.innerHTML = '';
+      this.updatePipelineStep(-1);
+    }
+
     this.isRunning = true;
-    if (this.playPauseBtn) this.playPauseBtn.innerHTML = '⏸ Pause Logs';
+    if (this.playPauseBtn) {
+      this.playPauseBtn.innerHTML = '<i class="fa-solid fa-pause" style="margin-right: 4px;"></i>Pause Logs';
+    }
 
     this.intervalId = setInterval(() => {
       if (this.currentIndex < this.logs.length) {
@@ -86,6 +97,10 @@ class LiveDeploymentTerminal {
         this.currentIndex++;
       } else {
         clearInterval(this.intervalId);
+        this.isRunning = false;
+        if (this.playPauseBtn) {
+          this.playPauseBtn.innerHTML = '<i class="fa-solid fa-rotate-right" style="margin-right: 4px;"></i>Replay Logs';
+        }
         this.appendLine('info', 'Type "help" in the CLI input below to explore commands & Easter eggs (matrix, benchmark, founders, coffee, audio).');
       }
     }, 900);
@@ -94,14 +109,20 @@ class LiveDeploymentTerminal {
   pauseSimulation() {
     this.isRunning = false;
     clearInterval(this.intervalId);
-    if (this.playPauseBtn) this.playPauseBtn.innerHTML = '▶ Resume Logs';
+    if (this.playPauseBtn) {
+      this.playPauseBtn.innerHTML = '<i class="fa-solid fa-play" style="margin-right: 4px;"></i>Resume Logs';
+    }
   }
 
   restartSimulation() {
     clearInterval(this.intervalId);
     this.currentIndex = 0;
     if (this.body) this.body.innerHTML = '';
+    this.updatePipelineStep(-1);
     this.startSimulation();
+    if (window.showToast) {
+      window.showToast('🔄 CI/CD Zero-Downtime Deployment Simulation Re-Started', 'info');
+    }
   }
 
   appendLog(log) {
@@ -153,10 +174,10 @@ class LiveDeploymentTerminal {
     if (!this.pipelineCards || this.pipelineCards.length === 0) return;
 
     this.pipelineCards.forEach((card, idx) => {
-      if (idx <= stepIndex) {
+      if (stepIndex >= 0 && idx <= stepIndex) {
         card.classList.add('active');
         const status = card.querySelector('.pipeline-step-status');
-        if (status) status.textContent = '✔ Complete';
+        if (status) status.innerHTML = '<i class="fa-solid fa-check" style="margin-right: 4px;"></i>Complete';
       } else {
         card.classList.remove('active');
         const status = card.querySelector('.pipeline-step-status');
@@ -167,7 +188,8 @@ class LiveDeploymentTerminal {
 
   bindControls() {
     if (this.playPauseBtn) {
-      this.playPauseBtn.addEventListener('click', () => {
+      this.playPauseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         if (this.isRunning) {
           this.pauseSimulation();
         } else {
@@ -177,7 +199,8 @@ class LiveDeploymentTerminal {
     }
 
     if (this.restartBtn) {
-      this.restartBtn.addEventListener('click', () => {
+      this.restartBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         this.restartSimulation();
       });
     }
@@ -220,59 +243,54 @@ class LiveDeploymentTerminal {
         this.appendLine('success', 'Direct WhatsApp/Phone: +91 82193 52124 | Email: pppankaj2816@gmail.com');
         break;
       case 'uptime':
-        this.appendLine('success', 'Server Uptime: 99.998% | Total requests served: 1,420,890');
+        this.appendLine('success', 'Uptime: 99.99% | SLA: Guaranteed Zero-Downtime');
         break;
       case 'quote':
-        this.appendLine('info', 'Opening Technical Solution Builder & Scope Estimator...');
-        document.getElementById('estimator')?.scrollIntoView({ behavior: 'smooth' });
+        this.appendLine('info', 'Redirecting to direct consultation...');
+        window.location.hash = '#contact';
         break;
       case 'whoami':
-        this.appendLine('info', 'You are connected to PixelToCloud Engine (Co-Founded by Pankaj & Tushar Singhal).');
-        break;
-      case 'matrix':
-        this.appendLine('success', 'Wake up, Neo... The Matrix has you. 🟢 Follow the white rabbit.');
-        for (let i = 0; i < 4; i++) {
-          const binary = Array.from({ length: 32 }, () => Math.random() > 0.5 ? '1' : '0').join(' ');
-          this.appendLine('success', binary);
-        }
-        break;
-      case 'benchmark':
-        const fps = Math.floor(58 + Math.random() * 4);
-        this.appendLine('success', `⚡ GPU Canvas Render Test: ${fps} FPS | Memory Heap: 18.2 MB | WebGL2: Hardware-Accelerated.`);
+        this.appendLine('info', 'You are a valued guest exploring PixelToCloud Solutions.');
         break;
       case 'founders':
-        this.appendLine('info', `
-╔══════════════════════════════════════════════════════════════╗
-║  PIXELTOCLOUD SOLUTIONS - LEADERSHIP & ENGINEERING LEADERS   ║
-╠══════════════════════════════════════════════════════════════╣
-║  • Pankaj: Founder & Principal Systems Architect             ║
-║    (8–10+ Years Software & Hardware Engineering Mastery)     ║
-║  • Tushar Singhal: Co-Founder & Senior Software Developer    ║
-║    (5+ Years Full-Stack Software Engineering)                ║
-╚══════════════════════════════════════════════════════════════╝`);
+        this.appendLine('info', 'Founders: Pankaj (8–10+ Yrs Hardware/Software Architect) & Tushar Singhal (5+ Yrs Full-Stack Lead).');
+        break;
+      case 'matrix':
+        this.triggerMatrixEffect();
+        break;
+      case 'benchmark':
+        this.runTerminalBenchmark();
         break;
       case 'coffee':
-        this.appendLine('info', `
-    (  )   (   )  )
-     ) (   )  (  (
-     ( )  (    ) )
-   .----------------.
-   |  PixelToCloud  |==.
-   |  DevOps Fuel   |  |
-   |   [Espresso]   |=='
-   '----------------'`);
+        this.appendLine('success', '☕ Fresh coffee brewed! Ready to write clean, high-performance code.');
         break;
       case 'audio':
         this.audioEnabled = !this.audioEnabled;
-        this.appendLine('success', this.audioEnabled ? '🔊 Terminal mechanical audio feedback ENABLED' : '🔇 Terminal audio MUTED');
+        this.appendLine('success', `Terminal audio feedback is now ${this.audioEnabled ? 'ENABLED' : 'DISABLED'}.`);
         break;
       default:
-        this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of available commands.`);
+        this.appendLine('error', `Command not found: "${cmd}". Type "help" for a list of valid commands.`);
     }
+  }
+
+  triggerMatrixEffect() {
+    this.appendLine('success', 'Entering Matrix Mode...');
+    const originalBG = this.body.style.background;
+    this.body.style.background = '#022c22';
+    setTimeout(() => {
+      this.body.style.background = originalBG;
+      this.appendLine('info', 'Exited Matrix Mode.');
+    }, 2000);
+  }
+
+  runTerminalBenchmark() {
+    this.appendLine('info', 'Running simulated system benchmark...');
+    setTimeout(() => {
+      this.appendLine('success', '✔ CPU Load: 12% | RAM Usage: 1.2GB/8GB | Network: 10Gbps Edge | Disk IOPS: 4,500');
+    }, 600);
   }
 }
 
-// Global initialization
 document.addEventListener('DOMContentLoaded', () => {
   window.terminalInstance = new LiveDeploymentTerminal();
 });

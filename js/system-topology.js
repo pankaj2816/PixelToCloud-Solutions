@@ -9,11 +9,12 @@ class AdvancedSystemTopologyEngine {
     this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
     this.packets = [];
     this.particles = [];
+    this.shockwaves = [];
     this.nodes = [];
     this.activeNodeIndex = 2; // Default to Nginx Ingress
     this.currentScenario = 'normal'; // 'normal', 'spike', 'ddos', 'failover', 'backup'
     this.currentProtocol = 'http3'; // 'http3', 'websocket', 'grpc'
-    this.latencyHistory = [0.45, 0.42, 0.48, 0.44, 0.46, 0.45, 0.43, 0.47, 0.45];
+    this.oscillatorSpike = 0;
     this.animationFrameId = null;
 
     if (this.canvas && this.ctx) {
@@ -66,8 +67,8 @@ class AdvancedSystemTopologyEngine {
         },
         payload: {
           method: 'GET /api/v2/stream HTTP/3',
-          handshake: 'TLS 1.3 Strict // 0-RTT Session Resumption',
-          client_ip: '103.21.244.18 (AP-South-1)',
+          handshake: 'TLS 1.3 Strict // 0-RTT Resumption',
+          client_ip: '103.21.244.18 (AP-South-1 Mumbai)',
           compression: 'Brotli (br: 11) // 96% Data Savings'
         }
       },
@@ -85,7 +86,7 @@ class AdvancedSystemTopologyEngine {
         metrics: {
           throughput: '142 Tbps Capacity',
           latency: '12ms TTFB',
-          state: '88.4% Cache Hit Ratio',
+          state: '88.4% Cache Hit',
           detail: 'Automated Bot Blocker & Brotli Static Edge Scrubber'
         },
         payload: {
@@ -132,7 +133,7 @@ class AdvancedSystemTopologyEngine {
         color: '#00f0ff',
         metrics: {
           throughput: '16 Replicas Live',
-          latency: '1.8ms',
+          latency: '1.80ms',
           state: 'Zero-Downtime Hot Swaps',
           detail: 'Auth JWT, Telehealth WebRTC & Tax Compilation Pods'
         },
@@ -161,17 +162,17 @@ class AdvancedSystemTopologyEngine {
           detail: 'Session Store, Rate-Limiting & Pub/Sub Pipeline'
         },
         payload: {
-          used_memory_human: '124.6 MB',
-          connected_clients: '482 concurrent sockets',
-          instantaneous_ops_per_sec: '18,400 ops/s',
+          used_memory_human: '124.6 MB (Zero memory leak)',
+          connected_clients: '482 concurrent persistent sockets',
+          instantaneous_ops: '18,400 ops/s throughput',
           cache_hit_rate: '99.42% (0.22ms RAM latency)'
         }
       },
       // 5. PostgreSQL Enterprise Primary (Upper Right)
       {
         id: 'postgres',
-        name: 'PostgreSQL Database',
-        category: 'ACID Relational Storage',
+        name: 'PostgreSQL ACID DB',
+        category: 'Relational Storage',
         region: 'Encrypted NVMe Pool',
         protocol: 'WAL Streaming Replication',
         x: w * 0.88,
@@ -181,7 +182,7 @@ class AdvancedSystemTopologyEngine {
         metrics: {
           throughput: '4,200 Trans/s',
           latency: '0.85ms',
-          state: 'Primary + Read Replicas',
+          state: 'Primary + Replica',
           detail: 'Row-Level AES-256 Encryption & Strict ACID'
         },
         payload: {
@@ -204,7 +205,7 @@ class AdvancedSystemTopologyEngine {
         color: '#0284c7',
         metrics: {
           throughput: '11 9s Durability',
-          latency: '24ms',
+          latency: '24.0ms',
           state: 'SHA-256 Immutable',
           detail: 'Automated Hourly WAL Backups & Static Asset Storage'
         },
@@ -248,11 +249,25 @@ class AdvancedSystemTopologyEngine {
         protoBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         this.currentProtocol = btn.getAttribute('data-proto') || 'http3';
+        const protoLabel = document.getElementById('topology-payload-protocol');
+        if (protoLabel) protoLabel.textContent = `${this.currentProtocol.toUpperCase()} & TLS 1.3 (0-RTT)`;
         this.logSystemEvent(`🌐 Protocol switched to ${this.currentProtocol.toUpperCase()} (TLS 1.3 / Zero-RTT Handshake active)`, '#00f0ff');
+        this.triggerShockwave(this.nodes[0]);
       });
     });
 
-    // 3. Canvas Node Click & Hover Inspection
+    // 3. Node Selector Pill Badges
+    const nodePills = document.querySelectorAll('.topology-node-btn');
+    nodePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const nodeIdx = parseInt(pill.getAttribute('data-node'), 10);
+        if (!isNaN(nodeIdx) && this.nodes[nodeIdx]) {
+          this.selectNode(nodeIdx);
+        }
+      });
+    });
+
+    // 4. Canvas Node Click & Hover Inspection
     this.canvas.addEventListener('click', (e) => {
       const rect = this.canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -260,10 +275,8 @@ class AdvancedSystemTopologyEngine {
 
       this.nodes.forEach((node, idx) => {
         const dist = Math.hypot(node.x - x, node.y - y);
-        if (dist < 40) {
-          this.activeNodeIndex = idx;
-          this.updateTelemetryCard(node);
-          this.logSystemEvent(`🔍 Node Inspected: [${node.name}] - Region: ${node.region} - State: ${node.metrics.state}`, node.color);
+        if (dist < 38) {
+          this.selectNode(idx);
         }
       });
     });
@@ -274,16 +287,53 @@ class AdvancedSystemTopologyEngine {
     }
   }
 
+  selectNode(idx) {
+    this.activeNodeIndex = idx;
+    const node = this.nodes[idx];
+    if (!node) return;
+
+    // Update pill button active states
+    const nodePills = document.querySelectorAll('.topology-node-btn');
+    nodePills.forEach(p => {
+      if (parseInt(p.getAttribute('data-node'), 10) === idx) {
+        p.classList.add('active');
+      } else {
+        p.classList.remove('active');
+      }
+    });
+
+    // Shockwave animation & packet burst
+    this.triggerShockwave(node);
+    for (let i = 0; i < 8; i++) {
+      this.spawnPacket({ fromNodeIdx: idx, isBurst: true });
+    }
+    this.oscillatorSpike = 12;
+
+    this.updateTelemetryCard(node);
+    this.logSystemEvent(`🔍 Node Inspected: [${node.name}] - Region: ${node.region} - Status: ${node.metrics.state}`, node.color);
+  }
+
+  triggerShockwave(node) {
+    this.shockwaves.push({
+      x: node.x,
+      y: node.y,
+      radius: 10,
+      maxRadius: 65,
+      alpha: 1,
+      color: node.color
+    });
+  }
+
   updateTelemetryCard(node) {
-    const titleEl = document.getElementById('topology-telemetry-title');
+    const targetName = document.getElementById('topology-target-name');
+    const targetMeta = document.getElementById('topology-target-meta');
     const rpsEl = document.getElementById('topology-metric-rps');
     const latencyEl = document.getElementById('topology-metric-latency');
     const statusEl = document.getElementById('topology-metric-status');
     const descEl = document.getElementById('topology-telemetry-desc');
 
-    if (titleEl) {
-      titleEl.innerHTML = `<span style="margin-right: 6px;">${node.icon}</span> ${node.name} <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal; margin-left: 6px;">[${node.category} // ${node.region}]</span>`;
-    }
+    if (targetName) targetName.innerHTML = `<span style="margin-right: 6px;">${node.icon}</span> ${node.name}`;
+    if (targetMeta) targetMeta.textContent = `${node.category} // ${node.region}`;
     if (rpsEl) rpsEl.textContent = node.metrics.throughput;
     if (latencyEl) latencyEl.textContent = node.metrics.latency;
     if (statusEl) {
@@ -292,7 +342,12 @@ class AdvancedSystemTopologyEngine {
     }
     if (descEl && node.payload) {
       const keys = Object.keys(node.payload);
-      descEl.innerHTML = keys.map(k => `<div><span style="color: #64748b;">${k}:</span> <strong style="color: #cbd5e1;">${node.payload[k]}</strong></div>`).join('');
+      descEl.innerHTML = keys.map(k => `
+        <div style="background: rgba(255,255,255,0.02); padding: 8px 10px; border-radius: 4px; border-left: 2px solid ${node.color};">
+          <span style="color: #64748b; text-transform: uppercase; font-size: 0.68rem; display: block;">${k}</span>
+          <strong style="color: #e2e8f0; font-size: 0.74rem;">${node.payload[k]}</strong>
+        </div>
+      `).join('');
     }
   }
 
@@ -311,6 +366,7 @@ class AdvancedSystemTopologyEngine {
   // =================================================================
   triggerSpike() {
     this.currentScenario = 'spike';
+    this.oscillatorSpike = 20;
     this.logSystemEvent('⚡ [TRAFFIC SURGE]: 10,000 concurrent requests arriving across 4 multi-region PoPs.', '#f59e0b');
 
     for (let i = 0; i < 45; i++) {
@@ -325,6 +381,7 @@ class AdvancedSystemTopologyEngine {
 
   triggerDDoS() {
     this.currentScenario = 'ddos';
+    this.oscillatorSpike = 25;
     this.logSystemEvent('🚨 [DDOS ATTACK]: 50 Gbps SYN Flood / Layer 7 Attack detected on Anycast edge IP.', '#ef4444');
 
     for (let i = 0; i < 35; i++) {
@@ -339,6 +396,7 @@ class AdvancedSystemTopologyEngine {
 
   triggerFailover() {
     this.currentScenario = 'failover';
+    this.oscillatorSpike = 16;
     this.logSystemEvent('🔄 [FAILOVER TEST]: PostgreSQL Primary node simulated reboot -> Read Replica promoted in 180ms.', '#a855f7');
     this.logSystemEvent('⚡ Redis cache cluster absorbed 100% of incoming reads during transition with 0.00s downtime.', '#10b981');
 
@@ -369,22 +427,30 @@ class AdvancedSystemTopologyEngine {
     const isThreat = opts.isThreat || false;
     const isSurge = opts.isSurge || false;
     const isBackup = opts.isBackup || false;
+    const isBurst = opts.isBurst || false;
+    const fromNodeIdx = opts.fromNodeIdx !== undefined ? opts.fromNodeIdx : 0;
 
-    // Pick path
     let path = [0, 1, 2, Math.random() > 0.5 ? 3 : 4, 5];
     if (isThreat) {
       path = [0, 1]; // Blocked at Cloudflare Edge
     } else if (isBackup) {
       path = [5, 6]; // Database to S3
+    } else if (isBurst) {
+      if (fromNodeIdx === 0) path = [0, 1];
+      else if (fromNodeIdx === 1) path = [1, 2];
+      else if (fromNodeIdx === 2) path = [2, Math.random() > 0.5 ? 3 : 4];
+      else if (fromNodeIdx === 3 || fromNodeIdx === 4) path = [fromNodeIdx, 5];
+      else if (fromNodeIdx === 5) path = [5, 6];
+      else path = [6, 5];
     }
 
     this.packets.push({
       path: path,
       pathStep: 0,
       progress: 0,
-      speed: isSurge ? 0.038 : (isThreat ? 0.045 : 0.018 + Math.random() * 0.008),
+      speed: isSurge ? 0.038 : (isThreat ? 0.045 : (isBurst ? 0.032 : 0.018 + Math.random() * 0.008)),
       color: isThreat ? '#ef4444' : (isSurge ? '#fbbf24' : (isBackup ? '#0284c7' : '#00f0ff')),
-      size: isThreat ? 4.5 : (isSurge ? 4 : 3)
+      size: isThreat ? 4.5 : (isSurge ? 4 : (isBurst ? 4 : 3))
     });
   }
 
@@ -398,6 +464,10 @@ class AdvancedSystemTopologyEngine {
       const rate = this.currentScenario === 'spike' ? 4 : (this.currentScenario === 'ddos' ? 5 : 16);
       if (tick % rate === 0) {
         this.spawnPacket();
+      }
+
+      if (this.oscillatorSpike > 0) {
+        this.oscillatorSpike *= 0.94;
       }
 
       this.draw(tick);
@@ -454,7 +524,27 @@ class AdvancedSystemTopologyEngine {
       ctx.setLineDash([]);
     });
 
-    // 2. Update and Draw Moving Packets
+    // 2. Draw & Update Shockwaves
+    for (let i = this.shockwaves.length - 1; i >= 0; i--) {
+      const sw = this.shockwaves[i];
+      sw.radius += 2.5;
+      sw.alpha -= 0.035;
+
+      if (sw.alpha <= 0) {
+        this.shockwaves.splice(i, 1);
+        continue;
+      }
+
+      ctx.beginPath();
+      ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = sw.color;
+      ctx.globalAlpha = Math.max(0, sw.alpha);
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    // 3. Update and Draw Moving Packets
     for (let i = this.packets.length - 1; i >= 0; i--) {
       const p = this.packets[i];
       p.progress += p.speed;
@@ -484,7 +574,7 @@ class AdvancedSystemTopologyEngine {
       ctx.shadowBlur = 0;
     }
 
-    // 3. Draw Nodes with Rings & Badges
+    // 4. Draw Nodes with Rings & Badges
     this.nodes.forEach((n, idx) => {
       const isSelected = idx === this.activeNodeIndex;
       const radius = isSelected ? 30 : 24;
@@ -493,12 +583,12 @@ class AdvancedSystemTopologyEngine {
       ctx.beginPath();
       ctx.arc(n.x, n.y, radius + (isSelected ? 6 + Math.sin(tick * 0.1) * 2 : 0), 0, Math.PI * 2);
       ctx.strokeStyle = isSelected ? n.color : 'rgba(255, 255, 255, 0.12)';
-      ctx.lineWidth = isSelected ? 2 : 1;
+      ctx.lineWidth = isSelected ? 2.5 : 1;
       ctx.stroke();
 
       // Node Body Circle
       const nodeGrad = ctx.createRadialGradient(n.x, n.y, 2, n.x, n.y, radius);
-      nodeGrad.addColorStop(0, '#1e293b');
+      nodeGrad.addColorStop(0, isSelected ? '#1e293b' : '#111827');
       nodeGrad.addColorStop(1, '#090d16');
       ctx.fillStyle = nodeGrad;
       ctx.beginPath();
@@ -524,11 +614,11 @@ class AdvancedSystemTopologyEngine {
 
       // Category Subtitle
       ctx.font = '8px Fira Code, monospace';
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.fillStyle = isSelected ? n.color : 'rgba(255, 255, 255, 0.5)';
       ctx.fillText(n.category, n.x, n.y + radius + 25);
     });
 
-    // 4. Draw Oscilloscope Latency Waveform at Bottom Left
+    // 5. Draw Oscilloscope Latency Waveform at Bottom Left
     const ox = 20;
     const oy = h - 24;
     const ow = 130;
@@ -542,13 +632,14 @@ class AdvancedSystemTopologyEngine {
     ctx.font = '8px Fira Code, monospace';
     ctx.fillStyle = '#00f0ff';
     ctx.textAlign = 'left';
-    ctx.fillText('RTT OSCILLOSCOPE: 0.45ms', ox, oy - 4);
+    ctx.fillText(`RTT OSCILLOSCOPE: ${(0.45 + (this.oscillatorSpike * 0.05)).toFixed(2)}ms`, ox, oy - 4);
 
     ctx.beginPath();
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = this.oscillatorSpike > 5 ? '#f59e0b' : '#10b981';
     ctx.lineWidth = 1.5;
     for (let x = 0; x < ow; x += 4) {
-      const freq = Math.sin(tick * 0.15 + x * 0.2) * 5;
+      const amp = 5 + this.oscillatorSpike * 0.4;
+      const freq = Math.sin(tick * 0.15 + x * 0.2) * amp;
       const py = oy + 8 + freq;
       if (x === 0) ctx.moveTo(ox + x, py);
       else ctx.lineTo(ox + x, py);
