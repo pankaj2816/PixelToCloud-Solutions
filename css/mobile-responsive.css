@@ -110,6 +110,29 @@
   /* Hide old fixed floating whatsapp if dock is active to prevent overlap */
   .floating-whatsapp {
     bottom: 85px !important;
+    right: 14px !important;
+    width: 50px !important;
+    height: 50px !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+  }
+
+  .floating-whatsapp svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  /* Floating AI Advisor FAB Mobile - Stacked above WhatsApp FAB */
+  .ai-advisor-fab {
+    bottom: 148px !important;
+    right: 14px !important;
+    width: 50px !important;
+    height: 50px !important;
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4) !important;
+  }
+
+  .ai-advisor-fab svg {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   /* Container Padding */
@@ -138,26 +161,75 @@
     line-height: 1.6;
   }
 
-  /* Header & Navbar */
+  /* Header & Navbar Mobile Optimization */
   .navbar {
-    top: 8px;
-    left: 10px;
-    right: 10px;
-    padding: 10px 14px;
-    border-radius: var(--radius-lg);
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    transform: none !important;
+    padding: 8px 12px !important;
+    height: 56px !important;
+    border-radius: var(--radius-full) !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+
+  .nav-brand {
+    font-size: 0.95rem;
+    gap: 6px;
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  .nav-brand span {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
   }
 
   .nav-cta-btn {
     display: none;
   }
 
+  .lang-selector-wrap {
+    padding: 3px 6px;
+    font-size: 0.72rem;
+  }
+
+  @media (max-width: 540px) {
+    .lang-selector-wrap {
+      display: none !important;
+    }
+    .nav-brand span {
+      font-size: 0.88rem !important;
+    }
+  }
+
+  .lang-select {
+    font-size: 0.72rem;
+  }
+
   .theme-switch-segmented {
     padding: 2px;
+    gap: 2px;
   }
 
   .theme-switch-btn {
     padding: 4px 6px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
   }
 
   /* Hero Section */
@@ -266,12 +338,59 @@
   }
 
   .before-after-box {
-    height: 480px;
+    height: 520px;
+    border-radius: var(--radius-md);
+  }
+
+  .ba-layer > div:last-child {
+    padding: 12px !important;
+  }
+
+  .ba-layer h3 {
+    font-size: 1.02rem !important;
+    margin-top: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  .ba-layer p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    margin-top: 4px !important;
+  }
+
+  .ba-layer .ba-tag {
+    font-size: 0.68rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .ba-before-layer div[style*="display: flex; align-items: center; justify-content: space-between;"],
+  .ba-after-layer div[style*="display: flex; align-items: center; justify-content: space-between;"] {
+    padding: 6px 10px !important;
+    font-size: 0.65rem !important;
+  }
+
+  #ba-url-before, #ba-url-after {
+    max-width: 140px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .ba-layer div[style*="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-top: 10px !important;
+  }
+
+  .ba-layer div[style*="background: rgba("] {
+    padding: 6px 8px !important;
   }
 
   .ba-handle {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   /* Subscription ROI Calculator Mobile */
@@ -284,28 +403,46 @@
     gap: 24px !important;
   }
 
-  /* System Topology Mobile */
+  /* System Topology / Client-to-Cloud Distributed Architecture Mobile (2-Column Grid) */
   .topology-wrapper {
     padding: 16px;
   }
 
-  .topology-node-pills-bar {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 6px;
-    padding-bottom: 6px;
-    scrollbar-width: none;
+  .topology-sim-triggers-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
   }
 
-  .topology-node-pills-bar::-webkit-scrollbar {
-    display: none;
+  .topology-sim-triggers-bar .btn-magnetic {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 8px 6px !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
-  .topology-node-pill {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+  #topology-node-selector-pills {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+
+  #topology-node-selector-pills .topology-node-btn {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    font-size: 0.74rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .topology-telemetry-grid {

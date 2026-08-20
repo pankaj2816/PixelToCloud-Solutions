@@ -155,26 +155,33 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer & Overlay -->
   <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" id="mobile-drawer">
-    <div class="drawer-header">
-      <div class="nav-brand">
-        <div class="nav-logo-icon">P2C</div>
-        <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+  <aside class="mobile-nav-drawer" id="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <div class="nav-brand">
+          <div class="nav-logo-icon">P2C</div>
+          <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+        </div>
+        <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Navigation Menu">✕</button>
       </div>
-      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Navigation Menu">✕</button>
+
+      <div class="mobile-nav-links">
+        <a href="index.html#services" class="mobile-nav-link"><i class="fa-solid fa-rocket" style="margin-right: 8px;"></i>Services</a>
+        <a href="portfolio.html" class="mobile-nav-link active" style="color: var(--accent-cyan);"><i class="fa-solid fa-laptop-code" style="margin-right: 8px;"></i>Portfolio & Demos</a>
+        <a href="index.html#estimator" class="mobile-nav-link"><i class="fa-solid fa-calculator" style="margin-right: 8px;"></i>Cost Estimator</a>
+        <a href="index.html#devops" class="mobile-nav-link"><i class="fa-solid fa-server" style="margin-right: 8px;"></i>Cloud & DevOps</a>
+        <a href="index.html#techstack" class="mobile-nav-link"><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i>Tech Stack</a>
+        <a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-user-gear" style="margin-right: 8px;"></i>About Architect</a>
+        <a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>Contact Us</a>
+      </div>
     </div>
-    <div class="drawer-body">
-      <nav class="drawer-links">
-        <a href="index.html#services" class="drawer-link"><i class="fa-solid fa-code" style="margin-right: 8px;"></i>Services</a>
-        <a href="portfolio.html" class="drawer-link active"><i class="fa-solid fa-briefcase" style="margin-right: 8px;"></i>Portfolio</a>
-        <a href="index.html#estimator" class="drawer-link"><i class="fa-solid fa-calculator" style="margin-right: 8px;"></i>Estimator</a>
-        <a href="index.html#devops" class="drawer-link"><i class="fa-solid fa-server" style="margin-right: 8px;"></i>DevOps</a>
-        <a href="index.html#techstack" class="drawer-link"><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i>Tech Stack</a>
-        <a href="index.html#about" class="drawer-link"><i class="fa-solid fa-user-gear" style="margin-right: 8px;"></i>About</a>
-        <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>Contact Us</a>
-      </nav>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
+      <a href="contact.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px;">
+        <span>Get Instant Quote</span>
+      </a>
     </div>
   </aside>
 

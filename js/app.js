@@ -9,7 +9,7 @@ class AppEngine {
     this.themeToggleMobile = document.getElementById('theme-toggle-mobile');
     this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
     this.mobileDrawer = document.getElementById('mobile-drawer');
-    this.drawerOverlay = document.getElementById('drawer-overlay');
+    this.drawerOverlay = document.getElementById('drawer-overlay') || document.getElementById('mobile-drawer-overlay');
     this.drawerCloseBtn = document.getElementById('mobile-drawer-close') || document.getElementById('drawer-close-btn');
     this.navbar = document.getElementById('navbar');
     this.cursorGlow = document.querySelector('.cursor-glow');
@@ -133,7 +133,7 @@ class AppEngine {
     }
 
     // Close drawer when clicking mobile links
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link, .drawer-link');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => this.closeDrawer());
     });
