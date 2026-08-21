@@ -32,15 +32,12 @@ class AdvancedSystemTopologyEngine {
 
   resize() {
     if (!this.canvas) return;
-    const rect = this.canvas.parentElement.getBoundingClientRect();
-    this.canvas.width = rect.width;
-    this.canvas.height = rect.height || 280;
+    const parent = this.canvas.parentElement;
+    const rect = parent ? parent.getBoundingClientRect() : { width: 340, height: 280 };
+    this.canvas.width = Math.max(300, rect.width || 340);
+    this.canvas.height = Math.max(260, rect.height || 280);
     this.setupNodes();
   }
-
-  setupNodes() {
-    const w = this.canvas.width;
-    const h = this.canvas.height;
 
   setupNodes() {
     const w = this.canvas.width;
@@ -66,8 +63,8 @@ class AdvancedSystemTopologyEngine {
     const y2_final = isMobile ? yTop : yMid;
     const y3_final = isMobile ? yBottom : yTop;
     const y4_final = isMobile ? yTop : yBottom;
-    const y5_final = isMobile ? yBottom : yTop;
-    const y6_final = isMobile ? yTop : yBottom;
+    const y5_final = isMobile ? yTop : yTop;
+    const y6_final = isMobile ? yBottom : yBottom;
 
     this.nodes = [
       // 0. Multi-Region Global Edge Clients
@@ -229,7 +226,7 @@ class AdvancedSystemTopologyEngine {
         region: 'AWS us-east-1 Vault',
         protocol: 'HTTPS REST Object Store',
         x: x6,
-        y: yBottom,
+        y: y6_final,
         icon: '☁️',
         color: '#0284c7',
         metrics: {
