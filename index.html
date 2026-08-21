@@ -61,11 +61,11 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- CSS Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/main.css?v=17.3">
-  <link rel="stylesheet" href="css/animations.css?v=17.3">
-  <link rel="stylesheet" href="css/components.css?v=17.3">
-  <link rel="stylesheet" href="css/light-theme.css?v=17.3">
-  <link rel="stylesheet" href="css/mobile-responsive.css?v=17.3">
+  <link rel="stylesheet" href="css/main.css?v=17.4">
+  <link rel="stylesheet" href="css/animations.css?v=17.4">
+  <link rel="stylesheet" href="css/components.css?v=17.4">
+  <link rel="stylesheet" href="css/light-theme.css?v=17.4">
+  <link rel="stylesheet" href="css/mobile-responsive.css?v=17.4">
 </head>
 <body>
 
@@ -837,9 +837,9 @@
       </div>
 
       <!-- Case Study Selector & Controls Bar -->
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;" class="reveal">
-        <!-- Case Tabs -->
-        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <div class="ba-controls-container reveal">
+        <!-- Case Tabs Grid -->
+        <div class="ba-case-tabs-grid">
           <button class="filter-btn ba-case-tab active" data-case="doctor">
             <i class="fa-solid fa-user-doctor" style="margin-right: 6px;"></i>Doctor & Clinic EHR
           </button>
@@ -852,17 +852,17 @@
         </div>
 
         <!-- Interactive Sweeper & Preset Controls -->
-        <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-          <button class="btn-magnetic btn-primary" id="ba-autoscan-btn" style="padding: 6px 14px; font-size: 0.76rem;">
+        <div class="ba-preset-controls-grid">
+          <button class="btn-magnetic btn-primary" id="ba-autoscan-btn">
             <span><i class="fa-solid fa-play" style="margin-right: 4px;"></i>Auto-Sweep Scan</span>
           </button>
-          <div style="display: flex; gap: 3px; font-family: var(--font-mono); font-size: 0.72rem;">
-            <button class="filter-btn ba-preset-btn" data-split="25" style="padding: 4px 8px;">25%</button>
-            <button class="filter-btn ba-preset-btn active" data-split="50" style="padding: 4px 8px;">50%</button>
-            <button class="filter-btn ba-preset-btn" data-split="75" style="padding: 4px 8px;">75%</button>
-            <button class="filter-btn ba-preset-btn" data-split="100" style="padding: 4px 8px;">100%</button>
+          <div class="ba-percentage-pills">
+            <button class="filter-btn ba-preset-btn" data-split="25">25%</button>
+            <button class="filter-btn ba-preset-btn active" data-split="50">50%</button>
+            <button class="filter-btn ba-preset-btn" data-split="75">75%</button>
+            <button class="filter-btn ba-preset-btn" data-split="100">100%</button>
           </div>
-          <span id="ba-split-val-badge" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); background: rgba(0,240,255,0.08); padding: 4px 8px; border-radius: var(--radius-full); border: 1px solid rgba(0,240,255,0.2);">50% PixelToCloud</span>
+          <span id="ba-split-val-badge">50% PixelToCloud</span>
         </div>
       </div>
 
@@ -2307,18 +2307,6 @@
     </div>
   </div>
 
-  <!-- ===================================================================
-       LIVE INTERACTIVE TECHNOLOGY DEMO & BENCHMARK MODAL
-       =================================================================== -->
-  <div class="modal-overlay" id="tech-demo-modal">
-    <div class="modal-dialog" style="max-width: 840px; max-height: 90vh; overflow-y: auto; padding: 0; border: 1px solid var(--accent-cyan); box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);">
-      <button class="modal-close-btn" id="tech-modal-close-btn" aria-label="Close Technology Demo Modal">✕</button>
-      <div id="tech-modal-content-body">
-        <!-- Rendered dynamically by js/tech-stack.js -->
-      </div>
-    </div>
-  </div>
-
   <!-- Floating Mobile Quick Action Dock (Touch-Friendly Native App Navigation) -->
   <div class="mobile-bottom-dock">
     <div class="dock-items-grid">
@@ -2352,8 +2340,8 @@
   <script src="js/portfolio.js?v=17.2"></script>
   <script src="js/estimator.js?v=17.2"></script>
   <script src="js/terminal.js?v=17.2"></script>
-  <script src="js/system-topology.js?v=17.2"></script>
-  <script src="js/tech-stack.js?v=17.2"></script>
+  <script src="js/system-topology.js?v=17.7"></script>
+  <script src="js/tech-stack.js?v=17.5"></script>
   <script src="js/api-lab.js?v=17.2"></script>
   <script src="js/ai-advisor.js?v=17.2"></script>
   <script src="js/scheduler.js?v=17.2"></script>

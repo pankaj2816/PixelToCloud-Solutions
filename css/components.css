@@ -1828,6 +1828,54 @@
 /* ===================================================================
    14. INTERACTIVE BEFORE VS AFTER TRANSFORMATION SLIDER
    =================================================================== */
+.ba-controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ba-case-tabs-grid {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ba-preset-controls-grid {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ba-preset-controls-grid #ba-autoscan-btn {
+  padding: 6px 14px;
+  font-size: 0.76rem;
+}
+
+.ba-percentage-pills {
+  display: flex;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.ba-percentage-pills .ba-preset-btn {
+  padding: 4px 8px;
+}
+
+#ba-split-val-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
 .before-after-box {
   position: relative;
   width: 100%;
@@ -2250,7 +2298,7 @@
 
 .topology-canvas-container {
   width: 100%;
-  height: 240px;
+  height: 320px;
   position: relative;
   border-radius: var(--radius-md);
   background: rgba(0, 0, 0, 0.25);

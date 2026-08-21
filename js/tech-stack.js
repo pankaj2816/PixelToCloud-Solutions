@@ -273,11 +273,10 @@ class InteractiveTechStackSandbox {
       const nameText = nameEl ? nameEl.textContent.trim().toLowerCase() : '';
 
       let techKey = 'html5-js';
-      if (nameText.includes('html5') || nameText.includes('js')) techKey = 'html5-js';
-      else if (nameText.includes('css') || nameText.includes('token')) techKey = 'css-tokens';
-      else if (nameText.includes('three') || nameText.includes('webgl')) techKey = 'three-webgl';
-      else if (nameText.includes('react') || nameText.includes('next')) techKey = 'react-next';
+      if (nameText.includes('react') || nameText.includes('next')) techKey = 'react-next';
       else if (nameText.includes('node') || nameText.includes('express')) techKey = 'node-express';
+      else if (nameText.includes('three') || nameText.includes('webgl')) techKey = 'three-webgl';
+      else if (nameText.includes('css') || nameText.includes('token')) techKey = 'css-tokens';
       else if (nameText.includes('python') || nameText.includes('fastapi')) techKey = 'python-fastapi';
       else if (nameText.includes('postgres')) techKey = 'postgresql';
       else if (nameText.includes('mongo')) techKey = 'mongodb';
@@ -285,6 +284,7 @@ class InteractiveTechStackSandbox {
       else if (nameText.includes('nginx')) techKey = 'nginx-server';
       else if (nameText.includes('linux') || nameText.includes('aws')) techKey = 'linux-aws';
       else if (nameText.includes('cloudflare')) techKey = 'cloudflare-dns';
+      else if (nameText.includes('html5')) techKey = 'html5-js';
 
       tile.setAttribute('data-tech-id', techKey);
 
@@ -292,54 +292,21 @@ class InteractiveTechStackSandbox {
       if (!tile.querySelector('.tech-tile-action-badge')) {
         const badge = document.createElement('div');
         badge.className = 'tech-tile-action-badge';
-        badge.innerHTML = '<i class="fa-solid fa-play" style="margin-right: 3px;"></i>Launch Demo';
+        badge.innerHTML = '<i class="fa-solid fa-sliders" style="margin-right: 3px;"></i>View Specs';
         tile.appendChild(badge);
       }
 
       tile.addEventListener('click', (e) => {
         this.selectTech(techKey);
-        // If clicked directly or clicked the badge, open the modal
-        this.openModal(techKey);
+        // Smoothly scroll down to the inline detailed inspection section below
+        if (this.sandboxContainer) {
+          this.sandboxContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       });
-    });
-
-    if (this.modalCloseBtn) {
-      this.modalCloseBtn.addEventListener('click', () => this.closeModal());
-    }
-
-    if (this.modal) {
-      this.modal.addEventListener('click', (e) => {
-        if (e.target === this.modal) this.closeModal();
-      });
-    }
-
-    // Escape key to close modal
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.modal && this.modal.classList.contains('active')) {
-        this.closeModal();
-      }
     });
 
     // Render default active tech in inline container
     this.selectTech(this.currentTechId);
-  }
-
-  openModal(techKey) {
-    if (!this.modal || !this.modalBody) return;
-    const tech = TECH_BENCHMARKS[techKey] || TECH_BENCHMARKS['react-next'];
-    this.modalBody.innerHTML = this.buildSandboxHTML(tech, true);
-    this.modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    this.bindSandboxInteractions(tech, true);
-  }
-
-  closeModal() {
-    if (this.modal) this.modal.classList.remove('active');
-    document.body.style.overflow = '';
-    if (this.canvas3DAnimId) {
-      cancelAnimationFrame(this.canvas3DAnimId);
-      this.canvas3DAnimId = null;
-    }
   }
 
   selectTech(techKey) {

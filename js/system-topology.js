@@ -34,7 +34,7 @@ class AdvancedSystemTopologyEngine {
     if (!this.canvas) return;
     const rect = this.canvas.parentElement.getBoundingClientRect();
     this.canvas.width = rect.width;
-    this.canvas.height = Math.max(320, Math.min(380, rect.width * 0.42));
+    this.canvas.height = rect.height || 280;
     this.setupNodes();
   }
 
@@ -42,21 +42,44 @@ class AdvancedSystemTopologyEngine {
     const w = this.canvas.width;
     const h = this.canvas.height;
 
-    // Multi-Tier Branching Layout
-    const yTop = h * 0.28;
+  setupNodes() {
+    const w = this.canvas.width;
+    const h = this.canvas.height;
+
+    const isMobile = window.innerWidth <= 768 || w < 600;
+
+    // Multi-Tier Branching Layout (Staggered on Mobile to prevent label collision)
+    const yTop = isMobile ? h * 0.24 : h * 0.28;
     const yMid = h * 0.50;
-    const yBottom = h * 0.74;
+    const yBottom = isMobile ? h * 0.76 : h * 0.74;
+
+    const x0 = isMobile ? w * 0.12 : w * 0.08;
+    const x1 = isMobile ? w * 0.32 : w * 0.24;
+    const x2 = isMobile ? w * 0.50 : w * 0.42;
+    const x3 = isMobile ? w * 0.70 : w * 0.62;
+    const x4 = isMobile ? w * 0.70 : w * 0.62;
+    const x5 = isMobile ? w * 0.88 : w * 0.88;
+    const x6 = isMobile ? w * 0.88 : w * 0.88;
+
+    const y0_final = isMobile ? yTop : yMid;
+    const y1_final = isMobile ? yBottom : yMid;
+    const y2_final = isMobile ? yTop : yMid;
+    const y3_final = isMobile ? yBottom : yTop;
+    const y4_final = isMobile ? yTop : yBottom;
+    const y5_final = isMobile ? yBottom : yTop;
+    const y6_final = isMobile ? yTop : yBottom;
 
     this.nodes = [
       // 0. Multi-Region Global Edge Clients
       {
         id: 'clients',
-        name: 'Multi-Region Ingress',
+        name: isMobile ? 'Edge Clients' : 'Multi-Region Ingress',
+        shortName: 'Edge Clients',
         category: 'Edge Clients',
         region: 'US / EU / IN / SG',
         protocol: 'HTTP/3 QUIC (0-RTT)',
-        x: w * 0.08,
-        y: yMid,
+        x: x0,
+        y: y0_final,
         icon: '📱',
         color: '#38bdf8',
         metrics: {
@@ -75,12 +98,13 @@ class AdvancedSystemTopologyEngine {
       // 1. Cloudflare Anycast WAF & Edge Cache
       {
         id: 'cloudflare',
-        name: 'Cloudflare Edge WAF',
+        name: isMobile ? 'Cloudflare WAF' : 'Cloudflare Edge WAF',
+        shortName: 'Cloudflare WAF',
         category: 'DDoS & Static CDN',
         region: '330+ Global PoPs',
         protocol: 'Anycast DNS / SSL Scrubber',
-        x: w * 0.24,
-        y: yMid,
+        x: x1,
+        y: y1_final,
         icon: '🛡️',
         color: '#f59e0b',
         metrics: {
@@ -99,12 +123,13 @@ class AdvancedSystemTopologyEngine {
       // 2. Nginx Ingress Reverse Proxy
       {
         id: 'nginx',
-        name: 'Nginx HA Ingress',
+        name: isMobile ? 'Nginx Ingress' : 'Nginx HA Ingress',
+        shortName: 'Nginx Ingress',
         category: 'Load Balancer',
         region: 'Private Cloud VPC',
         protocol: 'HTTP/2 Keep-Alive Stream',
-        x: w * 0.42,
-        y: yMid,
+        x: x2,
+        y: y2_final,
         icon: '⚡',
         color: '#10b981',
         metrics: {
@@ -123,12 +148,13 @@ class AdvancedSystemTopologyEngine {
       // 3. Docker Container Microservices Mesh (Upper Branch)
       {
         id: 'docker',
-        name: 'Docker Microservices',
+        name: isMobile ? 'Docker Mesh' : 'Docker Microservices',
+        shortName: 'Docker Mesh',
         category: 'Compute Cluster',
         region: 'Docker Engine Swarm',
         protocol: 'Node.js & FastAPI Microservices',
-        x: w * 0.62,
-        y: yTop,
+        x: x3,
+        y: y3_final,
         icon: '🐳',
         color: '#00f0ff',
         metrics: {
@@ -147,12 +173,13 @@ class AdvancedSystemTopologyEngine {
       // 4. Redis In-Memory Cluster (Lower Branch)
       {
         id: 'redis',
-        name: 'Redis In-Memory Tier',
+        name: isMobile ? 'Redis Cache' : 'Redis In-Memory Tier',
+        shortName: 'Redis Cache',
         category: 'Cache & Pub/Sub',
         region: 'In-Memory RAM Bus',
         protocol: 'TCP In-Memory Key/Value',
-        x: w * 0.62,
-        y: yBottom,
+        x: x4,
+        y: y4_final,
         icon: '⚡',
         color: '#ec4899',
         metrics: {
@@ -171,12 +198,13 @@ class AdvancedSystemTopologyEngine {
       // 5. PostgreSQL Enterprise Primary (Upper Right)
       {
         id: 'postgres',
-        name: 'PostgreSQL ACID DB',
+        name: isMobile ? 'Postgres DB' : 'PostgreSQL ACID DB',
+        shortName: 'Postgres DB',
         category: 'Relational Storage',
         region: 'Encrypted NVMe Pool',
         protocol: 'WAL Streaming Replication',
-        x: w * 0.88,
-        y: yTop,
+        x: x5,
+        y: y5_final,
         icon: '🗄️',
         color: '#a855f7',
         metrics: {
@@ -195,11 +223,12 @@ class AdvancedSystemTopologyEngine {
       // 6. AWS S3 Encrypted Backup Vault (Lower Right)
       {
         id: 's3',
-        name: 'AWS S3 Snapshot Vault',
+        name: isMobile ? 'AWS S3 Vault' : 'AWS S3 Snapshot Vault',
+        shortName: 'AWS S3 Vault',
         category: 'Offsite Cloud Backup',
         region: 'AWS us-east-1 Vault',
         protocol: 'HTTPS REST Object Store',
-        x: w * 0.88,
+        x: x6,
         y: yBottom,
         icon: '☁️',
         color: '#0284c7',
@@ -574,14 +603,16 @@ class AdvancedSystemTopologyEngine {
       ctx.shadowBlur = 0;
     }
 
+    const isMobile = window.innerWidth <= 768 || w < 600;
+
     // 4. Draw Nodes with Rings & Badges
     this.nodes.forEach((n, idx) => {
       const isSelected = idx === this.activeNodeIndex;
-      const radius = isSelected ? 30 : 24;
+      const radius = isMobile ? (isSelected ? 20 : 16) : (isSelected ? 30 : 24);
 
       // Outer Halo Ring
       ctx.beginPath();
-      ctx.arc(n.x, n.y, radius + (isSelected ? 6 + Math.sin(tick * 0.1) * 2 : 0), 0, Math.PI * 2);
+      ctx.arc(n.x, n.y, radius + (isSelected ? (isMobile ? 4 : 6) + Math.sin(tick * 0.1) * 2 : 0), 0, Math.PI * 2);
       ctx.strokeStyle = isSelected ? n.color : 'rgba(255, 255, 255, 0.12)';
       ctx.lineWidth = isSelected ? 2.5 : 1;
       ctx.stroke();
@@ -598,49 +629,52 @@ class AdvancedSystemTopologyEngine {
       // Status indicator dot
       ctx.fillStyle = n.color;
       ctx.beginPath();
-      ctx.arc(n.x + radius * 0.7, n.y - radius * 0.7, 4, 0, Math.PI * 2);
+      ctx.arc(n.x + radius * 0.7, n.y - radius * 0.7, isMobile ? 3 : 4, 0, Math.PI * 2);
       ctx.fill();
 
       // Icon
-      ctx.font = isSelected ? '18px sans-serif' : '15px sans-serif';
+      ctx.font = isMobile ? (isSelected ? '13px sans-serif' : '11px sans-serif') : (isSelected ? '18px sans-serif' : '15px sans-serif');
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(n.icon, n.x, n.y);
 
       // Node Name Label
-      ctx.font = isSelected ? 'bold 11px Plus Jakarta Sans, sans-serif' : '10px Plus Jakarta Sans, sans-serif';
+      const displayName = isMobile ? (n.shortName || n.name) : n.name;
+      ctx.font = isMobile ? (isSelected ? 'bold 8.5px Plus Jakarta Sans, sans-serif' : '8px Plus Jakarta Sans, sans-serif') : (isSelected ? 'bold 11px Plus Jakarta Sans, sans-serif' : '10px Plus Jakarta Sans, sans-serif');
       ctx.fillStyle = isSelected ? '#ffffff' : '#cbd5e1';
-      ctx.fillText(n.name, n.x, n.y + radius + 14);
+      ctx.fillText(displayName, n.x, n.y + radius + (isMobile ? 9 : 14));
 
-      // Category Subtitle
-      ctx.font = '8px Fira Code, monospace';
-      ctx.fillStyle = isSelected ? n.color : 'rgba(255, 255, 255, 0.5)';
-      ctx.fillText(n.category, n.x, n.y + radius + 25);
+      // Category Subtitle (drawn on desktop, omitted on mobile to prevent clutter)
+      if (!isMobile) {
+        ctx.font = '8px Fira Code, monospace';
+        ctx.fillStyle = isSelected ? n.color : 'rgba(255, 255, 255, 0.5)';
+        ctx.fillText(n.category, n.x, n.y + radius + 25);
+      }
     });
 
     // 5. Draw Oscilloscope Latency Waveform at Bottom Left
-    const ox = 20;
-    const oy = h - 24;
-    const ow = 130;
-    const oh = 18;
+    const ox = isMobile ? 10 : 20;
+    const oy = h - (isMobile ? 16 : 24);
+    const ow = isMobile ? Math.min(95, w * 0.25) : 130;
+    const oh = isMobile ? 14 : 18;
 
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-    ctx.fillRect(ox - 4, oy - 14, ow + 8, oh + 16);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+    ctx.fillRect(ox - 4, oy - 12, ow + 8, oh + 12);
     ctx.strokeStyle = 'rgba(0, 240, 255, 0.2)';
-    ctx.strokeRect(ox - 4, oy - 14, ow + 8, oh + 16);
+    ctx.strokeRect(ox - 4, oy - 12, ow + 8, oh + 12);
 
-    ctx.font = '8px Fira Code, monospace';
+    ctx.font = isMobile ? '7px Fira Code, monospace' : '8px Fira Code, monospace';
     ctx.fillStyle = '#00f0ff';
     ctx.textAlign = 'left';
-    ctx.fillText(`RTT OSCILLOSCOPE: ${(0.45 + (this.oscillatorSpike * 0.05)).toFixed(2)}ms`, ox, oy - 4);
+    ctx.fillText(`${isMobile ? 'RTT:' : 'RTT OSCILLOSCOPE:'} ${(0.45 + (this.oscillatorSpike * 0.05)).toFixed(2)}ms`, ox, oy - 3);
 
     ctx.beginPath();
     ctx.strokeStyle = this.oscillatorSpike > 5 ? '#f59e0b' : '#10b981';
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 1.2;
     for (let x = 0; x < ow; x += 4) {
-      const amp = 5 + this.oscillatorSpike * 0.4;
+      const amp = (isMobile ? 3 : 5) + this.oscillatorSpike * 0.3;
       const freq = Math.sin(tick * 0.15 + x * 0.2) * amp;
-      const py = oy + 8 + freq;
+      const py = oy + (isMobile ? 4 : 8) + freq;
       if (x === 0) ctx.moveTo(ox + x, py);
       else ctx.lineTo(ox + x, py);
     }
