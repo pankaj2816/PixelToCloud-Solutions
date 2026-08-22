@@ -40,6 +40,11 @@ class AdvancedServicesHub {
     };
     this.currentCurrency = 'USD';
 
+    // Neural Network Canvas State (AI Lab)
+    this.neuralCanvas = document.getElementById('service-neural-canvas');
+    this.neuralCtx = this.neuralCanvas ? this.neuralCanvas.getContext('2d') : null;
+    this.neuralTick = 0;
+
     this.init();
   }
 
@@ -52,6 +57,9 @@ class AdvancedServicesHub {
     this.initDevOpsLab();
     this.initEcomLab();
     this.initSecurityLab();
+    this.initMobileLab();
+    this.initAILab();
+    this.initDesktopLab();
     this.startGlobalRenderLoops();
   }
 
@@ -530,6 +538,12 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         this.renderECGWave();
       }
 
+      // Render Neural Network Canvas (AI Lab)
+      if (this.neuralCtx && this.neuralCanvas) {
+        this.neuralTick++;
+        this.renderNeuralNetwork(this.neuralTick * 0.03);
+      }
+
       requestAnimationFrame(loop);
     };
 
@@ -676,6 +690,398 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     }
     ctx.stroke();
     ctx.shadowBlur = 0;
+  }
+
+  // =================================================================
+  // 8. MOBILE APP DEVELOPMENT LAB
+  // =================================================================
+  initMobileLab() {
+    // Platform toggle (Android / iOS)
+    document.querySelectorAll('.mobile-platform-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-platform-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const platform = btn.getAttribute('data-platform');
+        const frame = document.getElementById('mobile-phone-frame');
+        const timeDisplay = document.getElementById('mobile-time-display');
+        if (platform === 'ios') {
+          if (frame) frame.style.borderColor = 'rgba(255,255,255,0.3)';
+          if (frame) frame.style.borderRadius = '36px';
+          if (timeDisplay) timeDisplay.textContent = '9:41 AM';
+        } else {
+          if (frame) frame.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+          if (frame) frame.style.borderRadius = '28px';
+          if (timeDisplay) timeDisplay.textContent = '09:41';
+        }
+      });
+    });
+
+    // Bottom nav screen switching
+    document.querySelectorAll('.mobile-bottom-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-bottom-nav-btn').forEach(b => {
+          b.classList.remove('active-nav');
+          b.style.color = '#64748b';
+        });
+        btn.classList.add('active-nav');
+        btn.style.color = '#3b82f6';
+        const screen = btn.getAttribute('data-screen');
+        this.showMobileScreen(screen);
+      });
+    });
+
+    // Mini card taps
+    document.querySelectorAll('.mobile-mini-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const screen = card.getAttribute('data-screen');
+        this.showMobileScreen(screen);
+      });
+    });
+
+    // Push notification button
+    const pushBtn = document.getElementById('mobile-push-btn');
+    if (pushBtn) {
+      pushBtn.addEventListener('click', () => {
+        const appScreen = document.getElementById('mobile-app-screen');
+        if (!appScreen) return;
+        const notification = document.createElement('div');
+        notification.style.cssText = 'position:absolute;top:0;left:0;right:0;background:rgba(59,130,246,0.95);color:white;padding:10px 14px;font-size:0.72rem;font-family:var(--font-sans);display:flex;align-items:center;gap:8px;z-index:10;animation:slideDown 0.3s ease;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.2);';
+        notification.innerHTML = '<i class="fa-solid fa-bell" style="font-size:0.9rem;"></i><div><strong>New Order #1248</strong><br><span style="font-size:0.65rem;opacity:0.85;">Sharma Enterprises placed ₹24,500 order</span></div>';
+        appScreen.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
+      });
+    }
+
+    // GPS tracking button
+    const gpsBtn = document.getElementById('mobile-gps-btn');
+    if (gpsBtn) {
+      gpsBtn.addEventListener('click', () => {
+        const appScreen = document.getElementById('mobile-app-screen');
+        if (!appScreen) return;
+        const gpsOverlay = document.createElement('div');
+        gpsOverlay.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;z-index:10;animation:fadeIn 0.3s ease;';
+        gpsOverlay.innerHTML = '<div style="text-align:center;"><i class="fa-solid fa-location-crosshairs" style="font-size:2rem;color:#10b981;animation:pulse 1s infinite;"></i><div style="margin-top:8px;font-size:0.75rem;color:#10b981;font-family:var(--font-sans);font-weight:700;">Tracking Live Location</div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">28.6139°N, 77.2090°E</div></div>';
+        appScreen.appendChild(gpsOverlay);
+        setTimeout(() => gpsOverlay.remove(), 2500);
+      });
+    }
+  }
+
+  showMobileScreen(screenId) {
+    const appScreen = document.getElementById('mobile-app-screen');
+    if (!appScreen) return;
+
+    const screens = {
+      home: `<div id="mobile-screen-home" class="mobile-screen active-screen">
+        <div style="text-align:center;margin-bottom:16px;">
+          <div style="width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:white;box-shadow:0 4px 15px rgba(59,130,246,0.4);"><i class="fa-solid fa-store"></i></div>
+          <div style="font-size:0.85rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">ShopPulse</div>
+          <div style="font-size:0.65rem;color:#64748b;margin-top:2px;">v2.4.1 · React Native</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="mobile-mini-card" data-screen="orders" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-box" style="color:#3b82f6;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Orders</span><div style="font-size:1rem;font-weight:800;color:#3b82f6;">1,247</div></div>
+          <div class="mobile-mini-card" data-screen="analytics" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-chart-line" style="color:#10b981;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Revenue</span><div style="font-size:1rem;font-weight:800;color:#10b981;">₹4.2L</div></div>
+          <div class="mobile-mini-card" data-screen="notifications" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-bell" style="color:#f59e0b;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Alerts</span><div style="font-size:1rem;font-weight:800;color:#f59e0b;">18</div></div>
+          <div class="mobile-mini-card" data-screen="profile" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-fingerprint" style="color:#8b5cf6;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Biometric</span><div style="font-size:0.72rem;font-weight:700;color:#8b5cf6;">Enabled</div></div>
+        </div>
+      </div>`,
+      orders: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-box" style="color:#3b82f6;margin-right:6px;"></i>Live Orders</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1247</span><span style="color:#10b981;font-size:0.65rem;">Delivered ✓</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">Sharma Enterprises · ₹24,500</div></div>
+          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1246</span><span style="color:#f59e0b;font-size:0.65rem;">In Transit 🚚</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">CloudNova Pvt Ltd · ₹18,200</div></div>
+          <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1245</span><span style="color:#8b5cf6;font-size:0.65rem;">Processing ⏳</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">Patel & Associates · ₹31,800</div></div>
+        </div></div>`,
+      analytics: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-chart-line" style="color:#10b981;margin-right:6px;"></i>Revenue Analytics</div>
+        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:14px;margin-bottom:10px;text-align:center;"><div style="font-size:1.6rem;font-weight:800;color:#10b981;font-family:var(--font-sans);">₹4,21,580</div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">This Month Revenue · <span style="color:#10b981;">↑ 23.4%</span></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:0.95rem;font-weight:700;color:#3b82f6;">847</div><div style="font-size:0.6rem;color:#64748b;">Total Users</div></div>
+          <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:0.95rem;font-weight:700;color:#f59e0b;">4.8★</div><div style="font-size:0.6rem;color:#64748b;">App Rating</div></div>
+        </div></div>`,
+      notifications: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-bell" style="color:#f59e0b;margin-right:6px;"></i>Notifications</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">New order received</div><div style="font-size:0.6rem;color:#64748b;">2 min ago · Order #1248</div></div>
+          <div style="background:rgba(16,185,129,0.08);border-left:3px solid #10b981;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Payment confirmed</div><div style="font-size:0.6rem;color:#64748b;">15 min ago · ₹24,500</div></div>
+          <div style="background:rgba(59,130,246,0.08);border-left:3px solid #3b82f6;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">App update available</div><div style="font-size:0.6rem;color:#64748b;">1 hour ago · v2.4.2</div></div>
+          <div style="background:rgba(139,92,246,0.08);border-left:3px solid #8b5cf6;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Weekly report ready</div><div style="font-size:0.6rem;color:#64748b;">3 hours ago</div></div>
+        </div></div>`,
+      profile: `<div style="animation:fadeIn 0.3s ease;text-align:center;">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#3b82f6);margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;box-shadow:0 4px 20px rgba(139,92,246,0.4);"><i class="fa-solid fa-user"></i></div>
+        <div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Admin User</div>
+        <div style="font-size:0.65rem;color:#64748b;margin-top:2px;">admin@shoppulse.app</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;text-align:left;">
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:10px;"><i class="fa-solid fa-fingerprint" style="color:#10b981;"></i><div><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Biometric Auth</div><div style="font-size:0.6rem;color:#10b981;">Face ID + Fingerprint Active</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:10px;"><i class="fa-solid fa-cloud-arrow-up" style="color:#3b82f6;"></i><div><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Cloud Sync</div><div style="font-size:0.6rem;color:#3b82f6;">Last synced 12s ago</div></div></div>
+        </div></div>`
+    };
+
+    const html = screens[screenId] || screens.home;
+    appScreen.style.opacity = '0';
+    setTimeout(() => {
+      appScreen.innerHTML = html;
+      appScreen.style.opacity = '1';
+      appScreen.style.transition = 'opacity 0.25s ease';
+      // Re-bind mini card taps
+      appScreen.querySelectorAll('.mobile-mini-card').forEach(card => {
+        card.addEventListener('click', () => this.showMobileScreen(card.getAttribute('data-screen')));
+      });
+    }, 150);
+  }
+
+  // =================================================================
+  // 9. AI & MACHINE LEARNING LAB
+  // =================================================================
+  initAILab() {
+    // Sentiment Analysis
+    const analyzeBtn = document.getElementById('ai-analyze-btn');
+    const sentimentInput = document.getElementById('ai-sentiment-input');
+    const sentimentResult = document.getElementById('ai-sentiment-result');
+
+    const analyzeSentiment = () => {
+      if (!sentimentInput || !sentimentResult) return;
+      const text = sentimentInput.value.trim();
+      if (!text) return;
+
+      const positiveWords = ['good','great','love','amazing','excellent','happy','wonderful','fantastic','awesome','best','beautiful','nice','perfect','thank','brilliant','superb','outstanding'];
+      const negativeWords = ['bad','terrible','hate','awful','worst','horrible','ugly','poor','slow','broken','fail','error','crash','annoying','useless','disappointing','waste'];
+
+      const words = text.toLowerCase().split(/\s+/);
+      let posCount = 0, negCount = 0;
+      words.forEach(w => {
+        if (positiveWords.some(p => w.includes(p))) posCount++;
+        if (negativeWords.some(n => w.includes(n))) negCount++;
+      });
+
+      let sentiment, emoji, color, confidence;
+      if (posCount > negCount) {
+        sentiment = 'POSITIVE'; emoji = '😊'; color = '#10b981';
+        confidence = Math.min(95, 60 + posCount * 12);
+      } else if (negCount > posCount) {
+        sentiment = 'NEGATIVE'; emoji = '😞'; color = '#ef4444';
+        confidence = Math.min(95, 60 + negCount * 12);
+      } else {
+        sentiment = 'NEUTRAL'; emoji = '😐'; color = '#f59e0b';
+        confidence = 55 + Math.floor(Math.random() * 20);
+      }
+
+      sentimentResult.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:1.4rem;">${emoji}</span>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:${color};">${sentiment}</div>
+              <div style="font-size:0.65rem;color:#64748b;">Confidence: ${confidence}%</div>
+            </div>
+          </div>
+          <div style="width:60px;height:60px;border-radius:50%;border:3px solid ${color};display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:0.82rem;font-weight:800;color:${color};">${confidence}%</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;">
+          <div style="height:100%;width:${confidence}%;background:${color};border-radius:3px;transition:width 0.5s ease;"></div>
+        </div>`;
+    };
+
+    if (analyzeBtn) analyzeBtn.addEventListener('click', analyzeSentiment);
+    if (sentimentInput) sentimentInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') analyzeSentiment(); });
+
+    // Train Model button
+    const trainBtn = document.getElementById('ai-train-btn');
+    if (trainBtn) {
+      trainBtn.addEventListener('click', () => {
+        const statusEl = document.getElementById('ai-model-status');
+        if (statusEl) {
+          statusEl.textContent = 'TRAINING...';
+          statusEl.style.color = '#f59e0b';
+          statusEl.style.borderColor = 'rgba(245,158,11,0.3)';
+          statusEl.style.background = 'rgba(245,158,11,0.1)';
+        }
+        let epoch = 0;
+        const maxEpochs = 10;
+        const interval = setInterval(() => {
+          epoch++;
+          const loss = (1.0 - epoch / maxEpochs * 0.85).toFixed(4);
+          const acc = (epoch / maxEpochs * 94.2 + Math.random() * 4).toFixed(1);
+          if (sentimentResult) {
+            sentimentResult.innerHTML = `<div style="font-size:0.72rem;color:#f59e0b;">
+              <i class="fa-solid fa-dna" style="margin-right:4px;animation:pulse 0.5s infinite;"></i>Epoch ${epoch}/${maxEpochs} · Loss: ${loss} · Accuracy: ${acc}%
+              <div style="margin-top:6px;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${epoch/maxEpochs*100}%;background:linear-gradient(90deg,#f59e0b,#10b981);border-radius:3px;transition:width 0.3s;"></div></div>
+            </div>`;
+          }
+          if (epoch >= maxEpochs) {
+            clearInterval(interval);
+            if (statusEl) {
+              statusEl.textContent = 'MODEL READY';
+              statusEl.style.color = '#10b981';
+              statusEl.style.borderColor = 'rgba(16,185,129,0.3)';
+              statusEl.style.background = 'rgba(16,185,129,0.1)';
+            }
+            if (sentimentResult) {
+              sentimentResult.innerHTML = `<div style="color:#10b981;font-size:0.75rem;"><i class="fa-solid fa-check-circle" style="margin-right:4px;"></i>Training complete! Model accuracy: 97.8% · Ready for inference.</div>`;
+            }
+          }
+        }, 400);
+      });
+    }
+
+    // Predict button
+    const predictBtn = document.getElementById('ai-predict-btn');
+    if (predictBtn) {
+      predictBtn.addEventListener('click', () => {
+        const predictions = [
+          { label: 'Customer Churn', prob: '12.4%', color: '#ef4444', icon: 'fa-user-minus' },
+          { label: 'Revenue Growth', prob: '87.6%', color: '#10b981', icon: 'fa-chart-line' },
+          { label: 'Peak Traffic Hour', prob: '2:00 PM', color: '#3b82f6', icon: 'fa-clock' },
+          { label: 'Best Product', prob: 'Widget Pro', color: '#8b5cf6', icon: 'fa-star' }
+        ];
+        if (sentimentResult) {
+          sentimentResult.innerHTML = `<div style="font-size:0.7rem;color:#8b5cf6;margin-bottom:6px;font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:4px;"></i>PREDICTION RESULTS</div>` +
+            predictions.map(p => `<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.7rem;"><span style="color:#94a3b8;"><i class="fa-solid ${p.icon}" style="color:${p.color};margin-right:6px;width:14px;"></i>${p.label}</span><span style="color:${p.color};font-weight:700;">${p.prob}</span></div>`).join('');
+        }
+      });
+    }
+  }
+
+  // Neural Network Canvas Renderer
+  renderNeuralNetwork(time) {
+    const ctx = this.neuralCtx;
+    const w = this.neuralCanvas.width;
+    const h = this.neuralCanvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    // Layer config: [input, hidden1, hidden2, output]
+    const layers = [4, 6, 6, 3];
+    const layerX = [];
+    const spacing = w / (layers.length + 1);
+    layers.forEach((_, i) => layerX.push(spacing * (i + 1)));
+
+    const nodes = [];
+    layers.forEach((count, li) => {
+      const layerNodes = [];
+      const ySpacing = h / (count + 1);
+      for (let ni = 0; ni < count; ni++) {
+        layerNodes.push({
+          x: layerX[li],
+          y: ySpacing * (ni + 1),
+          activation: (Math.sin(time + li * 1.2 + ni * 0.8) + 1) / 2
+        });
+      }
+      nodes.push(layerNodes);
+    });
+
+    // Draw connections
+    for (let li = 0; li < nodes.length - 1; li++) {
+      for (let a = 0; a < nodes[li].length; a++) {
+        for (let b = 0; b < nodes[li + 1].length; b++) {
+          const n1 = nodes[li][a];
+          const n2 = nodes[li + 1][b];
+          const strength = (n1.activation + n2.activation) / 2;
+          ctx.strokeStyle = `rgba(139, 92, 246, ${strength * 0.35})`;
+          ctx.lineWidth = strength * 1.5;
+          ctx.beginPath();
+          ctx.moveTo(n1.x, n1.y);
+          ctx.lineTo(n2.x, n2.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw nodes
+    const colors = ['#3b82f6', '#8b5cf6', '#8b5cf6', '#10b981'];
+    nodes.forEach((layer, li) => {
+      layer.forEach(node => {
+        const radius = 5 + node.activation * 4;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = colors[li];
+        ctx.shadowColor = colors[li];
+        ctx.shadowBlur = node.activation * 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+    });
+
+    // Layer labels
+    ctx.font = '9px monospace';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+    const labels = ['Input', 'Hidden 1', 'Hidden 2', 'Output'];
+    layerX.forEach((x, i) => ctx.fillText(labels[i], x, h - 5));
+  }
+
+  // =================================================================
+  // 10. DESKTOP SOFTWARE LAB
+  // =================================================================
+  initDesktopLab() {
+    // OS toggle
+    const osLabels = { windows: 'Windows 11', macos: 'macOS Sonoma', linux: 'Ubuntu 24.04 LTS' };
+    document.querySelectorAll('.desktop-os-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.desktop-os-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const os = btn.getAttribute('data-os');
+        const osLabel = document.getElementById('desktop-os-label');
+        if (osLabel) osLabel.textContent = osLabels[os] || 'Windows 11';
+
+        // Adjust window chrome style
+        const titleBar = document.getElementById('desktop-title-bar');
+        const frame = document.getElementById('desktop-window-frame');
+        if (os === 'macos') {
+          if (frame) frame.style.borderColor = 'rgba(255,255,255,0.15)';
+          if (frame) frame.style.borderRadius = '12px';
+        } else if (os === 'linux') {
+          if (frame) frame.style.borderColor = 'rgba(16,185,129,0.3)';
+          if (frame) frame.style.borderRadius = '8px';
+        } else {
+          if (frame) frame.style.borderColor = 'rgba(245,158,11,0.3)';
+          if (frame) frame.style.borderRadius = '10px';
+        }
+      });
+    });
+
+    // New Invoice button
+    const newInvBtn = document.getElementById('desktop-new-invoice-btn');
+    if (newInvBtn) {
+      newInvBtn.addEventListener('click', () => {
+        const invList = document.getElementById('desktop-invoice-list');
+        const invMetric = document.getElementById('desktop-metric-invoices');
+        if (!invList) return;
+        const invNum = 342 + Math.floor(Math.random() * 100);
+        const clients = ['TechVista Corp', 'Aurora Digital', 'Nexgen Systems', 'Prism Analytics', 'Quantum Labs'];
+        const client = clients[Math.floor(Math.random() * clients.length)];
+        const amount = (Math.floor(Math.random() * 50) + 10) * 1000;
+        const newRow = document.createElement('div');
+        newRow.style.cssText = 'display:flex;justify-content:space-between;color:#cbd5e1;animation:fadeIn 0.3s ease;';
+        newRow.innerHTML = `<span>#INV-0${invNum} · ${client}</span><span style="color:#8b5cf6;">₹${amount.toLocaleString('en-IN')} ★</span>`;
+        invList.insertBefore(newRow, invList.firstChild);
+        if (invMetric) invMetric.textContent = parseInt(invMetric.textContent) + 1;
+        // Animate CPU spike
+        const cpuMem = document.getElementById('desktop-cpu-mem');
+        if (cpuMem) {
+          cpuMem.textContent = `CPU: ${(2 + Math.random() * 8).toFixed(1)}% · RAM: ${48 + Math.floor(Math.random() * 20)} MB`;
+          setTimeout(() => cpuMem.textContent = `CPU: ${(1 + Math.random() * 3).toFixed(1)}% · RAM: 48 MB`, 2000);
+        }
+      });
+    }
+
+    // Print PDF button
+    const exportBtn = document.getElementById('desktop-export-btn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const statusBar = document.getElementById('desktop-status-bar');
+        if (statusBar) {
+          const origHTML = statusBar.innerHTML;
+          statusBar.querySelector('span').textContent = '⏳ Generating PDF...';
+          statusBar.querySelector('span').style.color = '#f59e0b';
+          setTimeout(() => {
+            statusBar.querySelector('span').textContent = '✅ Invoice PDF exported successfully!';
+            statusBar.querySelector('span').style.color = '#10b981';
+            setTimeout(() => {
+              statusBar.innerHTML = origHTML;
+            }, 2000);
+          }, 1500);
+        }
+      });
+    }
   }
 }
 
