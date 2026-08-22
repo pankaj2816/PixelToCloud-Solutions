@@ -90,12 +90,9 @@
     <nav class="nav-links">
       <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
       <a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
-      <a href="#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
       <a href="about.html#how-we-work" class="nav-link">How We Work</a>
-      <a href="#devops" class="nav-link" data-i18n="nav_devops">DevOps</a>
-      <a href="#techstack" class="nav-link" data-i18n="nav_techstack">Tech Stack</a>
+      <a href="#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
       <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
-      <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
       <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
     </nav>
 
@@ -1320,13 +1317,13 @@
   <section class="section" id="roi-calculator" style="padding-top: 0;">
     <div class="container">
       <div class="roi-calculator-wrap reveal">
-        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: flex-start;">
           
-          <!-- Left: Friendly Sliders & Presets -->
+          <!-- Left: Friendly Sliders, Presets & Live Math Breakdown -->
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
               <div class="section-tag" style="margin-bottom: 0;">
-                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Smart Savings Engine 2.0</span>
+                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Transparent Cost Audit</span>
               </div>
               <!-- Currency Switcher -->
               <div style="display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 3px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
@@ -1335,16 +1332,16 @@
               </div>
             </div>
 
-            <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
-              How Much Money Will You Save with a <span class="text-gradient">Custom Website?</span>
+            <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+              How Much Money Will You Actually Save with <span class="text-gradient">Custom Code?</span>
             </h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
-              Traditional platforms charge high monthly rental fees for plugins, themes, and server add-ons. Click a preset or adjust the sliders to see your exact 3-year savings with <strong>PixelToCloud</strong>:
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">
+              Standard CMS platforms seem cheap at first, but force you into recurring monthly fees for basic apps (reviews, SEO, builders, forms). See how custom code eliminates these costs forever:
             </p>
 
             <!-- Quick Platform Presets -->
-            <div style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-mono);">
-              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan); margin-right: 6px;"></i>Quick Business Presets:
+            <div style="font-size: 0.76rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-mono);">
+              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan); margin-right: 6px;"></i>Select Business Scenario:
             </div>
             <div class="roi-preset-chips-wrap">
               <button class="roi-preset-chip active" data-preset="shopify"><i class="fa-solid fa-cart-shopping" style="margin-right: 6px;"></i>Shopify Store (~₹14.5k/mo)</button>
@@ -1354,30 +1351,34 @@
             </div>
 
             <!-- Slider 1: Monthly Subscriptions -->
-            <div class="roi-slider-group">
+            <div class="roi-slider-group" style="margin-bottom: 16px;">
               <div class="roi-slider-label-row">
-                <span>Monthly Plugin &amp; App Subscriptions:</span>
+                <span>Monthly Recurring App &amp; License Fees:</span>
                 <span class="roi-slider-val" id="roi-plugin-cost-val" style="color: #10b981;">₹14,500 / mo</span>
               </div>
               <input type="range" class="roi-range-input" id="roi-plugin-cost-slider" min="1000" max="40000" step="500" value="14500">
-              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 4px; font-family: var(--font-mono);">
-                <span>Basic Apps</span>
-                <span>Mid-Size Store</span>
-                <span>Enterprise Apps</span>
-              </div>
             </div>
 
             <!-- Slider 2: Years in Business -->
-            <div class="roi-slider-group">
+            <div class="roi-slider-group" style="margin-bottom: 20px;">
               <div class="roi-slider-label-row">
-                <span>Number of Years in Business:</span>
+                <span>Projection Timeframe:</span>
                 <span class="roi-slider-val" id="roi-lifespan-val">3 Years</span>
               </div>
               <input type="range" class="roi-range-input" id="roi-lifespan-slider" min="1" max="5" step="1" value="3">
-              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 4px; font-family: var(--font-mono);">
-                <span>1 Year</span>
-                <span>3 Years</span>
-                <span>5 Years</span>
+            </div>
+
+            <!-- The Real Cost Math (Itemized List) -->
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px 16px;">
+              <div style="font-size: 0.76rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-mono); display: flex; justify-content: space-between;">
+                <span><i class="fa-solid fa-receipt" style="color: #f43f5e; margin-right: 6px;"></i>Current Monthly Expense Math:</span>
+                <span style="color: #f43f5e;">Recurring Rent</span>
+              </div>
+              <div id="roi-preset-items-list">
+                <!-- Dynamically Populated by js/roi-calculator.js -->
+              </div>
+              <div id="roi-preset-solution-desc">
+                <!-- Dynamically Populated Advantage Callout -->
               </div>
             </div>
           </div>
@@ -1385,20 +1386,20 @@
           <!-- Right: Calculated Savings Card & Live SVG Chart -->
           <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.04)); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-lg); padding: 24px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">
-              TOTAL MONEY SAVED IN YOUR BUSINESS:
+              TOTAL CAPITAL KEPT IN YOUR BUSINESS:
             </div>
             <div style="font-size: clamp(2.4rem, 4.5vw, 3.2rem); font-weight: 800; color: #10b981; font-family: var(--font-mono); margin: 6px 0 2px;" id="roi-total-savings-val">
               ₹5,22,000
             </div>
             <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 14px;">
-              💰 Money kept in your business instead of paying monthly plugin rent.
+              💰 Money you keep in your business instead of paying monthly platform rent.
             </div>
 
             <!-- Live SVG Cost Projection Chart -->
             <div class="roi-chart-wrap">
               <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #94a3b8; margin-bottom: 4px; font-family: var(--font-mono);">
-                <span><span style="color: #f43f5e; font-weight: bold;">●</span> SaaS Rent Compounding</span>
-                <span><span style="color: #10b981; font-weight: bold;">●</span> PixelToCloud (0 Rent)</span>
+                <span><span style="color: #f43f5e; font-weight: bold;">●</span> Monthly SaaS Compounding</span>
+                <span><span style="color: #10b981; font-weight: bold;">●</span> PixelToCloud (₹0 / $0 Rent)</span>
               </div>
               <svg id="roi-projection-chart" viewBox="0 0 300 110" style="width: 100%; height: 95px; display: block; overflow: visible;"></svg>
             </div>
@@ -1428,6 +1429,35 @@
                 <span><i class="fa-solid fa-file-pdf" style="margin-right: 6px; color: #ef4444;"></i>Download Savings Audit Report (PDF)</span>
               </button>
             </div>
+          </div>
+        </div>
+
+        <!-- Reality Comparison: SaaS Rental vs 100% Ownership Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+          <!-- Rental Trap -->
+          <div style="background: rgba(244, 63, 94, 0.04); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: var(--radius-md); padding: 16px;">
+            <div style="font-size: 0.86rem; font-weight: 700; color: #f43f5e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>The SaaS Rental Trap (Shopify / WordPress / Wix)</span>
+            </div>
+            <ul style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.6; margin: 0; padding-left: 18px;">
+              <li>Monthly subscription charges continue forever and increase every year.</li>
+              <li>Stop paying monthly $\to$ your website, database, and store are taken down.</li>
+              <li>40+ third-party scripts load on every page, slowing down conversions.</li>
+            </ul>
+          </div>
+
+          <!-- PixelToCloud 100% Ownership -->
+          <div style="background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 16px;">
+            <div style="font-size: 0.86rem; font-weight: 700; color: #10b981; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>The PixelToCloud 100% Ownership Advantage</span>
+            </div>
+            <ul style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.6; margin: 0; padding-left: 18px;">
+              <li>Fixed one-time build cost. <strong>₹0 / $0 monthly app subscriptions forever</strong>.</li>
+              <li>You receive 100% full source code, database, and Linux server root ownership.</li>
+              <li>Ultra-fast 60 FPS performance with 95+ PageSpeed scores and 0.28s load times.</li>
+            </ul>
           </div>
         </div>
       </div>

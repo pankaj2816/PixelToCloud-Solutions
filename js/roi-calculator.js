@@ -6,6 +6,7 @@
 class ROICalculatorEngine {
   constructor() {
     this.currency = 'INR'; // 'INR' or 'USD'
+    this.currentPresetKey = 'shopify';
     this.monthlyPluginInput = document.getElementById('roi-plugin-cost-slider');
     this.pluginValDisplay = document.getElementById('roi-plugin-cost-val');
     this.lifespanInput = document.getElementById('roi-lifespan-slider');
@@ -17,16 +18,64 @@ class ROICalculatorEngine {
     this.breakdownHostingEl = document.getElementById('roi-bd-hosting');
     this.breakdownMaintEl = document.getElementById('roi-bd-maint');
     this.chartSvg = document.getElementById('roi-projection-chart');
+    this.presetItemsListEl = document.getElementById('roi-preset-items-list');
+    this.presetSolutionEl = document.getElementById('roi-preset-solution-desc');
 
     this.waBtn = document.getElementById('roi-whatsapp-cta');
     this.pdfBtn = document.getElementById('roi-pdf-cta');
 
-    // Preset Configurations [INR, USD]
+    // Preset Configurations [INR, USD] & Real Cost Math
     this.presets = {
-      'shopify': { inr: 14500, usd: 180, name: 'Shopify E-Commerce' },
-      'wordpress': { inr: 6500, usd: 80, name: 'WordPress & Plugins' },
-      'webapp': { inr: 22000, usd: 280, name: 'Custom SaaS / Web App' },
-      'doctor': { inr: 9500, usd: 120, name: 'Clinic & Booking Portal' }
+      'shopify': {
+        inr: 14500,
+        usd: 180,
+        name: 'Shopify E-Commerce Store',
+        items: [
+          { name: 'Shopify Basic Plan', inr: '₹2,499 / mo', usd: '$29 / mo' },
+          { name: 'Klaviyo Email & SMS Suite', inr: '₹3,500 / mo', usd: '$45 / mo' },
+          { name: 'PageFly / Shogun Page Builder', inr: '₹2,900 / mo', usd: '$39 / mo' },
+          { name: 'Judge.me / Loox Reviews App', inr: '₹2,400 / mo', usd: '$30 / mo' },
+          { name: 'Upsells, Speed & Currency Apps', inr: '₹3,200 / mo', usd: '$37 / mo' }
+        ],
+        solution: 'PixelToCloud builds reviews, multi-currency, checkout upsells, and responsive pages directly in clean custom code. Zero recurring app fees.'
+      },
+      'wordpress': {
+        inr: 6500,
+        usd: 80,
+        name: 'WordPress & WooCommerce',
+        items: [
+          { name: 'Elementor Pro / Theme License', inr: '₹1,800 / mo', usd: '$22 / mo' },
+          { name: 'Wordfence / Sucuri Security', inr: '₹1,500 / mo', usd: '$18 / mo' },
+          { name: 'WP Rocket Speed Caching', inr: '₹1,200 / mo', usd: '$15 / mo' },
+          { name: 'Cloud Backup & Storage', inr: '₹1,000 / mo', usd: '$12 / mo' },
+          { name: 'Monthly Plugin Conflict Fixes', inr: '₹1,000 / mo', usd: '$13 / mo' }
+        ],
+        solution: 'PixelToCloud provides clean handcrafted CSS/JS and hardened Linux edge servers. No vulnerable plugins to update or break.'
+      },
+      'webapp': {
+        inr: 22000,
+        usd: 280,
+        name: 'Custom SaaS / Web App',
+        items: [
+          { name: 'Zapier / Make Automation Tasks', inr: '₹6,000 / mo', usd: '$75 / mo' },
+          { name: 'Airtable / External DB Subscriptions', inr: '₹5,500 / mo', usd: '$70 / mo' },
+          { name: 'Auth0 / Memberstack Pro', inr: '₹4,500 / mo', usd: '$60 / mo' },
+          { name: 'Analytics & Live Chat SDKs', inr: '₹6,000 / mo', usd: '$75 / mo' }
+        ],
+        solution: 'Native Node.js / Python API backend with PostgreSQL database. Zero per-task automation tax or external record limits.'
+      },
+      'doctor': {
+        inr: 9500,
+        usd: 120,
+        name: 'Clinic & Doctor Booking Portal',
+        items: [
+          { name: 'Calendly Pro / Practo Listing', inr: '₹3,500 / mo', usd: '$45 / mo' },
+          { name: 'SMS & WhatsApp Reminder API', inr: '₹2,500 / mo', usd: '$30 / mo' },
+          { name: 'EHR Cloud Storage Vault', inr: '₹2,000 / mo', usd: '$25 / mo' },
+          { name: 'Doctor Video Call SDK', inr: '₹1,500 / mo', usd: '$20 / mo' }
+        ],
+        solution: 'Self-hosted WebRTC video consultations, encrypted AES-256 patient records, and direct WhatsApp webhook routing.'
+      }
     };
 
     if (this.monthlyPluginInput) {
@@ -56,17 +105,17 @@ class ROICalculatorEngine {
         btn.classList.add('active');
         this.currency = btn.getAttribute('data-currency') || 'INR';
 
-        // Adjust slider ranges based on currency
+        const preset = this.presets[this.currentPresetKey];
         if (this.currency === 'INR') {
           this.monthlyPluginInput.min = 1000;
           this.monthlyPluginInput.max = 40000;
           this.monthlyPluginInput.step = 500;
-          this.monthlyPluginInput.value = 8000;
+          this.monthlyPluginInput.value = preset ? preset.inr : 14500;
         } else {
           this.monthlyPluginInput.min = 30;
           this.monthlyPluginInput.max = 1000;
           this.monthlyPluginInput.step = 10;
-          this.monthlyPluginInput.value = 150;
+          this.monthlyPluginInput.value = preset ? preset.usd : 180;
         }
         this.calculate();
       });
@@ -78,6 +127,7 @@ class ROICalculatorEngine {
         document.querySelectorAll('.roi-preset-chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         const key = chip.getAttribute('data-preset');
+        this.currentPresetKey = key;
         const preset = this.presets[key];
         if (preset && this.monthlyPluginInput) {
           this.monthlyPluginInput.value = this.currency === 'INR' ? preset.inr : preset.usd;
@@ -89,16 +139,17 @@ class ROICalculatorEngine {
     // WhatsApp Action
     if (this.waBtn) {
       this.waBtn.addEventListener('click', () => {
-        const monthly = this.monthlyPluginInput ? parseFloat(this.monthlyPluginInput.value) : 8000;
+        const monthly = this.monthlyPluginInput ? parseFloat(this.monthlyPluginInput.value) : 14500;
         const years = this.lifespanInput ? parseInt(this.lifespanInput.value, 10) : 3;
         const symbol = this.currency === 'INR' ? '₹' : '$';
         const locale = this.currency === 'INR' ? 'en-IN' : 'en-US';
         const total = (monthly * years * 12).toLocaleString(locale);
 
-        const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just calculated my Subscription Savings Audit on your website:\n` +
-          `• *Current Monthly SaaS/Plugin Rent:* ${symbol}${monthly.toLocaleString(locale)}/mo\n` +
+        const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just reviewed the Subscription Savings Breakdown on your website:\n` +
+          `• *Platform Category:* ${this.presets[this.currentPresetKey] ? this.presets[this.currentPresetKey].name : 'Custom Setup'}\n` +
+          `• *Current Monthly Rental Outflow:* ${symbol}${monthly.toLocaleString(locale)}/mo\n` +
           `• *Timeframe:* ${years} Years\n` +
-          `• *Total Money Saved with Custom Build:* ${symbol}${total}\n\n` +
+          `• *Total Money Saved with PixelToCloud Custom Build:* ${symbol}${total}\n\n` +
           `I would like to discuss replacing recurring monthly subscriptions with your 100% custom, zero-monthly-fee architecture!`;
 
         window.open(`https://wa.me/918219352124?text=${encodeURIComponent(text)}`, '_blank');
@@ -112,7 +163,7 @@ class ROICalculatorEngine {
   }
 
   calculate() {
-    const monthlyCost = parseFloat(this.monthlyPluginInput ? this.monthlyPluginInput.value : (this.currency === 'INR' ? 8000 : 150));
+    const monthlyCost = parseFloat(this.monthlyPluginInput ? this.monthlyPluginInput.value : (this.currency === 'INR' ? 14500 : 180));
     const years = parseInt(this.lifespanInput ? this.lifespanInput.value : 3, 10);
     const symbol = this.currency === 'INR' ? '₹' : '$';
     const locale = this.currency === 'INR' ? 'en-IN' : 'en-US';
@@ -145,10 +196,14 @@ class ROICalculatorEngine {
       this.breakdownMaintEl.textContent = `${symbol}${maintWaste.toLocaleString(locale)}`;
     }
 
+    // Render Itemized Cost Math List
+    this.renderPresetItems();
+
     // Render Real-Time SVG Projection Chart
     this.renderChart(monthlyCost, years, symbol, locale);
 
     this.lastCalculation = {
+      presetName: this.presets[this.currentPresetKey] ? this.presets[this.currentPresetKey].name : 'Custom Configuration',
       monthly: `${symbol}${monthlyCost.toLocaleString(locale)}`,
       years: `${years} Year${years > 1 ? 's' : ''}`,
       total: `${symbol}${totalSaved.toLocaleString(locale)}`,
@@ -156,6 +211,29 @@ class ROICalculatorEngine {
       hosting: `${symbol}${hostingWaste.toLocaleString(locale)}`,
       maint: `${symbol}${maintWaste.toLocaleString(locale)}`
     };
+  }
+
+  renderPresetItems() {
+    const preset = this.presets[this.currentPresetKey];
+    if (!preset) return;
+
+    if (this.presetItemsListEl) {
+      this.presetItemsListEl.innerHTML = preset.items.map(item => `
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); font-size: 0.8rem;">
+          <span style="color: #cbd5e1;"><i class="fa-solid fa-xmark" style="color: #f43f5e; margin-right: 8px;"></i>${item.name}</span>
+          <span style="font-family: var(--font-mono); color: #f43f5e; font-weight: 600;">${this.currency === 'INR' ? item.inr : item.usd}</span>
+        </div>
+      `).join('');
+    }
+
+    if (this.presetSolutionEl) {
+      this.presetSolutionEl.innerHTML = `
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: #a7f3d0; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px;">
+          <i class="fa-solid fa-circle-check" style="color: #10b981; margin-top: 2px; flex-shrink: 0;"></i>
+          <span><strong>PixelToCloud Advantage:</strong> ${preset.solution}</span>
+        </div>
+      `;
+    }
   }
 
   renderChart(monthly, years, symbol, locale) {
