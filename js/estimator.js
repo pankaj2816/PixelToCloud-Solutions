@@ -58,6 +58,27 @@ class ProjectEstimator {
         days: 20,
         badge: '⚡ Multi-Tenant Microservices',
         desc: 'High-scale microservices, Redis caching, queue workers, Docker orchestration, and analytics engine.'
+      },
+      'mobile-app': {
+        name: 'Cross-Platform Mobile App (Android + iOS)',
+        scopeTier: 'Mobile Native Performance',
+        days: 16,
+        badge: '📱 React Native / Flutter + Store Deploy',
+        desc: 'Native iOS & Android mobile application with biometric auth, push notifications, offline SQLite, and app store deployment.'
+      },
+      'ai-ml-engine': {
+        name: 'AI & Intelligent Machine Learning Engine',
+        scopeTier: 'Intelligent Automation',
+        days: 18,
+        badge: '🤖 LLM Chatbots + Predictive Models',
+        desc: 'Custom GPT/LLM integration, real-time sentiment analysis, computer vision, recommendation systems, and model inference pipelines.'
+      },
+      'desktop-software': {
+        name: 'Cross-Platform Desktop Software (Win / Mac / Linux)',
+        scopeTier: 'Native Desktop Application',
+        days: 14,
+        badge: '🖥️ Electron / Tauri + Offline SQLite',
+        desc: 'Enterprise desktop tools, billing/POS systems, local hardware access, auto-updates, and native OS window integration.'
       }
     };
 
@@ -120,6 +141,16 @@ class ProjectEstimator {
       'seo-package': {
         name: 'Advanced Technical SEO & Rich JSON-LD Snippets',
         badge: '🔍 Structured Search Schema',
+        days: 1
+      },
+      'ai-chatbot-addon': {
+        name: 'Intelligent AI Chatbot & Knowledge Base Assistant',
+        badge: '🤖 GPT / Claude RAG Integration',
+        days: 2
+      },
+      'push-notifications-addon': {
+        name: 'Multi-Platform Push Notifications & SMS Alerts',
+        badge: '🔔 Firebase Cloud Messaging',
         days: 1
       }
     };
