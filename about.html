@@ -100,6 +100,34 @@
       background: var(--accent-cyan);
       box-shadow: 0 0 12px var(--accent-cyan);
     }
+    .process-step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      transition: all var(--transition-normal);
+    }
+    .process-step-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), 0 0 25px rgba(0, 240, 255, 0.12);
+    }
+    .step-number-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -124,6 +152,7 @@
       <a href="index.html#services" class="nav-link">Services</a>
       <a href="portfolio.html" class="nav-link">Portfolio</a>
       <a href="index.html#estimator" class="nav-link">Estimator</a>
+      <a href="about.html#how-we-work" class="nav-link">How We Work</a>
       <a href="index.html#devops" class="nav-link">DevOps</a>
       <a href="index.html#techstack" class="nav-link">Tech Stack</a>
       <a href="about.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">About</a>
@@ -203,13 +232,23 @@
       <p class="section-desc reveal" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7;">
         PixelToCloud Solutions is a high-performance software engineering studio co-founded by <strong>Bhavyansh Agarwal</strong> & <strong>Tushar Singhal</strong>. We bridge pixel-perfect frontend design, 60 FPS WebGL 3D graphics, automated CA tax hubs, telehealth portals, and hardened Linux server DevOps.
       </p>
+
+      <!-- Sub-Tab Jump Switcher -->
+      <div style="display: flex; justify-content: center; gap: 12px; margin-top: 32px; flex-wrap: wrap;" class="reveal">
+        <a href="#founders" class="btn-magnetic btn-secondary" style="padding: 10px 24px; font-size: 0.9rem; font-weight: 700; border-color: rgba(0, 240, 255, 0.4); color: var(--accent-cyan);">
+          <i class="fa-solid fa-users" style="margin-right: 8px;"></i>Meet The Founders
+        </a>
+        <a href="#how-we-work" class="btn-magnetic btn-primary" style="padding: 10px 24px; font-size: 0.9rem; font-weight: 700;">
+          <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 8px;"></i>How We Work (4-Stage Process)
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ===================================================================
        FOUNDERS DEEP-DIVE SHOWCASE
        =================================================================== -->
-  <section class="section" style="padding-top: 10px;">
+  <section class="section" id="founders" style="padding-top: 10px;">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-tag">
@@ -328,6 +367,123 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       HOW WE WORK: 4-STAGE AGILE PROCESS SECTION
+       =================================================================== -->
+  <section class="section" id="how-we-work" style="padding-top: 10px; background: radial-gradient(circle at center top, rgba(0, 240, 255, 0.04), transparent 70%);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">
+          <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 6px; color: var(--accent-cyan);"></i>
+          <span>Agile Engineering Workflow</span>
+        </div>
+        <h2 class="section-title">
+          How We Work: <span class="text-gradient">From Concept to 60 FPS Cloud Launch</span>
+        </h2>
+        <p class="section-desc">
+          A crystal-clear, 4-stage engineering pipeline engineered for zero project delays, complete milestone transparency, and 100% intellectual property ownership.
+        </p>
+      </div>
+
+      <!-- 4-Stage Process Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;" class="reveal">
+        <!-- Stage 1 -->
+        <div class="process-step-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="step-number-badge">01</div>
+            <span class="badge badge-cyan">Days 1 – 2</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+            Discovery &amp; Architecture Blueprint
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+            We align on your business targets, user stories, database requirements, and technical constraints to build a concrete project scope.
+          </p>
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; font-size: 0.78rem; color: #cbd5e1;">
+            <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 4px;"><i class="fa-solid fa-file-lines" style="margin-right: 6px;"></i>Key Deliverable:</div>
+            <div>Full Technical Blueprint, DB Schema &amp; Milestone Timeline Agreement.</div>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="process-step-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="step-number-badge" style="border-color: var(--accent-purple); color: var(--accent-purple); background: rgba(168, 85, 247, 0.1);">02</div>
+            <span class="badge badge-purple">Days 3 – 5</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+            Interactive Prototype &amp; Design
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+            We design high-fidelity, 60 FPS responsive UI wireframes and user interaction flows. You click through every screen before coding starts.
+          </p>
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; font-size: 0.78rem; color: #cbd5e1;">
+            <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 4px;"><i class="fa-solid fa-desktop" style="margin-right: 6px;"></i>Key Deliverable:</div>
+            <div>Clickable Design Prototype &amp; Component Design System.</div>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="process-step-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="step-number-badge" style="border-color: #10b981; color: #10b981; background: rgba(16, 185, 129, 0.1);">03</div>
+            <span class="badge badge-emerald">Days 6 – 12</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+            Agile Full-Stack Engineering
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+            Sprint engineering with clean code, secure APIs, fast database indexing, and automated CI/CD staging servers with weekly progress review.
+          </p>
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; font-size: 0.78rem; color: #cbd5e1;">
+            <div style="font-weight: 700; color: #10b981; margin-bottom: 4px;"><i class="fa-solid fa-globe" style="margin-right: 6px;"></i>Key Deliverable:</div>
+            <div>Private Live Staging URL &amp; Continuous Sprint Milestone Demos.</div>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="process-step-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="step-number-badge" style="border-color: #3b82f6; color: #3b82f6; background: rgba(59, 130, 246, 0.1);">04</div>
+            <span class="badge badge-blue">Days 13 – 14</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+            Cloud Launch &amp; 100% Handover
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+            Zero-downtime deployment to your Linux VPS / Cloudflare CDN, SSL hardening, 100% Git repo transfer, and 30 days of free post-launch warranty.
+          </p>
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; font-size: 0.78rem; color: #cbd5e1;">
+            <div style="font-weight: 700; color: #3b82f6; margin-bottom: 4px;"><i class="fa-solid fa-key" style="margin-right: 6px;"></i>Key Deliverable:</div>
+            <div>Full Git Source Code, Server Root Keys &amp; 30-Day Free Bug-Free SLA.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studio 4 Guarantees Banner -->
+      <div style="margin-top: 36px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px 28px;" class="reveal">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.2rem;"></i>
+            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary);">Zero Outsourcing — 100% In-House</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.2rem;"></i>
+            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary);">Milestone-Based Payments</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.2rem;"></i>
+            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary);">100% Code &amp; Database Ownership</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.2rem;"></i>
+            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary);">30-Day Free Post-Launch SLA</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
