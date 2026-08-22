@@ -1131,11 +1131,14 @@ Digital Signer: PixelToCloud Automated Compliance Engine
   }
 
   // =================================================================
-  // 9. AI & MACHINE LEARNING LAB (CREATIVE MULTI-MODAL STUDIO)
+  // 9. AI & MACHINE LEARNING LAB (ADVANCED NEURAL SUITE 2.0)
   // =================================================================
   initAILab() {
     this.currentAIMode = 'art';
-    this.aiArtSeed = 42891;
+    this.aiArtSeed = 73842;
+    this.neuralNodes = [];
+    this.neuralPulses = [];
+    this.neuralTick = 0;
 
     // AI Mode Switcher Buttons
     document.querySelectorAll('.ai-mode-btn').forEach(btn => {
@@ -1158,33 +1161,37 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     if (mode === 'art') {
       stage.innerHTML = `
         <div style="animation:fadeIn 0.25s ease;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <span style="color:#c084fc;font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:4px;"></i>CREATIVE DIFFUSION GENERATOR</span>
-            <span id="ai-art-seed-badge" style="color:#a855f7;background:rgba(168,85,247,0.1);padding:2px 8px;border-radius:4px;border:1px solid rgba(168,85,247,0.3);font-size:0.65rem;">Seed: #${this.aiArtSeed}</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px;">
+            <span style="color:#c084fc;font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:4px;"></i>MULTI-MODAL DIFFUSION SYNTHESIS 2.0</span>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <span id="ai-art-step-badge" style="color:#10b981;font-size:0.62rem;font-family:var(--font-mono);background:rgba(16,185,129,0.1);padding:2px 6px;border-radius:4px;border:1px solid rgba(16,185,129,0.3);">50 Steps · Euler-A</span>
+              <span id="ai-art-seed-badge" style="color:#a855f7;background:rgba(168,85,247,0.1);padding:2px 6px;border-radius:4px;border:1px solid rgba(168,85,247,0.3);font-size:0.62rem;font-family:var(--font-mono);">Seed: #${this.aiArtSeed}</span>
+            </div>
           </div>
 
           <!-- Art Canvas Viewport -->
-          <canvas id="ai-art-canvas" width="420" height="150" style="width:100%;height:150px;border-radius:8px;border:1px solid rgba(139,92,246,0.3);background:#050510;margin-bottom:8px;box-shadow:0 0 20px rgba(139,92,246,0.15);"></canvas>
+          <canvas id="ai-art-canvas" width="440" height="155" style="width:100%;height:155px;border-radius:8px;border:1px solid rgba(139,92,246,0.35);background:#050510;margin-bottom:8px;box-shadow:0 0 25px rgba(139,92,246,0.2);"></canvas>
 
           <!-- Prompt Controls -->
           <div style="display:flex;gap:6px;margin-bottom:8px;">
-            <input type="text" id="ai-art-prompt-input" value="Cyberpunk Neon Nexus with Quantum Rings" placeholder="Describe any visual prompt..." style="flex:1;padding:7px 10px;background:#0f172a;border:1px solid rgba(139,92,246,0.35);border-radius:6px;color:#f8fafc;font-size:0.75rem;font-family:var(--font-mono);">
-            <button id="ai-generate-art-btn" style="padding:7px 12px;background:linear-gradient(135deg,#8b5cf6,#6366f1);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.72rem;cursor:pointer;white-space:nowrap;">
+            <input type="text" id="ai-art-prompt-input" value="Cyberpunk Quantum Tokyo with Neon Shaders" placeholder="Describe any visual scene..." style="flex:1;padding:7px 10px;background:#0f172a;border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#f8fafc;font-size:0.75rem;font-family:var(--font-mono);">
+            <button id="ai-generate-art-btn" style="padding:7px 14px;background:linear-gradient(135deg,#8b5cf6,#6366f1);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.72rem;cursor:pointer;white-space:nowrap;box-shadow:0 0 12px rgba(139,92,246,0.4);">
               <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>Synthesize
             </button>
           </div>
 
           <!-- Quick Preset Chips -->
           <div style="display:flex;gap:4px;flex-wrap:wrap;">
-            <button class="ai-prompt-chip" data-prompt="Cyberpunk Neon Nexus with Quantum Rings" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🏙️ Neon City</button>
-            <button class="ai-prompt-chip" data-prompt="Quantum Neural Lotus in Sacred Geometry" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🪷 Neural Lotus</button>
-            <button class="ai-prompt-chip" data-prompt="Cosmic Black Hole with Gravitational Lensing" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🌌 Cosmic Core</button>
-            <button class="ai-prompt-chip" data-prompt="Futuristic Biomechanical Dragon in Amber Glow" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🐉 Bio Dragon</button>
+            <button class="ai-prompt-chip" data-prompt="Cyberpunk Quantum Tokyo with Neon Shaders" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🏙️ Cyber Tokyo</button>
+            <button class="ai-prompt-chip" data-prompt="Sacred Neural Lotus in Biomechanical Geometry" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🪷 Neural Lotus</button>
+            <button class="ai-prompt-chip" data-prompt="Cosmic Black Hole with Gravitational Lensing" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🌌 Black Hole</button>
+            <button class="ai-prompt-chip" data-prompt="Biomechanical Dragon with Amber Silicon Core" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🐉 Mecha Dragon</button>
+            <button class="ai-prompt-chip" data-prompt="Quantum DNA Double Helix with Laser Light Fields" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🧬 Quantum DNA</button>
           </div>
         </div>
       `;
 
-      this.renderGenerativeArt('Cyberpunk Neon Nexus with Quantum Rings');
+      this.renderGenerativeArt('Cyberpunk Quantum Tokyo with Neon Shaders');
 
       const genBtn = document.getElementById('ai-generate-art-btn');
       const promptInput = document.getElementById('ai-art-prompt-input');
@@ -1211,59 +1218,74 @@ Digital Signer: PixelToCloud Automated Compliance Engine
       stage.innerHTML = `
         <div style="animation:fadeIn 0.25s ease;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <span style="color:#38bdf8;font-weight:700;"><i class="fa-solid fa-network-wired" style="margin-right:4px;"></i>60 FPS SYNAPSE TOPOLOGY (TAP NODES TO INJECT PULSES)</span>
-            <span style="color:#10b981;font-size:0.65rem;font-weight:700;">Active 🟢</span>
+            <span style="color:#38bdf8;font-weight:700;"><i class="fa-solid fa-network-wired" style="margin-right:4px;"></i>60 FPS SYNAPSE TOPOLOGY (TAP NODES TO FIRE PULSES)</span>
+            <span style="color:#10b981;font-size:0.65rem;font-weight:700;font-family:var(--font-mono);">Loss: 0.0024 · Acc: 99.4%</span>
           </div>
-          <canvas id="service-neural-canvas" width="420" height="170" style="width:100%;height:170px;border-radius:8px;border:1px solid var(--border-subtle);background:#020617;margin-bottom:10px;cursor:crosshair;"></canvas>
+          <canvas id="service-neural-canvas" width="440" height="155" style="width:100%;height:155px;border-radius:8px;border:1px solid var(--border-subtle);background:#020617;margin-bottom:8px;cursor:crosshair;"></canvas>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <button id="neural-pulse-all-btn" style="padding:6px;border-radius:6px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);color:#60a5fa;font-size:0.7rem;font-weight:700;cursor:pointer;">
-              <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>Inject Neural Wave
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <button id="neural-pulse-all-btn" style="padding:6px;border-radius:6px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);color:#60a5fa;font-size:0.68rem;font-weight:700;cursor:pointer;">
+              <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>Forward Pass
             </button>
-            <button id="neural-randomize-weights-btn" style="padding:6px;border-radius:6px;background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.4);color:#c084fc;font-size:0.7rem;font-weight:700;cursor:pointer;">
-              <i class="fa-solid fa-shuffle" style="margin-right:4px;"></i>Re-weight Synapses
+            <button id="neural-randomize-weights-btn" style="padding:6px;border-radius:6px;background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.4);color:#c084fc;font-size:0.68rem;font-weight:700;cursor:pointer;">
+              <i class="fa-solid fa-rotate" style="margin-right:4px;"></i>Backpropagate
+            </button>
+            <button id="neural-classify-btn" style="padding:6px;border-radius:6px;background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.4);color:#10b981;font-size:0.68rem;font-weight:700;cursor:pointer;">
+              <i class="fa-solid fa-check" style="margin-right:4px;"></i>Classify Tensor
             </button>
           </div>
         </div>
       `;
 
-      this.neuralCanvas = document.getElementById('service-neural-canvas');
-      this.neuralCtx = this.neuralCanvas ? this.neuralCanvas.getContext('2d') : null;
-
-      const pulseBtn = document.getElementById('neural-pulse-all-btn');
-      if (pulseBtn) {
-        pulseBtn.addEventListener('click', () => {
-          this.neuralTick += 15;
-        });
-      }
+      this.initNeuralTopology();
     } else if (mode === 'predict') {
       stage.innerHTML = `
         <div style="animation:fadeIn 0.25s ease;">
-          <div style="font-size:0.75rem;font-weight:700;color:#10b981;margin-bottom:8px;">
-            <i class="fa-solid fa-chart-line" style="margin-right:4px;"></i>PREDICTIVE BUSINESS INTELLIGENCE &amp; CHURN ENGINE
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:0.75rem;font-weight:700;color:#10b981;">
+              <i class="fa-solid fa-chart-line" style="margin-right:4px;"></i>PREDICTIVE BUSINESS INTELLIGENCE &amp; CHURN RISK MODEL
+            </span>
+            <span style="font-size:0.65rem;color:#38bdf8;font-family:var(--font-mono);">Confidence: 98.6%</span>
           </div>
 
           <!-- Dynamic SVG Projection Chart -->
-          <div style="background:#0f172a;border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:10px;">
-            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#94a3b8;margin-bottom:4px;">
-              <span>Predicted 12-Month Revenue Curve</span>
-              <strong id="predict-rev-total" style="color:#10b981;">₹42.8 Lakhs</strong>
+          <div style="background:#0f172a;border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:8px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#94a3b8;margin-bottom:4px;font-family:var(--font-mono);">
+              <span><span>●</span> Revenue Forecast</span>
+              <strong id="predict-rev-total" style="color:#10b981;font-size:0.85rem;">₹48.6 Lakhs / yr</strong>
             </div>
-            <svg id="predict-svg-curve" viewBox="0 0 300 70" style="width:100%;height:70px;overflow:visible;">
-              <path id="predict-curve-path" d="M0,60 Q75,50 150,30 T300,10" fill="none" stroke="#10b981" stroke-width="3"/>
-              <path id="predict-curve-fill" d="M0,60 Q75,50 150,30 T300,10 L300,70 L0,70 Z" fill="rgba(16,185,129,0.12)"/>
+            <svg id="predict-svg-curve" viewBox="0 0 300 75" style="width:100%;height:75px;overflow:visible;">
+              <path id="predict-curve-upper" d="M0,55 Q75,35 150,20 T300,5" fill="none" stroke="rgba(0,240,255,0.35)" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <path id="predict-curve-path" d="M0,60 Q75,45 150,28 T300,12" fill="none" stroke="#10b981" stroke-width="2.5"/>
+              <path id="predict-curve-fill" d="M0,60 Q75,45 150,28 T300,12 L300,75 L0,75 Z" fill="rgba(16,185,129,0.12)"/>
             </svg>
           </div>
 
           <!-- Interactive Sliders -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.68rem;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.68rem;margin-bottom:8px;">
             <div>
-              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Ad Spend ($/mo)</span><strong id="predict-ad-val" style="color:#38bdf8;">$4,500</strong></div>
-              <input type="range" id="predict-ad-slider" min="1000" max="25000" value="4500" style="width:100%;height:4px;accent-color:#38bdf8;">
+              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Ad Investment ($/mo)</span><strong id="predict-ad-val" style="color:#38bdf8;">$5,000</strong></div>
+              <input type="range" id="predict-ad-slider" min="1000" max="30000" value="5000" style="width:100%;height:4px;accent-color:#38bdf8;">
             </div>
             <div>
-              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Traffic Scale</span><strong id="predict-traffic-val" style="color:#a855f7;">50k req/s</strong></div>
-              <input type="range" id="predict-traffic-slider" min="5000" max="150000" value="50000" style="width:100%;height:4px;accent-color:#a855f7;">
+              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Traffic Scale (req/s)</span><strong id="predict-traffic-val" style="color:#a855f7;">60k req/s</strong></div>
+              <input type="range" id="predict-traffic-slider" min="5000" max="200000" value="60000" style="width:100%;height:4px;accent-color:#a855f7;">
+            </div>
+          </div>
+
+          <!-- AI Risk Metrics -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center;">
+            <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:4px;padding:4px;">
+              <div style="font-size:0.58rem;color:#94a3b8;">Churn Probability</div>
+              <div style="font-size:0.8rem;font-weight:700;color:#10b981;" id="predict-churn-val">3.4% (Low)</div>
+            </div>
+            <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);border-radius:4px;padding:4px;">
+              <div style="font-size:0.58rem;color:#94a3b8;">Customer LTV</div>
+              <div style="font-size:0.8rem;font-weight:700;color:#38bdf8;" id="predict-ltv-val">₹54,200</div>
+            </div>
+            <div style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.25);border-radius:4px;padding:4px;">
+              <div style="font-size:0.58rem;color:#94a3b8;">Conversion Lift</div>
+              <div style="font-size:0.8rem;font-weight:700;color:#c084fc;" id="predict-conv-val">+34.8%</div>
             </div>
           </div>
         </div>
@@ -1275,13 +1297,18 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         document.getElementById('predict-ad-val').textContent = `$${ad.toLocaleString()}`;
         document.getElementById('predict-traffic-val').textContent = `${(traffic/1000).toFixed(0)}k req/s`;
 
-        const totalRevLakhs = (ad * 0.005 + traffic * 0.0003 + 12).toFixed(1);
-        document.getElementById('predict-rev-total').textContent = `₹${totalRevLakhs} Lakhs`;
+        const totalRevLakhs = (ad * 0.0055 + traffic * 0.00032 + 14).toFixed(1);
+        document.getElementById('predict-rev-total').textContent = `₹${totalRevLakhs} Lakhs / yr`;
+        
+        const churn = Math.max(1.8, (5.5 - (traffic / 50000) * 0.8)).toFixed(1);
+        document.getElementById('predict-churn-val').textContent = `${churn}% (Low)`;
+        document.getElementById('predict-ltv-val').textContent = `₹${(45000 + (ad / 1000) * 1800).toLocaleString('en-IN')}`;
 
-        const midY = Math.max(10, 60 - (ad / 25000) * 35);
-        const endY = Math.max(5, 40 - (traffic / 150000) * 32);
+        const midY = Math.max(8, 60 - (ad / 30000) * 38);
+        const endY = Math.max(4, 40 - (traffic / 200000) * 34);
         document.getElementById('predict-curve-path').setAttribute('d', `M0,60 Q75,${midY} 150,${(midY+endY)/2} T300,${endY}`);
-        document.getElementById('predict-curve-fill').setAttribute('d', `M0,60 Q75,${midY} 150,${(midY+endY)/2} T300,${endY} L300,70 L0,70 Z`);
+        document.getElementById('predict-curve-fill').setAttribute('d', `M0,60 Q75,${midY} 150,${(midY+endY)/2} T300,${endY} L300,75 L0,75 Z`);
+        document.getElementById('predict-curve-upper').setAttribute('d', `M0,${Math.max(2, 55 - (ad/30000)*25)} Q75,${Math.max(2, midY-8)} 150,${Math.max(2, (midY+endY)/2 - 8)} T300,${Math.max(2, endY-6)}`);
       };
 
       document.getElementById('predict-ad-slider').addEventListener('input', updatePredict);
@@ -1291,19 +1318,25 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         <div style="animation:fadeIn 0.25s ease;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
             <span style="color:#8b5cf6;font-weight:700;"><i class="fa-solid fa-robot" style="margin-right:4px;"></i>STREAMING LLM AGENT INFERENCE</span>
-            <span style="color:#10b981;font-size:0.65rem;">158 tok/sec · TTFT: 82ms</span>
+            <span style="color:#10b981;font-size:0.65rem;font-family:var(--font-mono);">175 tok/sec · TTFT: 48ms</span>
           </div>
 
-          <div id="llm-stream-output" style="height:145px;background:#050510;border-radius:6px;padding:10px;font-family:var(--font-mono);font-size:0.72rem;color:#cbd5e1;line-height:1.6;border:1px solid rgba(139,92,246,0.3);overflow-y:auto;margin-bottom:8px;">
-            <span style="color:#64748b;">// Awaiting query... Click "Run Agent" to stream token synthesis</span>
+          <div id="llm-stream-output" style="height:140px;background:#050510;border-radius:6px;padding:10px;font-family:var(--font-mono);font-size:0.72rem;color:#cbd5e1;line-height:1.6;border:1px solid rgba(139,92,246,0.3);overflow-y:auto;margin-bottom:8px;">
+            <span style="color:#64748b;">// Awaiting task prompt... Click a button below to trigger real-time AI code generation</span>
           </div>
 
-          <div style="display:flex;gap:6px;">
-            <button id="llm-run-code-btn" style="flex:1;padding:7px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.72rem;cursor:pointer;">
-              <i class="fa-solid fa-play" style="margin-right:4px;"></i>Stream Microservice Code
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <button id="llm-run-fastapi-btn" style="padding:7px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.7rem;cursor:pointer;">
+              <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>FastAPI Microservice
             </button>
-            <button id="llm-run-audit-btn" style="flex:1;padding:7px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#cbd5e1;font-weight:700;font-size:0.72rem;cursor:pointer;">
-              <i class="fa-solid fa-shield-virus" style="margin-right:4px;"></i>Run Security Audit
+            <button id="llm-run-rag-btn" style="padding:7px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.35);border-radius:6px;color:#10b981;font-weight:700;font-size:0.7rem;cursor:pointer;">
+              <i class="fa-solid fa-brain" style="margin-right:4px;"></i>Vector RAG Search
+            </button>
+            <button id="llm-run-sql-btn" style="padding:7px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.35);border-radius:6px;color:#f59e0b;font-weight:700;font-size:0.7rem;cursor:pointer;">
+              <i class="fa-solid fa-database" style="margin-right:4px;"></i>SQL Query Optimizer
+            </button>
+            <button id="llm-run-audit-btn" style="padding:7px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#cbd5e1;font-weight:700;font-size:0.7rem;cursor:pointer;">
+              <i class="fa-solid fa-shield-virus" style="margin-right:4px;"></i>OWASP Security Audit
             </button>
           </div>
         </div>
@@ -1319,17 +1352,166 @@ Digital Signer: PixelToCloud Automated Compliance Engine
           out.scrollTop = out.scrollHeight;
           i++;
           if (i >= text.length) clearInterval(interval);
-        }, 12);
+        }, 10);
       };
 
-      document.getElementById('llm-run-code-btn').addEventListener('click', () => {
-        streamCode(`// FastAPI High-Throughput Caching Middleware\nfrom fastapi import FastAPI, Request\nimport redis.asyncio as redis\n\napp = FastAPI(title="PixelToCloud LLM Gateway")\ncache = redis.Redis(host='localhost', port=6379)\n\n@app.middleware("http")\nasync def edge_cache_middleware(request: Request, call_next):\n    key = f"cache:{request.url.path}"\n    cached = await cache.get(key)\n    if cached:\n        return Response(content=cached, media_type="application/json")\n    response = await call_next(request)\n    return response`);
+      document.getElementById('llm-run-fastapi-btn').addEventListener('click', () => {
+        streamCode(`// FastAPI Async Inference Engine\nfrom fastapi import FastAPI, BackgroundTasks\nimport torch\n\napp = FastAPI(title="PixelToCloud AI Gateway")\nmodel = torch.jit.load("models/transformer_quantized.pt")\n\n@app.post("/v1/predict")\nasync def infer(payload: dict):\n    tensor = torch.tensor(payload["features"]).cuda()\n    with torch.inference_mode():\n        output = model(tensor)\n    return {"status": "success", "latency_ms": 1.42, "prediction": output.tolist()}`);
+      });
+
+      document.getElementById('llm-run-rag-btn').addEventListener('click', () => {
+        streamCode(`// Hybrid Vector & Keyword Retrieval (RAG Pipeline)\nfrom qdrant_client import QdrantClient\nfrom sentence_transformers import SentenceTransformer\n\nclient = QdrantClient(url="https://qdrant.pixeltocloud.io:6333")\nembedder = SentenceTransformer("all-MiniLM-L6-v2")\n\nquery_vector = embedder.encode("enterprise tax calculation compliance")\nresults = client.search(collection_name="financial_docs", query_vector=query_vector, limit=3)\n[✓] 3 Top Chunks Retrieved (Cosine Similarity: 0.942)`);
+      });
+
+      document.getElementById('llm-run-sql-btn').addEventListener('click', () => {
+        streamCode(`-- Optimized B-Tree Composite Index\nEXPLAIN ANALYZE\nSELECT c.id, c.name, SUM(o.total_amount) AS revenue\nFROM clients c\nJOIN orders o ON c.id = o.client_id\nWHERE o.created_at >= NOW() - INTERVAL '30 days'\nGROUP BY c.id, c.name\nORDER BY revenue DESC LIMIT 10;\n-- Execution Time: 0.084ms (Index Scan using idx_orders_client_created)`);
       });
 
       document.getElementById('llm-run-audit-btn').addEventListener('click', () => {
-        streamCode(`// OWASP Vulnerability Analysis Report\n[✓] SQL Injection Guard: Verified Parameterized Queries\n[✓] XSS Protection: Content-Security-Policy Strict Active\n[✓] Rate Limiting: Leaky Bucket Token Mesh (10,000 req/min)\n[✓] TLS Handshake: TLS 1.3 Strict Elliptic-Curve (P-384)\n\nConclusion: Zero Critical Vulnerabilities. Production-Ready.`);
+        streamCode(`// OWASP Vulnerability Analysis Report\n[✓] SQL Injection Guard: Verified Parameterized Queries\n[✓] XSS Protection: Content-Security-Policy Strict Active\n[✓] Rate Limiting: Leaky Bucket Token Mesh (10,000 req/min)\n[✓] TLS Handshake: TLS 1.3 Strict Elliptic-Curve (P-384)\n\nConclusion: Zero Critical Vulnerabilities. 100% Production Ready.`);
       });
     }
+  }
+
+  initNeuralTopology() {
+    const canvas = document.getElementById('service-neural-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    // Build 4 Layers (4 -> 6 -> 6 -> 3)
+    const layerSizes = [4, 6, 6, 3];
+    const layers = [];
+    const layerX = [40, 150, 290, 400];
+
+    layerSizes.forEach((size, lIdx) => {
+      const nodes = [];
+      const stepY = (h - 30) / (size + 1);
+      for (let n = 0; n < size; n++) {
+        nodes.push({
+          x: layerX[lIdx],
+          y: stepY * (n + 1) + 15,
+          val: Math.random() * 0.8 + 0.2,
+          radius: lIdx === 0 || lIdx === 3 ? 6 : 5
+        });
+      }
+      layers.push(nodes);
+    });
+
+    let pulses = [];
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw Synapse Lines
+      for (let l = 0; l < layers.length - 1; l++) {
+        const curr = layers[l];
+        const next = layers[l + 1];
+        curr.forEach(n1 => {
+          next.forEach(n2 => {
+            ctx.strokeStyle = 'rgba(56, 189, 248, 0.12)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(n2.x, n2.y);
+            ctx.stroke();
+          });
+        });
+      }
+
+      // Draw & Update Moving Pulses
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.progress += 0.05;
+        const curX = p.fromX + (p.toX - p.fromX) * p.progress;
+        const curY = p.fromY + (p.toY - p.fromY) * p.progress;
+
+        ctx.fillStyle = p.color || '#00f0ff';
+        ctx.shadowColor = p.color || '#00f0ff';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(curX, curY, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        if (p.progress >= 1) {
+          pulses.splice(i, 1);
+        }
+      }
+
+      // Draw Nodes
+      layers.forEach((nodes, lIdx) => {
+        nodes.forEach(n => {
+          const color = lIdx === 0 ? '#38bdf8' : (lIdx === 3 ? '#10b981' : '#c084fc');
+          ctx.fillStyle = color;
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        });
+      });
+    };
+
+    const interval = setInterval(draw, 1000 / 60);
+
+    const firePulseWave = () => {
+      for (let l = 0; l < layers.length - 1; l++) {
+        const curr = layers[l];
+        const next = layers[l + 1];
+        curr.forEach(n1 => {
+          const target = next[Math.floor(Math.random() * next.length)];
+          pulses.push({
+            fromX: n1.x,
+            fromY: n1.y,
+            toX: target.x,
+            toY: target.y,
+            progress: 0,
+            color: l === 0 ? '#38bdf8' : (l === 1 ? '#c084fc' : '#10b981')
+          });
+        });
+      }
+    };
+
+    const pulseBtn = document.getElementById('neural-pulse-all-btn');
+    if (pulseBtn) pulseBtn.onclick = firePulseWave;
+
+    const randBtn = document.getElementById('neural-randomize-weights-btn');
+    if (randBtn) {
+      randBtn.onclick = () => {
+        firePulseWave();
+      };
+    }
+
+    const classifyBtn = document.getElementById('neural-classify-btn');
+    if (classifyBtn) {
+      classifyBtn.onclick = () => {
+        firePulseWave();
+      };
+    }
+
+    // Interactive Canvas click to fire from node
+    canvas.onclick = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = (e.clientX - rect.left) * (w / rect.width);
+      const clickY = (e.clientY - rect.top) * (h / rect.height);
+      
+      layers[0].forEach(n1 => {
+        const nextNode = layers[1][Math.floor(Math.random() * layers[1].length)];
+        pulses.push({
+          fromX: n1.x,
+          fromY: n1.y,
+          toX: nextNode.x,
+          toY: nextNode.y,
+          progress: 0,
+          color: '#00f0ff'
+        });
+      });
+    };
+
+    firePulseWave();
   }
 
   renderGenerativeArt(prompt) {
@@ -1341,9 +1523,9 @@ Digital Signer: PixelToCloud Automated Compliance Engine
 
     ctx.clearRect(0, 0, w, h);
 
-    // Dynamic gradient backdrop
+    // Multi-stage Gradient Diffusion Backdrop
     const grad = ctx.createRadialGradient(w/2, h/2, 10, w/2, h/2, w/2);
-    if (prompt.includes('Neon') || prompt.includes('City')) {
+    if (prompt.includes('Tokyo') || prompt.includes('City')) {
       grad.addColorStop(0, '#0284c7');
       grad.addColorStop(0.5, '#7c3aed');
       grad.addColorStop(1, '#020617');
@@ -1355,35 +1537,39 @@ Digital Signer: PixelToCloud Automated Compliance Engine
       grad.addColorStop(0, '#f59e0b');
       grad.addColorStop(0.5, '#b45309');
       grad.addColorStop(1, '#020617');
-    } else {
+    } else if (prompt.includes('DNA')) {
       grad.addColorStop(0, '#10b981');
-      grad.addColorStop(0.5, '#0369a1');
+      grad.addColorStop(0.5, '#0284c7');
+      grad.addColorStop(1, '#020617');
+    } else {
+      grad.addColorStop(0, '#6366f1');
+      grad.addColorStop(0.5, '#0f172a');
       grad.addColorStop(1, '#020617');
     }
 
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Procedural Fractal Rays & Rings
+    // Geometric Sacred Rings & Fractals
     ctx.lineWidth = 1.5;
-    for (let i = 0; i < 18; i++) {
-      const angle = (i / 18) * Math.PI * 2;
-      const rx = w/2 + Math.cos(angle) * (30 + (this.aiArtSeed % 40));
-      const ry = h/2 + Math.sin(angle) * (20 + (this.aiArtSeed % 30));
+    for (let i = 0; i < 20; i++) {
+      const angle = (i / 20) * Math.PI * 2;
+      const rx = w/2 + Math.cos(angle) * (35 + (this.aiArtSeed % 35));
+      const ry = h/2 + Math.sin(angle) * (22 + (this.aiArtSeed % 25));
 
-      ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 + (i % 3) * 0.15})`;
+      ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 + (i % 3) * 0.12})`;
       ctx.beginPath();
-      ctx.arc(rx, ry, 25 + (i * 2), 0, Math.PI * 2);
+      ctx.arc(rx, ry, 26 + (i * 2), 0, Math.PI * 2);
       ctx.stroke();
     }
 
-    // Floating glowing particles
-    for (let p = 0; p < 35; p++) {
+    // Glowing Neon Particle Grid
+    for (let p = 0; p < 45; p++) {
       const px = ((p * 47 + this.aiArtSeed) % w);
       const py = ((p * 31 + this.aiArtSeed) % h);
       ctx.fillStyle = (p % 2 === 0) ? '#00f0ff' : '#c084fc';
       ctx.beginPath();
-      ctx.arc(px, py, (p % 3) + 1, 0, Math.PI * 2);
+      ctx.arc(px, py, (p % 3) + 1.2, 0, Math.PI * 2);
       ctx.fill();
     }
 
@@ -1392,13 +1578,13 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.shadowColor = '#00f0ff';
-    ctx.shadowBlur = 10;
+    ctx.shadowBlur = 12;
     ctx.fillText(`✨ ${prompt}`, w/2, h/2 + 4);
     ctx.shadowBlur = 0;
   }
 
   // =================================================================
-  // 10. DESKTOP SOFTWARE LAB (ADVANCED OS SUITE & ARCADE)
+  // 10. DESKTOP SOFTWARE LAB (ADVANCED OS SUITE & ARCADE 2.0)
   // =================================================================
   initDesktopLab() {
     this.desktopCurrentSubtab = 'invoice';
@@ -1407,11 +1593,11 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     this.calcPrev = null;
     this.calcOp = null;
     this.gameScore = 0;
-    this.gameHighScore = 120;
+    this.gameHighScore = 240;
     this.gameRunning = false;
 
     // OS Switcher (Windows 11, macOS Sonoma, Ubuntu 24.04)
-    const osLabels = { windows: 'Windows 11 (Mica)', macos: 'macOS Sonoma (Aqua)', linux: 'Ubuntu 24.04 (Yaru)' };
+    const osLabels = { windows: 'Windows 11 Fluent', macos: 'macOS Sonoma Metal', linux: 'Ubuntu 24.04 GNOME' };
     document.querySelectorAll('.desktop-os-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.desktop-os-btn').forEach(b => b.classList.remove('active'));
@@ -1595,7 +1781,7 @@ Digital Signer: PixelToCloud Automated Compliance Engine
                 <span class="inv-status-pill" style="color:#10b981;cursor:pointer;font-weight:700;">₹18,200 [Paid ✓]</span>
               </div>
               <div class="inv-row" style="display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
-                <span>#INV-0339 · Patel & Associates</span>
+                <span>#INV-0339 · Patel &amp; Associates</span>
                 <span class="inv-status-pill" style="color:#f59e0b;cursor:pointer;font-weight:700;">₹31,800 [Pending ⏳]</span>
               </div>
             </div>
@@ -1609,7 +1795,7 @@ Digital Signer: PixelToCloud Automated Compliance Engine
       this.bindInvoiceRowClick();
     } else if (subtabId === 'calc') {
       body.innerHTML = `
-        <div style="max-width:240px;margin:0 auto;animation:fadeIn 0.2s ease;">
+        <div style="max-width:260px;margin:0 auto;animation:fadeIn 0.2s ease;">
           <!-- LCD Display -->
           <div id="calc-lcd" style="background:#020617;border:1px solid rgba(245,158,11,0.4);border-radius:8px;padding:8px 12px;text-align:right;margin-bottom:8px;font-family:var(--font-mono);box-shadow:inset 0 2px 6px rgba(0,0,0,0.8);">
             <div id="calc-sub-display" style="font-size:0.6rem;color:#64748b;min-height:12px;"></div>
@@ -1640,7 +1826,7 @@ Digital Signer: PixelToCloud Automated Compliance Engine
 
             <button class="calc-btn" data-calc="0">0</button>
             <button class="calc-btn" data-calc=".">.</button>
-            <button class="calc-btn calc-btn-op" data-calc="gst">GST</button>
+            <button class="calc-btn calc-btn-op" data-calc="gst">GST 18%</button>
             <button class="calc-btn calc-btn-eq" data-calc="=">=</button>
           </div>
         </div>
@@ -1650,17 +1836,18 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     } else if (subtabId === 'game') {
       body.innerHTML = `
         <div style="text-align:center;animation:fadeIn 0.2s ease;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:0.68rem;">
-            <span style="color:#10b981;font-weight:700;"><i class="fa-solid fa-gamepad" style="margin-right:4px;"></i>SPACE DODGER 60 FPS</span>
-            <span>Score: <strong id="game-score-val" style="color:#38bdf8;">0</strong> | Best: <strong id="game-best-val" style="color:#f59e0b;">${this.gameHighScore}</strong></span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:0.68rem;font-family:var(--font-mono);">
+            <span style="color:#10b981;font-weight:700;"><i class="fa-solid fa-gamepad" style="margin-right:4px;"></i>NEON SPACE STRIKER 60 FPS</span>
+            <span>Score: <strong id="game-score-val" style="color:#38bdf8;">0</strong> | Best: <strong id="game-best-val" style="color:#f59e0b;">${this.gameHighScore}</strong> | Shields: <span id="game-shields-val" style="color:#10b981;">❤❤❤</span></span>
           </div>
 
-          <canvas id="desktop-game-canvas" width="380" height="150" style="width:100%;height:150px;background:#050510;border-radius:8px;border:1px solid rgba(16,185,129,0.3);box-shadow:0 0 20px rgba(16,185,129,0.15);margin-bottom:6px;"></canvas>
+          <canvas id="desktop-game-canvas" width="400" height="150" style="width:100%;height:150px;background:#050510;border-radius:8px;border:1px solid rgba(16,185,129,0.35);box-shadow:0 0 25px rgba(16,185,129,0.18);margin-bottom:6px;cursor:crosshair;"></canvas>
 
-          <div style="display:flex;justify-content:center;gap:8px;">
-            <button id="game-btn-left" style="padding:6px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;"><i class="fa-solid fa-arrow-left"></i> Left</button>
-            <button id="game-btn-start" style="padding:6px 16px;background:linear-gradient(135deg,#10b981,#059669);border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;">▶ Start / Retry</button>
-            <button id="game-btn-right" style="padding:6px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;">Right <i class="fa-solid fa-arrow-right"></i></button>
+          <div style="display:flex;justify-content:center;gap:6px;flex-wrap:wrap;">
+            <button id="game-btn-left" style="padding:6px 12px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;font-size:0.75rem;"><i class="fa-solid fa-arrow-left"></i> Left</button>
+            <button id="game-btn-fire" style="padding:6px 16px;background:linear-gradient(135deg,#ef4444,#dc2626);border:none;border-radius:6px;color:white;font-weight:800;cursor:pointer;font-size:0.75rem;box-shadow:0 0 12px rgba(239,68,68,0.4);"><i class="fa-solid fa-bolt"></i> FIRE LASER</button>
+            <button id="game-btn-right" style="padding:6px 12px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;font-size:0.75rem;">Right <i class="fa-solid fa-arrow-right"></i></button>
+            <button id="game-btn-start" style="padding:6px 14px;background:linear-gradient(135deg,#10b981,#059669);border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;font-size:0.75rem;">▶ Start / Reset</button>
           </div>
         </div>
       `;
@@ -1671,12 +1858,12 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         <div style="animation:fadeIn 0.2s ease;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
             <span style="color:#a855f7;font-weight:700;"><i class="fa-solid fa-database" style="margin-right:4px;"></i>SQLITE DB QUERY RUNNER</span>
-            <span style="color:#10b981;font-size:0.62rem;">Query Execution: 0.14ms</span>
+            <span style="color:#10b981;font-size:0.62rem;font-family:var(--font-mono);">Latency: 0.08ms</span>
           </div>
 
           <div style="display:flex;gap:4px;margin-bottom:8px;">
             <input type="text" id="sqlite-query-input" value="SELECT id, name, plan, mrr FROM enterprise_clients LIMIT 3;" style="flex:1;padding:6px 8px;background:#020617;border:1px solid rgba(168,85,247,0.4);border-radius:6px;color:#f8fafc;font-size:0.68rem;font-family:var(--font-mono);">
-            <button id="sqlite-exec-btn" style="padding:6px 10px;background:#8b5cf6;border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;font-size:0.68rem;">Run</button>
+            <button id="sqlite-exec-btn" style="padding:6px 12px;background:#8b5cf6;border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;font-size:0.68rem;">Run SQL</button>
           </div>
 
           <div id="sqlite-output-table" style="background:#090d16;border-radius:6px;padding:6px;border:1px solid var(--border-subtle);font-size:0.62rem;line-height:1.6;">
@@ -1705,11 +1892,56 @@ Digital Signer: PixelToCloud Automated Compliance Engine
             setTimeout(() => {
               out.style.opacity = '1';
               const statusMsg = document.getElementById('desktop-status-msg');
-              if (statusMsg) statusMsg.innerHTML = '<span style="color:#10b981;">✓ Query executed: 3 rows returned in 0.12ms</span>';
-            }, 200);
+              if (statusMsg) statusMsg.innerHTML = '<span style="color:#10b981;">✓ Query executed: 3 rows returned in 0.08ms</span>';
+            }, 180);
           }
         });
       }
+    } else if (subtabId === 'sysmon') {
+      body.innerHTML = `
+        <div style="animation:fadeIn 0.2s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="color:#38bdf8;font-weight:700;"><i class="fa-solid fa-chart-pie" style="margin-right:4px;"></i>RUNTIME BENCHMARK: TAURI (RUST) VS ELECTRON</span>
+            <span style="color:#10b981;font-size:0.62rem;font-family:var(--font-mono);">92% Less RAM</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <!-- Tauri Rust Card -->
+            <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.3);border-radius:6px;padding:8px;">
+              <div style="display:flex;justify-content:space-between;font-weight:700;color:#10b981;font-size:0.75rem;margin-bottom:4px;">
+                <span>🦀 Tauri v2 (Rust)</span>
+                <span>38 MB</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.05);border-radius:3px;height:6px;overflow:hidden;margin-bottom:4px;">
+                <div style="width:12%;height:100%;background:#10b981;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:0.6rem;color:#94a3b8;">
+                <span>CPU: 0.4%</span>
+                <span>Binary: 4.8 MB</span>
+              </div>
+            </div>
+
+            <!-- Electron Card -->
+            <div style="background:rgba(244,63,94,0.06);border:1px solid rgba(244,63,94,0.25);border-radius:6px;padding:8px;">
+              <div style="display:flex;justify-content:space-between;font-weight:700;color:#f43f5e;font-size:0.75rem;margin-bottom:4px;">
+                <span>⚛️ Standard Electron</span>
+                <span>480 MB</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.05);border-radius:3px;height:6px;overflow:hidden;margin-bottom:4px;">
+                <div style="width:88%;height:100%;background:#f43f5e;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:0.6rem;color:#94a3b8;">
+                <span>CPU: 6.8%</span>
+                <span>Binary: 92 MB</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#090d16;border-radius:6px;padding:6px 10px;border:1px solid var(--border-subtle);font-size:0.65rem;color:#cbd5e1;">
+            <div><i class="fa-solid fa-circle-check" style="color:#10b981;margin-right:6px;"></i><strong>PixelToCloud Standard:</strong> We engineer native desktop apps in Tauri / Rust for ultra-low latency, instant 0.1s startup time, and zero bloat.</div>
+          </div>
+        </div>
+      `;
     }
   }
 
@@ -1823,94 +2055,192 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     const h = canvas.height;
 
     let playerX = w / 2;
-    let playerY = h - 20;
-    let asteroids = [];
+    let playerY = h - 22;
+    let lasers = [];
+    let enemies = [];
+    let particles = [];
     let score = 0;
+    let shields = 3;
+    let combo = 0;
     let gameLoop = null;
 
-    const spawnAsteroid = () => {
-      asteroids.push({
-        x: Math.random() * (w - 20) + 10,
+    const spawnEnemy = () => {
+      enemies.push({
+        x: Math.random() * (w - 30) + 15,
         y: -10,
-        speed: Math.random() * 2 + 1.5,
-        radius: Math.random() * 6 + 4
+        speed: Math.random() * 1.8 + 1.2,
+        radius: Math.random() * 6 + 6,
+        type: Math.random() > 0.6 ? 'drone' : 'asteroid',
+        color: Math.random() > 0.6 ? '#a855f7' : '#f43f5e'
       });
+    };
+
+    const fireLaser = () => {
+      if (!this.gameRunning) return;
+      lasers.push({ x: playerX, y: playerY - 12, speed: 6 });
+    };
+
+    const createExplosion = (x, y, color) => {
+      for (let p = 0; p < 10; p++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 5,
+          vy: (Math.random() - 0.5) * 5,
+          life: 1,
+          color: color
+        });
+      }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
 
-      // Starfield
-      ctx.fillStyle = 'rgba(255,255,255,0.4)';
-      for (let s = 0; s < 20; s++) {
-        ctx.fillRect((s * 41) % w, (s * 29 + score) % h, 1.5, 1.5);
+      // Neon Grid Starfield
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      for (let s = 0; s < 25; s++) {
+        ctx.fillRect((s * 37) % w, (s * 23 + score * 2) % h, 1.5, 1.5);
       }
+
+      // Update & Draw Particles
+      for (let pIdx = particles.length - 1; pIdx >= 0; pIdx--) {
+        const pt = particles[pIdx];
+        pt.x += pt.vx;
+        pt.y += pt.vy;
+        pt.life -= 0.04;
+        if (pt.life <= 0) {
+          particles.splice(pIdx, 1);
+        } else {
+          ctx.fillStyle = pt.color;
+          ctx.globalAlpha = pt.life;
+          ctx.fillRect(pt.x, pt.y, 2.5, 2.5);
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      // Update & Draw Lasers
+      ctx.fillStyle = '#00f0ff';
+      ctx.shadowColor = '#00f0ff';
+      ctx.shadowBlur = 8;
+      for (let lIdx = lasers.length - 1; lIdx >= 0; lIdx--) {
+        const l = lasers[lIdx];
+        l.y -= l.speed;
+        ctx.fillRect(l.x - 1.5, l.y, 3, 10);
+
+        if (l.y < -10) lasers.splice(lIdx, 1);
+      }
+      ctx.shadowBlur = 0;
 
       // Draw Player Spaceship
       ctx.fillStyle = '#00f0ff';
       ctx.shadowColor = '#00f0ff';
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 10;
       ctx.beginPath();
       ctx.moveTo(playerX, playerY - 10);
       ctx.lineTo(playerX - 10, playerY + 8);
+      ctx.lineTo(playerX, playerY + 4);
       ctx.lineTo(playerX + 10, playerY + 8);
+      ctx.closePath();
+      ctx.fill();
+
+      // Spaceship Thruster Flame
+      ctx.fillStyle = '#f59e0b';
+      ctx.beginPath();
+      ctx.moveTo(playerX - 4, playerY + 8);
+      ctx.lineTo(playerX + 4, playerY + 8);
+      ctx.lineTo(playerX, playerY + 14 + Math.random() * 4);
       ctx.closePath();
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Update & Draw Asteroids
-      ctx.fillStyle = '#ef4444';
-      ctx.shadowColor = '#ef4444';
-      ctx.shadowBlur = 6;
-      for (let i = asteroids.length - 1; i >= 0; i--) {
-        const a = asteroids[i];
-        a.y += a.speed;
+      // Update & Draw Enemies
+      for (let eIdx = enemies.length - 1; eIdx >= 0; eIdx--) {
+        const en = enemies[eIdx];
+        en.y += en.speed;
 
+        ctx.fillStyle = en.color;
+        ctx.shadowColor = en.color;
+        ctx.shadowBlur = 6;
         ctx.beginPath();
-        ctx.arc(a.x, a.y, a.radius, 0, Math.PI * 2);
+        ctx.arc(en.x, en.y, en.radius, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowBlur = 0;
 
-        // Collision Check
-        const dist = Math.hypot(playerX - a.x, playerY - a.y);
-        if (dist < a.radius + 8) {
-          // Game Over
-          this.gameRunning = false;
-          clearInterval(gameLoop);
-          ctx.fillStyle = '#ef4444';
-          ctx.font = 'bold 14px monospace';
-          ctx.textAlign = 'center';
-          ctx.fillText('💥 SYSTEM COLLISION! GAME OVER', w/2, h/2);
-          return;
-        }
-
-        if (a.y > h + 10) {
-          asteroids.splice(i, 1);
-          score += 10;
-          const scoreEl = document.getElementById('game-score-val');
-          if (scoreEl) scoreEl.textContent = score;
-          if (score > this.gameHighScore) {
-            this.gameHighScore = score;
-            const bestEl = document.getElementById('game-best-val');
-            if (bestEl) bestEl.textContent = this.gameHighScore;
+        // Laser vs Enemy Collision
+        for (let lIdx = lasers.length - 1; lIdx >= 0; lIdx--) {
+          const l = lasers[lIdx];
+          const dist = Math.hypot(l.x - en.x, l.y - en.y);
+          if (dist < en.radius + 4) {
+            createExplosion(en.x, en.y, en.color);
+            enemies.splice(eIdx, 1);
+            lasers.splice(lIdx, 1);
+            combo++;
+            score += 20 * Math.min(5, combo);
+            const scoreEl = document.getElementById('game-score-val');
+            if (scoreEl) scoreEl.textContent = score;
+            if (score > this.gameHighScore) {
+              this.gameHighScore = score;
+              const bestEl = document.getElementById('game-best-val');
+              if (bestEl) bestEl.textContent = this.gameHighScore;
+            }
+            break;
           }
         }
-      }
-      ctx.shadowBlur = 0;
 
-      if (Math.random() < 0.08) spawnAsteroid();
+        // Player vs Enemy Collision
+        const pDist = Math.hypot(playerX - en.x, playerY - en.y);
+        if (pDist < en.radius + 8) {
+          createExplosion(en.x, en.y, '#ef4444');
+          enemies.splice(eIdx, 1);
+          shields--;
+          combo = 0;
+          const shieldEl = document.getElementById('game-shields-val');
+          if (shieldEl) {
+            shieldEl.textContent = shields === 3 ? '❤❤❤' : (shields === 2 ? '❤❤' : (shields === 1 ? '❤' : '💀'));
+          }
+
+          if (shields <= 0) {
+            this.gameRunning = false;
+            clearInterval(gameLoop);
+            ctx.fillStyle = '#ef4444';
+            ctx.font = 'bold 13px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('💥 SHIELDS DEPLETED! GAME OVER', w/2, h/2);
+            return;
+          }
+        }
+
+        if (en.y > h + 10) {
+          enemies.splice(eIdx, 1);
+          combo = 0;
+        }
+      }
+
+      if (Math.random() < 0.07) spawnEnemy();
     };
 
     const startBtn = document.getElementById('game-btn-start');
     if (startBtn) {
       startBtn.onclick = () => {
         if (gameLoop) clearInterval(gameLoop);
-        asteroids = [];
+        enemies = [];
+        lasers = [];
+        particles = [];
         score = 0;
+        shields = 3;
+        combo = 0;
         playerX = w / 2;
         this.gameRunning = true;
+        const shieldEl = document.getElementById('game-shields-val');
+        if (shieldEl) shieldEl.textContent = '❤❤❤';
+        const scoreEl = document.getElementById('game-score-val');
+        if (scoreEl) scoreEl.textContent = '0';
         gameLoop = setInterval(draw, 1000 / 60);
       };
     }
+
+    const fireBtn = document.getElementById('game-btn-fire');
+    if (fireBtn) fireBtn.onclick = fireLaser;
 
     const leftBtn = document.getElementById('game-btn-left');
     const rightBtn = document.getElementById('game-btn-right');
@@ -1919,8 +2249,12 @@ Digital Signer: PixelToCloud Automated Compliance Engine
 
     window.onkeydown = (e) => {
       if (this.gameRunning) {
-        if (e.key === 'ArrowLeft') playerX = Math.max(15, playerX - 20);
-        if (e.key === 'ArrowRight') playerX = Math.min(w - 15, playerX + 20);
+        if (e.key === 'ArrowLeft' || e.key === 'a') playerX = Math.max(15, playerX - 20);
+        if (e.key === 'ArrowRight' || e.key === 'd') playerX = Math.min(w - 15, playerX + 20);
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          fireLaser();
+        }
       }
     };
 
