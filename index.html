@@ -61,11 +61,11 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- CSS Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/main.css?v=17.3">
-  <link rel="stylesheet" href="css/animations.css?v=17.3">
-  <link rel="stylesheet" href="css/components.css?v=17.3">
-  <link rel="stylesheet" href="css/light-theme.css?v=17.3">
-  <link rel="stylesheet" href="css/mobile-responsive.css?v=17.3">
+  <link rel="stylesheet" href="css/main.css?v=18.2">
+  <link rel="stylesheet" href="css/animations.css?v=18.2">
+  <link rel="stylesheet" href="css/components.css?v=18.2">
+  <link rel="stylesheet" href="css/light-theme.css?v=18.2">
+  <link rel="stylesheet" href="css/mobile-responsive.css?v=18.2">
 </head>
 <body>
 
@@ -834,7 +834,7 @@
               Mobile App Development
             </h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-              Production-grade Android &amp; iOS applications from a single React Native / Flutter codebase. Native-speed GPU rendering, biometric auth, push notifications, offline sync, and Play Store / App Store deployment.
+              Production-grade Android &amp; iOS applications from a single React Native / Flutter codebase. Native-speed GPU rendering, dynamic islands, biometric auth, offline SQLite sync, and App Store &amp; Play Store release pipelines.
             </p>
             <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
@@ -843,19 +843,19 @@
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Biometric Auth (Face ID / Fingerprint) & Secure Keychain</span>
+                <span>Dynamic Island Live Activities &amp; Interactive Widgets</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Push Notifications (Firebase FCM), GPS, Camera & NFC APIs</span>
+                <span>Apple Pay, Google Pay &amp; 1-Tap Biometric Authentication</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Offline-First Architecture with SQLite & Background Sync</span>
+                <span>Push Notifications (FCM), GPS, Camera &amp; Bluetooth BLE APIs</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Play Store & App Store Deployment with OTA Updates</span>
+                <span>Offline-First SQLite Architecture &amp; Auto Background Sync</span>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
@@ -863,7 +863,7 @@
                 <span class="badge badge-cyan">React Native</span>
                 <span class="badge badge-blue">Flutter</span>
                 <span class="badge badge-purple">Firebase</span>
-                <span class="badge badge-emerald">Expo</span>
+                <span class="badge badge-emerald">Apple Pay</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
                 <span>Book This Service &rarr;</span>
@@ -873,76 +873,72 @@
 
           <!-- Interactive Mobile Simulator Preview -->
           <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.75rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="color: #3b82f6; font-weight: 700;"><i class="fa-solid fa-mobile-screen-button" style="margin-right: 4px;"></i>DEVICE SIMULATOR</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px;">
+              <span style="color: #3b82f6; font-weight: 700;"><i class="fa-solid fa-mobile-screen-button" style="margin-right: 4px;"></i>SMARTPHONE STUDIO</span>
               <div style="display: flex; gap: 4px;">
-                <button class="filter-btn mobile-platform-btn active" data-platform="android" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-brands fa-android" style="margin-right: 3px;"></i>Android</button>
-                <button class="filter-btn mobile-platform-btn" data-platform="ios" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-brands fa-apple" style="margin-right: 3px;"></i>iOS</button>
+                <button class="filter-btn mobile-platform-btn active" data-platform="ios" style="padding: 3px 8px; font-size: 0.7rem;"><i class="fa-brands fa-apple" style="margin-right: 3px;"></i>iOS 18 Pro</button>
+                <button class="filter-btn mobile-platform-btn" data-platform="android" style="padding: 3px 8px; font-size: 0.7rem;"><i class="fa-brands fa-android" style="margin-right: 3px;"></i>Android 15</button>
               </div>
             </div>
 
             <!-- Phone Frame -->
-            <div id="mobile-phone-frame" style="background: #111827; border: 2px solid rgba(59, 130, 246, 0.4); border-radius: 28px; max-width: 260px; margin: 0 auto; overflow: hidden; box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);">
+            <div id="mobile-phone-frame" style="background: #090d16; border: 3px solid rgba(255, 255, 255, 0.25); border-radius: 36px; max-width: 270px; margin: 0 auto; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(59, 130, 246, 0.2); position: relative;">
+              <!-- Interactive Dynamic Island -->
+              <div id="mobile-dynamic-island" class="dynamic-island" title="Tap Dynamic Island to expand/collapse!">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <i class="fa-solid fa-bag-shopping" style="color: #10b981; font-size: 0.65rem;"></i>
+                  <span id="island-text" style="font-size: 0.62rem; font-family: var(--font-sans); font-weight: 600;">ShopPulse</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 4px;">
+                  <span class="live-status-dot" style="width: 5px; height: 5px; background: #10b981;"></span>
+                  <i class="fa-solid fa-chevron-down" style="font-size: 0.55rem; opacity: 0.6;"></i>
+                </div>
+              </div>
+
               <!-- Status Bar -->
-              <div id="mobile-status-bar" style="padding: 6px 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: #94a3b8; background: #0f172a;">
-                <span id="mobile-time-display">09:41</span>
-                <div style="display: flex; gap: 4px; align-items: center;">
+              <div id="mobile-status-bar" style="padding: 2px 14px 6px; display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: #94a3b8; background: transparent;">
+                <span id="mobile-time-display" style="font-weight: 700;">9:41 AM</span>
+                <div style="display: flex; gap: 5px; align-items: center;">
                   <i class="fa-solid fa-signal" style="font-size: 0.55rem;"></i>
-                  <i class="fa-solid fa-wifi" style="font-size: 0.55rem;"></i>
-                  <span id="mobile-battery-icon" style="font-size: 0.6rem;">🔋</span>
+                  <span style="font-size: 0.6rem; font-weight: 700; color: #38bdf8;">5G</span>
+                  <i class="fa-solid fa-battery-full" style="font-size: 0.65rem; color: #10b981;"></i>
                 </div>
               </div>
 
-              <!-- App Screen -->
-              <div id="mobile-app-screen" style="height: 320px; padding: 16px; position: relative; overflow: hidden;">
-                <!-- Home Screen (Default) -->
-                <div id="mobile-screen-home" class="mobile-screen active-screen">
-                  <div style="text-align: center; margin-bottom: 16px;">
-                    <div style="width: 50px; height: 50px; border-radius: 14px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; box-shadow: 0 4px 15px rgba(59,130,246,0.4);"><i class="fa-solid fa-store"></i></div>
-                    <div style="font-size: 0.85rem; font-weight: 700; color: #f8fafc; font-family: var(--font-sans);">ShopPulse</div>
-                    <div style="font-size: 0.65rem; color: #64748b; margin-top: 2px;">v2.4.1 · React Native</div>
-                  </div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                    <div class="mobile-mini-card" data-screen="orders" style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); border-radius: 12px; padding: 12px 10px; text-align: center; cursor: pointer; transition: all 0.2s;">
-                      <i class="fa-solid fa-box" style="color: #3b82f6; font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
-                      <span style="font-size: 0.7rem; color: #cbd5e1; font-family: var(--font-sans);">Orders</span>
-                      <div style="font-size: 1rem; font-weight: 800; color: #3b82f6; font-family: var(--font-sans);">1,247</div>
-                    </div>
-                    <div class="mobile-mini-card" data-screen="analytics" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 12px 10px; text-align: center; cursor: pointer; transition: all 0.2s;">
-                      <i class="fa-solid fa-chart-line" style="color: #10b981; font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
-                      <span style="font-size: 0.7rem; color: #cbd5e1; font-family: var(--font-sans);">Revenue</span>
-                      <div style="font-size: 1rem; font-weight: 800; color: #10b981; font-family: var(--font-sans);">₹4.2L</div>
-                    </div>
-                    <div class="mobile-mini-card" data-screen="notifications" style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); border-radius: 12px; padding: 12px 10px; text-align: center; cursor: pointer; transition: all 0.2s;">
-                      <i class="fa-solid fa-bell" style="color: #f59e0b; font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
-                      <span style="font-size: 0.7rem; color: #cbd5e1; font-family: var(--font-sans);">Alerts</span>
-                      <div style="font-size: 1rem; font-weight: 800; color: #f59e0b; font-family: var(--font-sans);">18</div>
-                    </div>
-                    <div class="mobile-mini-card" data-screen="profile" style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25); border-radius: 12px; padding: 12px 10px; text-align: center; cursor: pointer; transition: all 0.2s;">
-                      <i class="fa-solid fa-fingerprint" style="color: #8b5cf6; font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
-                      <span style="font-size: 0.7rem; color: #cbd5e1; font-family: var(--font-sans);">Biometric</span>
-                      <div style="font-size: 0.72rem; font-weight: 700; color: #8b5cf6; font-family: var(--font-sans);">Enabled</div>
-                    </div>
-                  </div>
-                </div>
+              <!-- App Screen Container -->
+              <div id="mobile-app-screen" style="height: 330px; padding: 12px; position: relative; overflow-y: auto; scrollbar-width: none;">
+                <!-- Rendered dynamically by js/services-hub.js -->
               </div>
 
-              <!-- Bottom Nav Bar -->
-              <div style="display: flex; justify-content: space-around; padding: 8px 0; background: #0f172a; border-top: 1px solid rgba(255,255,255,0.08);">
-                <button class="mobile-bottom-nav-btn active-nav" data-screen="home" style="background:none;border:none;color:#3b82f6;font-size:0.9rem;cursor:pointer;padding:4px 10px;"><i class="fa-solid fa-house"></i></button>
-                <button class="mobile-bottom-nav-btn" data-screen="orders" style="background:none;border:none;color:#64748b;font-size:0.9rem;cursor:pointer;padding:4px 10px;"><i class="fa-solid fa-box"></i></button>
-                <button class="mobile-bottom-nav-btn" data-screen="analytics" style="background:none;border:none;color:#64748b;font-size:0.9rem;cursor:pointer;padding:4px 10px;"><i class="fa-solid fa-chart-pie"></i></button>
-                <button class="mobile-bottom-nav-btn" data-screen="profile" style="background:none;border:none;color:#64748b;font-size:0.9rem;cursor:pointer;padding:4px 10px;"><i class="fa-solid fa-user"></i></button>
+              <!-- Phone Bottom Navigation Bar -->
+              <div style="display: flex; justify-content: space-around; padding: 8px 0; background: #0b1120; border-top: 1px solid rgba(255,255,255,0.08); user-select: none;">
+                <button class="mobile-bottom-nav-btn active-nav" data-screen="store" style="background:none;border:none;color:#3b82f6;font-size:0.85rem;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <i class="fa-solid fa-store"></i><span style="font-size: 0.58rem; font-family: var(--font-sans);">Shop</span>
+                </button>
+                <button class="mobile-bottom-nav-btn" data-screen="wallet" style="background:none;border:none;color:#64748b;font-size:0.85rem;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <i class="fa-solid fa-wallet"></i><span style="font-size: 0.58rem; font-family: var(--font-sans);">Wallet</span>
+                </button>
+                <button class="mobile-bottom-nav-btn" data-screen="chat" style="background:none;border:none;color:#64748b;font-size:0.85rem;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <i class="fa-solid fa-comment-dots"></i><span style="font-size: 0.58rem; font-family: var(--font-sans);">Chat</span>
+                </button>
+                <button class="mobile-bottom-nav-btn" data-screen="biometrics" style="background:none;border:none;color:#64748b;font-size:0.85rem;cursor:pointer;padding:4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <i class="fa-solid fa-fingerprint"></i><span style="font-size: 0.58rem; font-family: var(--font-sans);">Face ID</span>
+                </button>
+              </div>
+
+              <!-- Home Indicator Bar -->
+              <div style="height: 12px; background: #0b1120; display: flex; justify-content: center; align-items: center;">
+                <div style="width: 70px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 2px;"></div>
               </div>
             </div>
 
-            <!-- Push Notification Trigger -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px;">
-              <button class="btn-magnetic btn-secondary" id="mobile-push-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-bell" style="margin-right: 4px;"></i>Send Push</span>
+            <!-- Mobile Quick Trigger Actions -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
+              <button class="btn-magnetic btn-secondary" id="mobile-push-btn" style="padding: 7px 10px; font-size: 0.72rem;">
+                <span><i class="fa-solid fa-bell" style="margin-right: 4px; color: #f59e0b;"></i>Push Notification</span>
               </button>
-              <button class="btn-magnetic btn-primary" id="mobile-gps-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i>GPS Track</span>
+              <button class="btn-magnetic btn-primary" id="mobile-pay-sheet-btn" style="padding: 7px 10px; font-size: 0.72rem;">
+                <span><i class="fa-solid fa-credit-card" style="margin-right: 4px;"></i>Apple / GPay Sheet</span>
               </button>
             </div>
           </div>
@@ -952,34 +948,34 @@
         <div class="service-tab-pane" data-pane-id="ai">
           <div>
             <div class="section-tag" style="margin-bottom: 8px;">
-              <span><i class="fa-solid fa-brain" style="color: #8b5cf6; margin-right: 6px;"></i>Intelligent Automation Engine</span>
+              <span><i class="fa-solid fa-brain" style="color: #8b5cf6; margin-right: 6px;"></i>Intelligent Automation &amp; Generative AI</span>
             </div>
             <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
-              AI & Machine Learning Solutions
+              AI &amp; Machine Learning Solutions
             </h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-              Custom AI-powered chatbots, recommendation engines, sentiment analysis, image recognition, and predictive analytics integrated into your web and mobile applications for intelligent automation.
+              Custom generative AI engines, multi-modal vision classifiers, intelligent LLM chatbots with RAG knowledge bases, and real-time predictive analytics built with Python, PyTorch, and TensorFlow.
             </p>
             <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Custom AI Chatbots & Virtual Assistants (GPT / LLM Integration)</span>
+                <span>Generative AI Art &amp; Multi-Modal Computer Vision</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Real-Time Sentiment Analysis & NLP Text Processing</span>
+                <span>Enterprise LLM Chatbots with Vector DB RAG Retrieval</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Computer Vision: Image Classification & Object Detection</span>
+                <span>Predictive Business Intelligence &amp; Customer Churn AI</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Predictive Analytics & Recommendation Engines</span>
+                <span>Natural Language Sentiment &amp; Entity Extraction</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Model Training Pipelines (TensorFlow / PyTorch / Scikit-learn)</span>
+                <span>Low-Latency Edge AI Inference with ONNX &amp; TensorRT</span>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
@@ -987,7 +983,7 @@
                 <span class="badge badge-purple">Python</span>
                 <span class="badge badge-cyan">TensorFlow</span>
                 <span class="badge badge-blue">PyTorch</span>
-                <span class="badge badge-emerald">OpenAI</span>
+                <span class="badge badge-emerald">OpenAI / Claude</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
                 <span>Book This Service &rarr;</span>
@@ -995,40 +991,19 @@
             </div>
           </div>
 
-          <!-- Interactive AI Neural Network Lab Preview -->
+          <!-- Interactive AI Studio Preview -->
           <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.75rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="color: #8b5cf6; font-weight: 700;"><i class="fa-solid fa-brain" style="margin-right: 4px;"></i>NEURAL INFERENCE LAB</span>
-              <span id="ai-model-status" style="color: #10b981; background: rgba(16,185,129,0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.3); font-size: 0.68rem;">MODEL READY</span>
+            <!-- AI Mode Switcher Tabs -->
+            <div class="ai-mode-tabs-bar">
+              <button class="ai-mode-btn active" data-ai-mode="art"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Generative AI Art</span></button>
+              <button class="ai-mode-btn" data-ai-mode="neural"><i class="fa-solid fa-network-wired"></i><span>Neural Synapses</span></button>
+              <button class="ai-mode-btn" data-ai-mode="predict"><i class="fa-solid fa-chart-line"></i><span>Predictive BI</span></button>
+              <button class="ai-mode-btn" data-ai-mode="llm"><i class="fa-solid fa-robot"></i><span>LLM Agent</span></button>
             </div>
 
-            <!-- Neural Network Canvas -->
-            <canvas id="service-neural-canvas" width="400" height="160" style="width: 100%; height: 160px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: #020617; margin-bottom: 10px;"></canvas>
-
-            <!-- Sentiment Analysis Input -->
-            <div style="margin-bottom: 10px;">
-              <label style="font-size: 0.7rem; color: #8b5cf6; display: block; margin-bottom: 4px;">SENTIMENT ANALYSIS ENGINE</label>
-              <div style="display: flex; gap: 6px;">
-                <input type="text" id="ai-sentiment-input" placeholder="Type any text to analyze..." style="flex: 1; padding: 8px 12px; background: #0f172a; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.78rem; font-family: var(--font-mono);">
-                <button class="btn-magnetic btn-primary" id="ai-analyze-btn" style="padding: 8px 14px; font-size: 0.72rem;">
-                  <span><i class="fa-solid fa-magnifying-glass-chart"></i></span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Sentiment Result -->
-            <div id="ai-sentiment-result" style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 10px; min-height: 50px;">
-              <div style="color: #64748b; font-size: 0.72rem;">Awaiting input for real-time inference...</div>
-            </div>
-
-            <!-- AI Action Buttons -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <button class="btn-magnetic btn-secondary" id="ai-train-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-dna" style="margin-right: 4px;"></i>Train Model</span>
-              </button>
-              <button class="btn-magnetic btn-primary" id="ai-predict-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 4px;"></i>Predict</span>
-              </button>
+            <!-- Dynamic AI Mode Content Stage -->
+            <div id="ai-mode-stage" style="min-height: 290px; background: #020617; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); padding: 12px;">
+              <!-- Rendered dynamically by js/services-hub.js -->
             </div>
           </div>
         </div>
@@ -1037,40 +1012,40 @@
         <div class="service-tab-pane" data-pane-id="desktop">
           <div>
             <div class="section-tag" style="margin-bottom: 8px;">
-              <span><i class="fa-solid fa-display" style="color: #f59e0b; margin-right: 6px;"></i>Native Cross-Platform Desktop</span>
+              <span><i class="fa-solid fa-display" style="color: #f59e0b; margin-right: 6px;"></i>Native Cross-Platform Desktop OS</span>
             </div>
             <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
               Desktop Software Development
             </h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-              Lightweight, blazing-fast desktop applications for Windows, macOS, and Linux built with Electron or Tauri. Enterprise-grade billing systems, inventory managers, POS terminals, and internal CRM tools.
+              Lightweight, blazing-fast desktop applications for Windows, macOS, and Linux built with Electron or Tauri (Rust). Enterprise billing POS, accounting calculators, offline mini-games, and local SQLite data managers.
             </p>
             <div class="service-features-list" style="margin-bottom: 20px;">
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Windows, macOS & Linux from One Codebase (Electron / Tauri)</span>
+                <span>Windows, macOS &amp; Linux from One Codebase (Tauri / Electron)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Offline-First: Full Functionality Without Internet</span>
+                <span>Working Desktop Menu Bar (File, Edit, View, Tools, Apps)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>System Tray Integration, Auto-Updates & Hardware Access</span>
+                <span>Integrated QuickCalc Suite &amp; Financial Formula Engines</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Custom Billing, Inventory, POS & CRM Desktop Tools</span>
+                <span>Built-in Retro Cyber Arcade (Interactive 60 FPS Mini-Game)</span>
               </div>
               <div class="service-feature-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Native OS Dialogs, File System Access & Printer Control</span>
+                <span>Offline SQLite Database Inspector with 0.12ms Query Latency</span>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
               <div class="service-tech-tags">
-                <span class="badge badge-amber">Electron</span>
-                <span class="badge badge-cyan">Tauri / Rust</span>
+                <span class="badge badge-amber">Tauri / Rust</span>
+                <span class="badge badge-cyan">Electron</span>
                 <span class="badge badge-blue">TypeScript</span>
                 <span class="badge badge-purple">SQLite</span>
               </div>
@@ -1082,80 +1057,111 @@
 
           <!-- Interactive Desktop Window Simulator -->
           <div class="service-preview-pane" style="font-family: var(--font-mono); font-size: 0.75rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="color: #f59e0b; font-weight: 700;"><i class="fa-solid fa-display" style="margin-right: 4px;"></i>DESKTOP SIMULATOR</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <span style="color: #f59e0b; font-weight: 700;"><i class="fa-solid fa-display" style="margin-right: 4px;"></i>DESKTOP OS SUITE</span>
               <div style="display: flex; gap: 4px;">
-                <button class="filter-btn desktop-os-btn active" data-os="windows" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-brands fa-windows" style="margin-right: 3px;"></i>Win</button>
-                <button class="filter-btn desktop-os-btn" data-os="macos" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-brands fa-apple" style="margin-right: 3px;"></i>Mac</button>
-                <button class="filter-btn desktop-os-btn" data-os="linux" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-brands fa-linux" style="margin-right: 3px;"></i>Linux</button>
+                <button class="filter-btn desktop-os-btn active" data-os="windows" style="padding: 3px 8px; font-size: 0.7rem;"><i class="fa-brands fa-windows" style="margin-right: 3px;"></i>Win 11</button>
+                <button class="filter-btn desktop-os-btn" data-os="macos" style="padding: 3px 8px; font-size: 0.7rem;"><i class="fa-brands fa-apple" style="margin-right: 3px;"></i>macOS</button>
+                <button class="filter-btn desktop-os-btn" data-os="linux" style="padding: 3px 8px; font-size: 0.7rem;"><i class="fa-brands fa-linux" style="margin-right: 3px;"></i>Linux</button>
               </div>
             </div>
 
             <!-- Desktop Window Frame -->
-            <div id="desktop-window-frame" style="background: #111827; border: 1px solid rgba(245,158,11,0.3); border-radius: 10px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
-              <!-- Title Bar -->
-              <div id="desktop-title-bar" style="padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; background: #1e293b; border-bottom: 1px solid rgba(255,255,255,0.08);">
+            <div id="desktop-window-frame" style="background: #0f172a; border: 1px solid rgba(245,158,11,0.35); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.7), 0 0 20px rgba(245,158,11,0.15); transition: all 0.3s ease;">
+              <!-- Title Bar with Window Controls -->
+              <div id="desktop-title-bar" style="padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; background: #1e293b; border-bottom: 1px solid rgba(255,255,255,0.08); user-select: none;">
                 <div style="display: flex; gap: 6px; align-items: center;">
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                  <span id="win-btn-close" style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block; cursor: pointer;" title="Close Window"></span>
+                  <span id="win-btn-min" style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block; cursor: pointer;" title="Minimize Window"></span>
+                  <span id="win-btn-max" style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block; cursor: pointer;" title="Maximize / Restore"></span>
                 </div>
-                <span id="desktop-app-title" style="font-size: 0.7rem; color: #94a3b8;">InvoicePro — <span id="desktop-os-label">Windows 11</span></span>
-                <div style="display: flex; gap: 8px; color: #64748b; font-size: 0.7rem;">
-                  <i class="fa-solid fa-minus"></i>
-                  <i class="fa-regular fa-square"></i>
-                  <i class="fa-solid fa-xmark"></i>
-                </div>
-              </div>
-
-              <!-- App Content -->
-              <div style="padding: 14px;">
-                <!-- Menu Bar -->
-                <div style="display: flex; gap: 14px; font-size: 0.7rem; color: #64748b; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06);">
-                  <span style="color: var(--text-primary);">File</span><span>Edit</span><span>View</span><span>Invoice</span><span>Reports</span><span>Help</span>
-                </div>
-
-                <!-- Dashboard Content -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px;">
-                  <div style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 10px; text-align: center;">
-                    <div style="font-size: 1.1rem; font-weight: 800; color: #3b82f6; font-family: var(--font-sans);" id="desktop-metric-invoices">342</div>
-                    <div style="font-size: 0.62rem; color: #64748b;">Invoices</div>
-                  </div>
-                  <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 10px; text-align: center;">
-                    <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; font-family: var(--font-sans);" id="desktop-metric-revenue">₹18.4L</div>
-                    <div style="font-size: 0.62rem; color: #64748b;">Revenue</div>
-                  </div>
-                  <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; padding: 10px; text-align: center;">
-                    <div style="font-size: 1.1rem; font-weight: 800; color: #f59e0b; font-family: var(--font-sans);" id="desktop-metric-clients">89</div>
-                    <div style="font-size: 0.62rem; color: #64748b;">Clients</div>
-                  </div>
-                </div>
-
-                <!-- Recent Invoices Table -->
-                <div style="background: #0f172a; border-radius: 6px; padding: 8px; border: 1px solid var(--border-subtle);">
-                  <div style="font-size: 0.68rem; color: #64748b; margin-bottom: 6px; font-weight: 700;">RECENT INVOICES</div>
-                  <div id="desktop-invoice-list" style="font-size: 0.68rem; line-height: 1.8;">
-                    <div style="display: flex; justify-content: space-between; color: #cbd5e1;"><span>#INV-0341 · Sharma Enterprises</span><span style="color: #10b981;">₹24,500 ✓</span></div>
-                    <div style="display: flex; justify-content: space-between; color: #cbd5e1;"><span>#INV-0340 · CloudNova Solutions</span><span style="color: #10b981;">₹18,200 ✓</span></div>
-                    <div style="display: flex; justify-content: space-between; color: #cbd5e1;"><span>#INV-0339 · Patel & Associates</span><span style="color: #f59e0b;">₹31,800 ⏳</span></div>
-                  </div>
+                <span id="desktop-app-title" style="font-size: 0.7rem; color: #cbd5e1; font-weight: 600;">
+                  <i class="fa-solid fa-cube" style="color: #f59e0b; margin-right: 4px;"></i>PixelToCloud Desktop OS — <span id="desktop-os-label" style="color: #38bdf8;">Windows 11</span>
+                </span>
+                <div style="display: flex; gap: 8px; color: #64748b; font-size: 0.68rem;">
+                  <i class="fa-solid fa-shield" style="color: #10b981;" title="Sandboxed Execution"></i>
+                  <i class="fa-solid fa-wifi" style="color: #38bdf8;" title="Local Network Active"></i>
                 </div>
               </div>
 
-              <!-- Status Bar -->
-              <div id="desktop-status-bar" style="padding: 4px 12px; background: #0f172a; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; font-size: 0.62rem; color: #475569;">
-                <span>Ready · SQLite Connected</span>
-                <span id="desktop-cpu-mem">CPU: 2.1% · RAM: 48 MB</span>
+              <!-- Interactive Functional Menu Bar with Dropdowns -->
+              <div class="desktop-menu-bar" id="desktop-menu-bar">
+                <div class="desktop-menu-item" data-menu="file">
+                  <span>File</span>
+                  <div class="desktop-dropdown" id="menu-dropdown-file">
+                    <div class="desktop-dropdown-item" data-action="new-invoice"><span><i class="fa-solid fa-file-circle-plus" style="margin-right: 6px; color:#3b82f6;"></i>New Invoice</span><span style="color:#64748b;">Ctrl+N</span></div>
+                    <div class="desktop-dropdown-item" data-action="export-pdf"><span><i class="fa-solid fa-file-pdf" style="margin-right: 6px; color:#ef4444;"></i>Print PDF</span><span style="color:#64748b;">Ctrl+P</span></div>
+                    <div class="desktop-dropdown-divider"></div>
+                    <div class="desktop-dropdown-item" data-action="restart-app"><span><i class="fa-solid fa-rotate-right" style="margin-right: 6px; color:#10b981;"></i>Reload App</span><span style="color:#64748b;">F5</span></div>
+                  </div>
+                </div>
+
+                <div class="desktop-menu-item" data-menu="edit">
+                  <span>Edit</span>
+                  <div class="desktop-dropdown" id="menu-dropdown-edit">
+                    <div class="desktop-dropdown-item" data-action="undo"><span><i class="fa-solid fa-rotate-left" style="margin-right: 6px; color:#f59e0b;"></i>Undo</span><span style="color:#64748b;">Ctrl+Z</span></div>
+                    <div class="desktop-dropdown-item" data-action="sample-data"><span><i class="fa-solid fa-table" style="margin-right: 6px; color:#3b82f6;"></i>Generate Demo Data</span><span style="color:#64748b;">Ctrl+D</span></div>
+                    <div class="desktop-dropdown-divider"></div>
+                    <div class="desktop-dropdown-item" data-action="clear-data"><span><i class="fa-solid fa-trash" style="margin-right: 6px; color:#ef4444;"></i>Clear All Rows</span><span style="color:#64748b;">Del</span></div>
+                  </div>
+                </div>
+
+                <div class="desktop-menu-item" data-menu="view">
+                  <span>View</span>
+                  <div class="desktop-dropdown" id="menu-dropdown-view">
+                    <div class="desktop-dropdown-item" data-action="toggle-fullscreen"><span><i class="fa-solid fa-expand" style="margin-right: 6px; color:#38bdf8;"></i>Toggle Fullscreen</span><span style="color:#64748b;">F11</span></div>
+                    <div class="desktop-dropdown-item" data-action="toggle-theme"><span><i class="fa-solid fa-moon" style="margin-right: 6px; color:#8b5cf6;"></i>Matrix / Dark Theme</span><span style="color:#64748b;">Ctrl+T</span></div>
+                  </div>
+                </div>
+
+                <div class="desktop-menu-item" data-menu="apps">
+                  <span style="color: #f59e0b; font-weight: 700;">Apps ▾</span>
+                  <div class="desktop-dropdown" id="menu-dropdown-apps">
+                    <div class="desktop-dropdown-item" data-switch-subtab="invoice"><span><i class="fa-solid fa-file-invoice-dollar" style="margin-right: 6px; color:#3b82f6;"></i>InvoicePro POS</span><span style="color:#64748b;">1</span></div>
+                    <div class="desktop-dropdown-item" data-switch-subtab="calc"><span><i class="fa-solid fa-calculator" style="margin-right: 6px; color:#f59e0b;"></i>QuickCalc Pro</span><span style="color:#64748b;">2</span></div>
+                    <div class="desktop-dropdown-item" data-switch-subtab="game"><span><i class="fa-solid fa-gamepad" style="margin-right: 6px; color:#10b981;"></i>Cyber Space Dodger</span><span style="color:#64748b;">3</span></div>
+                    <div class="desktop-dropdown-item" data-switch-subtab="sqlite"><span><i class="fa-solid fa-database" style="margin-right: 6px; color:#8b5cf6;"></i>SQLite Studio</span><span style="color:#64748b;">4</span></div>
+                  </div>
+                </div>
+
+                <div class="desktop-menu-item" data-menu="help">
+                  <span>Help</span>
+                  <div class="desktop-dropdown" id="menu-dropdown-help">
+                    <div class="desktop-dropdown-item" data-action="about-desktop"><span><i class="fa-solid fa-circle-info" style="margin-right: 6px; color:#38bdf8;"></i>About Tauri Architecture</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Desktop App Switcher Subtabs -->
+              <div class="desktop-subtabs-bar">
+                <button class="desktop-subtab-btn active" data-subtab="invoice"><i class="fa-solid fa-file-invoice-dollar"></i><span>InvoicePro</span></button>
+                <button class="desktop-subtab-btn" data-subtab="calc"><i class="fa-solid fa-calculator"></i><span>QuickCalc</span></button>
+                <button class="desktop-subtab-btn" data-subtab="game"><i class="fa-solid fa-gamepad"></i><span>Cyber Arcade</span></button>
+                <button class="desktop-subtab-btn" data-subtab="sqlite"><i class="fa-solid fa-database"></i><span>SQLite Studio</span></button>
+              </div>
+
+              <!-- App Stage Body -->
+              <div id="desktop-app-body" style="padding: 12px; min-height: 240px;">
+                <!-- Rendered dynamically by js/services-hub.js -->
+              </div>
+
+              <!-- Functional Status Bar -->
+              <div id="desktop-status-bar" style="padding: 4px 12px; background: #090d16; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; font-size: 0.62rem; color: #64748b; font-family: var(--font-mono);">
+                <span id="desktop-status-msg" style="color: #10b981;"><i class="fa-solid fa-circle-check" style="margin-right: 4px;"></i>Ready · SQLite DB Connected</span>
+                <span id="desktop-cpu-mem">CPU: 1.8% · RAM: 38 MB</span>
               </div>
             </div>
 
-            <!-- Desktop Action Buttons -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
-              <button class="btn-magnetic btn-secondary" id="desktop-new-invoice-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-file-invoice" style="margin-right: 4px;"></i>New Invoice</span>
+            <!-- Quick Action Triggers -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 10px;">
+              <button class="btn-magnetic btn-secondary" id="desktop-quick-invoice-btn" style="padding: 7px 8px; font-size: 0.72rem;">
+                <span><i class="fa-solid fa-plus" style="margin-right: 4px;"></i>Add Invoice</span>
               </button>
-              <button class="btn-magnetic btn-primary" id="desktop-export-btn" style="padding: 8px; font-size: 0.75rem;">
-                <span><i class="fa-solid fa-print" style="margin-right: 4px;"></i>Print PDF</span>
+              <button class="btn-magnetic btn-secondary" id="desktop-quick-calc-btn" style="padding: 7px 8px; font-size: 0.72rem;">
+                <span><i class="fa-solid fa-calculator" style="margin-right: 4px; color: #f59e0b;"></i>Open Calc</span>
+              </button>
+              <button class="btn-magnetic btn-primary" id="desktop-quick-game-btn" style="padding: 7px 8px; font-size: 0.72rem;">
+                <span><i class="fa-solid fa-play" style="margin-right: 4px; color: #10b981;"></i>Play Game</span>
               </button>
             </div>
           </div>
@@ -2689,22 +2695,22 @@
   </div>
 
   <!-- Scripts with Cache-Busting Versioning -->
-  <script src="js/i18n.js?v=17.2"></script>
-  <script src="js/canvas-hero.js?v=17.2"></script>
-  <script src="js/magnetic-cards.js?v=17.2"></script>
-  <script src="js/services-hub.js?v=17.2"></script>
-  <script src="js/micro-sandboxes.js?v=17.2"></script>
-  <script src="js/before-after.js?v=17.2"></script>
-  <script src="js/roi-calculator.js?v=17.2"></script>
-  <script src="js/portfolio.js?v=17.2"></script>
-  <script src="js/estimator.js?v=17.2"></script>
-  <script src="js/terminal.js?v=17.2"></script>
-  <script src="js/system-topology.js?v=17.2"></script>
-  <script src="js/tech-stack.js?v=17.2"></script>
-  <script src="js/api-lab.js?v=17.2"></script>
-  <script src="js/ai-advisor.js?v=17.2"></script>
-  <script src="js/scheduler.js?v=17.2"></script>
-  <script src="js/founder-avatars.js?v=17.2"></script>
-  <script src="js/app.js?v=17.2"></script>
+  <script src="js/i18n.js?v=18.2"></script>
+  <script src="js/canvas-hero.js?v=18.2"></script>
+  <script src="js/magnetic-cards.js?v=18.2"></script>
+  <script src="js/services-hub.js?v=18.2"></script>
+  <script src="js/micro-sandboxes.js?v=18.2"></script>
+  <script src="js/before-after.js?v=18.2"></script>
+  <script src="js/roi-calculator.js?v=18.2"></script>
+  <script src="js/portfolio.js?v=18.2"></script>
+  <script src="js/estimator.js?v=18.2"></script>
+  <script src="js/terminal.js?v=18.2"></script>
+  <script src="js/system-topology.js?v=18.2"></script>
+  <script src="js/tech-stack.js?v=18.2"></script>
+  <script src="js/api-lab.js?v=18.2"></script>
+  <script src="js/ai-advisor.js?v=18.2"></script>
+  <script src="js/scheduler.js?v=18.2"></script>
+  <script src="js/founder-avatars.js?v=18.2"></script>
+  <script src="js/app.js?v=18.2"></script>
 </body>
 </html>

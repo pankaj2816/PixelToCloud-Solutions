@@ -692,257 +692,14 @@ Digital Signer: PixelToCloud Automated Compliance Engine
     ctx.shadowBlur = 0;
   }
 
-  // =================================================================
-  // 8. MOBILE APP DEVELOPMENT LAB
-  // =================================================================
-  initMobileLab() {
-    // Platform toggle (Android / iOS)
-    document.querySelectorAll('.mobile-platform-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.mobile-platform-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const platform = btn.getAttribute('data-platform');
-        const frame = document.getElementById('mobile-phone-frame');
-        const timeDisplay = document.getElementById('mobile-time-display');
-        if (platform === 'ios') {
-          if (frame) frame.style.borderColor = 'rgba(255,255,255,0.3)';
-          if (frame) frame.style.borderRadius = '36px';
-          if (timeDisplay) timeDisplay.textContent = '9:41 AM';
-        } else {
-          if (frame) frame.style.borderColor = 'rgba(59, 130, 246, 0.4)';
-          if (frame) frame.style.borderRadius = '28px';
-          if (timeDisplay) timeDisplay.textContent = '09:41';
-        }
-      });
-    });
-
-    // Bottom nav screen switching
-    document.querySelectorAll('.mobile-bottom-nav-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.mobile-bottom-nav-btn').forEach(b => {
-          b.classList.remove('active-nav');
-          b.style.color = '#64748b';
-        });
-        btn.classList.add('active-nav');
-        btn.style.color = '#3b82f6';
-        const screen = btn.getAttribute('data-screen');
-        this.showMobileScreen(screen);
-      });
-    });
-
-    // Mini card taps
-    document.querySelectorAll('.mobile-mini-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const screen = card.getAttribute('data-screen');
-        this.showMobileScreen(screen);
-      });
-    });
-
-    // Push notification button
-    const pushBtn = document.getElementById('mobile-push-btn');
-    if (pushBtn) {
-      pushBtn.addEventListener('click', () => {
-        const appScreen = document.getElementById('mobile-app-screen');
-        if (!appScreen) return;
-        const notification = document.createElement('div');
-        notification.style.cssText = 'position:absolute;top:0;left:0;right:0;background:rgba(59,130,246,0.95);color:white;padding:10px 14px;font-size:0.72rem;font-family:var(--font-sans);display:flex;align-items:center;gap:8px;z-index:10;animation:slideDown 0.3s ease;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.2);';
-        notification.innerHTML = '<i class="fa-solid fa-bell" style="font-size:0.9rem;"></i><div><strong>New Order #1248</strong><br><span style="font-size:0.65rem;opacity:0.85;">Sharma Enterprises placed ₹24,500 order</span></div>';
-        appScreen.appendChild(notification);
-        setTimeout(() => notification.remove(), 3000);
-      });
-    }
-
-    // GPS tracking button
-    const gpsBtn = document.getElementById('mobile-gps-btn');
-    if (gpsBtn) {
-      gpsBtn.addEventListener('click', () => {
-        const appScreen = document.getElementById('mobile-app-screen');
-        if (!appScreen) return;
-        const gpsOverlay = document.createElement('div');
-        gpsOverlay.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;z-index:10;animation:fadeIn 0.3s ease;';
-        gpsOverlay.innerHTML = '<div style="text-align:center;"><i class="fa-solid fa-location-crosshairs" style="font-size:2rem;color:#10b981;animation:pulse 1s infinite;"></i><div style="margin-top:8px;font-size:0.75rem;color:#10b981;font-family:var(--font-sans);font-weight:700;">Tracking Live Location</div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">28.6139°N, 77.2090°E</div></div>';
-        appScreen.appendChild(gpsOverlay);
-        setTimeout(() => gpsOverlay.remove(), 2500);
-      });
-    }
-  }
-
-  showMobileScreen(screenId) {
-    const appScreen = document.getElementById('mobile-app-screen');
-    if (!appScreen) return;
-
-    const screens = {
-      home: `<div id="mobile-screen-home" class="mobile-screen active-screen">
-        <div style="text-align:center;margin-bottom:16px;">
-          <div style="width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:white;box-shadow:0 4px 15px rgba(59,130,246,0.4);"><i class="fa-solid fa-store"></i></div>
-          <div style="font-size:0.85rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">ShopPulse</div>
-          <div style="font-size:0.65rem;color:#64748b;margin-top:2px;">v2.4.1 · React Native</div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div class="mobile-mini-card" data-screen="orders" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-box" style="color:#3b82f6;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Orders</span><div style="font-size:1rem;font-weight:800;color:#3b82f6;">1,247</div></div>
-          <div class="mobile-mini-card" data-screen="analytics" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-chart-line" style="color:#10b981;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Revenue</span><div style="font-size:1rem;font-weight:800;color:#10b981;">₹4.2L</div></div>
-          <div class="mobile-mini-card" data-screen="notifications" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-bell" style="color:#f59e0b;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Alerts</span><div style="font-size:1rem;font-weight:800;color:#f59e0b;">18</div></div>
-          <div class="mobile-mini-card" data-screen="profile" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.25);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;"><i class="fa-solid fa-fingerprint" style="color:#8b5cf6;font-size:1.1rem;margin-bottom:4px;display:block;"></i><span style="font-size:0.7rem;color:#cbd5e1;">Biometric</span><div style="font-size:0.72rem;font-weight:700;color:#8b5cf6;">Enabled</div></div>
-        </div>
-      </div>`,
-      orders: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-box" style="color:#3b82f6;margin-right:6px;"></i>Live Orders</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1247</span><span style="color:#10b981;font-size:0.65rem;">Delivered ✓</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">Sharma Enterprises · ₹24,500</div></div>
-          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1246</span><span style="color:#f59e0b;font-size:0.65rem;">In Transit 🚚</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">CloudNova Pvt Ltd · ₹18,200</div></div>
-          <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;"><div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#f8fafc;font-weight:600;">#ORD-1245</span><span style="color:#8b5cf6;font-size:0.65rem;">Processing ⏳</span></div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">Patel & Associates · ₹31,800</div></div>
-        </div></div>`,
-      analytics: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-chart-line" style="color:#10b981;margin-right:6px;"></i>Revenue Analytics</div>
-        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:14px;margin-bottom:10px;text-align:center;"><div style="font-size:1.6rem;font-weight:800;color:#10b981;font-family:var(--font-sans);">₹4,21,580</div><div style="font-size:0.65rem;color:#64748b;margin-top:2px;">This Month Revenue · <span style="color:#10b981;">↑ 23.4%</span></div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:0.95rem;font-weight:700;color:#3b82f6;">847</div><div style="font-size:0.6rem;color:#64748b;">Total Users</div></div>
-          <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:0.95rem;font-weight:700;color:#f59e0b;">4.8★</div><div style="font-size:0.6rem;color:#64748b;">App Rating</div></div>
-        </div></div>`,
-      notifications: `<div style="animation:fadeIn 0.3s ease;"><div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);margin-bottom:12px;"><i class="fa-solid fa-bell" style="color:#f59e0b;margin-right:6px;"></i>Notifications</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <div style="background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">New order received</div><div style="font-size:0.6rem;color:#64748b;">2 min ago · Order #1248</div></div>
-          <div style="background:rgba(16,185,129,0.08);border-left:3px solid #10b981;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Payment confirmed</div><div style="font-size:0.6rem;color:#64748b;">15 min ago · ₹24,500</div></div>
-          <div style="background:rgba(59,130,246,0.08);border-left:3px solid #3b82f6;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">App update available</div><div style="font-size:0.6rem;color:#64748b;">1 hour ago · v2.4.2</div></div>
-          <div style="background:rgba(139,92,246,0.08);border-left:3px solid #8b5cf6;padding:8px 10px;border-radius:0 8px 8px 0;"><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Weekly report ready</div><div style="font-size:0.6rem;color:#64748b;">3 hours ago</div></div>
-        </div></div>`,
-      profile: `<div style="animation:fadeIn 0.3s ease;text-align:center;">
-        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#3b82f6);margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;box-shadow:0 4px 20px rgba(139,92,246,0.4);"><i class="fa-solid fa-user"></i></div>
-        <div style="font-size:0.9rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Admin User</div>
-        <div style="font-size:0.65rem;color:#64748b;margin-top:2px;">admin@shoppulse.app</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;text-align:left;">
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:10px;"><i class="fa-solid fa-fingerprint" style="color:#10b981;"></i><div><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Biometric Auth</div><div style="font-size:0.6rem;color:#10b981;">Face ID + Fingerprint Active</div></div></div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:10px;"><i class="fa-solid fa-cloud-arrow-up" style="color:#3b82f6;"></i><div><div style="font-size:0.72rem;color:#f8fafc;font-weight:600;">Cloud Sync</div><div style="font-size:0.6rem;color:#3b82f6;">Last synced 12s ago</div></div></div>
-        </div></div>`
-    };
-
-    const html = screens[screenId] || screens.home;
-    appScreen.style.opacity = '0';
-    setTimeout(() => {
-      appScreen.innerHTML = html;
-      appScreen.style.opacity = '1';
-      appScreen.style.transition = 'opacity 0.25s ease';
-      // Re-bind mini card taps
-      appScreen.querySelectorAll('.mobile-mini-card').forEach(card => {
-        card.addEventListener('click', () => this.showMobileScreen(card.getAttribute('data-screen')));
-      });
-    }, 150);
-  }
-
-  // =================================================================
-  // 9. AI & MACHINE LEARNING LAB
-  // =================================================================
-  initAILab() {
-    // Sentiment Analysis
-    const analyzeBtn = document.getElementById('ai-analyze-btn');
-    const sentimentInput = document.getElementById('ai-sentiment-input');
-    const sentimentResult = document.getElementById('ai-sentiment-result');
-
-    const analyzeSentiment = () => {
-      if (!sentimentInput || !sentimentResult) return;
-      const text = sentimentInput.value.trim();
-      if (!text) return;
-
-      const positiveWords = ['good','great','love','amazing','excellent','happy','wonderful','fantastic','awesome','best','beautiful','nice','perfect','thank','brilliant','superb','outstanding'];
-      const negativeWords = ['bad','terrible','hate','awful','worst','horrible','ugly','poor','slow','broken','fail','error','crash','annoying','useless','disappointing','waste'];
-
-      const words = text.toLowerCase().split(/\s+/);
-      let posCount = 0, negCount = 0;
-      words.forEach(w => {
-        if (positiveWords.some(p => w.includes(p))) posCount++;
-        if (negativeWords.some(n => w.includes(n))) negCount++;
-      });
-
-      let sentiment, emoji, color, confidence;
-      if (posCount > negCount) {
-        sentiment = 'POSITIVE'; emoji = '😊'; color = '#10b981';
-        confidence = Math.min(95, 60 + posCount * 12);
-      } else if (negCount > posCount) {
-        sentiment = 'NEGATIVE'; emoji = '😞'; color = '#ef4444';
-        confidence = Math.min(95, 60 + negCount * 12);
-      } else {
-        sentiment = 'NEUTRAL'; emoji = '😐'; color = '#f59e0b';
-        confidence = 55 + Math.floor(Math.random() * 20);
-      }
-
-      sentimentResult.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span style="font-size:1.4rem;">${emoji}</span>
-            <div>
-              <div style="font-size:0.82rem;font-weight:700;color:${color};">${sentiment}</div>
-              <div style="font-size:0.65rem;color:#64748b;">Confidence: ${confidence}%</div>
-            </div>
-          </div>
-          <div style="width:60px;height:60px;border-radius:50%;border:3px solid ${color};display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:0.82rem;font-weight:800;color:${color};">${confidence}%</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;">
-          <div style="height:100%;width:${confidence}%;background:${color};border-radius:3px;transition:width 0.5s ease;"></div>
-        </div>`;
-    };
-
-    if (analyzeBtn) analyzeBtn.addEventListener('click', analyzeSentiment);
-    if (sentimentInput) sentimentInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') analyzeSentiment(); });
-
-    // Train Model button
-    const trainBtn = document.getElementById('ai-train-btn');
-    if (trainBtn) {
-      trainBtn.addEventListener('click', () => {
-        const statusEl = document.getElementById('ai-model-status');
-        if (statusEl) {
-          statusEl.textContent = 'TRAINING...';
-          statusEl.style.color = '#f59e0b';
-          statusEl.style.borderColor = 'rgba(245,158,11,0.3)';
-          statusEl.style.background = 'rgba(245,158,11,0.1)';
-        }
-        let epoch = 0;
-        const maxEpochs = 10;
-        const interval = setInterval(() => {
-          epoch++;
-          const loss = (1.0 - epoch / maxEpochs * 0.85).toFixed(4);
-          const acc = (epoch / maxEpochs * 94.2 + Math.random() * 4).toFixed(1);
-          if (sentimentResult) {
-            sentimentResult.innerHTML = `<div style="font-size:0.72rem;color:#f59e0b;">
-              <i class="fa-solid fa-dna" style="margin-right:4px;animation:pulse 0.5s infinite;"></i>Epoch ${epoch}/${maxEpochs} · Loss: ${loss} · Accuracy: ${acc}%
-              <div style="margin-top:6px;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${epoch/maxEpochs*100}%;background:linear-gradient(90deg,#f59e0b,#10b981);border-radius:3px;transition:width 0.3s;"></div></div>
-            </div>`;
-          }
-          if (epoch >= maxEpochs) {
-            clearInterval(interval);
-            if (statusEl) {
-              statusEl.textContent = 'MODEL READY';
-              statusEl.style.color = '#10b981';
-              statusEl.style.borderColor = 'rgba(16,185,129,0.3)';
-              statusEl.style.background = 'rgba(16,185,129,0.1)';
-            }
-            if (sentimentResult) {
-              sentimentResult.innerHTML = `<div style="color:#10b981;font-size:0.75rem;"><i class="fa-solid fa-check-circle" style="margin-right:4px;"></i>Training complete! Model accuracy: 97.8% · Ready for inference.</div>`;
-            }
-          }
-        }, 400);
-      });
-    }
-
-    // Predict button
-    const predictBtn = document.getElementById('ai-predict-btn');
-    if (predictBtn) {
-      predictBtn.addEventListener('click', () => {
-        const predictions = [
-          { label: 'Customer Churn', prob: '12.4%', color: '#ef4444', icon: 'fa-user-minus' },
-          { label: 'Revenue Growth', prob: '87.6%', color: '#10b981', icon: 'fa-chart-line' },
-          { label: 'Peak Traffic Hour', prob: '2:00 PM', color: '#3b82f6', icon: 'fa-clock' },
-          { label: 'Best Product', prob: 'Widget Pro', color: '#8b5cf6', icon: 'fa-star' }
-        ];
-        if (sentimentResult) {
-          sentimentResult.innerHTML = `<div style="font-size:0.7rem;color:#8b5cf6;margin-bottom:6px;font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:4px;"></i>PREDICTION RESULTS</div>` +
-            predictions.map(p => `<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.7rem;"><span style="color:#94a3b8;"><i class="fa-solid ${p.icon}" style="color:${p.color};margin-right:6px;width:14px;"></i>${p.label}</span><span style="color:${p.color};font-weight:700;">${p.prob}</span></div>`).join('');
-        }
-      });
-    }
-  }
-
   // Neural Network Canvas Renderer
   renderNeuralNetwork(time) {
+    if (!this.neuralCanvas) {
+      this.neuralCanvas = document.getElementById('service-neural-canvas');
+      this.neuralCtx = this.neuralCanvas ? this.neuralCanvas.getContext('2d') : null;
+    }
+    if (!this.neuralCtx || !this.neuralCanvas) return;
+
     const ctx = this.neuralCtx;
     const w = this.neuralCanvas.width;
     const h = this.neuralCanvas.height;
@@ -975,8 +732,8 @@ Digital Signer: PixelToCloud Automated Compliance Engine
           const n1 = nodes[li][a];
           const n2 = nodes[li + 1][b];
           const strength = (n1.activation + n2.activation) / 2;
-          ctx.strokeStyle = `rgba(139, 92, 246, ${strength * 0.35})`;
-          ctx.lineWidth = strength * 1.5;
+          ctx.strokeStyle = `rgba(139, 92, 246, ${strength * 0.4})`;
+          ctx.lineWidth = strength * 1.8;
           ctx.beginPath();
           ctx.moveTo(n1.x, n1.y);
           ctx.lineTo(n2.x, n2.y);
@@ -994,7 +751,7 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
         ctx.fillStyle = colors[li];
         ctx.shadowColor = colors[li];
-        ctx.shadowBlur = node.activation * 12;
+        ctx.shadowBlur = node.activation * 14;
         ctx.fill();
         ctx.shadowBlur = 0;
       });
@@ -1002,86 +759,1173 @@ Digital Signer: PixelToCloud Automated Compliance Engine
 
     // Layer labels
     ctx.font = '9px monospace';
-    ctx.fillStyle = '#475569';
+    ctx.fillStyle = '#64748b';
     ctx.textAlign = 'center';
-    const labels = ['Input', 'Hidden 1', 'Hidden 2', 'Output'];
-    layerX.forEach((x, i) => ctx.fillText(labels[i], x, h - 5));
+    const labels = ['Input', 'Dense 1', 'Dense 2', 'Output'];
+    layerX.forEach((x, i) => ctx.fillText(labels[i], x, h - 4));
   }
 
   // =================================================================
-  // 10. DESKTOP SOFTWARE LAB
+  // 8. MOBILE APP DEVELOPMENT LAB (FLAGSHIP SMARTPHONE STUDIO)
   // =================================================================
-  initDesktopLab() {
-    // OS toggle
-    const osLabels = { windows: 'Windows 11', macos: 'macOS Sonoma', linux: 'Ubuntu 24.04 LTS' };
-    document.querySelectorAll('.desktop-os-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.desktop-os-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const os = btn.getAttribute('data-os');
-        const osLabel = document.getElementById('desktop-os-label');
-        if (osLabel) osLabel.textContent = osLabels[os] || 'Windows 11';
+  initMobileLab() {
+    this.mobileCartCount = 2;
+    this.mobileWalletBalance = 184520;
+    this.mobileCurrentScreen = 'store';
+    this.mobilePlatform = 'ios';
 
-        // Adjust window chrome style
-        const titleBar = document.getElementById('desktop-title-bar');
-        const frame = document.getElementById('desktop-window-frame');
-        if (os === 'macos') {
-          if (frame) frame.style.borderColor = 'rgba(255,255,255,0.15)';
-          if (frame) frame.style.borderRadius = '12px';
-        } else if (os === 'linux') {
-          if (frame) frame.style.borderColor = 'rgba(16,185,129,0.3)';
-          if (frame) frame.style.borderRadius = '8px';
+    // Platform toggle (iOS 18 Pro / Android 15)
+    document.querySelectorAll('.mobile-platform-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-platform-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.mobilePlatform = btn.getAttribute('data-platform') || 'ios';
+        const frame = document.getElementById('mobile-phone-frame');
+        const timeDisplay = document.getElementById('mobile-time-display');
+        const island = document.getElementById('mobile-dynamic-island');
+        if (this.mobilePlatform === 'ios') {
+          if (frame) {
+            frame.style.borderColor = 'rgba(255, 255, 255, 0.28)';
+            frame.style.borderRadius = '36px';
+          }
+          if (timeDisplay) timeDisplay.textContent = '9:41 AM';
+          if (island) island.style.display = 'flex';
         } else {
-          if (frame) frame.style.borderColor = 'rgba(245,158,11,0.3)';
-          if (frame) frame.style.borderRadius = '10px';
+          if (frame) {
+            frame.style.borderColor = 'rgba(59, 130, 246, 0.45)';
+            frame.style.borderRadius = '26px';
+          }
+          if (timeDisplay) timeDisplay.textContent = '09:41';
+          if (island) island.style.display = 'flex';
         }
       });
     });
 
-    // New Invoice button
-    const newInvBtn = document.getElementById('desktop-new-invoice-btn');
-    if (newInvBtn) {
-      newInvBtn.addEventListener('click', () => {
-        const invList = document.getElementById('desktop-invoice-list');
-        const invMetric = document.getElementById('desktop-metric-invoices');
-        if (!invList) return;
-        const invNum = 342 + Math.floor(Math.random() * 100);
-        const clients = ['TechVista Corp', 'Aurora Digital', 'Nexgen Systems', 'Prism Analytics', 'Quantum Labs'];
-        const client = clients[Math.floor(Math.random() * clients.length)];
-        const amount = (Math.floor(Math.random() * 50) + 10) * 1000;
-        const newRow = document.createElement('div');
-        newRow.style.cssText = 'display:flex;justify-content:space-between;color:#cbd5e1;animation:fadeIn 0.3s ease;';
-        newRow.innerHTML = `<span>#INV-0${invNum} · ${client}</span><span style="color:#8b5cf6;">₹${amount.toLocaleString('en-IN')} ★</span>`;
-        invList.insertBefore(newRow, invList.firstChild);
-        if (invMetric) invMetric.textContent = parseInt(invMetric.textContent) + 1;
-        // Animate CPU spike
-        const cpuMem = document.getElementById('desktop-cpu-mem');
-        if (cpuMem) {
-          cpuMem.textContent = `CPU: ${(2 + Math.random() * 8).toFixed(1)}% · RAM: ${48 + Math.floor(Math.random() * 20)} MB`;
-          setTimeout(() => cpuMem.textContent = `CPU: ${(1 + Math.random() * 3).toFixed(1)}% · RAM: 48 MB`, 2000);
+    // Dynamic Island Tap to Expand / Collapse
+    const dynamicIsland = document.getElementById('mobile-dynamic-island');
+    if (dynamicIsland) {
+      dynamicIsland.addEventListener('click', () => {
+        dynamicIsland.classList.toggle('expanded');
+        if (dynamicIsland.classList.contains('expanded')) {
+          dynamicIsland.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;color:white;font-size:0.75rem;"><i class="fa-solid fa-truck-fast"></i></div>
+                <div>
+                  <div style="font-size:0.68rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Order #1248 on Route</div>
+                  <div style="font-size:0.58rem;color:#94a3b8;">Arriving in 14 mins · 2.4 km</div>
+                </div>
+              </div>
+              <span style="color:#10b981;font-size:0.65rem;font-weight:700;">Live 🟢</span>
+            </div>
+          `;
+        } else {
+          dynamicIsland.innerHTML = `
+            <div style="display:flex;align-items:center;gap:6px;">
+              <i class="fa-solid fa-bag-shopping" style="color:#10b981;font-size:0.65rem;"></i>
+              <span id="island-text" style="font-size:0.62rem;font-family:var(--font-sans);font-weight:600;">ShopPulse</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;">
+              <span class="live-status-dot" style="width:5px;height:5px;background:#10b981;"></span>
+              <i class="fa-solid fa-chevron-down" style="font-size:0.55rem;opacity:0.6;"></i>
+            </div>
+          `;
         }
       });
     }
 
-    // Print PDF button
-    const exportBtn = document.getElementById('desktop-export-btn');
-    if (exportBtn) {
-      exportBtn.addEventListener('click', () => {
-        const statusBar = document.getElementById('desktop-status-bar');
-        if (statusBar) {
-          const origHTML = statusBar.innerHTML;
-          statusBar.querySelector('span').textContent = '⏳ Generating PDF...';
-          statusBar.querySelector('span').style.color = '#f59e0b';
+    // Bottom Navigation Bar Switching
+    document.querySelectorAll('.mobile-bottom-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-bottom-nav-btn').forEach(b => {
+          b.classList.remove('active-nav');
+          b.style.color = '#64748b';
+        });
+        btn.classList.add('active-nav');
+        btn.style.color = '#3b82f6';
+        const screen = btn.getAttribute('data-screen');
+        this.renderMobileScreen(screen);
+      });
+    });
+
+    // Quick Trigger: Push Notification
+    const pushBtn = document.getElementById('mobile-push-btn');
+    if (pushBtn) {
+      pushBtn.addEventListener('click', () => {
+        const appScreen = document.getElementById('mobile-app-screen');
+        if (!appScreen) return;
+        const banner = document.createElement('div');
+        banner.style.cssText = 'position:absolute;top:4px;left:8px;right:8px;background:rgba(15,23,42,0.95);border:1px solid rgba(59,130,246,0.5);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px;z-index:20;box-shadow:0 10px 25px rgba(0,0,0,0.8);backdrop-filter:blur(12px);animation:slideDown 0.3s cubic-bezier(0.16,1,0.3,1);';
+        banner.innerHTML = `
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;color:white;font-size:0.9rem;flex-shrink:0;"><i class="fa-solid fa-bell"></i></div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><strong style="font-size:0.72rem;color:#f8fafc;font-family:var(--font-sans);">ShopPulse Flash Deal</strong><span style="font-size:0.58rem;color:#64748b;">now</span></div>
+            <div style="font-size:0.64rem;color:#cbd5e1;margin-top:2px;">Extra 20% OFF on all React Native suites! Code: <code>SPEED20</code></div>
+          </div>
+        `;
+        appScreen.appendChild(banner);
+        setTimeout(() => {
+          banner.style.opacity = '0';
+          banner.style.transform = 'translateY(-20px)';
+          banner.style.transition = 'all 0.3s ease';
+          setTimeout(() => banner.remove(), 300);
+        }, 3500);
+      });
+    }
+
+    // Quick Trigger: Apple Pay / GPay Sheet
+    const paySheetBtn = document.getElementById('mobile-pay-sheet-btn');
+    if (paySheetBtn) {
+      paySheetBtn.addEventListener('click', () => {
+        this.triggerMobilePayModal();
+      });
+    }
+
+    // Initial Screen
+    this.renderMobileScreen('store');
+  }
+
+  renderMobileScreen(screenId) {
+    this.mobileCurrentScreen = screenId;
+    const container = document.getElementById('mobile-app-screen');
+    if (!container) return;
+
+    if (screenId === 'store') {
+      container.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <div>
+              <div style="font-size:0.88rem;font-weight:800;color:#f8fafc;font-family:var(--font-sans);">ShopPulse Studio</div>
+              <div style="font-size:0.62rem;color:#64748b;">60 FPS Native React Native Store</div>
+            </div>
+            <div id="mobile-cart-badge" style="background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);border-radius:var(--radius-full);padding:4px 8px;font-size:0.68rem;color:#38bdf8;font-weight:700;display:flex;align-items:center;gap:4px;cursor:pointer;" title="View Cart">
+              <i class="fa-solid fa-cart-shopping"></i><span>${this.mobileCartCount} items</span>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:#111827;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:8px;text-align:center;">
+              <div style="font-size:1.6rem;margin-bottom:4px;">👟</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Cyber Runner X</div>
+              <div style="font-size:0.75rem;font-weight:800;color:#38bdf8;margin:2px 0;">₹3,499</div>
+              <button class="mobile-add-cart-btn" data-item="Cyber Runner X" style="width:100%;padding:4px;border-radius:6px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);color:#60a5fa;font-size:0.62rem;font-weight:700;cursor:pointer;margin-top:4px;">+ Add to Cart</button>
+            </div>
+
+            <div style="background:#111827;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:8px;text-align:center;">
+              <div style="font-size:1.6rem;margin-bottom:4px;">⌚</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Quantum Watch</div>
+              <div style="font-size:0.75rem;font-weight:800;color:#10b981;margin:2px 0;">₹8,999</div>
+              <button class="mobile-add-cart-btn" data-item="Quantum Watch" style="width:100%;padding:4px;border-radius:6px;background:rgba(16,185,129,0.2);border:1px solid rgba(16,185,129,0.4);color:#34d399;font-size:0.62rem;font-weight:700;cursor:pointer;margin-top:4px;">+ Add to Cart</button>
+            </div>
+
+            <div style="background:#111827;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:8px;text-align:center;">
+              <div style="font-size:1.6rem;margin-bottom:4px;">🎧</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Sonic Pro ANC</div>
+              <div style="font-size:0.75rem;font-weight:800;color:#a855f7;margin:2px 0;">₹4,299</div>
+              <button class="mobile-add-cart-btn" data-item="Sonic Pro ANC" style="width:100%;padding:4px;border-radius:6px;background:rgba(168,85,247,0.2);border:1px solid rgba(168,85,247,0.4);color:#c084fc;font-size:0.62rem;font-weight:700;cursor:pointer;margin-top:4px;">+ Add to Cart</button>
+            </div>
+
+            <div style="background:#111827;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:8px;text-align:center;">
+              <div style="font-size:1.6rem;margin-bottom:4px;">🛸</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Aero Drone 4K</div>
+              <div style="font-size:0.75rem;font-weight:800;color:#f59e0b;margin:2px 0;">₹14,999</div>
+              <button class="mobile-add-cart-btn" data-item="Aero Drone 4K" style="width:100%;padding:4px;border-radius:6px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.62rem;font-weight:700;cursor:pointer;margin-top:4px;">+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Attach Add-to-cart handlers
+      container.querySelectorAll('.mobile-add-cart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          this.mobileCartCount++;
+          const badge = document.getElementById('mobile-cart-badge');
+          if (badge) {
+            badge.innerHTML = `<i class="fa-solid fa-cart-shopping"></i><span>${this.mobileCartCount} items</span>`;
+            badge.style.transform = 'scale(1.2)';
+            badge.style.transition = 'transform 0.15s ease';
+            setTimeout(() => badge.style.transform = 'scale(1)', 150);
+          }
+          btn.textContent = '✓ Added';
+          btn.style.background = '#10b981';
+          btn.style.color = '#ffffff';
           setTimeout(() => {
-            statusBar.querySelector('span').textContent = '✅ Invoice PDF exported successfully!';
-            statusBar.querySelector('span').style.color = '#10b981';
+            btn.textContent = '+ Add to Cart';
+            btn.style.background = '';
+            btn.style.color = '';
+          }, 1000);
+        });
+      });
+
+      const cartBadge = document.getElementById('mobile-cart-badge');
+      if (cartBadge) {
+        cartBadge.addEventListener('click', () => this.triggerMobilePayModal());
+      }
+    } else if (screenId === 'wallet') {
+      container.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(16,185,129,0.15));border:1px solid rgba(59,130,246,0.3);border-radius:14px;padding:12px;text-align:center;margin-bottom:10px;">
+            <div style="font-size:0.62rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;">Total Portfolio Value</div>
+            <div id="mobile-wallet-balance" style="font-size:1.5rem;font-weight:800;color:#10b981;font-family:var(--font-sans);margin:4px 0;">₹${this.mobileWalletBalance.toLocaleString('en-IN')}</div>
+            <div style="font-size:0.62rem;color:#38bdf8;">+18.4% (₹24,800 this month) 📈</div>
+          </div>
+
+          <!-- Mini Candlestick Sparkline -->
+          <div style="background:#0f172a;border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,0.06);margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#94a3b8;margin-bottom:4px;">
+              <span>BTC/INR Live</span><span style="color:#10b981;">₹54,20,000 ▲</span>
+            </div>
+            <svg viewBox="0 0 200 40" style="width:100%;height:40px;overflow:visible;">
+              <path d="M0,30 Q25,35 50,20 T100,15 T150,25 T200,8" fill="none" stroke="#10b981" stroke-width="2.5"/>
+              <path d="M0,30 Q25,35 50,20 T100,15 T150,25 T200,8 L200,40 L0,40 Z" fill="rgba(16,185,129,0.15)"/>
+            </svg>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <button id="mobile-send-money-btn" style="padding:8px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;color:white;font-size:0.68rem;font-weight:700;cursor:pointer;"><i class="fa-solid fa-paper-plane" style="margin-right:4px;"></i>Send ₹5,000</button>
+            <button id="mobile-receive-money-btn" style="padding:8px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#cbd5e1;font-size:0.68rem;font-weight:700;cursor:pointer;"><i class="fa-solid fa-qrcode" style="margin-right:4px;"></i>QR Receive</button>
+          </div>
+        </div>
+      `;
+
+      const sendBtn = document.getElementById('mobile-send-money-btn');
+      if (sendBtn) {
+        sendBtn.addEventListener('click', () => {
+          this.mobileWalletBalance -= 5000;
+          const balEl = document.getElementById('mobile-wallet-balance');
+          if (balEl) balEl.textContent = `₹${this.mobileWalletBalance.toLocaleString('en-IN')}`;
+          sendBtn.textContent = '✓ Sent ₹5,000';
+          setTimeout(() => sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane" style="margin-right:4px;"></i>Send ₹5,000', 1200);
+        });
+      }
+    } else if (screenId === 'chat') {
+      container.innerHTML = `
+        <div style="display:flex;flex-direction:column;height:100%;animation:fadeIn 0.25s ease;">
+          <div style="font-size:0.75rem;font-weight:700;color:#f8fafc;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+            <span>Founder Architect Chat (Direct)</span>
+          </div>
+
+          <div id="mobile-chat-stream" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:6px;margin-bottom:8px;max-height:220px;">
+            <div style="align-self:flex-start;background:#1e293b;border-radius:10px 10px 10px 2px;padding:6px 10px;font-size:0.65rem;color:#cbd5e1;max-width:85%;">
+              Hi! Welcome to PixelToCloud. Are you planning an iOS, Android, or Full-Stack solution?
+            </div>
+            <div style="align-self:flex-end;background:#2563eb;border-radius:10px 10px 2px 10px;padding:6px 10px;font-size:0.65rem;color:#ffffff;max-width:85%;">
+              Looking for a cross-platform React Native app with payment gateways.
+            </div>
+            <div style="align-self:flex-start;background:#1e293b;border-radius:10px 10px 10px 2px;padding:6px 10px;font-size:0.65rem;color:#cbd5e1;max-width:85%;">
+              We can engineer that with zero-downtime microservices and OTA cloud updates!
+            </div>
+          </div>
+
+          <div style="display:flex;gap:4px;">
+            <input type="text" id="mobile-chat-input" placeholder="Type a message..." style="flex:1;padding:6px 10px;background:#111827;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#f8fafc;font-size:0.68rem;font-family:var(--font-sans);">
+            <button id="mobile-chat-send-btn" style="padding:6px 10px;background:#3b82f6;border:none;border-radius:6px;color:white;cursor:pointer;"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      `;
+
+      const sendMsg = () => {
+        const input = document.getElementById('mobile-chat-input');
+        const stream = document.getElementById('mobile-chat-stream');
+        if (!input || !stream || !input.value.trim()) return;
+        const userBubble = document.createElement('div');
+        userBubble.style.cssText = 'align-self:flex-end;background:#2563eb;border-radius:10px 10px 2px 10px;padding:6px 10px;font-size:0.65rem;color:#ffffff;max-width:85%;animation:fadeIn 0.2s ease;';
+        userBubble.textContent = input.value;
+        stream.appendChild(userBubble);
+        const text = input.value;
+        input.value = '';
+        stream.scrollTop = stream.scrollHeight;
+
+        setTimeout(() => {
+          const botBubble = document.createElement('div');
+          botBubble.style.cssText = 'align-self:flex-start;background:#1e293b;border-radius:10px 10px 10px 2px;padding:6px 10px;font-size:0.65rem;color:#cbd5e1;max-width:85%;animation:fadeIn 0.2s ease;';
+          botBubble.textContent = `Got it! Let's schedule a 15-min discovery sprint. Message us directly on WhatsApp at +91-8219352124!`;
+          stream.appendChild(botBubble);
+          stream.scrollTop = stream.scrollHeight;
+        }, 600);
+      };
+
+      const sendBtn = document.getElementById('mobile-chat-send-btn');
+      const input = document.getElementById('mobile-chat-input');
+      if (sendBtn) sendBtn.addEventListener('click', sendMsg);
+      if (input) input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMsg(); });
+    } else if (screenId === 'biometrics') {
+      container.innerHTML = `
+        <div style="text-align:center;padding:10px 0;animation:fadeIn 0.25s ease;">
+          <div id="bio-scan-mesh" style="width:70px;height:70px;border-radius:50%;border:2px dashed #3b82f6;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#3b82f6;transition:all 0.3s ease;">
+            <i class="fa-solid fa-fingerprint"></i>
+          </div>
+          <div id="bio-scan-status" style="font-size:0.85rem;font-weight:700;color:#f8fafc;font-family:var(--font-sans);">Biometric Security</div>
+          <div style="font-size:0.65rem;color:#64748b;margin:4px 0 16px;">Face ID & Secure Enclave Active</div>
+
+          <button id="bio-scan-trigger-btn" style="padding:8px 16px;border-radius:var(--radius-full);background:linear-gradient(135deg,#3b82f6,#8b5cf6);border:none;color:white;font-size:0.72rem;font-weight:700;cursor:pointer;">
+            <i class="fa-solid fa-expand" style="margin-right:6px;"></i>Simulate Face Scan
+          </button>
+        </div>
+      `;
+
+      const scanBtn = document.getElementById('bio-scan-trigger-btn');
+      if (scanBtn) {
+        scanBtn.addEventListener('click', () => {
+          const mesh = document.getElementById('bio-scan-mesh');
+          const status = document.getElementById('bio-scan-status');
+          if (mesh && status) {
+            mesh.style.borderColor = '#10b981';
+            mesh.style.color = '#10b981';
+            mesh.style.boxShadow = '0 0 25px rgba(16,185,129,0.5)';
+            mesh.innerHTML = '<i class="fa-solid fa-check" style="animation:pulse 0.4s ease;"></i>';
+            status.textContent = 'Authentication Verified ✓';
+            status.style.color = '#10b981';
             setTimeout(() => {
-              statusBar.innerHTML = origHTML;
-            }, 2000);
-          }, 1500);
+              mesh.style.borderColor = '#3b82f6';
+              mesh.style.color = '#3b82f6';
+              mesh.style.boxShadow = '';
+              mesh.innerHTML = '<i class="fa-solid fa-fingerprint"></i>';
+              status.textContent = 'Biometric Security';
+              status.style.color = '#f8fafc';
+            }, 2500);
+          }
+        });
+      }
+    }
+  }
+
+  triggerMobilePayModal() {
+    const appScreen = document.getElementById('mobile-app-screen');
+    if (!appScreen) return;
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:30;display:flex;flex-direction:column;justify-content:flex-end;animation:fadeIn 0.2s ease;';
+    modal.innerHTML = `
+      <div style="background:#111827;border-top:1px solid rgba(255,255,255,0.15);border-radius:20px 20px 0 0;padding:16px;animation:slideUp 0.25s cubic-bezier(0.16,1,0.3,1);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span style="font-size:0.85rem;font-weight:800;color:white;display:flex;align-items:center;gap:6px;">
+            <i class="fa-brands fa-apple" style="font-size:1.1rem;"></i>Apple Pay Instant Checkout
+          </span>
+          <button id="pay-modal-close" style="background:none;border:none;color:#94a3b8;font-size:0.9rem;cursor:pointer;">✕</button>
+        </div>
+        <div style="font-size:0.72rem;color:#cbd5e1;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;"><span>ShopPulse Order Total (${this.mobileCartCount} items)</span><strong style="color:#10b981;">₹12,498</strong></div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;color:#64748b;"><span>Payment Method</span><span>Visa ending in •••• 4242</span></div>
+        </div>
+        <button id="pay-modal-confirm" style="width:100%;padding:10px;border-radius:10px;background:#ffffff;color:#000000;font-weight:800;font-size:0.8rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <i class="fa-solid fa-fingerprint"></i> Double-Click Side Button to Pay
+        </button>
+      </div>
+    `;
+    appScreen.appendChild(modal);
+
+    modal.querySelector('#pay-modal-close').addEventListener('click', () => modal.remove());
+    modal.querySelector('#pay-modal-confirm').addEventListener('click', () => {
+      const confirmBtn = modal.querySelector('#pay-modal-confirm');
+      confirmBtn.innerHTML = '<i class="fa-solid fa-check" style="color:#10b981;"></i> Payment Complete! ₹12,498';
+      confirmBtn.style.background = '#10b981';
+      confirmBtn.style.color = '#ffffff';
+      setTimeout(() => {
+        modal.remove();
+        this.mobileCartCount = 0;
+        this.renderMobileScreen('store');
+      }, 1200);
+    });
+  }
+
+  // =================================================================
+  // 9. AI & MACHINE LEARNING LAB (CREATIVE MULTI-MODAL STUDIO)
+  // =================================================================
+  initAILab() {
+    this.currentAIMode = 'art';
+    this.aiArtSeed = 42891;
+
+    // AI Mode Switcher Buttons
+    document.querySelectorAll('.ai-mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.getAttribute('data-ai-mode') || 'art';
+        this.switchAIMode(mode);
+      });
+    });
+
+    this.switchAIMode('art');
+  }
+
+  switchAIMode(mode) {
+    this.currentAIMode = mode;
+    const stage = document.getElementById('ai-mode-stage');
+    if (!stage) return;
+
+    if (mode === 'art') {
+      stage.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="color:#c084fc;font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:4px;"></i>CREATIVE DIFFUSION GENERATOR</span>
+            <span id="ai-art-seed-badge" style="color:#a855f7;background:rgba(168,85,247,0.1);padding:2px 8px;border-radius:4px;border:1px solid rgba(168,85,247,0.3);font-size:0.65rem;">Seed: #${this.aiArtSeed}</span>
+          </div>
+
+          <!-- Art Canvas Viewport -->
+          <canvas id="ai-art-canvas" width="420" height="150" style="width:100%;height:150px;border-radius:8px;border:1px solid rgba(139,92,246,0.3);background:#050510;margin-bottom:8px;box-shadow:0 0 20px rgba(139,92,246,0.15);"></canvas>
+
+          <!-- Prompt Controls -->
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <input type="text" id="ai-art-prompt-input" value="Cyberpunk Neon Nexus with Quantum Rings" placeholder="Describe any visual prompt..." style="flex:1;padding:7px 10px;background:#0f172a;border:1px solid rgba(139,92,246,0.35);border-radius:6px;color:#f8fafc;font-size:0.75rem;font-family:var(--font-mono);">
+            <button id="ai-generate-art-btn" style="padding:7px 12px;background:linear-gradient(135deg,#8b5cf6,#6366f1);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.72rem;cursor:pointer;white-space:nowrap;">
+              <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>Synthesize
+            </button>
+          </div>
+
+          <!-- Quick Preset Chips -->
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            <button class="ai-prompt-chip" data-prompt="Cyberpunk Neon Nexus with Quantum Rings" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🏙️ Neon City</button>
+            <button class="ai-prompt-chip" data-prompt="Quantum Neural Lotus in Sacred Geometry" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🪷 Neural Lotus</button>
+            <button class="ai-prompt-chip" data-prompt="Cosmic Black Hole with Gravitational Lensing" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🌌 Cosmic Core</button>
+            <button class="ai-prompt-chip" data-prompt="Futuristic Biomechanical Dragon in Amber Glow" style="padding:3px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#cbd5e1;font-size:0.65rem;cursor:pointer;">🐉 Bio Dragon</button>
+          </div>
+        </div>
+      `;
+
+      this.renderGenerativeArt('Cyberpunk Neon Nexus with Quantum Rings');
+
+      const genBtn = document.getElementById('ai-generate-art-btn');
+      const promptInput = document.getElementById('ai-art-prompt-input');
+      if (genBtn && promptInput) {
+        genBtn.addEventListener('click', () => {
+          this.aiArtSeed = Math.floor(10000 + Math.random() * 90000);
+          const badge = document.getElementById('ai-art-seed-badge');
+          if (badge) badge.textContent = `Seed: #${this.aiArtSeed}`;
+          this.renderGenerativeArt(promptInput.value);
+        });
+      }
+
+      stage.querySelectorAll('.ai-prompt-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const p = chip.getAttribute('data-prompt');
+          if (promptInput) promptInput.value = p;
+          this.aiArtSeed = Math.floor(10000 + Math.random() * 90000);
+          const badge = document.getElementById('ai-art-seed-badge');
+          if (badge) badge.textContent = `Seed: #${this.aiArtSeed}`;
+          this.renderGenerativeArt(p);
+        });
+      });
+    } else if (mode === 'neural') {
+      stage.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="color:#38bdf8;font-weight:700;"><i class="fa-solid fa-network-wired" style="margin-right:4px;"></i>60 FPS SYNAPSE TOPOLOGY (TAP NODES TO INJECT PULSES)</span>
+            <span style="color:#10b981;font-size:0.65rem;font-weight:700;">Active 🟢</span>
+          </div>
+          <canvas id="service-neural-canvas" width="420" height="170" style="width:100%;height:170px;border-radius:8px;border:1px solid var(--border-subtle);background:#020617;margin-bottom:10px;cursor:crosshair;"></canvas>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <button id="neural-pulse-all-btn" style="padding:6px;border-radius:6px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);color:#60a5fa;font-size:0.7rem;font-weight:700;cursor:pointer;">
+              <i class="fa-solid fa-bolt" style="margin-right:4px;"></i>Inject Neural Wave
+            </button>
+            <button id="neural-randomize-weights-btn" style="padding:6px;border-radius:6px;background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.4);color:#c084fc;font-size:0.7rem;font-weight:700;cursor:pointer;">
+              <i class="fa-solid fa-shuffle" style="margin-right:4px;"></i>Re-weight Synapses
+            </button>
+          </div>
+        </div>
+      `;
+
+      this.neuralCanvas = document.getElementById('service-neural-canvas');
+      this.neuralCtx = this.neuralCanvas ? this.neuralCanvas.getContext('2d') : null;
+
+      const pulseBtn = document.getElementById('neural-pulse-all-btn');
+      if (pulseBtn) {
+        pulseBtn.addEventListener('click', () => {
+          this.neuralTick += 15;
+        });
+      }
+    } else if (mode === 'predict') {
+      stage.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="font-size:0.75rem;font-weight:700;color:#10b981;margin-bottom:8px;">
+            <i class="fa-solid fa-chart-line" style="margin-right:4px;"></i>PREDICTIVE BUSINESS INTELLIGENCE &amp; CHURN ENGINE
+          </div>
+
+          <!-- Dynamic SVG Projection Chart -->
+          <div style="background:#0f172a;border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#94a3b8;margin-bottom:4px;">
+              <span>Predicted 12-Month Revenue Curve</span>
+              <strong id="predict-rev-total" style="color:#10b981;">₹42.8 Lakhs</strong>
+            </div>
+            <svg id="predict-svg-curve" viewBox="0 0 300 70" style="width:100%;height:70px;overflow:visible;">
+              <path id="predict-curve-path" d="M0,60 Q75,50 150,30 T300,10" fill="none" stroke="#10b981" stroke-width="3"/>
+              <path id="predict-curve-fill" d="M0,60 Q75,50 150,30 T300,10 L300,70 L0,70 Z" fill="rgba(16,185,129,0.12)"/>
+            </svg>
+          </div>
+
+          <!-- Interactive Sliders -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.68rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Ad Spend ($/mo)</span><strong id="predict-ad-val" style="color:#38bdf8;">$4,500</strong></div>
+              <input type="range" id="predict-ad-slider" min="1000" max="25000" value="4500" style="width:100%;height:4px;accent-color:#38bdf8;">
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:2px;"><span>Traffic Scale</span><strong id="predict-traffic-val" style="color:#a855f7;">50k req/s</strong></div>
+              <input type="range" id="predict-traffic-slider" min="5000" max="150000" value="50000" style="width:100%;height:4px;accent-color:#a855f7;">
+            </div>
+          </div>
+        </div>
+      `;
+
+      const updatePredict = () => {
+        const ad = parseInt(document.getElementById('predict-ad-slider').value);
+        const traffic = parseInt(document.getElementById('predict-traffic-slider').value);
+        document.getElementById('predict-ad-val').textContent = `$${ad.toLocaleString()}`;
+        document.getElementById('predict-traffic-val').textContent = `${(traffic/1000).toFixed(0)}k req/s`;
+
+        const totalRevLakhs = (ad * 0.005 + traffic * 0.0003 + 12).toFixed(1);
+        document.getElementById('predict-rev-total').textContent = `₹${totalRevLakhs} Lakhs`;
+
+        const midY = Math.max(10, 60 - (ad / 25000) * 35);
+        const endY = Math.max(5, 40 - (traffic / 150000) * 32);
+        document.getElementById('predict-curve-path').setAttribute('d', `M0,60 Q75,${midY} 150,${(midY+endY)/2} T300,${endY}`);
+        document.getElementById('predict-curve-fill').setAttribute('d', `M0,60 Q75,${midY} 150,${(midY+endY)/2} T300,${endY} L300,70 L0,70 Z`);
+      };
+
+      document.getElementById('predict-ad-slider').addEventListener('input', updatePredict);
+      document.getElementById('predict-traffic-slider').addEventListener('input', updatePredict);
+    } else if (mode === 'llm') {
+      stage.innerHTML = `
+        <div style="animation:fadeIn 0.25s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="color:#8b5cf6;font-weight:700;"><i class="fa-solid fa-robot" style="margin-right:4px;"></i>STREAMING LLM AGENT INFERENCE</span>
+            <span style="color:#10b981;font-size:0.65rem;">158 tok/sec · TTFT: 82ms</span>
+          </div>
+
+          <div id="llm-stream-output" style="height:145px;background:#050510;border-radius:6px;padding:10px;font-family:var(--font-mono);font-size:0.72rem;color:#cbd5e1;line-height:1.6;border:1px solid rgba(139,92,246,0.3);overflow-y:auto;margin-bottom:8px;">
+            <span style="color:#64748b;">// Awaiting query... Click "Run Agent" to stream token synthesis</span>
+          </div>
+
+          <div style="display:flex;gap:6px;">
+            <button id="llm-run-code-btn" style="flex:1;padding:7px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);border:none;border-radius:6px;color:white;font-weight:700;font-size:0.72rem;cursor:pointer;">
+              <i class="fa-solid fa-play" style="margin-right:4px;"></i>Stream Microservice Code
+            </button>
+            <button id="llm-run-audit-btn" style="flex:1;padding:7px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#cbd5e1;font-weight:700;font-size:0.72rem;cursor:pointer;">
+              <i class="fa-solid fa-shield-virus" style="margin-right:4px;"></i>Run Security Audit
+            </button>
+          </div>
+        </div>
+      `;
+
+      const streamCode = (text) => {
+        const out = document.getElementById('llm-stream-output');
+        if (!out) return;
+        out.innerHTML = '';
+        let i = 0;
+        const interval = setInterval(() => {
+          out.innerHTML += text.charAt(i);
+          out.scrollTop = out.scrollHeight;
+          i++;
+          if (i >= text.length) clearInterval(interval);
+        }, 12);
+      };
+
+      document.getElementById('llm-run-code-btn').addEventListener('click', () => {
+        streamCode(`// FastAPI High-Throughput Caching Middleware\nfrom fastapi import FastAPI, Request\nimport redis.asyncio as redis\n\napp = FastAPI(title="PixelToCloud LLM Gateway")\ncache = redis.Redis(host='localhost', port=6379)\n\n@app.middleware("http")\nasync def edge_cache_middleware(request: Request, call_next):\n    key = f"cache:{request.url.path}"\n    cached = await cache.get(key)\n    if cached:\n        return Response(content=cached, media_type="application/json")\n    response = await call_next(request)\n    return response`);
+      });
+
+      document.getElementById('llm-run-audit-btn').addEventListener('click', () => {
+        streamCode(`// OWASP Vulnerability Analysis Report\n[✓] SQL Injection Guard: Verified Parameterized Queries\n[✓] XSS Protection: Content-Security-Policy Strict Active\n[✓] Rate Limiting: Leaky Bucket Token Mesh (10,000 req/min)\n[✓] TLS Handshake: TLS 1.3 Strict Elliptic-Curve (P-384)\n\nConclusion: Zero Critical Vulnerabilities. Production-Ready.`);
+      });
+    }
+  }
+
+  renderGenerativeArt(prompt) {
+    const canvas = document.getElementById('ai-art-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    // Dynamic gradient backdrop
+    const grad = ctx.createRadialGradient(w/2, h/2, 10, w/2, h/2, w/2);
+    if (prompt.includes('Neon') || prompt.includes('City')) {
+      grad.addColorStop(0, '#0284c7');
+      grad.addColorStop(0.5, '#7c3aed');
+      grad.addColorStop(1, '#020617');
+    } else if (prompt.includes('Lotus')) {
+      grad.addColorStop(0, '#ec4899');
+      grad.addColorStop(0.5, '#8b5cf6');
+      grad.addColorStop(1, '#050b14');
+    } else if (prompt.includes('Dragon') || prompt.includes('Amber')) {
+      grad.addColorStop(0, '#f59e0b');
+      grad.addColorStop(0.5, '#b45309');
+      grad.addColorStop(1, '#020617');
+    } else {
+      grad.addColorStop(0, '#10b981');
+      grad.addColorStop(0.5, '#0369a1');
+      grad.addColorStop(1, '#020617');
+    }
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Procedural Fractal Rays & Rings
+    ctx.lineWidth = 1.5;
+    for (let i = 0; i < 18; i++) {
+      const angle = (i / 18) * Math.PI * 2;
+      const rx = w/2 + Math.cos(angle) * (30 + (this.aiArtSeed % 40));
+      const ry = h/2 + Math.sin(angle) * (20 + (this.aiArtSeed % 30));
+
+      ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 + (i % 3) * 0.15})`;
+      ctx.beginPath();
+      ctx.arc(rx, ry, 25 + (i * 2), 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Floating glowing particles
+    for (let p = 0; p < 35; p++) {
+      const px = ((p * 47 + this.aiArtSeed) % w);
+      const py = ((p * 31 + this.aiArtSeed) % h);
+      ctx.fillStyle = (p % 2 === 0) ? '#00f0ff' : '#c084fc';
+      ctx.beginPath();
+      ctx.arc(px, py, (p % 3) + 1, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Central Generative Glyph
+    ctx.font = 'bold 11px monospace';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = '#00f0ff';
+    ctx.shadowBlur = 10;
+    ctx.fillText(`✨ ${prompt}`, w/2, h/2 + 4);
+    ctx.shadowBlur = 0;
+  }
+
+  // =================================================================
+  // 10. DESKTOP SOFTWARE LAB (ADVANCED OS SUITE & ARCADE)
+  // =================================================================
+  initDesktopLab() {
+    this.desktopCurrentSubtab = 'invoice';
+    this.desktopOS = 'windows';
+    this.calcInput = '0';
+    this.calcPrev = null;
+    this.calcOp = null;
+    this.gameScore = 0;
+    this.gameHighScore = 120;
+    this.gameRunning = false;
+
+    // OS Switcher (Windows 11, macOS Sonoma, Ubuntu 24.04)
+    const osLabels = { windows: 'Windows 11 (Mica)', macos: 'macOS Sonoma (Aqua)', linux: 'Ubuntu 24.04 (Yaru)' };
+    document.querySelectorAll('.desktop-os-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.desktop-os-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.desktopOS = btn.getAttribute('data-os') || 'windows';
+        const label = document.getElementById('desktop-os-label');
+        if (label) label.textContent = osLabels[this.desktopOS] || 'Windows 11';
+
+        const frame = document.getElementById('desktop-window-frame');
+        if (this.desktopOS === 'macos') {
+          if (frame) frame.style.borderColor = 'rgba(255,255,255,0.2)';
+        } else if (this.desktopOS === 'linux') {
+          if (frame) frame.style.borderColor = 'rgba(234,88,12,0.4)';
+        } else {
+          if (frame) frame.style.borderColor = 'rgba(245,158,11,0.35)';
+        }
+      });
+    });
+
+    // Window Controls (Red / Yellow / Green Traffic Dots)
+    const btnClose = document.getElementById('win-btn-close');
+    const btnMin = document.getElementById('win-btn-min');
+    const btnMax = document.getElementById('win-btn-max');
+    const winFrame = document.getElementById('desktop-window-frame');
+
+    if (btnClose && winFrame) {
+      btnClose.addEventListener('click', () => {
+        winFrame.style.opacity = '0.3';
+        winFrame.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          winFrame.style.opacity = '1';
+          winFrame.style.transform = 'scale(1)';
+        }, 800);
+      });
+    }
+
+    if (btnMin && winFrame) {
+      btnMin.addEventListener('click', () => {
+        winFrame.style.transform = 'translateY(15px) scale(0.98)';
+        setTimeout(() => winFrame.style.transform = '', 600);
+      });
+    }
+
+    if (btnMax && winFrame) {
+      btnMax.addEventListener('click', () => {
+        winFrame.classList.toggle('maximized');
+        if (winFrame.classList.contains('maximized')) {
+          winFrame.style.boxShadow = '0 0 40px rgba(0,240,255,0.3)';
+        } else {
+          winFrame.style.boxShadow = '';
         }
       });
     }
+
+    // Dropdown Menu Interactions
+    document.querySelectorAll('.desktop-menu-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdown = item.querySelector('.desktop-dropdown');
+        const isShown = dropdown && dropdown.classList.contains('show');
+        document.querySelectorAll('.desktop-dropdown').forEach(d => d.classList.remove('show'));
+        if (!isShown && dropdown) dropdown.classList.add('show');
+      });
+    });
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.desktop-dropdown').forEach(d => d.classList.remove('show'));
+    });
+
+    // Dropdown Action Handlers
+    document.querySelectorAll('.desktop-dropdown-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.desktop-dropdown').forEach(d => d.classList.remove('show'));
+        const action = item.getAttribute('data-action');
+        const switchTab = item.getAttribute('data-switch-subtab');
+
+        if (switchTab) {
+          this.switchDesktopSubtab(switchTab);
+          return;
+        }
+
+        const statusMsg = document.getElementById('desktop-status-msg');
+        if (action === 'new-invoice') {
+          this.switchDesktopSubtab('invoice');
+          this.addCustomInvoiceRow();
+        } else if (action === 'export-pdf') {
+          if (statusMsg) {
+            statusMsg.innerHTML = '<span style="color:#f59e0b;">⏳ Printing Native PDF Document...</span>';
+            setTimeout(() => statusMsg.innerHTML = '<span style="color:#10b981;">✓ Invoice-2026.pdf Exported Successfully!</span>', 1400);
+          }
+        } else if (action === 'restart-app') {
+          this.switchDesktopSubtab(this.desktopCurrentSubtab);
+          if (statusMsg) statusMsg.innerHTML = '<span style="color:#38bdf8;">✓ Tauri Desktop Environment Reloaded</span>';
+        } else if (action === 'sample-data') {
+          this.switchDesktopSubtab('invoice');
+          this.addCustomInvoiceRow();
+        } else if (action === 'clear-data') {
+          const list = document.getElementById('desktop-invoice-list');
+          if (list) list.innerHTML = '<div style="color:#64748b;text-align:center;padding:12px;">No active invoices in database. Click "+ Add Invoice"</div>';
+        }
+      });
+    });
+
+    // Subtab Switcher Buttons
+    document.querySelectorAll('.desktop-subtab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-subtab');
+        this.switchDesktopSubtab(tab);
+      });
+    });
+
+    // Quick Action Triggers at bottom
+    const quickInvBtn = document.getElementById('desktop-quick-invoice-btn');
+    if (quickInvBtn) {
+      quickInvBtn.addEventListener('click', () => {
+        this.switchDesktopSubtab('invoice');
+        this.addCustomInvoiceRow();
+      });
+    }
+
+    const quickCalcBtn = document.getElementById('desktop-quick-calc-btn');
+    if (quickCalcBtn) {
+      quickCalcBtn.addEventListener('click', () => this.switchDesktopSubtab('calc'));
+    }
+
+    const quickGameBtn = document.getElementById('desktop-quick-game-btn');
+    if (quickGameBtn) {
+      quickGameBtn.addEventListener('click', () => this.switchDesktopSubtab('game'));
+    }
+
+    this.switchDesktopSubtab('invoice');
+  }
+
+  switchDesktopSubtab(subtabId) {
+    this.desktopCurrentSubtab = subtabId;
+    document.querySelectorAll('.desktop-subtab-btn').forEach(b => {
+      if (b.getAttribute('data-subtab') === subtabId) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+
+    const body = document.getElementById('desktop-app-body');
+    if (!body) return;
+
+    if (subtabId === 'invoice') {
+      body.innerHTML = `
+        <div style="animation:fadeIn 0.2s ease;">
+          <!-- Dashboard KPIs -->
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-bottom:10px;">
+            <div style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.25);border-radius:6px;padding:6px;text-align:center;">
+              <div id="desktop-metric-invoices" style="font-size:1.1rem;font-weight:800;color:#3b82f6;font-family:var(--font-sans);">342</div>
+              <div style="font-size:0.58rem;color:#64748b;">Invoices</div>
+            </div>
+            <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:6px;padding:6px;text-align:center;">
+              <div style="font-size:1.1rem;font-weight:800;color:#10b981;font-family:var(--font-sans);">₹18.4L</div>
+              <div style="font-size:0.58rem;color:#64748b;">Revenue</div>
+            </div>
+            <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:6px;padding:6px;text-align:center;">
+              <div style="font-size:1.1rem;font-weight:800;color:#f59e0b;font-family:var(--font-sans);">89</div>
+              <div style="font-size:0.58rem;color:#64748b;">Clients</div>
+            </div>
+            <div style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.25);border-radius:6px;padding:6px;text-align:center;">
+              <div style="font-size:1.1rem;font-weight:800;color:#c084fc;font-family:var(--font-sans);">0.12ms</div>
+              <div style="font-size:0.58rem;color:#64748b;">SQLite P99</div>
+            </div>
+          </div>
+
+          <!-- Invoices Table -->
+          <div style="background:#090d16;border-radius:6px;padding:8px;border:1px solid var(--border-subtle);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:0.65rem;color:#64748b;font-weight:700;">ACTIVE INVOICE LEDGER (CLICK STATUS TO TOGGLE)</span>
+              <button id="invoice-add-row-btn" style="padding:2px 8px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);border-radius:4px;color:#60a5fa;font-size:0.62rem;cursor:pointer;">+ Add Row</button>
+            </div>
+            <div id="desktop-invoice-list" style="font-size:0.65rem;line-height:1.8;max-height:120px;overflow-y:auto;">
+              <div class="inv-row" style="display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
+                <span>#INV-0341 · Sharma Enterprises</span>
+                <span class="inv-status-pill" style="color:#10b981;cursor:pointer;font-weight:700;">₹24,500 [Paid ✓]</span>
+              </div>
+              <div class="inv-row" style="display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
+                <span>#INV-0340 · CloudNova Solutions</span>
+                <span class="inv-status-pill" style="color:#10b981;cursor:pointer;font-weight:700;">₹18,200 [Paid ✓]</span>
+              </div>
+              <div class="inv-row" style="display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
+                <span>#INV-0339 · Patel & Associates</span>
+                <span class="inv-status-pill" style="color:#f59e0b;cursor:pointer;font-weight:700;">₹31,800 [Pending ⏳]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const addRowBtn = document.getElementById('invoice-add-row-btn');
+      if (addRowBtn) addRowBtn.addEventListener('click', () => this.addCustomInvoiceRow());
+
+      this.bindInvoiceRowClick();
+    } else if (subtabId === 'calc') {
+      body.innerHTML = `
+        <div style="max-width:240px;margin:0 auto;animation:fadeIn 0.2s ease;">
+          <!-- LCD Display -->
+          <div id="calc-lcd" style="background:#020617;border:1px solid rgba(245,158,11,0.4);border-radius:8px;padding:8px 12px;text-align:right;margin-bottom:8px;font-family:var(--font-mono);box-shadow:inset 0 2px 6px rgba(0,0,0,0.8);">
+            <div id="calc-sub-display" style="font-size:0.6rem;color:#64748b;min-height:12px;"></div>
+            <div id="calc-main-display" style="font-size:1.3rem;font-weight:800;color:#f59e0b;">0</div>
+          </div>
+
+          <!-- Calc Button Grid -->
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:5px;">
+            <button class="calc-btn calc-btn-op" data-calc="C">C</button>
+            <button class="calc-btn calc-btn-op" data-calc="sqrt">√</button>
+            <button class="calc-btn calc-btn-op" data-calc="%">%</button>
+            <button class="calc-btn calc-btn-op" data-calc="/">÷</button>
+
+            <button class="calc-btn" data-calc="7">7</button>
+            <button class="calc-btn" data-calc="8">8</button>
+            <button class="calc-btn" data-calc="9">9</button>
+            <button class="calc-btn calc-btn-op" data-calc="*">×</button>
+
+            <button class="calc-btn" data-calc="4">4</button>
+            <button class="calc-btn" data-calc="5">5</button>
+            <button class="calc-btn" data-calc="6">6</button>
+            <button class="calc-btn calc-btn-op" data-calc="-">-</button>
+
+            <button class="calc-btn" data-calc="1">1</button>
+            <button class="calc-btn" data-calc="2">2</button>
+            <button class="calc-btn" data-calc="3">3</button>
+            <button class="calc-btn calc-btn-op" data-calc="+">+</button>
+
+            <button class="calc-btn" data-calc="0">0</button>
+            <button class="calc-btn" data-calc=".">.</button>
+            <button class="calc-btn calc-btn-op" data-calc="gst">GST</button>
+            <button class="calc-btn calc-btn-eq" data-calc="=">=</button>
+          </div>
+        </div>
+      `;
+
+      this.bindCalculator();
+    } else if (subtabId === 'game') {
+      body.innerHTML = `
+        <div style="text-align:center;animation:fadeIn 0.2s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:0.68rem;">
+            <span style="color:#10b981;font-weight:700;"><i class="fa-solid fa-gamepad" style="margin-right:4px;"></i>SPACE DODGER 60 FPS</span>
+            <span>Score: <strong id="game-score-val" style="color:#38bdf8;">0</strong> | Best: <strong id="game-best-val" style="color:#f59e0b;">${this.gameHighScore}</strong></span>
+          </div>
+
+          <canvas id="desktop-game-canvas" width="380" height="150" style="width:100%;height:150px;background:#050510;border-radius:8px;border:1px solid rgba(16,185,129,0.3);box-shadow:0 0 20px rgba(16,185,129,0.15);margin-bottom:6px;"></canvas>
+
+          <div style="display:flex;justify-content:center;gap:8px;">
+            <button id="game-btn-left" style="padding:6px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;"><i class="fa-solid fa-arrow-left"></i> Left</button>
+            <button id="game-btn-start" style="padding:6px 16px;background:linear-gradient(135deg,#10b981,#059669);border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;">▶ Start / Retry</button>
+            <button id="game-btn-right" style="padding:6px 14px;background:#1e293b;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;cursor:pointer;">Right <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      `;
+
+      this.initMiniGame();
+    } else if (subtabId === 'sqlite') {
+      body.innerHTML = `
+        <div style="animation:fadeIn 0.2s ease;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="color:#a855f7;font-weight:700;"><i class="fa-solid fa-database" style="margin-right:4px;"></i>SQLITE DB QUERY RUNNER</span>
+            <span style="color:#10b981;font-size:0.62rem;">Query Execution: 0.14ms</span>
+          </div>
+
+          <div style="display:flex;gap:4px;margin-bottom:8px;">
+            <input type="text" id="sqlite-query-input" value="SELECT id, name, plan, mrr FROM enterprise_clients LIMIT 3;" style="flex:1;padding:6px 8px;background:#020617;border:1px solid rgba(168,85,247,0.4);border-radius:6px;color:#f8fafc;font-size:0.68rem;font-family:var(--font-mono);">
+            <button id="sqlite-exec-btn" style="padding:6px 10px;background:#8b5cf6;border:none;border-radius:6px;color:white;font-weight:700;cursor:pointer;font-size:0.68rem;">Run</button>
+          </div>
+
+          <div id="sqlite-output-table" style="background:#090d16;border-radius:6px;padding:6px;border:1px solid var(--border-subtle);font-size:0.62rem;line-height:1.6;">
+            <div style="display:grid;grid-template-columns:30px 1.5fr 1fr 1fr;font-weight:700;color:#a855f7;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:2px;">
+              <span>ID</span><span>CLIENT NAME</span><span>TIER</span><span>MRR</span>
+            </div>
+            <div style="display:grid;grid-template-columns:30px 1.5fr 1fr 1fr;color:#cbd5e1;padding:2px 0;">
+              <span>#1</span><span>Apex Digital Group</span><span>Enterprise</span><span style="color:#10b981;">₹1,45,000</span>
+            </div>
+            <div style="display:grid;grid-template-columns:30px 1.5fr 1fr 1fr;color:#cbd5e1;padding:2px 0;">
+              <span>#2</span><span>Zenith Health Cloud</span><span>Healthcare Pro</span><span style="color:#10b981;">₹95,000</span>
+            </div>
+            <div style="display:grid;grid-template-columns:30px 1.5fr 1fr 1fr;color:#cbd5e1;padding:2px 0;">
+              <span>#3</span><span>Vanguard FinTech</span><span>Compliance SLA</span><span style="color:#10b981;">₹2,10,000</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const execBtn = document.getElementById('sqlite-exec-btn');
+      if (execBtn) {
+        execBtn.addEventListener('click', () => {
+          const out = document.getElementById('sqlite-output-table');
+          if (out) {
+            out.style.opacity = '0.4';
+            setTimeout(() => {
+              out.style.opacity = '1';
+              const statusMsg = document.getElementById('desktop-status-msg');
+              if (statusMsg) statusMsg.innerHTML = '<span style="color:#10b981;">✓ Query executed: 3 rows returned in 0.12ms</span>';
+            }, 200);
+          }
+        });
+      }
+    }
+  }
+
+  addCustomInvoiceRow() {
+    const list = document.getElementById('desktop-invoice-list');
+    const metric = document.getElementById('desktop-metric-invoices');
+    if (!list) return;
+    const invNum = 342 + Math.floor(Math.random() * 200);
+    const clients = ['Quantum Systems', 'Aero Dynamics', 'Prism FinTech', 'Vertex Labs', 'Hyperion Cloud'];
+    const client = clients[Math.floor(Math.random() * clients.length)];
+    const amt = (Math.floor(Math.random() * 45) + 15) * 1000;
+
+    const row = document.createElement('div');
+    row.className = 'inv-row';
+    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.04);animation:fadeIn 0.25s ease;';
+    row.innerHTML = `
+      <span>#INV-0${invNum} · ${client}</span>
+      <span class="inv-status-pill" style="color:#10b981;cursor:pointer;font-weight:700;">₹${amt.toLocaleString('en-IN')} [Paid ✓]</span>
+    `;
+    list.insertBefore(row, list.firstChild);
+    if (metric) metric.textContent = parseInt(metric.textContent) + 1;
+    this.bindInvoiceRowClick();
+  }
+
+  bindInvoiceRowClick() {
+    document.querySelectorAll('.inv-status-pill').forEach(pill => {
+      pill.onclick = () => {
+        if (pill.textContent.includes('Paid')) {
+          pill.textContent = pill.textContent.replace('Paid ✓', 'Pending ⏳');
+          pill.style.color = '#f59e0b';
+        } else if (pill.textContent.includes('Pending')) {
+          pill.textContent = pill.textContent.replace('Pending ⏳', 'Overdue ⚠️');
+          pill.style.color = '#ef4444';
+        } else {
+          pill.textContent = pill.textContent.replace('Overdue ⚠️', 'Paid ✓');
+          pill.style.color = '#10b981';
+        }
+      };
+    });
+  }
+
+  bindCalculator() {
+    const mainDisp = document.getElementById('calc-main-display');
+    const subDisp = document.getElementById('calc-sub-display');
+    let curVal = '0';
+    let prevVal = null;
+    let operation = null;
+    let resetOnNext = false;
+
+    document.querySelectorAll('.calc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-calc');
+
+        if (!isNaN(val) || val === '.') {
+          if (resetOnNext || curVal === '0') {
+            curVal = (val === '.') ? '0.' : val;
+            resetOnNext = false;
+          } else {
+            if (val === '.' && curVal.includes('.')) return;
+            curVal += val;
+          }
+          if (mainDisp) mainDisp.textContent = curVal;
+        } else if (val === 'C') {
+          curVal = '0';
+          prevVal = null;
+          operation = null;
+          if (mainDisp) mainDisp.textContent = '0';
+          if (subDisp) subDisp.textContent = '';
+        } else if (val === 'sqrt') {
+          const num = parseFloat(curVal);
+          curVal = (num >= 0 ? Math.sqrt(num).toFixed(4) : 'Error').replace(/\.?0+$/, '');
+          if (mainDisp) mainDisp.textContent = curVal;
+        } else if (val === '%') {
+          curVal = (parseFloat(curVal) / 100).toString();
+          if (mainDisp) mainDisp.textContent = curVal;
+        } else if (val === 'gst') {
+          curVal = (parseFloat(curVal) * 1.18).toFixed(2);
+          if (subDisp) subDisp.textContent = '+ 18% GST';
+          if (mainDisp) mainDisp.textContent = curVal;
+        } else if (['+', '-', '*', '/'].includes(val)) {
+          prevVal = parseFloat(curVal);
+          operation = val;
+          resetOnNext = true;
+          if (subDisp) subDisp.textContent = `${prevVal} ${val}`;
+        } else if (val === '=') {
+          if (operation && prevVal !== null) {
+            const current = parseFloat(curVal);
+            let result = 0;
+            if (operation === '+') result = prevVal + current;
+            else if (operation === '-') result = prevVal - current;
+            else if (operation === '*') result = prevVal * current;
+            else if (operation === '/') result = current !== 0 ? (prevVal / current) : 'Error';
+
+            if (subDisp) subDisp.textContent = `${prevVal} ${operation} ${current} =`;
+            curVal = (typeof result === 'number') ? parseFloat(result.toFixed(6)).toString() : result;
+            if (mainDisp) mainDisp.textContent = curVal;
+            operation = null;
+            prevVal = null;
+            resetOnNext = true;
+          }
+        }
+      });
+    });
+  }
+
+  initMiniGame() {
+    const canvas = document.getElementById('desktop-game-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    let playerX = w / 2;
+    let playerY = h - 20;
+    let asteroids = [];
+    let score = 0;
+    let gameLoop = null;
+
+    const spawnAsteroid = () => {
+      asteroids.push({
+        x: Math.random() * (w - 20) + 10,
+        y: -10,
+        speed: Math.random() * 2 + 1.5,
+        radius: Math.random() * 6 + 4
+      });
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+
+      // Starfield
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      for (let s = 0; s < 20; s++) {
+        ctx.fillRect((s * 41) % w, (s * 29 + score) % h, 1.5, 1.5);
+      }
+
+      // Draw Player Spaceship
+      ctx.fillStyle = '#00f0ff';
+      ctx.shadowColor = '#00f0ff';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.moveTo(playerX, playerY - 10);
+      ctx.lineTo(playerX - 10, playerY + 8);
+      ctx.lineTo(playerX + 10, playerY + 8);
+      ctx.closePath();
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Update & Draw Asteroids
+      ctx.fillStyle = '#ef4444';
+      ctx.shadowColor = '#ef4444';
+      ctx.shadowBlur = 6;
+      for (let i = asteroids.length - 1; i >= 0; i--) {
+        const a = asteroids[i];
+        a.y += a.speed;
+
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Collision Check
+        const dist = Math.hypot(playerX - a.x, playerY - a.y);
+        if (dist < a.radius + 8) {
+          // Game Over
+          this.gameRunning = false;
+          clearInterval(gameLoop);
+          ctx.fillStyle = '#ef4444';
+          ctx.font = 'bold 14px monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText('💥 SYSTEM COLLISION! GAME OVER', w/2, h/2);
+          return;
+        }
+
+        if (a.y > h + 10) {
+          asteroids.splice(i, 1);
+          score += 10;
+          const scoreEl = document.getElementById('game-score-val');
+          if (scoreEl) scoreEl.textContent = score;
+          if (score > this.gameHighScore) {
+            this.gameHighScore = score;
+            const bestEl = document.getElementById('game-best-val');
+            if (bestEl) bestEl.textContent = this.gameHighScore;
+          }
+        }
+      }
+      ctx.shadowBlur = 0;
+
+      if (Math.random() < 0.08) spawnAsteroid();
+    };
+
+    const startBtn = document.getElementById('game-btn-start');
+    if (startBtn) {
+      startBtn.onclick = () => {
+        if (gameLoop) clearInterval(gameLoop);
+        asteroids = [];
+        score = 0;
+        playerX = w / 2;
+        this.gameRunning = true;
+        gameLoop = setInterval(draw, 1000 / 60);
+      };
+    }
+
+    const leftBtn = document.getElementById('game-btn-left');
+    const rightBtn = document.getElementById('game-btn-right');
+    if (leftBtn) leftBtn.onclick = () => playerX = Math.max(15, playerX - 25);
+    if (rightBtn) rightBtn.onclick = () => playerX = Math.min(w - 15, playerX + 25);
+
+    window.onkeydown = (e) => {
+      if (this.gameRunning) {
+        if (e.key === 'ArrowLeft') playerX = Math.max(15, playerX - 20);
+        if (e.key === 'ArrowRight') playerX = Math.min(w - 15, playerX + 20);
+      }
+    };
+
+    // Initial draw
+    draw();
   }
 }
 
