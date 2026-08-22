@@ -1314,21 +1314,19 @@
     </div>
   </section>
 
-  <!-- ===================================================================
-       INTERACTIVE SUBSCRIPTION SAVINGS & ROI CALCULATOR
-  <!-- ===================================================================
-       INTERACTIVE SUBSCRIPTION SAVINGS & ROI CALCULATOR
+  <  <!-- ===================================================================
+       SMART SUBSCRIPTION SAVINGS & ROI CALCULATOR 2.0
        =================================================================== -->
   <section class="section" id="roi-calculator" style="padding-top: 0;">
     <div class="container">
       <div class="roi-calculator-wrap reveal">
         <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center;">
           
-          <!-- Left: Friendly Sliders -->
+          <!-- Left: Friendly Sliders & Presets -->
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
               <div class="section-tag" style="margin-bottom: 0;">
-                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Smart Savings Calculator</span>
+                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Smart Savings Engine 2.0</span>
               </div>
               <!-- Currency Switcher -->
               <div style="display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 3px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
@@ -1340,21 +1338,32 @@
             <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
               How Much Money Will You Save with a <span class="text-gradient">Custom Website?</span>
             </h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
-              Most platforms charge you monthly rental fees for basic plugins, apps, and licenses. With <strong>PixelToCloud</strong>, you pay once and own 100% of your software forever with zero recurring monthly fees.
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+              Traditional platforms charge high monthly rental fees for plugins, themes, and server add-ons. Click a preset or adjust the sliders to see your exact 3-year savings with <strong>PixelToCloud</strong>:
             </p>
+
+            <!-- Quick Platform Presets -->
+            <div style="font-size: 0.78rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-mono);">
+              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan); margin-right: 6px;"></i>Quick Business Presets:
+            </div>
+            <div class="roi-preset-chips-wrap">
+              <button class="roi-preset-chip active" data-preset="shopify"><i class="fa-solid fa-cart-shopping" style="margin-right: 6px;"></i>Shopify Store (~₹14.5k/mo)</button>
+              <button class="roi-preset-chip" data-preset="wordpress"><i class="fa-brands fa-wordpress" style="margin-right: 6px;"></i>WordPress &amp; Plugins (~₹6.5k/mo)</button>
+              <button class="roi-preset-chip" data-preset="webapp"><i class="fa-solid fa-laptop-code" style="margin-right: 6px;"></i>Custom SaaS Portal (~₹22k/mo)</button>
+              <button class="roi-preset-chip" data-preset="doctor"><i class="fa-solid fa-stethoscope" style="margin-right: 6px;"></i>Clinic &amp; Booking (~₹9.5k/mo)</button>
+            </div>
 
             <!-- Slider 1: Monthly Subscriptions -->
             <div class="roi-slider-group">
               <div class="roi-slider-label-row">
-                <span>Your Monthly App &amp; Plugin Costs:</span>
-                <span class="roi-slider-val" id="roi-plugin-cost-val" style="color: #10b981;">₹5,000 / month</span>
+                <span>Monthly Plugin &amp; App Subscriptions:</span>
+                <span class="roi-slider-val" id="roi-plugin-cost-val" style="color: #10b981;">₹14,500 / mo</span>
               </div>
-              <input type="range" class="roi-range-input" id="roi-plugin-cost-slider" min="1000" max="30000" step="500" value="5000">
+              <input type="range" class="roi-range-input" id="roi-plugin-cost-slider" min="1000" max="40000" step="500" value="14500">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 4px; font-family: var(--font-mono);">
                 <span>Basic Apps</span>
                 <span>Mid-Size Store</span>
-                <span>Enterprise Suite</span>
+                <span>Enterprise Apps</span>
               </div>
             </div>
 
@@ -1373,28 +1382,52 @@
             </div>
           </div>
 
-          <!-- Right: Calculated Savings Card -->
-          <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.04)); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-lg); padding: 28px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <!-- Right: Calculated Savings Card & Live SVG Chart -->
+          <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.04)); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-lg); padding: 24px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">
               TOTAL MONEY SAVED IN YOUR BUSINESS:
             </div>
-            <div style="font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 800; color: #10b981; font-family: var(--font-mono); margin: 10px 0;" id="roi-total-savings-val">
-              ₹1,80,000
+            <div style="font-size: clamp(2.4rem, 4.5vw, 3.2rem); font-weight: 800; color: #10b981; font-family: var(--font-mono); margin: 6px 0 2px;" id="roi-total-savings-val">
+              ₹5,22,000
             </div>
-            <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 20px;">
-              💰 Money kept in your bank account instead of paying monthly plugin rent.
-            </div>
-
-            <!-- Value Highlights -->
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; text-align: left; background: rgba(0,0,0,0.3); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.78rem;">
-              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>100% Code &amp; Database Ownership</strong> — Never get locked in</span></div>
-              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>Zero Monthly Plugin Subscriptions</strong> — Pay once, run forever</span></div>
-              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>Sub-Second Load Speeds</strong> — 60 FPS responsive performance</span></div>
+            <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 14px;">
+              💰 Money kept in your business instead of paying monthly plugin rent.
             </div>
 
-            <button class="btn-magnetic btn-primary" id="roi-whatsapp-cta" style="width: 100%; padding: 13px; font-size: 0.9rem; font-weight: 700;">
-              <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 1.1rem;"></i>Calculate My Custom Project on WhatsApp</span>
-            </button>
+            <!-- Live SVG Cost Projection Chart -->
+            <div class="roi-chart-wrap">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #94a3b8; margin-bottom: 4px; font-family: var(--font-mono);">
+                <span><span style="color: #f43f5e; font-weight: bold;">●</span> SaaS Rent Compounding</span>
+                <span><span style="color: #10b981; font-weight: bold;">●</span> PixelToCloud (0 Rent)</span>
+              </div>
+              <svg id="roi-projection-chart" viewBox="0 0 300 110" style="width: 100%; height: 95px; display: block; overflow: visible;"></svg>
+            </div>
+
+            <!-- Itemized Savings Breakdown 3-Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; text-align: left;">
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px;">
+                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Plugin Fees</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: #10b981; font-family: var(--font-mono);" id="roi-bd-plugins">₹2,87,100</div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px;">
+                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Server Bloat</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono);" id="roi-bd-hosting">₹1,30,500</div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px;">
+                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Maintenance</div>
+                <div style="font-size: 0.95rem; font-weight: 700; color: #a855f7; font-family: var(--font-mono);" id="roi-bd-maint">₹1,04,400</div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <button class="btn-magnetic btn-primary" id="roi-whatsapp-cta" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700;">
+                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 1.1rem;"></i>Send My Savings Audit to WhatsApp</span>
+              </button>
+              <button class="btn-magnetic btn-secondary" id="roi-pdf-cta" style="width: 100%; padding: 10px; font-size: 0.82rem; font-weight: 600; border-color: rgba(16, 185, 129, 0.4); color: #10b981;">
+                <span><i class="fa-solid fa-file-pdf" style="margin-right: 6px; color: #ef4444;"></i>Download Savings Audit Report (PDF)</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
