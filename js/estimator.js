@@ -1,164 +1,132 @@
 /* ===================================================================
-   BHAVYANSH TECH STUDIO - TECHNICAL SOLUTION BUILDER & SCOPE ESTIMATOR
-   Dynamic multi-step architecture configurator with custom milestone scoping
-   and PDF Architecture Blueprint Generator
+   PIXELTOCLOUD SOLUTIONS - SMART SCOPE & TIMELINE ESTIMATOR
+   Transparent 3-Step Project Builder with Milestone Roadmaps
    =================================================================== */
 
 class ProjectEstimator {
   constructor() {
-    this.scaleMode = 'growth'; // 'starter', 'growth', 'enterprise'
+    this.deliverySpeed = 'standard'; // 'express', 'standard', 'enterprise'
 
-    // Base Project Types & Architecture Scopes
+    // Step 1: Human-Friendly Project Types
     this.projectTypes = {
       'custom-website': {
-        name: 'Modern High-Speed Business Website',
-        scopeTier: 'Starter to Growth MVP',
-        days: 6,
-        badge: '⚡ 60 FPS UI + Semantic SEO',
-        desc: 'Responsive, lightweight, ultra-fast portfolio or service showcase with lightning-fast load times.'
-      },
-      'fullstack-webapp': {
-        name: 'Full-Stack Web Application',
-        scopeTier: 'Professional Scale',
-        days: 12,
-        badge: '🔥 Dynamic DB + Auth + Workflows',
-        desc: 'Custom relational database, role-based user authentication, API endpoints, and real-time dashboard.'
-      },
-      '3d-software': {
-        name: 'Interactive 2D/3D WebGL Software',
-        scopeTier: 'Advanced Graphics & Tools',
-        days: 16,
-        badge: '🌐 Three.js + GPU Acceleration',
-        desc: 'Real-time 3D canvas, orbit visualizer, spatial product configurator, or browser-based CAD tool.'
-      },
-      'ca-portal': {
-        name: 'CA & Financial Tax Calculation Suite',
-        scopeTier: 'FinTech Compliance',
-        days: 14,
-        badge: '📊 GST/TDS Engines + Vault',
-        desc: 'Automated tax engines, secure client document lockers, payment receipts, and audit trail records.'
-      },
-      'doctor-portal': {
-        name: 'Doctor & Telehealth Medical Suite',
-        scopeTier: 'Healthcare Telemedicine',
-        days: 14,
-        badge: '🩺 Live Calendar + Video EHR',
-        desc: 'Real-time appointment scheduler, patient portal, prescription PDF generator, and video consult rooms.'
+        name: '🌐 Modern Business Website',
+        scopeTier: 'Lightning Fast Showcase',
+        days: 7,
+        badge: '⚡ 60 FPS Speed + Mobile Friendly',
+        desc: 'Professional, ultra-fast website for your brand or agency. Optimized for Google SEO and instant loading.'
       },
       'artisan-ecommerce': {
-        name: 'Luxury Art & Craft E-Commerce',
-        scopeTier: 'Boutique Global Commerce',
-        days: 10,
-        badge: '🛍️ 360° Inspector + Payments',
-        desc: 'Immersive product showcase, global currency conversion, instant checkout, and order management.'
-      },
-      'custom-saas': {
-        name: 'Enterprise SaaS & Cloud Infrastructure',
-        scopeTier: 'High-Concurrency Distributed',
-        days: 20,
-        badge: '⚡ Multi-Tenant Microservices',
-        desc: 'High-scale microservices, Redis caching, queue workers, Docker orchestration, and analytics engine.'
+        name: '🛒 E-Commerce & Online Store',
+        scopeTier: 'High-Converting Online Store',
+        days: 12,
+        badge: '🛍️ Products + Instant Checkout',
+        desc: 'Custom online shop with product search, cart, multi-currency pricing, and automated order tracking.'
       },
       'mobile-app': {
-        name: 'Cross-Platform Mobile App (Android + iOS)',
-        scopeTier: 'Mobile Native Performance',
+        name: '📱 Mobile App (iOS & Android)',
+        scopeTier: 'Cross-Platform Mobile App',
         days: 16,
-        badge: '📱 React Native / Flutter + Store Deploy',
-        desc: 'Native iOS & Android mobile application with biometric auth, push notifications, offline SQLite, and app store deployment.'
+        badge: '📲 Play Store & App Store Ready',
+        desc: 'Smooth native iOS and Android application with push alerts, offline storage, and biometric login.'
+      },
+      'fullstack-webapp': {
+        name: '💻 Custom Web Application',
+        scopeTier: 'Full-Stack Dynamic Software',
+        days: 14,
+        badge: '🔥 Logins, Dashboards & Database',
+        desc: 'Complete web portal with role-based user logins, relational database, analytics dashboards, and workflows.'
       },
       'ai-ml-engine': {
-        name: 'AI & Intelligent Machine Learning Engine',
+        name: '🤖 Custom AI & Smart Chatbot',
         scopeTier: 'Intelligent Automation',
-        days: 18,
-        badge: '🤖 LLM Chatbots + Predictive Models',
-        desc: 'Custom GPT/LLM integration, real-time sentiment analysis, computer vision, recommendation systems, and model inference pipelines.'
+        days: 14,
+        badge: '🧠 Trained on Your Business Data',
+        desc: 'Custom AI chatbots, document question-answering, automated workflows, and smart customer support.'
       },
       'desktop-software': {
-        name: 'Cross-Platform Desktop Software (Win / Mac / Linux)',
-        scopeTier: 'Native Desktop Application',
+        name: '🖥️ Desktop Software (Win / Mac)',
+        scopeTier: 'Native Offline Desktop Tool',
         days: 14,
-        badge: '🖥️ Electron / Tauri + Offline SQLite',
-        desc: 'Enterprise desktop tools, billing/POS systems, local hardware access, auto-updates, and native OS window integration.'
+        badge: '⚙️ Tauri / Rust + Offline SQLite',
+        desc: 'Fast desktop billing software, inventory manager, POS terminal, or internal business tool.'
+      },
+      'doctor-portal': {
+        name: '🩺 Doctor & Booking Portal',
+        scopeTier: 'Healthcare & Appointment Suite',
+        days: 12,
+        badge: '📅 Real-Time Calendar & Video EHR',
+        desc: 'Live booking calendar, patient record management, automated reminders, and video consult rooms.'
       }
     };
 
-    // Infrastructure & Server Architecture
-    this.infraOptions = {
-      'free-hosting': {
-        name: 'Static Edge Deployment (Vercel / Cloudflare / GitHub Pages)',
-        badge: '⚡ Edge CDN Deployment',
-        days: 0
-      },
-      'vps-linux': {
-        name: 'Dedicated Linux VPS + Nginx Reverse Proxy',
-        badge: '🛡️ Root Server Control',
-        days: 1
-      },
-      'aws-cloud': {
-        name: 'Docker Containers & Cloud Cluster (AWS / Hetzner)',
-        badge: '🐳 Containerized Scale',
-        days: 2
-      },
-      'domain-dns': {
-        name: 'Custom Domain Setup & Cloudflare 1.1.1.1 Routing',
-        badge: '🌐 Global DNS & DDoS Shield',
-        days: 1
-      },
-      'business-mail': {
-        name: 'Professional Business Email (SPF, DKIM, DMARC)',
-        badge: '✉️ 100% Inbox Deliverability',
-        days: 1
-      },
-      'ssl-security': {
-        name: 'Automated SSL & Server Security Hardening',
-        badge: '🔒 TLS 1.3 / Bank-Grade Encryption',
-        days: 0
-      }
-    };
-
-    // Performance, Security & Growth Add-Ons
+    // Step 2: Essential Features & Add-ons
     this.addonOptions = {
-      'speed-boost': {
-        name: 'PageSpeed 99+ & Core Web Vitals Optimization',
-        badge: '🚀 Sub-Second First Contentful Paint',
+      'payment-gateways': {
+        name: '💳 Online Payment Gateways',
+        badge: 'UPI, Cards, Stripe & Razorpay',
         days: 1
       },
-      'payment-gateways': {
-        name: 'Payment Gateway Integration (Stripe / Razorpay / PayPal)',
-        badge: '💳 Multi-Currency Checkout',
+      'push-notifications-addon': {
+        name: '🔔 WhatsApp & SMS Alerts',
+        badge: 'Instant Automated Notifications',
         days: 1
       },
       'admin-cms': {
-        name: 'Custom Admin Dashboard & Content Control CMS',
-        badge: '⚙️ Real-Time Content Control',
-        days: 3
-      },
-      'maintenance-year': {
-        name: 'Priority Technical Support & Automated Cloud Backups',
-        badge: '🛡️ 24/7 SLA Server Monitoring',
-        days: 0
-      },
-      'seo-package': {
-        name: 'Advanced Technical SEO & Rich JSON-LD Snippets',
-        badge: '🔍 Structured Search Schema',
-        days: 1
-      },
-      'ai-chatbot-addon': {
-        name: 'Intelligent AI Chatbot & Knowledge Base Assistant',
-        badge: '🤖 GPT / Claude RAG Integration',
+        name: '⚙️ Easy Admin Dashboard',
+        badge: 'Update Text & Products Anytime',
         days: 2
       },
-      'push-notifications-addon': {
-        name: 'Multi-Platform Push Notifications & SMS Alerts',
-        badge: '🔔 Firebase Cloud Messaging',
+      'seo-package': {
+        name: '🔍 Top Google Search SEO',
+        badge: 'Structured Schema & Fast Indexing',
         days: 1
+      },
+      'speed-boost': {
+        name: '⚡ Turbo Speed (PageSpeed 99+)',
+        badge: 'Sub-Second Page Load Optimization',
+        days: 1
+      },
+      'ssl-security': {
+        name: '🔒 Bank-Grade SSL & Security',
+        badge: 'Free Lifetime SSL & Firewall',
+        days: 0
+      },
+      'domain-dns': {
+        name: '🌐 Domain & Cloudflare Setup',
+        badge: 'Global CDN & DDoS Protection',
+        days: 1
+      },
+      'maintenance-year': {
+        name: '🛡️ Priority Support & Backups',
+        badge: 'Automated Daily Cloud Backups',
+        days: 0
+      }
+    };
+
+    // Step 3: Launch Speeds
+    this.speedOptions = {
+      'express': {
+        name: '⚡ Express Sprint (Fast Delivery)',
+        desc: 'Dedicated sprint focus for urgent deadlines.',
+        dayModifier: -3
+      },
+      'standard': {
+        name: '🎯 Standard Sprint (Recommended)',
+        desc: 'Balanced milestone schedule with thorough testing.',
+        dayModifier: 0
+      },
+      'enterprise': {
+        name: '🏢 Comprehensive Enterprise Scale',
+        desc: 'Deep architecture, extensive QA, and staging review.',
+        dayModifier: 4
       }
     };
 
     // Initial Defaults
-    this.selectedProject = 'fullstack-webapp';
-    this.selectedInfra = ['vps-linux', 'domain-dns', 'ssl-security'];
-    this.selectedAddons = ['speed-boost', 'seo-package'];
+    this.selectedProject = 'custom-website';
+    this.selectedAddons = ['payment-gateways', 'seo-package', 'speed-boost', 'ssl-security'];
+    this.selectedSpeed = 'standard';
 
     this.lastCalculation = null;
 
@@ -188,22 +156,7 @@ class ProjectEstimator {
       }).join('');
     }
 
-    // 2. Infrastructure Options
-    const infraContainer = document.getElementById('estimator-infra-options');
-    if (infraContainer) {
-      infraContainer.innerHTML = Object.keys(this.infraOptions).map(key => {
-        const item = this.infraOptions[key];
-        const isSelected = this.selectedInfra.includes(key) ? 'selected' : '';
-        return `
-          <div class="estimator-option-card ${isSelected}" data-type="infra" data-key="${key}">
-            <div class="estimator-option-title">${item.name}</div>
-            <div class="estimator-option-cost">${item.badge}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // 3. Addon Options
+    // 2. Feature Addons
     const addonContainer = document.getElementById('estimator-addon-options');
     if (addonContainer) {
       addonContainer.innerHTML = Object.keys(this.addonOptions).map(key => {
@@ -213,6 +166,21 @@ class ProjectEstimator {
           <div class="estimator-option-card ${isSelected}" data-type="addon" data-key="${key}">
             <div class="estimator-option-title">${item.name}</div>
             <div class="estimator-option-cost">${item.badge}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 3. Launch Speed Options
+    const speedContainer = document.getElementById('estimator-infra-options');
+    if (speedContainer) {
+      speedContainer.innerHTML = Object.keys(this.speedOptions).map(key => {
+        const item = this.speedOptions[key];
+        const isSelected = key === this.selectedSpeed ? 'selected' : '';
+        return `
+          <div class="estimator-option-card ${isSelected}" data-type="speed" data-key="${key}">
+            <div class="estimator-option-title">${item.name}</div>
+            <div class="estimator-option-desc">${item.desc}</div>
           </div>
         `;
       }).join('');
@@ -234,14 +202,10 @@ class ProjectEstimator {
         this.selectedProject = key;
         container.querySelectorAll('[data-type="project"]').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
-      } else if (type === 'infra') {
-        if (this.selectedInfra.includes(key)) {
-          this.selectedInfra = this.selectedInfra.filter(k => k !== key);
-          card.classList.remove('selected');
-        } else {
-          this.selectedInfra.push(key);
-          card.classList.add('selected');
-        }
+      } else if (type === 'speed') {
+        this.selectedSpeed = key;
+        container.querySelectorAll('[data-type="speed"]').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
       } else if (type === 'addon') {
         if (this.selectedAddons.includes(key)) {
           this.selectedAddons = this.selectedAddons.filter(k => k !== key);
@@ -268,33 +232,28 @@ class ProjectEstimator {
   }
 
   calculate() {
-    const project = this.projectTypes[this.selectedProject] || this.projectTypes['fullstack-webapp'];
-    let totalDays = project.days;
+    const project = this.projectTypes[this.selectedProject] || this.projectTypes['custom-website'];
+    const speed = this.speedOptions[this.selectedSpeed] || this.speedOptions['standard'];
+    let totalDays = Math.max(5, project.days + (speed.dayModifier || 0));
 
     const breakdownContainer = document.getElementById('estimator-breakdown-list');
     let breakdownHTML = `
       <div class="breakdown-row" style="padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
         <div>
           <strong style="color: var(--text-primary); font-size: 0.9rem;">${project.name}</strong>
-          <div style="font-size: 0.76rem; color: var(--text-muted);">${project.scopeTier}</div>
+          <div style="font-size: 0.76rem; color: var(--accent-cyan);">${project.scopeTier}</div>
         </div>
-        <span style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;">Core Base</span>
+        <span style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;">Base Setup</span>
       </div>
     `;
 
-    // Infrastructure
-    this.selectedInfra.forEach(key => {
-      const item = this.infraOptions[key];
-      if (item) {
-        totalDays += item.days;
-        breakdownHTML += `
-          <div class="breakdown-row" style="font-size: 0.82rem; color: var(--text-muted);">
-            <span><i class="fa-solid fa-server" style="margin-right: 6px; color: var(--accent-cyan);"></i>${item.name}</span>
-            <span style="font-family: var(--font-mono); color: var(--accent-emerald);">Included</span>
-          </div>
-        `;
-      }
-    });
+    // Speed option breakdown
+    breakdownHTML += `
+      <div class="breakdown-row" style="font-size: 0.82rem; color: var(--text-muted);">
+        <span><i class="fa-solid fa-gauge-high" style="margin-right: 6px; color: var(--accent-cyan);"></i>${speed.name}</span>
+        <span style="font-family: var(--font-mono); color: var(--accent-cyan);">Selected</span>
+      </div>
+    `;
 
     // Addons
     this.selectedAddons.forEach(key => {
@@ -303,7 +262,7 @@ class ProjectEstimator {
         totalDays += item.days;
         breakdownHTML += `
           <div class="breakdown-row" style="font-size: 0.82rem; color: var(--text-muted);">
-            <span><i class="fa-solid fa-check" style="margin-right: 6px; color: var(--accent-cyan);"></i>${item.name}</span>
+            <span><i class="fa-solid fa-check" style="margin-right: 6px; color: var(--accent-emerald);"></i>${item.name}</span>
             <span style="font-family: var(--font-mono); color: var(--accent-emerald);">Included</span>
           </div>
         `;
@@ -315,10 +274,10 @@ class ProjectEstimator {
     const timelineDisplay = document.getElementById('estimator-total-timeline');
 
     if (tierDisplay) {
-      tierDisplay.innerHTML = `<span style="font-size: 1.6rem; color: var(--text-primary);">${project.scopeTier}</span>`;
+      tierDisplay.innerHTML = `<span style="font-size: 1.5rem; color: var(--text-primary); font-weight: 800;">${project.scopeTier}</span>`;
     }
     if (timelineDisplay) {
-      timelineDisplay.innerHTML = `<i class="fa-solid fa-clock" style="margin-right: 6px;"></i>Estimated Sprints: ${totalDays} - ${totalDays + 4} Working Days`;
+      timelineDisplay.innerHTML = `<i class="fa-solid fa-clock" style="margin-right: 6px; color: #10b981;"></i>Estimated Delivery: <strong>${totalDays} - ${totalDays + 3} Working Days</strong>`;
     }
     if (breakdownContainer) {
       breakdownContainer.innerHTML = breakdownHTML;
@@ -327,8 +286,8 @@ class ProjectEstimator {
     this.lastCalculation = {
       project: project.name,
       tier: project.scopeTier,
-      totalDays: `${totalDays} - ${totalDays + 4} Working Days`,
-      infra: this.selectedInfra.map(k => this.infraOptions[k]?.name).filter(Boolean),
+      totalDays: `${totalDays} - ${totalDays + 3} Working Days`,
+      speed: speed.name,
       addons: this.selectedAddons.map(k => this.addonOptions[k]?.name).filter(Boolean)
     };
   }
@@ -401,21 +360,22 @@ class ProjectEstimator {
           </div>
         </div>
 
-        <div class="section-title">Selected Cloud Infrastructure & Server Stack</div>
+        <div class="section-title">Delivery Speed & Timeline</div>
         <ul>
-          ${calc.infra.length > 0 ? calc.infra.map(i => `<li>${i}</li>`).join('') : '<li>Standard High-Speed Edge Deployment</li>'}
+          <li><strong>Target Speed:</strong> ${calc.speed}</li>
+          <li><strong>Estimated Timeline:</strong> ${calc.totalDays}</li>
         </ul>
 
-        <div class="section-title">Included Engineering Modules & Security Add-Ons</div>
+        <div class="section-title">Included Features & Engineering Modules</div>
         <ul>
-          ${calc.addons.length > 0 ? calc.addons.map(a => `<li>${a}</li>`).join('') : '<li>Standard Core Web Vitals Optimization</li>'}
+          ${calc.addons.length > 0 ? calc.addons.map(a => `<li>${a}</li>`).join('') : '<li>Standard Core Web Vitals & Mobile Optimization</li>'}
         </ul>
 
         <div class="section-title">Milestone Delivery & Quality Guarantees</div>
         <ul>
-          <li><strong>Phase 1:</strong> Architecture Blueprint, Wireframe & Schema Design (Approved before coding)</li>
-          <li><strong>Phase 2:</strong> Agile Full-Stack Engineering & Continuous Milestone Demos</li>
-          <li><strong>Phase 3:</strong> Hardened Linux VPS / Cloud Deployment & SSL / DNS Propagation</li>
+          <li><strong>Phase 1:</strong> UI/UX Wireframes, Interactive Prototype & Architecture Approval</li>
+          <li><strong>Phase 2:</strong> Full-Stack Engineering, Feature Integration & Milestone Demos</li>
+          <li><strong>Phase 3:</strong> Testing, SSL / Domain Configuration & Cloud Launch</li>
           <li><strong>Handover:</strong> 100% Intellectual Property & Complete Git Repository Ownership transferred.</li>
           <li><strong>Warranty:</strong> 30 Days of Complimentary Post-Launch Server Monitoring & Bug-Free SLA.</li>
         </ul>
@@ -430,21 +390,21 @@ class ProjectEstimator {
 
     printWindow.document.write(blueprintHTML);
     printWindow.document.close();
-    if (window.showToast) window.showToast('📄 Technical Architecture Blueprint opened for printing/PDF export!', 'success');
+    if (window.showToast) window.showToast('📄 Project Blueprint opened for printing/PDF export!', 'success');
   }
 
   exportToWhatsApp() {
     if (!this.lastCalculation) return;
 
     const phoneNumber = "918219352124";
-    const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just configured an architecture scope on your website:\n` +
-      `*Architecture:* ${this.lastCalculation.project}\n` +
-      `*Scope Tier:* ${this.lastCalculation.tier}\n` +
-      `*Target Timeline:* ${this.lastCalculation.totalDays}\n` +
-      `*Infrastructure:* ${this.lastCalculation.infra.join(', ') || 'Standard'}\n` +
-      `*Features:* ${this.lastCalculation.addons.join(', ') || 'Standard'}\n` +
-      `*Payment Model:* 100% Milestone-Based\n\n` +
-      `Can we schedule a quick call to discuss details, budget, and kick off development?`;
+    const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just built a project scope on your website estimator:\n` +
+      `• *Project Type:* ${this.lastCalculation.project}\n` +
+      `• *Scope Tier:* ${this.lastCalculation.tier}\n` +
+      `• *Target Timeline:* ${this.lastCalculation.totalDays}\n` +
+      `• *Delivery Speed:* ${this.lastCalculation.speed}\n` +
+      `• *Selected Features:* ${this.lastCalculation.addons.join(', ') || 'Standard Core Features'}\n` +
+      `• *Payment Terms:* 100% Flexible Milestone Payments\n\n` +
+      `Can we schedule a quick call to discuss the exact details, budget, and kick off development?`;
 
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/${phoneNumber}?text=${encoded}`, '_blank');
@@ -457,7 +417,7 @@ class ProjectEstimator {
     const contactSection = document.getElementById('contact');
 
     if (contactMsg) {
-      contactMsg.value = `Architecture Scope: ${this.lastCalculation.project}\nScope Tier: ${this.lastCalculation.tier}\nTarget Timeline: ${this.lastCalculation.totalDays}\nSelected Infrastructure: ${this.lastCalculation.infra.join(', ')}\nSelected Features: ${this.lastCalculation.addons.join(', ')}\n\nLooking forward to discussing our project roadmap & budget!`;
+      contactMsg.value = `Project Type: ${this.lastCalculation.project}\nScope Tier: ${this.lastCalculation.tier}\nTarget Timeline: ${this.lastCalculation.totalDays}\nDelivery Speed: ${this.lastCalculation.speed}\nSelected Features: ${this.lastCalculation.addons.join(', ')}\n\nLooking forward to discussing our project roadmap & budget!`;
     }
 
     if (contactSection) {
@@ -465,7 +425,7 @@ class ProjectEstimator {
     }
 
     if (window.showToast) {
-      window.showToast('Technical specification transferred to Contact Form!', 'info');
+      window.showToast('Project specification transferred to Contact Form!', 'info');
     }
   }
 }

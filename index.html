@@ -1315,42 +1315,52 @@
 
   <!-- ===================================================================
        INTERACTIVE SUBSCRIPTION SAVINGS & ROI CALCULATOR
+  <!-- ===================================================================
+       INTERACTIVE SUBSCRIPTION SAVINGS & ROI CALCULATOR
        =================================================================== -->
   <section class="section" id="roi-calculator" style="padding-top: 0;">
     <div class="container">
       <div class="roi-calculator-wrap reveal">
         <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center;">
           
-          <!-- Left: Sliders -->
+          <!-- Left: Friendly Sliders -->
           <div>
-            <div class="section-tag" style="margin-bottom: 8px;">
-              <span><i class="fa-solid fa-calculator" style="color: var(--accent-cyan); margin-right: 6px;"></i>Cost Optimization Engine</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <div class="section-tag" style="margin-bottom: 0;">
+                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Smart Savings Calculator</span>
+              </div>
+              <!-- Currency Switcher -->
+              <div style="display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 3px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+                <button class="filter-btn roi-currency-btn active" data-currency="INR" style="padding: 3px 10px; font-size: 0.72rem; font-weight: 700;">₹ INR</button>
+                <button class="filter-btn roi-currency-btn" data-currency="USD" style="padding: 3px 10px; font-size: 0.72rem; font-weight: 700;">$ USD</button>
+              </div>
             </div>
+
             <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
-              Custom Architecture vs. <span class="text-gradient">Monthly SaaS Plugin Waste</span>
+              How Much Money Will You Save with a <span class="text-gradient">Custom Website?</span>
             </h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
-              Traditional WordPress/Shopify sites rack up thousands in recurring plugin fees, slow server bloat, and monthly licensing. See how much you save with our 100% custom, zero-recurring-fee codebases.
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+              Most platforms charge you monthly rental fees for basic plugins, apps, and licenses. With <strong>PixelToCloud</strong>, you pay once and own 100% of your software forever with zero recurring monthly fees.
             </p>
 
-            <!-- Slider 1: Monthly Plugin Subscriptions -->
+            <!-- Slider 1: Monthly Subscriptions -->
             <div class="roi-slider-group">
               <div class="roi-slider-label-row">
-                <span>Current Monthly Plugin & App Subscriptions:</span>
-                <span class="roi-slider-val" id="roi-plugin-cost-val">$250 / mo</span>
+                <span>Your Monthly App &amp; Plugin Costs:</span>
+                <span class="roi-slider-val" id="roi-plugin-cost-val" style="color: #10b981;">₹5,000 / month</span>
               </div>
-              <input type="range" class="roi-range-input" id="roi-plugin-cost-slider" min="50" max="1000" step="25" value="250">
+              <input type="range" class="roi-range-input" id="roi-plugin-cost-slider" min="1000" max="30000" step="500" value="5000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #64748b; margin-top: 4px; font-family: var(--font-mono);">
-                <span>$50/mo (Basic)</span>
-                <span>$500/mo (Mid-Size)</span>
-                <span>$1,000/mo+ (Enterprise Apps)</span>
+                <span>Basic Apps</span>
+                <span>Mid-Size Store</span>
+                <span>Enterprise Suite</span>
               </div>
             </div>
 
-            <!-- Slider 2: Horizon / Lifespan -->
+            <!-- Slider 2: Years in Business -->
             <div class="roi-slider-group">
               <div class="roi-slider-label-row">
-                <span>Project Horizon & Lifespan:</span>
+                <span>Number of Years in Business:</span>
                 <span class="roi-slider-val" id="roi-lifespan-val">3 Years</span>
               </div>
               <input type="range" class="roi-range-input" id="roi-lifespan-slider" min="1" max="5" step="1" value="3">
@@ -1363,30 +1373,26 @@
           </div>
 
           <!-- Right: Calculated Savings Card -->
-          <div style="background: rgba(0, 240, 255, 0.04); border: 1px solid rgba(0, 240, 255, 0.3); border-radius: var(--radius-lg); padding: 28px; text-align: center; position: relative;">
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em;">
-              Total Recurring SaaS Waste Avoided:
+          <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.04)); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-lg); padding: 28px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">
+              TOTAL MONEY SAVED IN YOUR BUSINESS:
             </div>
             <div style="font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 800; color: #10b981; font-family: var(--font-mono); margin: 10px 0;" id="roi-total-savings-val">
-              $9,000
+              ₹1,80,000
             </div>
             <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 20px;">
-              Zero third-party plugin subscription lock-ins. 100% source code ownership.
+              💰 Money kept in your bank account instead of paying monthly plugin rent.
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left;">
-              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px;">
-                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-mono);">Speed & Conversion Boost</div>
-                <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono);" id="roi-conversion-val">+28.4%</div>
-              </div>
-              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px;">
-                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-mono);">Server Efficiency</div>
-                <div style="font-size: 1.15rem; font-weight: 700; color: #a855f7; font-family: var(--font-mono);" id="roi-efficiency-val">94.2% Lower CPU</div>
-              </div>
+            <!-- Value Highlights -->
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; text-align: left; background: rgba(0,0,0,0.3); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.78rem;">
+              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>100% Code &amp; Database Ownership</strong> — Never get locked in</span></div>
+              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>Zero Monthly Plugin Subscriptions</strong> — Pay once, run forever</span></div>
+              <div style="color: #cbd5e1; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i><span><strong>Sub-Second Load Speeds</strong> — 60 FPS responsive performance</span></div>
             </div>
 
-            <button class="btn-magnetic btn-primary" id="roi-whatsapp-cta" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700;">
-              <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Lock In Zero-Plugin Architecture</span>
+            <button class="btn-magnetic btn-primary" id="roi-whatsapp-cta" style="width: 100%; padding: 13px; font-size: 0.9rem; font-weight: 700;">
+              <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 1.1rem;"></i>Calculate My Custom Project on WhatsApp</span>
             </button>
           </div>
         </div>
@@ -1395,72 +1401,80 @@
   </section>
 
   <!-- ===================================================================
-       3. INTERACTIVE PORTFOLIO SHOWCASE & LIVE DEMOS
+       3. PROVEN RESULTS & PORTFOLIO IMPACT (STREAMLINED)
        =================================================================== -->
-  <section class="section" id="portfolio">
+  <section class="section" id="portfolio" style="padding-top: 20px;">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-          <span data-i18n="section_portfolio_tag">Shipped Work & Case Studies</span>
+      <div style="background: radial-gradient(circle at top, rgba(0, 240, 255, 0.08), rgba(15, 23, 42, 0.95)); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-lg);" class="reveal">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;">
+          <div>
+            <div class="section-tag" style="margin-bottom: 8px;">
+              <span><i class="fa-solid fa-award" style="color: var(--accent-cyan); margin-right: 6px;"></i>Proven Track Record</span>
+            </div>
+            <h2 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+              Real Systems Shipped for <span class="text-gradient">Real Businesses</span>
+            </h2>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+              From high-traffic e-commerce marketplaces to clinic telehealth portals and custom billing tools, explore our full library of deployed client software with live demos.
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="portfolio.html" class="btn-magnetic btn-primary" style="padding: 12px 28px; font-size: 0.92rem; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+                <span><i class="fa-solid fa-layer-group" style="margin-right: 4px;"></i>Explore Full Portfolio &amp; Case Studies</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#estimator" class="btn-magnetic btn-secondary" style="padding: 12px 24px; font-size: 0.92rem; font-weight: 600;">
+                <span>Instant Project Estimator &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Impact Metrics 2x2 Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono);">0.28s</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Average Page Load</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #10b981; font-family: var(--font-mono);">99.98%</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">High-Availability Uptime</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #f59e0b; font-family: var(--font-mono);">100+</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Shipped Modules</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #8b5cf6; font-family: var(--font-mono);">100%</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Code &amp; IP Ownership</div>
+            </div>
+          </div>
         </div>
-        <h2 class="section-title">
-          <span data-i18n="section_portfolio_title">Interactive Project Showcases</span>
-        </h2>
-        <p class="section-desc" data-i18n="section_portfolio_desc">
-          Click any project below to launch an interactive live demonstration modal with simulated tax calculations, WebGL 3D orbit geometry, appointment schedulers, and live server metrics.
-        </p>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="portfolio-filter-container reveal">
-        <button class="filter-btn active" data-filter="all">All Systems</button>
-        <button class="filter-btn" data-filter="web-dev">Web Development</button>
-        <button class="filter-btn" data-filter="3d-software">2D/3D Software</button>
-        <button class="filter-btn" data-filter="healthcare">Doctor & Healthcare</button>
-        <button class="filter-btn" data-filter="fintech">CA & FinTech</button>
-        <button class="filter-btn" data-filter="ecommerce">Art & E-Commerce</button>
-        <button class="filter-btn" data-filter="devops">Cloud & DevOps</button>
-      </div>
-
-      <!-- Dynamic Portfolio Grid (Featured 4 Flagship Systems) -->
-      <div class="portfolio-grid" id="portfolio-grid" data-featured="true">
-        <!-- Rendered by portfolio.js -->
-      </div>
-
-      <!-- View All Projects CTA -->
-      <div style="text-align: center; margin-top: 36px;" class="reveal">
-        <a href="portfolio.html" class="btn-magnetic btn-primary" style="padding: 14px 32px; font-size: 1rem; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;">
-          <span><i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>Explore Full Portfolio & All Live Demos</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
     </div>
   </section>
 
   <!-- ===================================================================
-       4. INTERACTIVE PROJECT ESTIMATOR (INSTANT QUOTE GENERATOR)
+       4. SMART SCOPE & ROADMAP ESTIMATOR (EASY 3-STEP BUILDER)
        =================================================================== -->
   <section class="section" id="estimator">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-tag">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-          <span data-i18n="section_estimator_tag">Milestone-Based Scoping</span>
+          <span>Instant Scope &amp; Roadmap Builder</span>
         </div>
         <h2 class="section-title">
-          <span data-i18n="section_estimator_title">Technical Solution Builder & Scope Estimator</span>
+          <span>Build Your Custom Project in 3 Simple Steps</span>
         </h2>
-        <p class="section-desc" data-i18n="section_estimator_desc">
-          Configure your custom architecture, infrastructure requirements, and capability add-ons to generate a transparent delivery roadmap and milestone plan.
+        <p class="section-desc">
+          Select what you want to build and pick your preferred features to get an instant delivery timeline and a transparent development roadmap.
         </p>
       </div>
 
       <div class="estimator-wrapper reveal" id="estimator-interactive-container">
         <!-- Solution Scope Header -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
           <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-cyan);">
-            <i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>Full-Stack Architecture & Sprint Configurator
+            <i class="fa-solid fa-sliders" style="margin-right: 6px;"></i>Interactive Solution Configurator
           </div>
           <div style="display: flex; gap: 8px;">
             <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.08); padding: 6px 14px; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
@@ -1477,31 +1491,31 @@
             <div class="estimator-step-block">
               <div class="step-label">
                 <span class="step-number">1</span>
-                <span>Select Base Architecture / Project Scope</span>
+                <span>Choose What You Want to Build</span>
               </div>
               <div class="estimator-options-grid" id="estimator-project-types">
                 <!-- Rendered dynamically by estimator.js -->
               </div>
             </div>
 
-            <!-- Step 2: Cloud Infrastructure & Server Setup -->
+            <!-- Step 2: Extra Features & Must-Haves -->
             <div class="estimator-step-block">
               <div class="step-label">
                 <span class="step-number">2</span>
-                <span>Select Server, Domain & DevOps Infrastructure</span>
+                <span>Choose Extra Features &amp; Capabilities</span>
               </div>
-              <div class="estimator-options-grid" id="estimator-infra-options">
+              <div class="estimator-options-grid" id="estimator-addon-options">
                 <!-- Rendered dynamically by estimator.js -->
               </div>
             </div>
 
-            <!-- Step 3: Performance, Speed & Add-ons -->
+            <!-- Step 3: Target Timeline & Delivery Speed -->
             <div class="estimator-step-block">
               <div class="step-label">
                 <span class="step-number">3</span>
-                <span>Select Security, SEO & Feature Add-ons</span>
+                <span>Choose Target Delivery Timeline</span>
               </div>
-              <div class="estimator-options-grid" id="estimator-addon-options">
+              <div class="estimator-options-grid" id="estimator-infra-options">
                 <!-- Rendered dynamically by estimator.js -->
               </div>
             </div>
@@ -1511,41 +1525,42 @@
           <div class="estimator-summary-panel">
             <div>
               <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
-                Architecture Complexity & Tier:
+                Selected Solution &amp; Scope Tier:
               </div>
-              <div class="estimate-price-display" style="padding: 18px 0;">
-                <div class="estimate-cost-headline" id="estimator-total-price" style="font-size: 1.6rem; color: var(--text-primary); font-weight: 800;">
-                  Professional Scale
+              <div class="estimate-price-display" style="padding: 16px 0;">
+                <div class="estimate-cost-headline" id="estimator-total-price" style="font-size: 1.5rem; color: var(--text-primary); font-weight: 800;">
+                  Modern Business Website
                 </div>
-                <div class="estimate-timeline-badge" id="estimator-total-timeline" style="margin-top: 10px;">
-                  <i class="fa-solid fa-clock" style="margin-right: 6px;"></i>Estimated Sprints: 12 - 16 Working Days
+                <div class="estimate-timeline-badge" id="estimator-total-timeline" style="margin-top: 8px;">
+                  <i class="fa-solid fa-clock" style="margin-right: 6px; color: #10b981;"></i>Estimated Delivery: 7 - 10 Working Days
                 </div>
               </div>
 
-              <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
-                Technical Spec Summary:
+              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;">
+                Included In This Blueprint:
               </div>
               <div class="estimate-items-breakdown" id="estimator-breakdown-list">
                 <!-- Dynamically updated -->
               </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
-              <button class="btn-magnetic btn-primary" id="estimator-export-email" style="width: 100%; padding: 14px; font-size: 0.92rem; font-weight: 700;">
-                <span><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>Email Scope to Bhavyansh Agarwal & Founders</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-              </button>
+            <!-- Transparent 3-Phase Roadmap -->
+            <div style="margin-top: 16px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; font-size: 0.76rem;">
+              <div style="font-weight: 700; color: #cbd5e1; margin-bottom: 6px;">3-Phase Milestone Roadmap:</div>
+              <div style="color: #94a3b8; line-height: 1.6;">
+                <div>1️⃣ <strong>Phase 1:</strong> UI/UX Wireframes &amp; Design Approval</div>
+                <div>2️⃣ <strong>Phase 2:</strong> Core Development &amp; Database Build</div>
+                <div>3️⃣ <strong>Phase 3:</strong> Testing, Domain Setup &amp; Live Launch</div>
+              </div>
+            </div>
 
-              <button class="btn-magnetic btn-secondary" id="estimator-export-pdf" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 600; border-color: rgba(0,240,255,0.4); color: var(--accent-cyan);">
-                <span><i class="fa-solid fa-file-pdf" style="margin-right: 6px; color: #ef4444;"></i>Download Architecture Blueprint (PDF)</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px;">
+              <button class="btn-magnetic btn-primary" id="estimator-export-whatsapp" style="width: 100%; padding: 13px; font-size: 0.9rem; font-weight: 700;">
+                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 1.1rem;"></i>Discuss Scope on WhatsApp</span>
               </button>
-
-              <button class="btn-magnetic btn-secondary" id="estimator-export-whatsapp" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 600;">
-                <span><i class="fa-brands fa-whatsapp" style="margin-right: 6px; color: #25D366;"></i>Discuss Scope on WhatsApp</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <button class="btn-magnetic btn-secondary" id="estimator-export-pdf" style="width: 100%; padding: 11px; font-size: 0.85rem; font-weight: 600; border-color: rgba(0,240,255,0.4); color: var(--accent-cyan);">
+                <span><i class="fa-solid fa-file-pdf" style="margin-right: 6px; color: #ef4444;"></i>Download Project Blueprint (PDF)</span>
               </button>
-
               <button class="btn-magnetic btn-secondary" id="estimator-apply-contact" style="width: 100%; padding: 10px; font-size: 0.82rem;">
                 <span>Apply Specification to Contact Form &darr;</span>
               </button>
