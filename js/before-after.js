@@ -217,10 +217,12 @@ class AdvancedBeforeAfterEngine {
     const scan = () => {
       if (!this.isAutoScanning) return;
 
-      this.splitPercent += this.autoScanDirection * 0.35;
-      if (this.splitPercent >= 90) {
+      this.splitPercent += this.autoScanDirection * 0.4;
+      if (this.splitPercent >= 100) {
+        this.splitPercent = 100;
         this.autoScanDirection = -1;
-      } else if (this.splitPercent <= 10) {
+      } else if (this.splitPercent <= 0) {
+        this.splitPercent = 0;
         this.autoScanDirection = 1;
       }
 

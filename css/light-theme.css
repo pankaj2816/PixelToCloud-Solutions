@@ -347,6 +347,36 @@
     font-weight: 800 !important;
   }
 
+  /* ROI Calculator Dark Card in Light Theme */
+  .roi-calculator-wrap {
+    background: radial-gradient(circle at top right, #0b1329, #050a14) !important;
+    border: 1px solid rgba(0, 240, 255, 0.35) !important;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.15) !important;
+  }
+  .roi-calculator-wrap h3 {
+    color: #ffffff !important;
+  }
+  .roi-calculator-wrap p {
+    color: #cbd5e1 !important;
+  }
+  .roi-calculator-wrap .roi-slider-label-row {
+    color: #f8fafc !important;
+  }
+  .roi-calculator-wrap .roi-slider-label-row span {
+    color: #f8fafc !important;
+  }
+  .roi-calculator-wrap .roi-slider-val {
+    color: #00f0ff !important;
+  }
+  .roi-calculator-wrap .section-tag {
+    background: rgba(0, 240, 255, 0.12) !important;
+    color: #00f0ff !important;
+    border: 1px solid rgba(0, 240, 255, 0.35) !important;
+  }
+  .roi-calculator-wrap .section-tag i {
+    color: #00f0ff !important;
+  }
+
   /* 8. Tech Stack Orbit Grid */
   .tech-tile {
     background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;

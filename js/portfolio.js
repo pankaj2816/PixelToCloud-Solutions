@@ -142,11 +142,14 @@ class PortfolioManager {
   }
 
   bindFilterEvents() {
+    this.filterButtons = document.querySelectorAll('.portfolio-filter-container .filter-btn');
     this.filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
+        const filterVal = btn.getAttribute('data-filter');
+        if (!filterVal) return;
         this.filterButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        this.activeFilter = btn.getAttribute('data-filter');
+        this.activeFilter = filterVal;
         this.renderProjects(this.activeFilter);
       });
     });
@@ -165,6 +168,8 @@ class PortfolioManager {
 
   renderProjects(filter) {
     if (!this.grid) return;
+
+    if (!filter) filter = 'all';
 
     const isFeatured = this.grid.hasAttribute('data-featured');
 

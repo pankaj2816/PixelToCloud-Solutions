@@ -279,25 +279,40 @@
     font-size: 0.72rem;
   }
 
-  /* Swipeable Certifications Strip on Mobile */
+  /* 2-Column Grid Certifications Strip on Mobile */
   .certifications-trust-strip {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 10px;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-
-  .certifications-trust-strip::-webkit-scrollbar {
-    display: none;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+    margin-top: 16px !important;
   }
 
   .cert-trust-pill {
-    flex: 0 0 200px;
-    scroll-snap-align: start;
-    padding: 10px 14px;
+    flex: initial !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 10px !important;
+    gap: 8px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .cert-trust-pill i {
+    font-size: 1.1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cert-trust-pill div div:first-child {
+    font-size: 0.73rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  .cert-trust-pill div div:last-child {
+    font-size: 0.64rem !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
   }
 
   /* Services Hub Mobile Tabs (Swipeable Pills) */
