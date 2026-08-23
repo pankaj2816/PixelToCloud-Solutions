@@ -8,9 +8,9 @@ class AppEngine {
     this.themeToggleBtn = document.getElementById('theme-toggle');
     this.themeToggleMobile = document.getElementById('theme-toggle-mobile');
     this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    this.mobileDrawer = document.getElementById('mobile-drawer');
-    this.drawerOverlay = document.getElementById('drawer-overlay');
-    this.drawerCloseBtn = document.getElementById('mobile-drawer-close') || document.getElementById('drawer-close-btn');
+    this.mobileDrawer = document.getElementById('mobile-drawer') || document.querySelector('.mobile-drawer, .mobile-nav-drawer');
+    this.drawerOverlay = document.getElementById('drawer-overlay') || document.getElementById('mobile-drawer-overlay') || document.querySelector('.mobile-drawer-overlay');
+    this.drawerCloseBtn = document.getElementById('mobile-drawer-close') || document.getElementById('drawer-close-btn') || document.querySelector('.drawer-close-btn');
     this.navbar = document.getElementById('navbar');
     this.cursorGlow = document.querySelector('.cursor-glow');
 

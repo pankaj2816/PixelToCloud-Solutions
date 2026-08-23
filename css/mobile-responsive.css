@@ -207,25 +207,40 @@
     font-size: 0.72rem;
   }
 
-  /* Swipeable Certifications Strip on Mobile */
+  /* 2-Column Grid Certifications Strip on Mobile */
   .certifications-trust-strip {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 10px;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-
-  .certifications-trust-strip::-webkit-scrollbar {
-    display: none;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+    margin-top: 16px !important;
   }
 
   .cert-trust-pill {
-    flex: 0 0 200px;
-    scroll-snap-align: start;
-    padding: 10px 14px;
+    flex: initial !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 10px !important;
+    gap: 8px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .cert-trust-pill i {
+    font-size: 1.1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cert-trust-pill div div:first-child {
+    font-size: 0.73rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  .cert-trust-pill div div:last-child {
+    font-size: 0.64rem !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
   }
 
   /* Services Hub Mobile Tabs (Swipeable Pills) */
@@ -258,20 +273,194 @@
     padding: 20px;
   }
 
-  /* Before / After Transformation Mobile */
-  .ba-case-tabs-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  /* Strict mobile overflow containment */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Before / After Transformation Mobile Controls Grid */
+  .ba-controls-container {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .ba-case-tabs-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .ba-case-tabs-grid .ba-case-tab {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 8px !important;
+    font-size: 0.78rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+  }
+
+  .ba-case-tabs-grid .ba-case-tab:nth-child(3) {
+    grid-column: span 2 !important;
+  }
+
+  .ba-preset-controls-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  #ba-autoscan-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .ba-percentage-pills {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .ba-percentage-pills .ba-preset-btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 8px 4px !important;
+    font-size: 0.75rem !important;
+    justify-content: center !important;
+  }
+
+  #ba-split-val-badge {
+    text-align: center !important;
+    width: 100% !important;
+    padding: 6px 10px !important;
+    font-size: 0.78rem !important;
+    display: block !important;
   }
 
   .before-after-box {
-    height: 480px;
+    height: 520px;
+    border-radius: var(--radius-md);
+  }
+
+  .ba-layer > div:last-child {
+    padding: 12px !important;
+  }
+
+  .ba-layer h3 {
+    font-size: 1.02rem !important;
+    margin-top: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  .ba-layer p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    margin-top: 4px !important;
+  }
+
+  .ba-layer .ba-tag {
+    font-size: 0.68rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .ba-before-layer div[style*="display: flex; align-items: center; justify-content: space-between;"],
+  .ba-after-layer div[style*="display: flex; align-items: center; justify-content: space-between;"] {
+    padding: 6px 10px !important;
+    font-size: 0.65rem !important;
+  }
+
+  #ba-url-before, #ba-url-after {
+    max-width: 140px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .ba-layer div[style*="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-top: 10px !important;
+  }
+
+  .ba-layer div[style*="background: rgba("] {
+    padding: 6px 8px !important;
   }
 
   .ba-handle {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Contact Form Services Required Checkboxes Mobile Grid */
+  .form-services-checkboxes {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+  }
+
+  .service-pill-checkbox {
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  .service-pill-checkbox span {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 8px !important;
+    font-size: 0.78rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border-radius: var(--radius-full) !important;
+  }
+
+  .service-pill-checkbox:last-child {
+    grid-column: span 2 !important;
+  }
+
+  /* Portfolio & Case Studies Showcase Filter Buttons Mobile Grid */
+  .portfolio-filter-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .portfolio-filter-container .filter-btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 8px !important;
+    font-size: 0.78rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .portfolio-filter-container .filter-btn:last-child {
+    grid-column: span 2 !important;
   }
 
   /* Subscription ROI Calculator Mobile */
@@ -284,28 +473,50 @@
     gap: 24px !important;
   }
 
-  /* System Topology Mobile */
+  /* System Topology / Client-to-Cloud Distributed Architecture Mobile (2-Column Grid) */
   .topology-wrapper {
     padding: 16px;
   }
 
-  .topology-node-pills-bar {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 6px;
-    padding-bottom: 6px;
-    scrollbar-width: none;
+  .topology-canvas-container {
+    height: 280px !important;
   }
 
-  .topology-node-pills-bar::-webkit-scrollbar {
-    display: none;
+  .topology-sim-triggers-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
   }
 
-  .topology-node-pill {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+  .topology-sim-triggers-bar .btn-magnetic {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 8px 6px !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  #topology-node-selector-pills {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+
+  #topology-node-selector-pills .topology-node-btn {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    font-size: 0.74rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .topology-telemetry-grid {
