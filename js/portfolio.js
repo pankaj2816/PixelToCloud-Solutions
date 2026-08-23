@@ -1003,15 +1003,8 @@ class PortfolioManager {
       document.body.style.overflow = '';
     }
 
-    // Scroll to contact form and pre-fill details
-    const contactSection = document.getElementById('contact');
-    const msgBox = document.getElementById('contact-message');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (msgBox) {
-      msgBox.value = `Hi Bhavyansh Agarwal, I am interested in building a project similar to: "${projectName}". Please share details on timeline, architecture, and quote.`;
-    }
+    // Navigate to contact.html with project parameter
+    window.location.href = `contact.html?project=${encodeURIComponent(projectName)}`;
   }
 }
 

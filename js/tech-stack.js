@@ -371,7 +371,7 @@ class InteractiveTechStackSandbox {
               <i class="${tech.icon}"></i>
             </div>
             <div>
-              <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                 <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary); margin: 0;">${tech.name}</h3>
                 <span class="badge badge-cyan" style="font-size: 0.7rem;">${tech.category}</span>
                 <span class="badge badge-emerald" style="font-size: 0.7rem;"><i class="fa-solid fa-bolt" style="margin-right: 4px;"></i>Live Interactive Demo</span>
@@ -393,7 +393,7 @@ class InteractiveTechStackSandbox {
 
         <!-- Dynamic Live Interactive Micro-Playground -->
         <div style="margin-bottom: 24px; background: #020617; border: 1px solid rgba(0, 240, 255, 0.25); border-radius: var(--radius-md); padding: 18px; position: relative;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-family: var(--font-mono); font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 8px;">
             <span style="color: var(--accent-cyan); font-weight: 700;"><i class="fa-solid fa-microchip" style="margin-right: 6px;"></i>REAL-TIME INTERACTIVE WORKBENCH:</span>
             <span style="color: #10b981;">60 FPS Active Engine</span>
           </div>

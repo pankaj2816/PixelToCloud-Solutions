@@ -840,4 +840,20 @@ class AppEngine {
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
   window.App = new AppEngine();
+
+  // Pre-fill contact form if project parameter is present
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectParam = urlParams.get('project');
+  if (projectParam) {
+    const msgBox = document.getElementById('contact-message');
+    if (msgBox) {
+      msgBox.value = `Hi Bhavyansh Agarwal & Tushar Singhal, I am interested in building a project similar to: "${projectParam}". Please share details on timeline, architecture, and quote.`;
+      
+      // Auto-scroll and focus after a slight delay to ensure UI is ready
+      setTimeout(() => {
+        msgBox.focus();
+        msgBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+    }
+  }
 });

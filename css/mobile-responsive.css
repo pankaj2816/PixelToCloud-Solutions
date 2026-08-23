@@ -231,16 +231,35 @@
     flex-shrink: 0 !important;
   }
 
-  /* Compact Smart Language Selector on Mobile */
-  .lang-selector-wrap {
+  /* Show Language Selector but make everything compact so it fits */
+  .navbar .lang-selector-wrap {
+    display: flex !important;
     padding: 2px 6px !important;
     height: 30px !important;
     background: rgba(255, 255, 255, 0.05) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-full) !important;
     font-size: 0.7rem !important;
-    display: flex !important;
     align-items: center !important;
+  }
+  
+  .navbar .lang-select {
+    width: 70px !important; /* Constrain width on mobile */
+    font-size: 0.75rem !important;
+  }
+  
+  /* Hide the theme switcher in the top navbar on mobile to save space */
+  .navbar .theme-switch-segmented {
+    display: none !important;
+  }
+    
+  /* Ensure the drawer language selector looks good */
+  #mobile-drawer .lang-selector-wrap {
+    padding: 6px 12px !important;
+    height: 40px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
   }
 
   .lang-select {
