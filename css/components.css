@@ -2034,23 +2034,26 @@
 
 .ai-advisor-modal {
   position: fixed;
-  bottom: 170px;
-  right: 28px;
-  width: min(90vw, 380px);
-  height: 520px;
-  background: rgba(10, 14, 23, 0.96);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 240, 255, 0.35);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.2);
+  bottom: 24px;
+  right: 24px;
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  height: 580px;
+  max-height: calc(100vh - 48px);
+  background: rgba(10, 14, 23, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 100000;
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.9) translateY(20px);
-  transition: all var(--transition-smooth);
+  transform: scale(0.95) translateY(15px);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ai-advisor-modal.active {
@@ -2060,8 +2063,9 @@
 }
 
 .ai-header {
-  padding: 16px 20px;
-  background: rgba(14, 20, 32, 0.9);
+  flex: 0 0 auto;
+  padding: 14px 18px;
+  background: rgba(14, 20, 32, 0.95);
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -2085,6 +2089,7 @@
   color: #050b14;
   font-weight: 800;
   font-size: 0.82rem;
+  flex-shrink: 0;
 }
 
 .ai-header-btn {
@@ -2115,9 +2120,11 @@
 }
 
 .ai-messages {
-  flex: 1;
-  padding: 18px;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 16px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2156,12 +2163,14 @@
 }
 
 .ai-chips-wrap {
+  flex: 0 0 auto;
   display: flex;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-top: 1px solid var(--border-subtle);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .ai-chip {
@@ -2174,6 +2183,7 @@
   color: var(--text-secondary);
   cursor: pointer;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .ai-chip:hover {
@@ -2183,11 +2193,13 @@
 }
 
 .ai-input-bar {
-  padding: 12px 16px;
-  background: rgba(14, 20, 32, 0.9);
+  flex: 0 0 auto;
+  padding: 12px 14px;
+  background: rgba(14, 20, 32, 0.95);
   border-top: 1px solid var(--border-subtle);
   display: flex;
   gap: 8px;
+  align-items: center;
 }
 
 .ai-input-bar input {
@@ -2198,6 +2210,12 @@
   border-radius: var(--radius-full);
   color: #fff;
   font-size: 0.86rem;
+  outline: none;
+}
+
+.ai-input-bar input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
 }
 
 .ai-input-bar button {
@@ -2210,6 +2228,9 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* Typing Dots Animation */

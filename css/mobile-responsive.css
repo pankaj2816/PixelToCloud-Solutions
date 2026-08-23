@@ -1271,3 +1271,59 @@
     font-size: 0.65rem;
   }
 }
+
+/* ===================================================================
+   AI ADVISOR MODAL MOBILE RESPONSIVENESS & SAFE VIEWPORT BOUNDS
+   =================================================================== */
+@media (max-width: 768px) {
+  .ai-advisor-modal {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 86vh !important;
+    max-height: 86vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    border: 1px solid rgba(0, 240, 255, 0.4) !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.3) !important;
+    transform: translateY(100%) !important;
+  }
+
+  .ai-advisor-modal.active {
+    transform: translateY(0) !important;
+  }
+
+  .ai-advisor-fab {
+    bottom: 85px !important;
+    right: 18px !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .ai-header {
+    padding: 12px 14px !important;
+  }
+
+  .ai-messages {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .ai-input-bar {
+    padding: 10px 12px !important;
+  }
+}
+
+@media (max-height: 650px) and (min-width: 769px) {
+  .ai-advisor-modal {
+    height: calc(100vh - 30px) !important;
+    max-height: calc(100vh - 30px) !important;
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+}
+
