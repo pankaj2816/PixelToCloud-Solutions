@@ -6,17 +6,17 @@
 const PROJECTS_DATA = [
   {
     id: "ca-website",
-    title: "FinTax Pro - CA & Financial Enterprise Hub",
+    title: "Easy My Tax - CA & Tax Servicing Enterprise Portal",
     category: "fintech",
     categoryLabel: "FinTech & CA Systems",
-    badge: "Enterprise FinTech",
+    badge: "Built for CA Pradeep Agarwal",
     badgeClass: "badge-cyan",
-    tagline: "High-security financial portal with automated tax engines & compliance ledger",
-    description: "A comprehensive digital ecosystem built for Chartered Accountants and wealth management firms. Features automated GST & Income Tax calculation engines, secure client document lockers with 256-bit AES encryption, real-time audit trail tracking, and instant invoicing.",
+    tagline: "High-security financial platform with automated ITR/GST engines & encrypted client vault",
+    description: "A comprehensive digital ecosystem engineered for CA Pradeep Agarwal (Founder, Easy My Tax). Features automated GST & Income Tax calculation engines, secure client document lockers with 256-bit AES encryption, real-time audit compliance, and instant invoice generation.",
     specs: {
+      "Client": "CA Pradeep Agarwal (Easy My Tax)",
       "Architecture": "Cloud-Native SPA + Microservices",
       "Compliance": "GSTN API & Bank Grade Security",
-      "Deployment": "AWS ECS + Automated Backups",
       "Performance": "99.8% PageSpeed (0.5s TTI)"
     },
     techStack: ["JavaScript / ES6+", "FinTech Tax API", "Node.js Microservices", "PostgreSQL", "Docker", "Nginx SSL"],
@@ -44,17 +44,17 @@ const PROJECTS_DATA = [
   },
   {
     id: "doctor-website",
-    title: "MedPulse - Doctor & Telehealth Management Portal",
+    title: "Renova Cancer & Revital Physiocare - Medical Portal",
     category: "healthcare",
     categoryLabel: "Doctor & Healthcare",
-    badge: "HIPAA Compliant",
+    badge: "Dr. Rathee & Dr. Joshi",
     badgeClass: "badge-emerald",
-    tagline: "Smart doctor scheduling, video consultation rooms & digital EHR records",
-    description: "Full-scale medical and clinic management platform designed for doctors, polyclinics, and hospitals. Includes instant patient appointment booking with calendar synchronization, digital prescription generation, telemedicine video rooms, and patient history records.",
+    tagline: "Specialized oncology & physiotherapy clinical scheduling with WhatsApp alerts",
+    description: "Specialized clinical and rehabilitation healthcare platforms developed for Dr. Neeraj Kumar Rathee (Harish Renova Cancer Center) and Dr. Archit Joshi (Revital Physiocare Lab). Features instant patient slot booking, WebRTC telehealth rooms, and encrypted health records.",
     specs: {
+      "Clients": "Dr. Neeraj Kumar Rathee & Dr. Archit Joshi",
       "Security": "HIPAA & GDPR Standards Compliant",
       "Scheduling": "Real-time Calendar Sync Engine",
-      "Integrations": "SMS/WhatsApp Booking Alerts",
       "Hosting": "High-Availability VPS + Daily Backups"
     },
     techStack: ["React / Modern JS", "WebRTC Video", "Express Backend", "MongoDB", "Redis Cache", "Cloudflare DNS"],
@@ -63,15 +63,15 @@ const PROJECTS_DATA = [
   },
   {
     id: "art-craft-website",
-    title: "ArtisanVogue - Luxury Art & Craft Boutique",
+    title: "Saini Handicrafts - Artisanal E-Commerce Boutique",
     category: "ecommerce",
     categoryLabel: "Art & E-Commerce",
-    badge: "Creative E-Commerce",
+    badge: "Built for Jyoti Saini",
     badgeClass: "badge-amber",
-    tagline: "Bespoke handcrafted showcase with 360° zoom & custom commission studio",
-    description: "A luxury art, craft, and bespoke sculpture boutique website. Engineered with rich micro-animations, dynamic masonry galleries, 360-degree interactive artwork inspectors, multi-currency global checkout, and custom artisan commission ordering workflows.",
+    tagline: "Bespoke handcrafted showcase with 360° product zoom & custom creative design",
+    description: "A luxury handcrafted and artisanal shopping website created for Jyoti Saini (Founder, Saini Handicrafts). Engineered with rich visual storytelling, dynamic craft galleries, 360-degree interactive artwork inspectors, multi-currency checkout, and custom commission ordering workflows.",
     specs: {
-      "Image Engine": "Adaptive WebP / Cloud CDN",
+      "Client": "Jyoti Saini (Saini Handicrafts)",
       "Checkout": "Multi-Currency Stripe & Razorpay",
       "Interactivity": "Ultra-Smooth Parallax & Zoom",
       "SEO": "100/100 Structured Rich Snippets"
