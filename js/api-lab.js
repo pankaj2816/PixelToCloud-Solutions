@@ -337,7 +337,7 @@ class ApiLabManager {
                 The domain <strong>"${domain}"</strong> is not registered or has no active DNS servers configured on the global internet.
               </p>
               <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://wa.me/919928196424?text=${encodeURIComponent(`Hi Bhavyansh, I want to register the domain "${domain}" and build a brand new ultra-fast website!`)}" target="_blank" class="btn-magnetic btn-primary" style="padding: 8px 18px; font-size: 0.84rem;">
+                <a href="https://wa.me/918219352124?text=${encodeURIComponent(`Hi Bhavyansh, I want to register the domain "${domain}" and build a brand new ultra-fast website!`)}" target="_blank" class="btn-magnetic btn-primary" style="padding: 8px 18px; font-size: 0.84rem;">
                   Register "${domain}" & Build Website on WhatsApp &rarr;
                 </a>
               </div>
@@ -442,7 +442,7 @@ class ApiLabManager {
             <div style="font-size: 0.84rem; color: var(--text-secondary);">
               Want <strong>${domain}</strong> to load in under 0.4s with 99+ PageSpeed score?
             </div>
-            <a href="https://wa.me/919928196424?text=${encodeURIComponent(`Hi Bhavyansh, I audited my website (${domain}) on PixelToCloud and want to upgrade its speed to 99+ PageSpeed!`)}" target="_blank" class="btn-magnetic btn-primary" style="padding: 8px 18px; font-size: 0.84rem;">
+            <a href="https://wa.me/918219352124?text=${encodeURIComponent(`Hi Bhavyansh, I audited my website (${domain}) on PixelToCloud and want to upgrade its speed to 99+ PageSpeed!`)}" target="_blank" class="btn-magnetic btn-primary" style="padding: 8px 18px; font-size: 0.84rem;">
               Upgrade ${domain} on WhatsApp &rarr;
             </a>
           </div>

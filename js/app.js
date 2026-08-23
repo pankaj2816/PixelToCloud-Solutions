@@ -96,7 +96,7 @@ class AppEngine {
       el.addEventListener('click', (e) => {
         const topicKey = el.getAttribute('data-wa-topic') || 'general';
         const msg = waTopics[topicKey] || waTopics['general'];
-        const url = `https://wa.me/919928196424?text=${encodeURIComponent(msg)}`;
+        const url = `https://wa.me/918219352124?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
       });
     });
@@ -453,7 +453,7 @@ class AppEngine {
         `⚡ Sent to PixelToCloud Solutions Founders (Bhavyansh Agarwal & Tushar Singhal)`;
 
       const encoded = encodeURIComponent(whatsappText);
-      const whatsappUrl = `https://wa.me/919928196424?text=${encoded}`;
+      const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
 
       this.showToast('💬 Opening direct WhatsApp chat with Founders...');
       window.open(whatsappUrl, '_blank');
@@ -552,7 +552,7 @@ class AppEngine {
     copyPhoneBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const phone = '+919928196424';
+        const phone = '+918219352124';
         this.copyToClipboard(phone, `📋 Copied "${phone}" to clipboard!`);
       });
     });
