@@ -50,6 +50,7 @@ class AdvancedServicesHub {
 
   init() {
     this.bindNavigationTabs();
+    this.initServiceNavEnhancements();
     this.initWebLab();
     this.init3DLab();
     this.initDoctorLab();
@@ -64,25 +65,138 @@ class AdvancedServicesHub {
   }
 
   // =================================================================
-  // TAB NAVIGATION
+  // TAB NAVIGATION & SMART SERVICE CAROUSEL / BOTTOM NAV
   // =================================================================
   bindNavigationTabs() {
     this.tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const target = tab.getAttribute('data-service-tab');
         if (target && target !== this.currentTab) {
-          this.switchTab(target);
+          this.switchTab(target, false);
         }
       });
     });
   }
 
-  switchTab(tabId) {
+  initServiceNavEnhancements() {
+    this.serviceList = [
+      { id: 'web', name: 'Full-Stack Web' },
+      { id: '3d', name: '2D/3D WebGL' },
+      { id: 'doctor', name: 'Doctor & Telehealth' },
+      { id: 'fintech', name: 'CA & FinTech' },
+      { id: 'devops', name: 'Linux VPS & DevOps' },
+      { id: 'ecommerce', name: 'Art & E-Commerce' },
+      { id: 'security', name: 'Security & SLA' },
+      { id: 'mobile', name: 'Mobile Apps' },
+      { id: 'ai', name: 'AI & Machine Learning' },
+      { id: 'desktop', name: 'Desktop Software' }
+    ];
+
+    // Dynamically inject smart previous / next navigation at the bottom of each service pane
+    this.panes.forEach(pane => {
+      if (pane.querySelector('.service-pane-footer-nav')) return;
+
+      const paneId = pane.getAttribute('data-pane-id');
+      const idx = this.serviceList.findIndex(s => s.id === paneId);
+      if (idx === -1) return;
+
+      const prevIdx = (idx - 1 + this.serviceList.length) % this.serviceList.length;
+      const nextIdx = (idx + 1) % this.serviceList.length;
+      const prevService = this.serviceList[prevIdx];
+      const nextService = this.serviceList[nextIdx];
+
+      const navEl = document.createElement('div');
+      navEl.className = 'service-pane-footer-nav';
+      navEl.innerHTML = `
+        <button class="service-footer-nav-btn btn-prev" data-target="${prevService.id}" aria-label="Previous service: ${prevService.name}">
+          <i class="fa-solid fa-arrow-left"></i>
+          <div class="footer-nav-label-box">
+            <span class="footer-nav-hint">PREV SERVICE</span>
+            <span class="footer-nav-title">${prevService.name}</span>
+          </div>
+        </button>
+
+        <div class="service-footer-counter-pill">
+          <span class="service-footer-counter-active">${String(idx + 1).padStart(2, '0')}</span>
+          <span style="opacity: 0.35;">/</span>
+          <span style="opacity: 0.65;">10</span>
+        </div>
+
+        <button class="service-footer-nav-btn btn-next" data-target="${nextService.id}" aria-label="Next service: ${nextService.name}">
+          <div class="footer-nav-label-box" style="text-align: right;">
+            <span class="footer-nav-hint">NEXT SERVICE</span>
+            <span class="footer-nav-title">${nextService.name}</span>
+          </div>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      `;
+
+      pane.appendChild(navEl);
+    });
+
+    // Delegate click events on footer navigation buttons
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.service-footer-nav-btn');
+      if (btn) {
+        const target = btn.getAttribute('data-target');
+        if (target) {
+          this.switchTab(target, true);
+        }
+      }
+    });
+
+    // Smart Touch Swipe Gestures for Mobile (Swipe Left -> Next, Swipe Right -> Prev)
+    const hubWrapper = document.querySelector('.services-hub-wrapper');
+    if (hubWrapper) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      hubWrapper.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      hubWrapper.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length > 0) {
+          touchEndX = e.changedTouches[0].clientX;
+          touchEndY = e.changedTouches[0].clientY;
+
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+
+          // Check if horizontal swipe was intentional (> 50px) and greater than vertical scroll
+          if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.3) {
+            const currentIdx = this.serviceList.findIndex(s => s.id === this.currentTab);
+            if (currentIdx !== -1) {
+              if (diffX < 0) {
+                // Swipe Left -> Next Service
+                const nextIdx = (currentIdx + 1) % this.serviceList.length;
+                this.switchTab(this.serviceList[nextIdx].id, true);
+              } else {
+                // Swipe Right -> Prev Service
+                const prevIdx = (currentIdx - 1 + this.serviceList.length) % this.serviceList.length;
+                this.switchTab(this.serviceList[prevIdx].id, true);
+              }
+            }
+          }
+        }
+      }, { passive: true });
+    }
+  }
+
+  switchTab(tabId, shouldAutoScroll = false) {
     this.currentTab = tabId;
 
     this.tabs.forEach(tab => {
       if (tab.getAttribute('data-service-tab') === tabId) {
         tab.classList.add('active');
+        if (tab.scrollIntoView) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       } else {
         tab.classList.remove('active');
       }
@@ -95,6 +209,15 @@ class AdvancedServicesHub {
         pane.classList.remove('active');
       }
     });
+
+    // Auto-scroll on next/prev click or mobile navigation so the user lands cleanly on the demo
+    if (shouldAutoScroll || (window.innerWidth <= 768 && window.scrollY > 400)) {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        const topOffset = servicesSection.getBoundingClientRect().top + window.scrollY - 65;
+        window.scrollTo({ top: topOffset, behavior: 'smooth' });
+      }
+    }
   }
 
   // =================================================================

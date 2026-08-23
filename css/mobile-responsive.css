@@ -451,34 +451,86 @@
     margin-top: 2px !important;
   }
 
-  /* Services Hub Mobile Tabs (Swipeable Pills) */
+  /* Services Hub Mobile Tabs (Sticky Swipeable Floating Pills) */
   .services-nav-tabs {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 8px;
-    padding-bottom: 8px;
-    justify-content: flex-start;
-    scrollbar-width: none;
+    position: sticky !important;
+    top: 66px !important;
+    z-index: 950 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 6px !important;
+    padding: 8px 10px !important;
+    margin-bottom: 18px !important;
+    background: rgba(6, 11, 22, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(0, 240, 255, 0.28) !important;
+    border-radius: var(--radius-full) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+    justify-content: flex-start !important;
+    scrollbar-width: none !important;
+  }
+
+  [data-theme="light"] .services-nav-tabs {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(2, 132, 199, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
+  }
+
+  [data-theme="emerald"] .services-nav-tabs {
+    background: rgba(2, 20, 14, 0.94) !important;
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   }
 
   .services-nav-tabs::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 
   .service-nav-tab {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    padding: 10px 16px;
-    font-size: 0.82rem;
-    white-space: nowrap;
+    flex: 0 0 auto !important;
+    scroll-snap-align: center !important;
+    padding: 8px 14px !important;
+    font-size: 0.76rem !important;
+    white-space: nowrap !important;
   }
 
   .service-tab-pane {
     grid-template-columns: 1fr !important;
-    gap: 24px;
-    padding: 20px;
+    gap: 20px !important;
+    padding: 18px 14px !important;
+  }
+
+  .service-pane-footer-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 20px !important;
+    padding-top: 16px !important;
+  }
+
+  .service-footer-nav-btn {
+    padding: 8px 10px !important;
+    gap: 6px !important;
+    max-width: 48% !important;
+    flex: 1 1 0 !important;
+  }
+
+  .footer-nav-hint {
+    font-size: 0.58rem !important;
+  }
+
+  .footer-nav-title {
+    font-size: 0.74rem !important;
+  }
+
+  .service-footer-counter-pill {
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
   }
 
   /* Strict mobile overflow containment */
