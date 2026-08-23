@@ -407,7 +407,7 @@ class ApiLabManager {
             <div>${dataSourceBadge}</div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 10px;">
+          <div class="speed-audit-grid">
             <!-- Current Domain Performance Column -->
             <div style="background: ${cardBgLeft}; border: 1px solid ${scoreColor}; border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
