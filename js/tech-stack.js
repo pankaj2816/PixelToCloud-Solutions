@@ -431,7 +431,7 @@ class InteractiveTechStackSandbox {
           <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
             <span style="font-size: 0.84rem; color: var(--text-muted);">Want this high-performance stack for your project?</span>
             <a href="contact.html" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.84rem;">
-              <span>Consult with Bhavyansh Agarwal & Tushar Singhal</span>
+              <span>Consult with Pankaj Gupta & Tushar Singhal</span>
             </a>
           </div>
         ` : ''}

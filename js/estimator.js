@@ -381,7 +381,7 @@ class ProjectEstimator {
         </ul>
 
         <div class="footer">
-          <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
+          <div><strong>Founders:</strong> Pankaj Gupta & Tushar Singhal</div>
           <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Primary Phone / WhatsApp:</strong> +91 82193 52124 | <strong>Secondary Call:</strong> +91 99281 96424</div>
         </div>
       </body>
@@ -397,7 +397,7 @@ class ProjectEstimator {
     if (!this.lastCalculation) return;
 
     const phoneNumber = "918219352124";
-    const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just built a project scope on your website estimator:\n` +
+    const text = `Hello Pankaj & Tushar (PixelToCloud Solutions),\n\nI just built a project scope on your website estimator:\n` +
       `• *Project Type:* ${this.lastCalculation.project}\n` +
       `• *Scope Tier:* ${this.lastCalculation.tier}\n` +
       `• *Target Timeline:* ${this.lastCalculation.totalDays}\n` +

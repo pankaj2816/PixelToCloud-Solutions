@@ -152,9 +152,9 @@ class MeetingScheduler {
 
   getGoogleCalendarUrl() {
     if (!this.lastBooking) return '#';
-    const title = encodeURIComponent(`PixelToCloud Discovery Call: Bhavyansh & ${this.lastBooking.name}`);
+    const title = encodeURIComponent(`PixelToCloud Discovery Call: Pankaj & ${this.lastBooking.name}`);
     const details = encodeURIComponent(
-      `1-on-1 Technical Architecture Discovery Call with Bhavyansh (Lead Systems Architect & Founder, PixelToCloud Solutions).\n\n` +
+      `1-on-1 Technical Architecture Discovery Call with Pankaj (Lead Systems Architect & Founder, PixelToCloud Solutions).\n\n` +
       `👤 Client: ${this.lastBooking.name} (${this.lastBooking.email})\n` +
       `🎯 Topic: ${this.lastBooking.topic}\n` +
       `📅 Scheduled Time: ${this.lastBooking.date} at ${this.lastBooking.slot}\n` +
@@ -179,7 +179,7 @@ VERSION:2.0
 PRODID:-//PixelToCloud Solutions//Discovery Call Scheduler//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-SUMMARY:PixelToCloud Discovery Call with Bhavyansh & ${this.lastBooking.name}
+SUMMARY:PixelToCloud Discovery Call with Pankaj & ${this.lastBooking.name}
 DESCRIPTION:1-on-1 Technical Discovery Call.\\nClient: ${this.lastBooking.name} (${this.lastBooking.email})\\nTopic: ${this.lastBooking.topic}\\nContact: +91 8219352124 / +91 9928196424
 LOCATION:Google Meet / WhatsApp (+91 8219352124)
 STATUS:CONFIRMED
@@ -206,7 +206,7 @@ END:VCALENDAR`;
       `Date: ${this.lastBooking.date}\n` +
       `Time: ${this.lastBooking.slot}\n` +
       `Topic: ${this.lastBooking.topic}\n\n` +
-      `Looking forward to speaking with Bhavyansh!`;
+      `Looking forward to speaking with Pankaj!`;
     const whatsappUrl = `https://wa.me/918219352124?text=${encodeURIComponent(whatsappText)}`;
 
     modalBody.innerHTML = `
@@ -218,9 +218,9 @@ END:VCALENDAR`;
           Discovery Call Requested & Synced!
         </h3>
         <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.6;">
-          Your 1-on-1 architecture call request with <strong>Bhavyansh</strong> is saved for <br>
+          Your 1-on-1 architecture call request with <strong>Pankaj</strong> is saved for <br>
           <span style="color: var(--accent-cyan); font-weight: 700;">${this.lastBooking.date} at ${this.lastBooking.slot}</span>.<br>
-          <span style="font-size: 0.82rem; color: var(--text-muted);">Please add it to your calendar below — Bhavyansh will confirm the meeting directly via WhatsApp or Email.</span>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Please add it to your calendar below — Pankaj will confirm the meeting directly via WhatsApp or Email.</span>
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
@@ -248,7 +248,7 @@ END:VCALENDAR`;
     }
 
     if (window.App) {
-      window.App.showToast(`🎉 Call scheduled with Bhavyansh for ${this.lastBooking.date}!`);
+      window.App.showToast(`🎉 Call scheduled with Pankaj for ${this.lastBooking.date}!`);
     }
   }
 

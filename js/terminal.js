@@ -250,10 +250,10 @@ class LiveDeploymentTerminal {
         window.location.hash = '#contact';
         break;
       case 'whoami':
-        this.appendLine('info', 'You are connected to PixelToCloud Engine (Co-Founded by Bhavyansh Agarwal & Tushar Singhal).');
+        this.appendLine('info', 'You are connected to PixelToCloud Engine (Co-Founded by Pankaj Gupta & Tushar Singhal).');
         break;
       case 'founders':
-        this.appendLine('info', 'Founders: Bhavyansh Agarwal (8–10+ Yrs Hardware/Software Architect) & Tushar Singhal (5+ Yrs Full-Stack Lead).');
+        this.appendLine('info', 'Founders: Pankaj Gupta (8–10+ Yrs Hardware/Software Architect) & Tushar Singhal (5+ Yrs Full-Stack Lead).');
         break;
       case 'matrix':
         this.appendLine('success', 'Wake up, Neo... The Matrix has you. 🟢 Follow the white rabbit.');

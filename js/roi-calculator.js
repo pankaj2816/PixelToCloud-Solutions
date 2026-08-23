@@ -163,7 +163,7 @@ class ROICalculatorEngine {
         const locale = this.currency === 'INR' ? 'en-IN' : 'en-US';
         const total = (monthly * years * 12).toLocaleString(locale);
 
-        const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just reviewed the Subscription Savings Breakdown on your website:\n` +
+        const text = `Hello Pankaj & Tushar (PixelToCloud Solutions),\n\nI just reviewed the Subscription Savings Breakdown on your website:\n` +
           `• *Platform Category:* ${this.presets[this.currentPresetKey] ? this.presets[this.currentPresetKey].name : 'Custom Setup'}\n` +
           `• *Current Monthly Rental Outflow:* ${symbol}${monthly.toLocaleString(locale)}/mo\n` +
           `• *Timeframe:* ${years} Years\n` +
@@ -412,7 +412,7 @@ class ROICalculatorEngine {
         </ul>
 
         <div class="footer">
-          <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
+          <div><strong>Founders:</strong> Pankaj Gupta & Tushar Singhal</div>
           <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Primary Phone / WhatsApp:</strong> +91 82193 52124 | <strong>Secondary Call:</strong> +91 99281 96424</div>
         </div>
       </body>

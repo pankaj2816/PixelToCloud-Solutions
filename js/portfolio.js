@@ -1,5 +1,5 @@
 /* ===================================================================
-   BHAVYANSH TECH STUDIO - PORTFOLIO & INTERACTIVE SIMULATORS
+   Pankaj TECH STUDIO - PORTFOLIO & INTERACTIVE SIMULATORS
    Dynamic project showcase, category filtering, and live demo modals
    =================================================================== */
 

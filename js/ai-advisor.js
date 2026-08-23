@@ -42,10 +42,10 @@ class PixelToCloudAIAdvisor {
       // 3. Founders & Team Mastery
       {
         id: 'founders',
-        keywords: ['founder', 'who', 'bhavyansh', 'tushar', 'pankaj', 'team', 'experience', 'architect', 'developer', 'background', 'engineer', 'lead', 'owners', 'credentials'],
-        response: "👨‍💻 **Engineered Directly by Senior Founders:**\n\n• **Bhavyansh Agarwal (Lead Systems Architect):** 8–10+ Years of Dual Mastery across Hardware, Full-Stack Architecture, and Linux Cloud DevOps.\n• **Tushar Singhal (Co-Founder & Senior Software Developer):** 5+ Years of mastery in React, Python, Rust, high-concurrency microservices, and database performance.\n\n🌟 **The PixelToCloud Difference:** No junior delegates or inexperienced middlemen—your software is engineered directly by experienced architects.",
+        keywords: ['founder', 'who', 'Pankaj', 'tushar', 'pankaj', 'team', 'experience', 'architect', 'developer', 'background', 'engineer', 'lead', 'owners', 'credentials'],
+        response: "👨‍💻 **Engineered Directly by Senior Founders:**\n\n• **Pankaj Gupta (Lead Systems Architect):** 8–10+ Years of Dual Mastery across Hardware, Full-Stack Architecture, and Linux Cloud DevOps.\n• **Tushar Singhal (Co-Founder & Senior Software Developer):** 5+ Years of mastery in React, Python, Rust, high-concurrency microservices, and database performance.\n\n🌟 **The PixelToCloud Difference:** No junior delegates or inexperienced middlemen—your software is engineered directly by experienced architects.",
         actions: ['email', 'call', 'whatsapp'],
-        chips: ["📞 How do I talk to Bhavyansh & Tushar?", "💼 View CA & Doctor Portals", "💰 What are your payment terms?"]
+        chips: ["📞 How do I talk to Pankaj & Tushar?", "💼 View CA & Doctor Portals", "💰 What are your payment terms?"]
       },
 
       // 4. Doctor & Clinic Telehealth Portals
@@ -348,7 +348,7 @@ class PixelToCloudAIAdvisor {
           actionButtonsHTML += `<button onclick="document.getElementById('estimator')?.scrollIntoView({behavior:'smooth'}); window.aiAdvisorInstance?.toggleModal(false);" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #10b981; border-color: rgba(16,185,129,0.4);"><i class="fa-solid fa-sliders" style="margin-right: 4px;"></i>Build Scope</button>`;
         }
         if (result.actions.includes('whatsapp')) {
-          actionButtonsHTML += `<a href="https://wa.me/918219352124?text=${encodeURIComponent('Hello Bhavyansh & Tushar, I was chatting with PixelToCloud AI about: ') + encodeURIComponent(userText.substring(0, 80))}" target="_blank" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #25d366; border-color: rgba(37,211,102,0.4);"><i class="fa-brands fa-whatsapp" style="margin-right: 4px;"></i>WhatsApp</a>`;
+          actionButtonsHTML += `<a href="https://wa.me/918219352124?text=${encodeURIComponent('Hello Pankaj & Tushar, I was chatting with PixelToCloud AI about: ') + encodeURIComponent(userText.substring(0, 80))}" target="_blank" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #25d366; border-color: rgba(37,211,102,0.4);"><i class="fa-brands fa-whatsapp" style="margin-right: 4px;"></i>WhatsApp</a>`;
         }
 
         actionButtonsHTML += '</div>';

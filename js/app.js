@@ -84,13 +84,13 @@ class AppEngine {
 
   bindContextualWhatsApp() {
     const waTopics = {
-      'doctor': "Hello Bhavyansh & Tushar, I'm interested in building a Doctor & Telehealth Medical Portal with PixelToCloud.",
-      'fintech': "Hello Bhavyansh & Tushar, I'd like to discuss a Chartered Accountancy & FinTech Portal with automated tax engines.",
-      '3d': "Hello Bhavyansh & Tushar, I'm looking to build interactive 2D/3D WebGL Three.js software for my project.",
-      'ecommerce': "Hello Bhavyansh & Tushar, I'd like to discuss a luxury Art & E-Commerce store with global payment checkout.",
-      'devops': "Hello Bhavyansh & Tushar, I need dedicated Linux VPS provisioning, Docker clustering, and zero-downtime DevOps.",
-      'blueprint': "Hello Bhavyansh & Tushar, I configured an Architecture Scope on your site and would like to review the technical blueprint.",
-      'general': "Hello Bhavyansh & Tushar, I would like to schedule a technical discovery call for my website and software project."
+      'doctor': "Hello Pankaj & Tushar, I'm interested in building a Doctor & Telehealth Medical Portal with PixelToCloud.",
+      'fintech': "Hello Pankaj & Tushar, I'd like to discuss a Chartered Accountancy & FinTech Portal with automated tax engines.",
+      '3d': "Hello Pankaj & Tushar, I'm looking to build interactive 2D/3D WebGL Three.js software for my project.",
+      'ecommerce': "Hello Pankaj & Tushar, I'd like to discuss a luxury Art & E-Commerce store with global payment checkout.",
+      'devops': "Hello Pankaj & Tushar, I need dedicated Linux VPS provisioning, Docker clustering, and zero-downtime DevOps.",
+      'blueprint': "Hello Pankaj & Tushar, I configured an Architecture Scope on your site and would like to review the technical blueprint.",
+      'general': "Hello Pankaj & Tushar, I would like to schedule a technical discovery call for my website and software project."
     };
 
     document.querySelectorAll('[data-wa-topic]').forEach(el => {
@@ -382,7 +382,7 @@ class AppEngine {
 
       const subject = `🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`;
       const body = 
-        `Dear Bhavyansh Agarwal & Tushar Singhal,\n\n` +
+        `Dear Pankaj Gupta & Tushar Singhal,\n\n` +
         `I would like to discuss a new software project with PixelToCloud Solutions.\n\n` +
         `--- CLIENT CONTACT DETAILS ---\n` +
         `👤 Name: ${data.name}\n` +
@@ -451,7 +451,7 @@ class AppEngine {
         `💼 *Estimated Budget:* ${data.budget || 'Flexible'}\n` +
         `🛠️ *Services Needed:* ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
         `📝 *Project Overview:*\n${data.message}\n\n` +
-        `⚡ Sent to PixelToCloud Solutions Founders (Bhavyansh Agarwal & Tushar Singhal)`;
+        `⚡ Sent to PixelToCloud Solutions Founders (Pankaj Gupta & Tushar Singhal)`;
 
       const encoded = encodeURIComponent(whatsappText);
       const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
@@ -674,7 +674,7 @@ class AppEngine {
 
         const msgField = document.getElementById('contact-message');
         if (msgField) {
-          msgField.value = 'Hello Bhavyansh & Tushar,\n\n' + srv.brief + '\n\nLooking forward to your discovery response!';
+          msgField.value = 'Hello Pankaj & Tushar,\n\n' + srv.brief + '\n\nLooking forward to your discovery response!';
           msgField.dispatchEvent(new Event('input'));
         }
 
@@ -847,7 +847,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (projectParam) {
     const msgBox = document.getElementById('contact-message');
     if (msgBox) {
-      msgBox.value = `Hi Bhavyansh Agarwal & Tushar Singhal, I am interested in building a project similar to: "${projectParam}". Please share details on timeline, architecture, and quote.`;
+      msgBox.value = `Hi Pankaj Gupta & Tushar Singhal, I am interested in building a project similar to: "${projectParam}". Please share details on timeline, architecture, and quote.`;
       
       // Auto-scroll and focus after a slight delay to ensure UI is ready
       setTimeout(() => {
