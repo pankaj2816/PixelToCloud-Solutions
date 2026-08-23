@@ -28,6 +28,7 @@ class AppEngine {
     this.bindContactForm();
     this.bindQuickConnect();
     this.bindLegalModals();
+    this.initSmartPlatformEngine();
   }
 
   // ================= THEME SYSTEM (CYBER DARK / CLEAN LIGHT / EMERALD MATRIX) =================
@@ -589,6 +590,231 @@ class AppEngine {
   }
 
   // ================= TOAST NOTIFICATION SYSTEM =================
+  
+  // =================================================================
+  // SMART PLATFORM INTELLIGENCE & MICRO-OPTIMIZATION SUITE
+  // =================================================================
+  initSmartPlatformEngine() {
+    this.initScrollProgressBar();
+    this.bindActiveNavSpy();
+    this.bindSmartServiceSync();
+    this.bindFormDraftPersistence();
+    this.bindHoverPrefetch();
+    this.bindKeyboardShortcuts();
+    this.bindLiveOfficeStatus();
+    this.bindNetworkAwareness();
+  }
+
+  // 1. Reading & Scroll Depth Progress Bar
+  initScrollProgressBar() {
+    let bar = document.getElementById('scroll-progress-bar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'scroll-progress-bar';
+      document.body.appendChild(bar);
+    }
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      bar.style.width = scrolled + '%';
+    }, { passive: true });
+  }
+
+  // 2. Active Navigation Spy (Smooth Section Tracking)
+  bindActiveNavSpy() {
+    const sections = document.querySelectorAll('section[id], header[id]');
+    if (!sections.length) return;
+
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"], .drawer-link[href^="#"]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#' + id) {
+              link.classList.add('active');
+            } else if (href && href.startsWith('#')) {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+
+  // 3. Smart Service Booking -> Form Auto-Selection & Contextual Message Brief
+  bindSmartServiceSync() {
+    const serviceNameMap = {
+      web: { name: 'Full-Stack Web Development', checkIndex: 0, brief: 'I would like to discuss building a high-speed custom web application with pixel-perfect UI/UX and backend architecture.' },
+      '3d': { name: '2D & 3D WebGL Software', checkIndex: 1, brief: 'I am looking for custom 2D/3D interactive WebGL graphics, CAD/product 3D visualizer or Three.js browser software.' },
+      seo: { name: 'Google Services, SEO & Search Ranking', checkIndex: 0, brief: 'I want to optimize our Google Search ranking, Google Search Console indexing, 100/100 Core Web Vitals, and GA4 telemetry funnels.' },
+      doctor: { name: 'Doctor & Telehealth Clinic Portals', checkIndex: 0, brief: 'I would like to build a HIPAA-compliant medical practice portal with real-time patient appointment booking and WhatsApp reminders.' },
+      fintech: { name: 'CA & FinTech Client Portals', checkIndex: 0, brief: 'I am interested in a secure client document portal, automated GST/tax workflows, and encrypted vault architecture.' },
+      devops: { name: 'Linux VPS & Cloud Infrastructure', checkIndex: 2, brief: 'I need dedicated Linux VPS setup (Ubuntu/Debian), Docker containerization, Nginx reverse proxy, and zero-downtime CI/CD.' },
+      ecommerce: { name: 'Art, Craft & E-Commerce Boutiques', checkIndex: 0, brief: 'I want to launch a bespoke e-commerce store with 360° product zoom, multi-currency checkout, and instant page speed.' },
+      security: { name: 'Enterprise Security, Backups & SLA', checkIndex: 2, brief: 'I require 24/7 server monitoring, automated daily cloud backups, WAF firewall setup, and emergency SLA maintenance.' },
+      mobile: { name: 'Mobile App Development', checkIndex: 3, brief: 'I want to develop a high-performance cross-platform mobile app for iOS & Android with offline sync and push notifications.' },
+      ai: { name: 'AI & Machine Learning Solutions', checkIndex: 4, brief: 'I am interested in custom AI models, RAG enterprise knowledge-base search, and predictive analytics automation.' },
+      desktop: { name: 'Desktop Software Development', checkIndex: 4, brief: 'I need a fast desktop application for Windows, macOS, or Linux built with Electron or Tauri.' }
+    };
+
+    document.querySelectorAll('.service-tab-pane a[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pane = btn.closest('.service-tab-pane');
+        if (!pane) return;
+        const paneId = pane.getAttribute('data-pane-id');
+        const srv = serviceNameMap[paneId];
+        if (!srv) return;
+
+        const msgField = document.getElementById('contact-message');
+        if (msgField) {
+          msgField.value = 'Hello Bhavyansh & Tushar,\n\n' + srv.brief + '\n\nLooking forward to your discovery response!';
+          msgField.dispatchEvent(new Event('input'));
+        }
+
+        const checkboxes = document.querySelectorAll('#contact-form input[type="checkbox"]');
+        if (checkboxes.length > 0) {
+          checkboxes.forEach(cb => cb.checked = false);
+          if (checkboxes[srv.checkIndex]) checkboxes[srv.checkIndex].checked = true;
+        }
+
+        this.showToast('🎯 Selected "' + srv.name + '" in Project Inquiry Form!');
+      });
+    });
+  }
+
+  // 4. Contact Form Draft Auto-Save (Zero Lost Thoughts on Refresh)
+  bindFormDraftPersistence() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const nameInp = document.getElementById('contact-name');
+    const emailInp = document.getElementById('contact-email');
+    const phoneInp = document.getElementById('contact-phone');
+    const budgetInp = document.getElementById('contact-budget');
+    const msgInp = document.getElementById('contact-message');
+
+    try {
+      const saved = sessionStorage.getItem('p2c_contact_draft');
+      if (saved) {
+        const draft = JSON.parse(saved);
+        if (nameInp && draft.name) nameInp.value = draft.name;
+        if (emailInp && draft.email) emailInp.value = draft.email;
+        if (phoneInp && draft.phone) phoneInp.value = draft.phone;
+        if (budgetInp && draft.budget) budgetInp.value = draft.budget;
+        if (msgInp && draft.message && !msgInp.value) msgInp.value = draft.message;
+      }
+    } catch (e) {}
+
+    const saveDraft = () => {
+      const draft = {
+        name: nameInp ? nameInp.value : '',
+        email: emailInp ? emailInp.value : '',
+        phone: phoneInp ? phoneInp.value : '',
+        budget: budgetInp ? budgetInp.value : '',
+        message: msgInp ? msgInp.value : ''
+      };
+      sessionStorage.setItem('p2c_contact_draft', JSON.stringify(draft));
+    };
+
+    [nameInp, emailInp, phoneInp, budgetInp, msgInp].forEach(inp => {
+      if (inp) inp.addEventListener('input', saveDraft);
+    });
+
+    form.addEventListener('submit', () => {
+      sessionStorage.removeItem('p2c_contact_draft');
+    });
+  }
+
+  // 5. Intelligent Hover-Based Link Prefetching (0ms Perceived Page Transitions)
+  bindHoverPrefetch() {
+    const prefetched = new Set();
+
+    const prefetchUrl = (url) => {
+      if (!url || prefetched.has(url) || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('tel:') || url.startsWith('http')) return;
+      prefetched.add(url);
+
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = url;
+      document.head.appendChild(link);
+    };
+
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && (href.endsWith('.html') || href === 'index.html')) {
+        a.addEventListener('mouseenter', () => prefetchUrl(href), { once: true });
+        a.addEventListener('touchstart', () => prefetchUrl(href), { once: true, passive: true });
+      }
+    });
+  }
+
+  // 6. Pro Power-User Keyboard Shortcuts (Ctrl+K / Slash to Search/AI & Esc to Close)
+  bindKeyboardShortcuts() {
+    window.addEventListener('keydown', (e) => {
+      const isInput = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
+
+      if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (e.key === '/' && !isInput)) {
+        e.preventDefault();
+        const aiModal = document.getElementById('ai-advisor-modal');
+        if (aiModal) {
+          aiModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          const chatInput = document.getElementById('ai-input');
+          if (chatInput) setTimeout(() => chatInput.focus(), 150);
+          this.showToast('🤖 AI Solution Advisor Opened (Press Esc to Close)');
+        }
+      }
+
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active, .mobile-drawer.active, .mobile-drawer-overlay.active').forEach(elem => {
+          elem.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // 7. Live Dynamic Time-Aware Office & Founder Availability
+  bindLiveOfficeStatus() {
+    const updateStatus = () => {
+      const now = new Date();
+      const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istTime = new Date(utcTime + (3600000 * 5.5));
+      const istHours = istTime.getHours();
+
+      const isBusinessHours = istHours >= 9 && istHours < 20;
+
+      document.querySelectorAll('.availability-status-text').forEach(el => {
+        if (isBusinessHours) {
+          el.innerHTML = '<span style="color: #10b981;">● Founders Online (09:00–20:00 IST) · Instant Reply</span>';
+        } else {
+          el.innerHTML = '<span style="color: #38bdf8;">🌙 Overnight Inquiries Active · Priority Reply by 09:00 IST</span>';
+        }
+      });
+    };
+
+    updateStatus();
+    setInterval(updateStatus, 60000);
+  }
+
+  // 8. Network Resilience & Offline Awareness
+  bindNetworkAwareness() {
+    window.addEventListener('offline', () => {
+      this.showToast('📡 Offline Mode Active — All 3D labs, calculators & simulators remain fully interactive!');
+    });
+
+    window.addEventListener('online', () => {
+      this.showToast('⚡ Back Online — Reconnected to PixelToCloud Cloud Engine!');
+    });
+  }
+
   showToast(message, duration = 3500) {
     const container = document.getElementById('toast-container');
     if (!container) return;

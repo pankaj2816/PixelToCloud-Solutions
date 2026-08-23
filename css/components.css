@@ -3231,3 +3231,39 @@
 
 
 
+
+/* ===================================================================
+   SMART SCROLL PROGRESS BAR & MICRO-INTELLIGENCE STYLES
+   =================================================================== */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #00f0ff, #10b981, #a855f7);
+  z-index: 10000;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+.smart-context-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--accent-cyan);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.2); }
+  50% { box-shadow: 0 0 8px 2px rgba(0, 240, 255, 0.4); }
+}
