@@ -28,11 +28,11 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="css/main.css?v=27.0">
-  <link rel="stylesheet" href="css/animations.css?v=27.0">
-  <link rel="stylesheet" href="css/components.css?v=27.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=27.0">
-  <link rel="stylesheet" href="css/mobile-responsive.css?v=27.0">
+  <link rel="stylesheet" href="css/main.css?v=28.0">
+  <link rel="stylesheet" href="css/animations.css?v=28.0">
+  <link rel="stylesheet" href="css/components.css?v=28.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=28.0">
+  <link rel="stylesheet" href="css/mobile-responsive.css?v=28.0">
 
   <style>
     .portfolio-hero {
@@ -111,23 +111,26 @@
     </a>
 
     <nav class="nav-links">
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="portfolio.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">Portfolio</a>
+      <a href="index.html#services" class="nav-link" data-i18n="nav_services">Services</a>
+      <a href="portfolio.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;" data-i18n="nav_portfolio">Portfolio</a>
       <a href="about.html#how-we-work" class="nav-link">How We Work</a>
-      <a href="index.html#estimator" class="nav-link">Estimator</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="index.html#estimator" class="nav-link" data-i18n="nav_estimator">Estimator</a>
+      <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
+      <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
     </nav>
 
     <div class="nav-actions">
       <div class="lang-selector-wrap">
         <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
         <select class="lang-select" id="language-selector" aria-label="Select Language">
-          <option value="en">EN</option>
-          <option value="hi">हिन्दी</option>
-          <option value="fr">FR</option>
-          <option value="de">DE</option>
-          <option value="ru">RU</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ar">🇸🇦 العربية</option>
         </select>
       </div>
 
@@ -143,7 +146,7 @@
       </button>
 
       <a href="contact.html" class="btn-magnetic btn-primary nav-cta-btn">
-        <span>Get Instant Quote</span>
+        <span data-i18n="nav_cta">Get Instant Quote</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
 
@@ -170,6 +173,23 @@
         <i class="fa-solid fa-envelope"></i>
         <span>pixeltocloud@gmail.com</span>
       </a>
+    </div>
+
+    <!-- Mobile Language Selector -->
+    <div style="padding: 10px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+      <div class="lang-selector-wrap" style="flex: 1;">
+        <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
+        <select class="lang-select" id="mobile-language-selector" aria-label="Select Language" style="width: 100%;">
+          <option value="en">🇬🇧 EN</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ar">🇸🇦 العربية</option>
+        </select>
+      </div>
     </div>
 
     <div class="drawer-body">
@@ -786,13 +806,13 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/i18n.js?v=27.0"></script>
-  <script src="js/magnetic-cards.js?v=27.0"></script>
-  <script src="js/founder-avatars.js?v=27.0"></script>
-  <script src="js/portfolio.js?v=27.0"></script>
-  <script src="js/app.js?v=27.0"></script>
-  <script src="js/scheduler.js?v=27.0"></script>
-  <script src="js/ai-advisor.js?v=27.0"></script>
+  <script src="js/i18n.js?v=28.0"></script>
+  <script src="js/magnetic-cards.js?v=28.0"></script>
+  <script src="js/founder-avatars.js?v=28.0"></script>
+  <script src="js/portfolio.js?v=28.0"></script>
+  <script src="js/app.js?v=28.0"></script>
+  <script src="js/scheduler.js?v=28.0"></script>
+  <script src="js/ai-advisor.js?v=28.0"></script>
 
 </body>
 </html>

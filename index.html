@@ -61,11 +61,11 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- CSS Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/main.css?v=27.0">
-  <link rel="stylesheet" href="css/animations.css?v=27.0">
-  <link rel="stylesheet" href="css/components.css?v=27.0">
-  <link rel="stylesheet" href="css/light-theme.css?v=27.0">
-  <link rel="stylesheet" href="css/mobile-responsive.css?v=27.0">
+  <link rel="stylesheet" href="css/main.css?v=28.0">
+  <link rel="stylesheet" href="css/animations.css?v=28.0">
+  <link rel="stylesheet" href="css/components.css?v=28.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=28.0">
+  <link rel="stylesheet" href="css/mobile-responsive.css?v=28.0">
 </head>
 <body>
 
@@ -97,15 +97,18 @@
     </nav>
 
     <div class="nav-actions">
-      <!-- Language Selector (English, Hindi, French, German, Russian) -->
+      <!-- Language Selector (8 Languages: English, Hindi, French, Russian, German, Spanish, Japanese, Arabic) -->
       <div class="lang-selector-wrap">
         <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
         <select class="lang-select" id="language-selector" aria-label="Select Language">
-          <option value="en">EN</option>
-          <option value="hi">हिन्दी</option>
-          <option value="fr">FR</option>
-          <option value="de">DE</option>
-          <option value="ru">RU</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ar">🇸🇦 العربية</option>
         </select>
       </div>
 
@@ -148,6 +151,23 @@
         <i class="fa-solid fa-envelope"></i>
         <span>pixeltocloud@gmail.com</span>
       </a>
+    </div>
+
+    <!-- Mobile Language Selector -->
+    <div style="padding: 10px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+      <div class="lang-selector-wrap" style="flex: 1;">
+        <span style="font-size: 0.85rem;"><i class="fa-solid fa-globe"></i></span>
+        <select class="lang-select" id="mobile-language-selector" aria-label="Select Language" style="width: 100%;">
+          <option value="en">🇬🇧 EN</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ar">🇸🇦 العربية</option>
+        </select>
+      </div>
     </div>
 
     <div class="drawer-body">
@@ -293,34 +313,34 @@
       <!-- Category Filter Tabs -->
       <div class="services-nav-tabs reveal">
         <button class="service-nav-tab active" data-service-tab="web">
-          <i class="fa-solid fa-code"></i><span>Full-Stack Web</span>
+          <i class="fa-solid fa-code"></i><span data-i18n="tab_web">Full-Stack Web</span>
         </button>
         <button class="service-nav-tab" data-service-tab="3d">
-          <i class="fa-solid fa-cube"></i><span>2D/3D WebGL</span>
+          <i class="fa-solid fa-cube"></i><span data-i18n="tab_3d">2D/3D WebGL</span>
         </button>
         <button class="service-nav-tab" data-service-tab="doctor">
-          <i class="fa-solid fa-heart-pulse"></i><span>Doctor & Telehealth</span>
+          <i class="fa-solid fa-heart-pulse"></i><span data-i18n="tab_doctor">Doctor & Telehealth</span>
         </button>
         <button class="service-nav-tab" data-service-tab="fintech">
-          <i class="fa-solid fa-calculator"></i><span>CA & FinTech</span>
+          <i class="fa-solid fa-calculator"></i><span data-i18n="tab_fintech">CA & FinTech</span>
         </button>
         <button class="service-nav-tab" data-service-tab="devops">
-          <i class="fa-solid fa-server"></i><span>Linux VPS & DevOps</span>
+          <i class="fa-solid fa-server"></i><span data-i18n="tab_devops">Linux VPS & DevOps</span>
         </button>
         <button class="service-nav-tab" data-service-tab="ecommerce">
-          <i class="fa-solid fa-cart-shopping"></i><span>Art & E-Commerce</span>
+          <i class="fa-solid fa-cart-shopping"></i><span data-i18n="tab_ecommerce">Art & E-Commerce</span>
         </button>
         <button class="service-nav-tab" data-service-tab="security">
-          <i class="fa-solid fa-shield-halved"></i><span>Security & SLA</span>
+          <i class="fa-solid fa-shield-halved"></i><span data-i18n="tab_security">Security & SLA</span>
         </button>
         <button class="service-nav-tab" data-service-tab="mobile">
-          <i class="fa-solid fa-mobile-screen-button"></i><span>Mobile Apps</span>
+          <i class="fa-solid fa-mobile-screen-button"></i><span data-i18n="tab_mobile">Mobile Apps</span>
         </button>
         <button class="service-nav-tab" data-service-tab="ai">
-          <i class="fa-solid fa-brain"></i><span>AI & Machine Learning</span>
+          <i class="fa-solid fa-brain"></i><span data-i18n="tab_ai">AI & Machine Learning</span>
         </button>
         <button class="service-nav-tab" data-service-tab="desktop">
-          <i class="fa-solid fa-display"></i><span>Desktop Software</span>
+          <i class="fa-solid fa-display"></i><span data-i18n="tab_desktop">Desktop Software</span>
         </button>
       </div>
 
@@ -332,9 +352,7 @@
             <div class="section-tag" style="margin-bottom: 8px;">
               <span><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>High-Performance Web Architecture</span>
             </div>
-            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
-              Full-Stack Web Development
-            </h3>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;" data-i18n="srv1_title">Full-Stack Web Development</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               High-speed, responsive, SEO-optimized web applications engineered with pristine frontend aesthetics and rock-solid backend microservices. Zero bloat, instant loading, and maximum visitor conversion.
             </p>
@@ -359,7 +377,7 @@
                 <span class="badge badge-purple">Node.js</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -413,9 +431,7 @@
             <div class="section-tag" style="margin-bottom: 8px;">
               <span><i class="fa-solid fa-cubes" style="margin-right: 6px;"></i>WebGL & Spatial Computing</span>
             </div>
-            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
-              2D & 3D Interactive Software
-            </h3>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;" data-i18n="srv2_title">2D & 3D Interactive Software</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               Hardware-accelerated browser-based 3D applications, WebGL visualizers, interactive product configurators, Canvas 2D CAD engines, and simulation tools.
             </p>
@@ -440,7 +456,7 @@
                 <span class="badge badge-cyan">GLSL</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -504,7 +520,7 @@
                 <span class="badge badge-blue">PostgreSQL</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -569,7 +585,7 @@
                 <span class="badge badge-blue">AES-256 Vault</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -643,7 +659,7 @@
                 <span class="badge badge-emerald">Nginx</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -708,7 +724,7 @@
                 <span class="badge badge-emerald">Razorpay</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -787,7 +803,7 @@
                 <span class="badge badge-blue">AWS S3</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -823,9 +839,7 @@
             <div class="section-tag" style="margin-bottom: 8px;">
               <span><i class="fa-solid fa-mobile-screen-button" style="color: #3b82f6; margin-right: 6px;"></i>Cross-Platform Native Performance</span>
             </div>
-            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
-              Mobile App Development
-            </h3>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;" data-i18n="srv8_title">Mobile App Development</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               Production-grade Android &amp; iOS applications from a single React Native / Flutter codebase. Native-speed GPU rendering, dynamic islands, biometric auth, offline SQLite sync, and App Store &amp; Play Store release pipelines.
             </p>
@@ -859,7 +873,7 @@
                 <span class="badge badge-emerald">Apple Pay</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -979,7 +993,7 @@
                 <span class="badge badge-emerald">OpenAI / Claude</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -1007,9 +1021,7 @@
             <div class="section-tag" style="margin-bottom: 8px;">
               <span><i class="fa-solid fa-display" style="color: #f59e0b; margin-right: 6px;"></i>Native Cross-Platform Desktop OS</span>
             </div>
-            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
-              Desktop Software Development
-            </h3>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;" data-i18n="srv10_title">Desktop Software Development</h3>
             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
               Lightweight, blazing-fast desktop applications for Windows, macOS, and Linux built with Electron or Tauri (Rust). Enterprise billing POS, accounting calculators, offline mini-games, and local SQLite data managers.
             </p>
@@ -1043,7 +1055,7 @@
                 <span class="badge badge-purple">SQLite</span>
               </div>
               <a href="#contact" class="btn-magnetic btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">
-                <span>Book This Service &rarr;</span>
+                <span data-i18n="srv_book_btn">Book This Service &rarr;</span>
               </a>
             </div>
           </div>
@@ -1321,7 +1333,7 @@
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
               <div class="section-tag" style="margin-bottom: 0;">
-                <span><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Transparent Cost Audit</span>
+                <span data-i18n="section_roi_tag"><i class="fa-solid fa-piggy-bank" style="color: #10b981; margin-right: 6px;"></i>Transparent Cost Audit</span>
               </div>
               <!-- Currency Switcher -->
               <div style="display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 3px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
@@ -1330,12 +1342,8 @@
               </div>
             </div>
 
-            <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
-              How Much Money Will You Actually Save with <span class="text-gradient">Custom Code?</span>
-            </h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">
-              Standard CMS platforms seem cheap at first, but force you into recurring monthly fees for basic apps (reviews, SEO, builders, forms). See how custom code eliminates these costs forever:
-            </p>
+            <h3 style="font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--text-primary); margin-bottom: 8px;" data-i18n="section_roi_title">Stop Paying Monthly App Rent. Build 100% Custom.</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;" data-i18n="section_roi_desc">Calculate how much your business saves over 3 years by replacing recurring subscription fees with a 100% owned, custom-coded web asset.</p>
 
             <!-- Quick Platform Presets -->
             <div style="font-size: 0.76rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-mono);">
@@ -2095,14 +2103,10 @@
       <div class="section-header reveal">
         <div class="section-tag">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <span>Client Reviews</span>
+          <span data-i18n="section_reviews_tag">Client Reviews</span>
         </div>
-        <h2 class="section-title">
-          Trusted by <span class="text-gradient">Innovators & Enterprises</span>
-        </h2>
-        <p class="section-desc">
-          Real feedback from professionals, doctors, CA firms, and creative founders whose digital footprints we transformed.
-        </p>
+        <h2 class="section-title" data-i18n="section_reviews_title">Trusted by Innovators & Enterprises</h2>
+        <p class="section-desc" data-i18n="section_reviews_desc">Real feedback from professionals, doctors, CA firms, and creative founders whose digital footprints we transformed.</p>
       </div>
 
       <div class="testimonials-grid">
@@ -2686,22 +2690,22 @@
   </div>
 
   <!-- Scripts with Cache-Busting Versioning -->
-  <script src="js/i18n.js?v=27.0"></script>
-  <script src="js/canvas-hero.js?v=27.0"></script>
-  <script src="js/magnetic-cards.js?v=27.0"></script>
-  <script src="js/services-hub.js?v=27.0"></script>
-  <script src="js/micro-sandboxes.js?v=27.0"></script>
-  <script src="js/before-after.js?v=27.0"></script>
-  <script src="js/roi-calculator.js?v=27.0"></script>
-  <script src="js/portfolio.js?v=27.0"></script>
-  <script src="js/estimator.js?v=27.0"></script>
-  <script src="js/terminal.js?v=27.0"></script>
-  <script src="js/system-topology.js?v=27.0"></script>
-  <script src="js/tech-stack.js?v=27.0"></script>
-  <script src="js/api-lab.js?v=27.0"></script>
-  <script src="js/ai-advisor.js?v=27.0"></script>
-  <script src="js/scheduler.js?v=27.0"></script>
-  <script src="js/founder-avatars.js?v=27.0"></script>
-  <script src="js/app.js?v=27.0"></script>
+  <script src="js/i18n.js?v=28.0"></script>
+  <script src="js/canvas-hero.js?v=28.0"></script>
+  <script src="js/magnetic-cards.js?v=28.0"></script>
+  <script src="js/services-hub.js?v=28.0"></script>
+  <script src="js/micro-sandboxes.js?v=28.0"></script>
+  <script src="js/before-after.js?v=28.0"></script>
+  <script src="js/roi-calculator.js?v=28.0"></script>
+  <script src="js/portfolio.js?v=28.0"></script>
+  <script src="js/estimator.js?v=28.0"></script>
+  <script src="js/terminal.js?v=28.0"></script>
+  <script src="js/system-topology.js?v=28.0"></script>
+  <script src="js/tech-stack.js?v=28.0"></script>
+  <script src="js/api-lab.js?v=28.0"></script>
+  <script src="js/ai-advisor.js?v=28.0"></script>
+  <script src="js/scheduler.js?v=28.0"></script>
+  <script src="js/founder-avatars.js?v=28.0"></script>
+  <script src="js/app.js?v=28.0"></script>
 </body>
 </html>

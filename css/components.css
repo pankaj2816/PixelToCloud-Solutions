@@ -1868,6 +1868,19 @@
   color: #fff;
 }
 
+/* RTL Layout Direction Support */
+[dir="rtl"] {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .hero-cta-group,
+[dir="rtl"] .nav-actions,
+[dir="rtl"] .service-features-list,
+[dir="rtl"] .drawer-links {
+  text-align: right;
+}
+
 /* ===================================================================
    14. INTERACTIVE BEFORE VS AFTER TRANSFORMATION SLIDER
    =================================================================== */
