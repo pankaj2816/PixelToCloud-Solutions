@@ -298,8 +298,8 @@ class InteractiveTechStackSandbox {
 
       tile.addEventListener('click', (e) => {
         this.selectTech(techKey);
-        // If clicked directly or clicked the badge, open the modal
-        this.openModal(techKey);
+        // If clicked directly or clicked the badge, only update inline container
+        // this.openModal(techKey); // Removed as per request to not show popup
       });
     });
 
