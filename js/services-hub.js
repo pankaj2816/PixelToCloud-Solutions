@@ -194,9 +194,6 @@ class AdvancedServicesHub {
     this.tabs.forEach(tab => {
       if (tab.getAttribute('data-service-tab') === tabId) {
         tab.classList.add('active');
-        if (tab.scrollIntoView) {
-          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
       } else {
         tab.classList.remove('active');
       }
@@ -210,11 +207,11 @@ class AdvancedServicesHub {
       }
     });
 
-    // Auto-scroll on next/prev click or mobile navigation so the user lands cleanly on the demo
-    if (shouldAutoScroll || (window.innerWidth <= 768 && window.scrollY > 400)) {
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        const topOffset = servicesSection.getBoundingClientRect().top + window.scrollY - 65;
+    // Smoothly auto-scroll to the top of the hub only when next/prev footer buttons or swipes are triggered
+    if (shouldAutoScroll) {
+      const hubEl = document.querySelector('.services-hub-wrapper');
+      if (hubEl) {
+        const topOffset = hubEl.getBoundingClientRect().top + window.scrollY - 75;
         window.scrollTo({ top: topOffset, behavior: 'smooth' });
       }
     }

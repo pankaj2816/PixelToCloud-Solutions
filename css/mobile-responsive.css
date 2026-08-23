@@ -451,57 +451,206 @@
     margin-top: 2px !important;
   }
 
-  /* Services Hub Mobile Tabs (Sticky Swipeable Floating Pills) */
+  /* Services Hub Mobile Tabs (2-Column All-In-One Grid) */
   .services-nav-tabs {
-    position: sticky !important;
-    top: 66px !important;
-    z-index: 950 !important;
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
     gap: 6px !important;
-    padding: 8px 10px !important;
-    margin-bottom: 18px !important;
-    background: rgba(6, 11, 22, 0.92) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(0, 240, 255, 0.28) !important;
-    border-radius: var(--radius-full) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-    justify-content: flex-start !important;
-    scrollbar-width: none !important;
+    padding: 8px 6px !important;
+    margin-bottom: 16px !important;
+    background: rgba(14, 20, 32, 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
   }
 
   [data-theme="light"] .services-nav-tabs {
     background: rgba(255, 255, 255, 0.94) !important;
     border-color: rgba(2, 132, 199, 0.3) !important;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
   }
 
   [data-theme="emerald"] .services-nav-tabs {
     background: rgba(2, 20, 14, 0.94) !important;
     border-color: rgba(16, 185, 129, 0.4) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-  }
-
-  .services-nav-tabs::-webkit-scrollbar {
-    display: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
   }
 
   .service-nav-tab {
-    flex: 0 0 auto !important;
-    scroll-snap-align: center !important;
-    padding: 8px 14px !important;
-    font-size: 0.76rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 8px 4px !important;
+    font-size: 0.72rem !important;
+    border-radius: var(--radius-sm) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
     white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .service-nav-tab i {
+    font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Services Hub Card Containment */
+  .services-hub-wrapper {
+    padding: 14px 10px !important;
+    border-radius: var(--radius-md) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    min-width: 0 !important;
   }
 
   .service-tab-pane {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    padding: 18px 14px !important;
+    gap: 16px !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .service-tab-pane > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .service-tab-pane h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .service-tab-pane p {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .service-features-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .service-feature-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .service-feature-item svg {
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .service-feature-item span {
+    flex: 1 !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .service-tech-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .service-tech-tags .badge {
+    font-size: 0.66rem !important;
+    padding: 3px 6px !important;
+  }
+
+  .service-preview-pane {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 8px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  /* AI Lab Mode Tabs in Service */
+  .ai-mode-tabs-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ai-mode-btn {
+    width: 100% !important;
+    padding: 5px 3px !important;
+    font-size: 0.64rem !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  #ai-mode-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: 8px 6px !important;
+  }
+
+  /* Mobile Lab Phone Frame */
+  #mobile-phone-frame {
+    max-width: 220px !important;
+    border-radius: 26px !important;
+  }
+
+  #mobile-app-screen {
+    height: 260px !important;
+    padding: 6px !important;
+  }
+
+  /* Desktop Lab Window Frame */
+  #desktop-window-frame {
+    max-width: 100% !important;
+    border-radius: 6px !important;
   }
 
   .service-pane-footer-nav {
@@ -509,28 +658,36 @@
     justify-content: space-between !important;
     align-items: center !important;
     gap: 8px !important;
-    margin-top: 20px !important;
-    padding-top: 16px !important;
+    margin-top: 18px !important;
+    padding-top: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .service-footer-nav-btn {
-    padding: 8px 10px !important;
+    padding: 8px 8px !important;
     gap: 6px !important;
-    max-width: 48% !important;
+    max-width: 44% !important;
     flex: 1 1 0 !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .footer-nav-hint {
-    font-size: 0.58rem !important;
+    font-size: 0.55rem !important;
   }
 
   .footer-nav-title {
-    font-size: 0.74rem !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .service-footer-counter-pill {
     padding: 4px 8px !important;
-    font-size: 0.7rem !important;
+    font-size: 0.68rem !important;
+    flex-shrink: 0 !important;
   }
 
   /* Strict mobile overflow containment */
