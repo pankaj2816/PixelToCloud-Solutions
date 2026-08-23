@@ -117,13 +117,15 @@
   h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .service-title {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
     max-width: 100% !important;
   }
 
   p, span, .section-desc, .hero-subtitle, .service-desc {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
+    word-break: normal !important;
     max-width: 100% !important;
   }
 
@@ -136,25 +138,26 @@
     box-sizing: border-box !important;
   }
 
-  /* Section Spacing */
+  /* Streamlined Section Spacing on Mobile (Reduces Excessive Scrolling) */
   .section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
     overflow-x: hidden;
+    scroll-margin-top: 75px !important;
   }
 
   .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 20px !important;
   }
 
   .section-title {
-    font-size: clamp(1.65rem, 6vw, 2.2rem);
-    line-height: 1.25;
+    font-size: clamp(1.55rem, 5.5vw, 2.1rem) !important;
+    line-height: 1.25 !important;
   }
 
   .section-desc {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
   }
 
   /* ================= SMART MOBILE FLOATING CAPSULE NAVBAR ================= */
@@ -310,67 +313,90 @@
   .mobile-nav-drawer,
   .mobile-drawer {
     width: min(88vw, 360px) !important;
-    background: rgba(8, 14, 26, 0.96) !important;
+    background: rgba(8, 14, 26, 0.98) !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     border-left: 1px solid rgba(0, 240, 255, 0.25) !important;
-    padding: 24px 20px !important;
+    padding: 20px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
   }
 
-  .mobile-nav-links {
-    margin-top: 24px !important;
-    gap: 12px !important;
+  .mobile-nav-links,
+  .drawer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-top: 16px !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
-  .mobile-nav-link {
-    padding: 12px 14px !important;
+  .mobile-nav-link,
+  .drawer-link {
+    padding: 10px 12px !important;
     border-radius: var(--radius-md) !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     font-weight: 600 !important;
     transition: all 0.2s ease !important;
     display: flex !important;
     align-items: center !important;
     gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  .mobile-nav-link:hover, .mobile-nav-link.active {
+  .mobile-nav-link:hover, .mobile-nav-link.active,
+  .drawer-link:hover, .drawer-link.active {
     background: rgba(0, 240, 255, 0.1) !important;
     border-color: rgba(0, 240, 255, 0.4) !important;
     color: var(--accent-cyan) !important;
     transform: translateX(4px) !important;
   }
 
-  /* Hero Section */
+  /* Compact Hero Section on Mobile */
   .hero-section {
-    padding-top: 110px;
-    padding-bottom: 50px;
-    min-height: auto;
+    padding-top: 85px !important;
+    padding-bottom: 28px !important;
+    min-height: auto !important;
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 8.5vw, 3.2rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
   }
 
   .hero-subtitle {
-    font-size: 0.98rem;
-    line-height: 1.6;
-    margin-bottom: 24px;
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
   }
 
   .hero-cta-group {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
   }
 
   .hero-cta-group .btn-magnetic {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+  }
+
+  /* Proven Results & Real Systems Shipped Mobile Grid */
+  .portfolio-impact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  .portfolio-impact-grid .btn-magnetic {
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   /* Hero Metrics & Certifications */

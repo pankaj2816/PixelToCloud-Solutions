@@ -133,7 +133,7 @@ class AppEngine {
     }
 
     // Close drawer when clicking mobile links
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link, .drawer-link, .mobile-drawer a, .mobile-nav-drawer a');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => this.closeDrawer());
     });

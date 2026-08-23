@@ -118,6 +118,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 75px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -137,16 +138,29 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+/* Global Typography & Safe Word Wrapping */
+h1, h2, h3, h4, h5, h6, .section-title, .hero-title {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+p, span, .section-desc, .hero-subtitle {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
 /* Global Media & Container Containment against horizontal overflow */
-.container, .container-wide, .section, main, header, footer, section {
+.container, .container-wide, .section, main, header, footer, section, [id] {
   max-width: 100%;
   box-sizing: border-box;
+  scroll-margin-top: 75px;
 }
 
 pre, code {
   max-width: 100%;
   white-space: pre-wrap;
-  word-break: break-word;
+  word-break: break-all;
   overflow-x: auto;
 }
 
