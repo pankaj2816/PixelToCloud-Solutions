@@ -219,9 +219,9 @@ class ROICalculatorEngine {
 
     if (this.presetItemsListEl) {
       this.presetItemsListEl.innerHTML = preset.items.map(item => `
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); font-size: 0.8rem;">
-          <span style="color: #cbd5e1;"><i class="fa-solid fa-xmark" style="color: #f43f5e; margin-right: 8px;"></i>${item.name}</span>
-          <span style="font-family: var(--font-mono); color: #f43f5e; font-weight: 600;">${this.currency === 'INR' ? item.inr : item.usd}</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); font-size: 0.8rem; gap: 8px;">
+          <span style="color: #cbd5e1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fa-solid fa-xmark" style="color: #f43f5e; margin-right: 8px;"></i>${item.name}</span>
+          <span style="font-family: var(--font-mono); color: #f43f5e; font-weight: 600; flex-shrink: 0; white-space: nowrap;">${this.currency === 'INR' ? item.inr : item.usd}</span>
         </div>
       `).join('');
     }

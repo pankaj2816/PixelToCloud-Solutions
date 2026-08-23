@@ -2630,6 +2630,14 @@
   overflow: hidden;
 }
 
+.roi-calculator-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .roi-slider-group {
   margin-bottom: 22px;
 }

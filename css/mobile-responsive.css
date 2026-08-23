@@ -672,31 +672,39 @@
   }
 
   /* Subscription ROI Calculator Mobile */
+  .roi-calculator-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
   .roi-calculator-wrap {
     padding: 16px 12px !important;
     border-radius: var(--radius-lg) !important;
-  }
-
-  .roi-calculator-wrap > div {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .roi-preset-chips-wrap {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 6px !important;
+    width: 100% !important;
   }
 
   .roi-preset-chip {
     width: 100% !important;
-    font-size: 0.72rem !important;
-    padding: 8px 6px !important;
+    font-size: 0.68rem !important;
+    padding: 7px 4px !important;
     text-align: center !important;
     justify-content: center !important;
     white-space: normal !important;
-    line-height: 1.25 !important;
+    line-height: 1.2 !important;
     height: auto !important;
+    box-sizing: border-box !important;
   }
 
   .roi-slider-label-row {
@@ -705,11 +713,39 @@
     align-items: center !important;
     flex-wrap: wrap !important;
     gap: 4px !important;
-    font-size: 0.82rem !important;
+    font-size: 0.8rem !important;
+    width: 100% !important;
   }
 
   .roi-slider-val {
-    font-size: 0.92rem !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  #roi-preset-items-list {
+    width: 100% !important;
+  }
+
+  #roi-preset-items-list > div {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #roi-preset-items-list span:first-child {
+    font-size: 0.76rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #roi-preset-items-list span:last-child {
+    font-size: 0.76rem !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   /* System Topology / Client-to-Cloud Distributed Architecture Mobile (2-Column Grid) */
