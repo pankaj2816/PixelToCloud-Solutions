@@ -85,7 +85,24 @@ class ROICalculatorEngine {
 
   init() {
     this.bindEvents();
+    this.updateChipLabels();
     this.calculate();
+  }
+
+  updateChipLabels() {
+    const chipPrices = {
+      'shopify': this.currency === 'INR' ? '~₹14.5k/mo' : '~$180/mo',
+      'wordpress': this.currency === 'INR' ? '~₹6.5k/mo' : '~$80/mo',
+      'webapp': this.currency === 'INR' ? '~₹22k/mo' : '~$280/mo',
+      'doctor': this.currency === 'INR' ? '~₹9.5k/mo' : '~$120/mo'
+    };
+    document.querySelectorAll('.roi-preset-chip').forEach(chip => {
+      const key = chip.getAttribute('data-preset');
+      const subEl = chip.querySelector('.chip-sub-price');
+      if (subEl && chipPrices[key]) {
+        subEl.textContent = chipPrices[key];
+      }
+    });
   }
 
   bindEvents() {
@@ -117,6 +134,7 @@ class ROICalculatorEngine {
           this.monthlyPluginInput.step = 10;
           this.monthlyPluginInput.value = preset ? preset.usd : 180;
         }
+        this.updateChipLabels();
         this.calculate();
       });
     });
@@ -219,9 +237,9 @@ class ROICalculatorEngine {
 
     if (this.presetItemsListEl) {
       this.presetItemsListEl.innerHTML = preset.items.map(item => `
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); font-size: 0.8rem; gap: 8px;">
-          <span style="color: #cbd5e1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fa-solid fa-xmark" style="color: #f43f5e; margin-right: 8px;"></i>${item.name}</span>
-          <span style="font-family: var(--font-mono); color: #f43f5e; font-weight: 600; flex-shrink: 0; white-space: nowrap;">${this.currency === 'INR' ? item.inr : item.usd}</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); font-size: 0.78rem; gap: 8px; width: 100%; box-sizing: border-box;">
+          <span style="color: #cbd5e1; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fa-solid fa-xmark" style="color: #f43f5e; margin-right: 6px; flex-shrink: 0;"></i>${item.name}</span>
+          <span style="font-family: var(--font-mono); color: #f43f5e; font-weight: 700; flex-shrink: 0; white-space: nowrap; text-align: right;">${this.currency === 'INR' ? item.inr : item.usd}</span>
         </div>
       `).join('');
     }
