@@ -382,7 +382,7 @@ class ProjectEstimator {
 
         <div class="footer">
           <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
-          <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Phone:</strong> +91 82193 52124 | <strong>WhatsApp:</strong> +91 82193 52124</div>
+          <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Phone:</strong> +91 99281 96424 | <strong>WhatsApp:</strong> +91 99281 96424</div>
         </div>
       </body>
       </html>
@@ -396,7 +396,7 @@ class ProjectEstimator {
   exportToWhatsApp() {
     if (!this.lastCalculation) return;
 
-    const phoneNumber = "918219352124";
+    const phoneNumber = "919928196424";
     const text = `Hello Bhavyansh & Tushar (PixelToCloud Solutions),\n\nI just built a project scope on your website estimator:\n` +
       `• *Project Type:* ${this.lastCalculation.project}\n` +
       `• *Scope Tier:* ${this.lastCalculation.tier}\n` +

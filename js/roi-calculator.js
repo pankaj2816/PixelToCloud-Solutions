@@ -170,7 +170,7 @@ class ROICalculatorEngine {
           `• *Total Money Saved with PixelToCloud Custom Build:* ${symbol}${total}\n\n` +
           `I would like to discuss replacing recurring monthly subscriptions with your 100% custom, zero-monthly-fee architecture!`;
 
-        window.open(`https://wa.me/918219352124?text=${encodeURIComponent(text)}`, '_blank');
+        window.open(`https://wa.me/919928196424?text=${encodeURIComponent(text)}`, '_blank');
       });
     }
 
@@ -413,7 +413,7 @@ class ROICalculatorEngine {
 
         <div class="footer">
           <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
-          <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Phone:</strong> +91 82193 52124 | <strong>WhatsApp:</strong> +91 82193 52124</div>
+          <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Phone:</strong> +91 99281 96424 | <strong>WhatsApp:</strong> +91 99281 96424</div>
         </div>
       </body>
       </html>

@@ -1161,7 +1161,7 @@ Digital Signer: PixelToCloud Automated Compliance Engine
         setTimeout(() => {
           const botBubble = document.createElement('div');
           botBubble.style.cssText = 'align-self:flex-start;background:#1e293b;border-radius:10px 10px 10px 2px;padding:6px 10px;font-size:0.65rem;color:#cbd5e1;max-width:85%;animation:fadeIn 0.2s ease;';
-          botBubble.textContent = `Got it! Let's schedule a 15-min discovery sprint. Message us directly on WhatsApp at +91-8219352124!`;
+          botBubble.textContent = `Got it! Let's schedule a 15-min discovery sprint. Message us directly on WhatsApp at +91-9928196424!`;
           stream.appendChild(botBubble);
           stream.scrollTop = stream.scrollHeight;
         }, 600);

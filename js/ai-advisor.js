@@ -133,7 +133,7 @@ class PixelToCloudAIAdvisor {
       {
         id: 'contact',
         keywords: ['contact', 'email', 'phone', 'call', 'whatsapp', 'reach', 'talk', 'meeting', 'hire', 'connect', 'schedule', 'consultation', 'inquiry', 'message'],
-        response: "✉️ **Direct Founder Communication Channels:**\n\n• **Primary Contact (Email):** **pixeltocloud@gmail.com** (Monitored 24/7 · fastest response within 2–4 hours).\n• **Secondary Contact (Phone):** **+91 82193 52124** (Direct call · Mon–Sat 09:00–20:00 IST).\n• **Instant WhatsApp:** **+91 82193 52124** (Quick technical chat).\n• **1-on-1 Video Meeting:** Book a 15-minute slot on Google Meet directly via our Discovery Scheduler.",
+        response: "✉️ **Direct Founder Communication Channels:**\n\n• **Primary Contact (Email):** **pixeltocloud@gmail.com** (Monitored 24/7 · fastest response within 2–4 hours).\n• **Secondary Contact (Phone):** **+91 99281 96424** (Direct call · Mon–Sat 09:00–20:00 IST).\n• **Instant WhatsApp:** **+91 99281 96424** (Quick technical chat).\n• **1-on-1 Video Meeting:** Book a 15-minute slot on Google Meet directly via our Discovery Scheduler.",
         actions: ['email', 'call', 'scheduler', 'whatsapp'],
         chips: ["📅 Book 1-on-1 Discovery Call", "💰 Open Cost Estimator", "👨‍💻 Who are the founders?"]
       },
@@ -157,7 +157,7 @@ class PixelToCloudAIAdvisor {
       }
     ];
 
-    this.defaultResponse = "💡 **PixelToCloud AI:** I can answer questions about Custom Web Development, 2D/3D WebGL Software, CA & Doctor Portals, Dedicated Linux VPS Cloud, Pricing, Timelines, and Code Ownership.\n\nFeel free to ask any question or connect directly with our founders via email (**pixeltocloud@gmail.com**) or phone (**+91 82193 52124**)!";
+    this.defaultResponse = "💡 **PixelToCloud AI:** I can answer questions about Custom Web Development, 2D/3D WebGL Software, CA & Doctor Portals, Dedicated Linux VPS Cloud, Pricing, Timelines, and Code Ownership.\n\nFeel free to ask any question or connect directly with our founders via email (**pixeltocloud@gmail.com**) or phone (**+91 99281 96424**)!";
 
     this.init();
   }
@@ -339,7 +339,7 @@ class PixelToCloudAIAdvisor {
           actionButtonsHTML += `<a href="mailto:pixeltocloud@gmail.com?subject=${encodeURIComponent('Project Discussion - PixelToCloud AI')}" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: var(--accent-cyan); border-color: rgba(0,240,255,0.4);"><i class="fa-solid fa-envelope" style="margin-right: 4px;"></i>Email Founders</a>`;
         }
         if (result.actions.includes('call')) {
-          actionButtonsHTML += `<a href="tel:+918219352124" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #38bdf8; border-color: rgba(56,189,248,0.4);"><i class="fa-solid fa-phone" style="margin-right: 4px;"></i>Call Now</a>`;
+          actionButtonsHTML += `<a href="tel:+919928196424" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #38bdf8; border-color: rgba(56,189,248,0.4);"><i class="fa-solid fa-phone" style="margin-right: 4px;"></i>Call Now</a>`;
         }
         if (result.actions.includes('scheduler')) {
           actionButtonsHTML += `<button onclick="document.getElementById('dock-scheduler-btn')?.click(); window.aiAdvisorInstance?.toggleModal(false);" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #f59e0b; border-color: rgba(245,158,11,0.4);"><i class="fa-regular fa-calendar-check" style="margin-right: 4px;"></i>Book Meeting</button>`;
@@ -348,7 +348,7 @@ class PixelToCloudAIAdvisor {
           actionButtonsHTML += `<button onclick="document.getElementById('estimator')?.scrollIntoView({behavior:'smooth'}); window.aiAdvisorInstance?.toggleModal(false);" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #10b981; border-color: rgba(16,185,129,0.4);"><i class="fa-solid fa-sliders" style="margin-right: 4px;"></i>Build Scope</button>`;
         }
         if (result.actions.includes('whatsapp')) {
-          actionButtonsHTML += `<a href="https://wa.me/918219352124?text=${encodeURIComponent('Hello Bhavyansh & Tushar, I was chatting with PixelToCloud AI about: ') + encodeURIComponent(userText.substring(0, 80))}" target="_blank" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #25d366; border-color: rgba(37,211,102,0.4);"><i class="fa-brands fa-whatsapp" style="margin-right: 4px;"></i>WhatsApp</a>`;
+          actionButtonsHTML += `<a href="https://wa.me/919928196424?text=${encodeURIComponent('Hello Bhavyansh & Tushar, I was chatting with PixelToCloud AI about: ') + encodeURIComponent(userText.substring(0, 80))}" target="_blank" class="btn-outline" style="font-size: 0.74rem; padding: 4px 10px; color: #25d366; border-color: rgba(37,211,102,0.4);"><i class="fa-brands fa-whatsapp" style="margin-right: 4px;"></i>WhatsApp</a>`;
         }
 
         actionButtonsHTML += '</div>';

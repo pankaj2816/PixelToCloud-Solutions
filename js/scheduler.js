@@ -158,10 +158,10 @@ class MeetingScheduler {
       `👤 Client: ${this.lastBooking.name} (${this.lastBooking.email})\n` +
       `🎯 Topic: ${this.lastBooking.topic}\n` +
       `📅 Scheduled Time: ${this.lastBooking.date} at ${this.lastBooking.slot}\n` +
-      `📱 Contact / WhatsApp: +91 8219352124\n` +
+      `📱 Contact / WhatsApp: +91 9928196424\n` +
       `🌐 Link: Google Meet / Phone Call`
     );
-    const location = encodeURIComponent('Google Meet / WhatsApp Call (+91 8219352124)');
+    const location = encodeURIComponent('Google Meet / WhatsApp Call (+91 9928196424)');
     
     // Construct approximate ISO date
     const now = new Date();
@@ -180,8 +180,8 @@ PRODID:-//PixelToCloud Solutions//Discovery Call Scheduler//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 SUMMARY:PixelToCloud Discovery Call with Bhavyansh & ${this.lastBooking.name}
-DESCRIPTION:1-on-1 Technical Discovery Call.\\nClient: ${this.lastBooking.name} (${this.lastBooking.email})\\nTopic: ${this.lastBooking.topic}\\nContact: +91 8219352124
-LOCATION:Google Meet / WhatsApp (+91 8219352124)
+DESCRIPTION:1-on-1 Technical Discovery Call.\\nClient: ${this.lastBooking.name} (${this.lastBooking.email})\\nTopic: ${this.lastBooking.topic}\\nContact: +91 9928196424
+LOCATION:Google Meet / WhatsApp (+91 9928196424)
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR`;
@@ -207,7 +207,7 @@ END:VCALENDAR`;
       `Time: ${this.lastBooking.slot}\n` +
       `Topic: ${this.lastBooking.topic}\n\n` +
       `Looking forward to speaking with Bhavyansh!`;
-    const whatsappUrl = `https://wa.me/918219352124?text=${encodeURIComponent(whatsappText)}`;
+    const whatsappUrl = `https://wa.me/919928196424?text=${encodeURIComponent(whatsappText)}`;
 
     modalBody.innerHTML = `
       <div style="text-align: center; padding: 20px 10px;">

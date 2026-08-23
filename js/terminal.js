@@ -240,7 +240,7 @@ class LiveDeploymentTerminal {
         if (this.body) this.body.innerHTML = '';
         break;
       case 'contact':
-        this.appendLine('success', 'Direct Email (Primary): pixeltocloud@gmail.com | Phone (Secondary): +91 82193 52124 | WhatsApp: +91 82193 52124');
+        this.appendLine('success', 'Direct Email (Primary): pixeltocloud@gmail.com | Phone (Secondary): +91 99281 96424 | WhatsApp: +91 99281 96424');
         break;
       case 'uptime':
         this.appendLine('success', 'Uptime: 99.99% | SLA: Guaranteed Zero-Downtime');
