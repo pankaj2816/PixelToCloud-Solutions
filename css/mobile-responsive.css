@@ -113,30 +113,48 @@
     display: none !important;
   }
 
-  /* Container Padding */
+  /* Global Mobile Text Wrapping & Overflow Defense */
+  h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .service-title {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+  }
+
+  p, span, .section-desc, .hero-subtitle, .service-desc {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* Container Padding & Max-Width */
   .container, .container-wide {
-    padding-left: 16px;
-    padding-right: 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    box-sizing: border-box !important;
   }
 
   /* Section Spacing */
   .section {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow-x: hidden;
   }
 
   .section-header {
-    margin-bottom: 36px;
+    margin-bottom: 30px;
   }
 
   .section-title {
-    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
-    line-height: 1.2;
+    font-size: clamp(1.65rem, 6vw, 2.2rem);
+    line-height: 1.25;
   }
 
   .section-desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   /* ================= SMART MOBILE FLOATING CAPSULE NAVBAR ================= */
@@ -629,12 +647,43 @@
 
   /* Subscription ROI Calculator Mobile */
   .roi-calculator-wrap {
-    padding: 20px 16px;
+    padding: 16px 12px !important;
+    border-radius: var(--radius-lg) !important;
   }
 
   .roi-calculator-wrap > div {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    gap: 20px !important;
+  }
+
+  .roi-preset-chips-wrap {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+
+  .roi-preset-chip {
+    width: 100% !important;
+    font-size: 0.72rem !important;
+    padding: 8px 6px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+  }
+
+  .roi-slider-label-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .roi-slider-val {
+    font-size: 0.92rem !important;
   }
 
   /* System Topology / Client-to-Cloud Distributed Architecture Mobile (2-Column Grid) */
