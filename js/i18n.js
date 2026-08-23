@@ -6,6 +6,9 @@
 
 const I18N_DICTIONARY = {
   en: {
+    tab_seo: "Google & SEO Ranking",
+    srv_seo_title: "Google Services, SEO & Search Ranking",
+    srv_seo_desc: "Dominate organic Google search results with 100/100 Core Web Vitals, Google Search Console indexation, Google Business Profile (Local 3-Pack), rich JSON-LD Schema structured data, and custom Google Analytics 4 (GA4) conversion tracking funnels.",
     // Navigation
     nav_services: "Services",
     nav_portfolio: "Portfolio",
@@ -946,7 +949,11 @@ const I18N_DICTIONARY = {
 
 class I18nManager {
   constructor() {
-    this.currentLang = localStorage.getItem('p2c_lang') || 'en';
+    this.currentLang = 'en';
+    const stored = localStorage.getItem('p2c_lang');
+    if (stored && I18N_DICTIONARY[stored]) {
+      this.currentLang = stored;
+    }
     this.selector = document.getElementById('language-selector');
     this.init();
   }
@@ -968,14 +975,14 @@ class I18nManager {
 
   populateLanguageSelectors() {
     const options = [
-      { code: 'en', label: '🇬🇧 EN' },
-      { code: 'hi', label: '🇮🇳 हिन्दी' },
-      { code: 'fr', label: '🇫🇷 FR' },
-      { code: 'ru', label: '🇷🇺 RU' },
-      { code: 'de', label: '🇩🇪 DE' },
-      { code: 'es', label: '🇪🇸 ES' },
-      { code: 'ja', label: '🇯🇵 日本語' },
-      { code: 'ar', label: '🇸🇦 العربية' }
+      { code: 'en', label: 'EN (English)' },
+      { code: 'hi', label: 'HI (हिन्दी)' },
+      { code: 'fr', label: 'FR (Français)' },
+      { code: 'ru', label: 'RU (Русский)' },
+      { code: 'de', label: 'DE (Deutsch)' },
+      { code: 'es', label: 'ES (Español)' },
+      { code: 'ja', label: 'JA (日本語)' },
+      { code: 'ar', label: 'AR (العربية)' }
     ];
 
     document.querySelectorAll('.lang-select, #language-selector, #mobile-language-selector').forEach(sel => {

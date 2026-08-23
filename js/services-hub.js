@@ -53,6 +53,7 @@ class AdvancedServicesHub {
     this.initServiceNavEnhancements();
     this.initWebLab();
     this.init3DLab();
+    this.initSeoLab();
     this.initDoctorLab();
     this.initFintechLab();
     this.initDevOpsLab();
@@ -82,6 +83,7 @@ class AdvancedServicesHub {
     this.serviceList = [
       { id: 'web', name: 'Full-Stack Web' },
       { id: '3d', name: '2D/3D WebGL' },
+      { id: 'seo', name: 'Google & SEO Ranking' },
       { id: 'doctor', name: 'Doctor & Telehealth' },
       { id: 'fintech', name: 'CA & FinTech' },
       { id: 'devops', name: 'Linux VPS & DevOps' },
@@ -270,6 +272,97 @@ class AdvancedServicesHub {
   // =================================================================
   // 2. 2D/3D WEBGL SPATIAL LAB (Interactive Orbit & Geometry Shaders)
   // =================================================================
+  
+  // =================================================================
+  // 3. GOOGLE SERVICES, SEO & SEARCH RANKING LAB (LIVE SERP & GA4 STREAM)
+  // =================================================================
+  initSeoLab() {
+    const rankSlider = document.getElementById('seo-rank-slider');
+    const posVal = document.getElementById('seo-pos-val');
+    const rankBadge = document.getElementById('seo-rank-badge');
+    const ctrVal = document.getElementById('seo-ctr-val');
+    const clicksVal = document.getElementById('seo-clicks-val');
+    const leadsVal = document.getElementById('seo-leads-val');
+    const serpTitle = document.getElementById('seo-serp-title');
+
+    const rankData = {
+      1: { ctr: '39.8%', clicks: '14,850', leads: '1,247', title: 'PixelToCloud Solutions | #1 Custom Web & Software Engineering' },
+      2: { ctr: '24.2%', clicks: '9,050', leads: '760', title: 'PixelToCloud Solutions | High-Performance Web & 3D Software' },
+      3: { ctr: '16.5%', clicks: '6,180', leads: '519', title: 'PixelToCloud Solutions | Custom Cloud & Telehealth Portals' },
+      4: { ctr: '10.2%', clicks: '3,820', leads: '320', title: 'PixelToCloud Solutions | CA FinTech & Web Development' },
+      5: { ctr: '7.1%', clicks: '2,660', leads: '223', title: 'PixelToCloud Solutions | Ultra-Fast Web & Cloud DevOps' },
+      6: { ctr: '5.2%', clicks: '1,950', leads: '163', title: 'PixelToCloud Solutions | Custom Code & Software Systems' },
+      7: { ctr: '3.9%', clicks: '1,460', leads: '122', title: 'PixelToCloud Solutions | 3D WebGL & Portal Architecture' },
+      8: { ctr: '3.1%', clicks: '1,160', leads: '97', title: 'PixelToCloud Solutions | Dedicated Linux VPS & DevOps' },
+      9: { ctr: '2.5%', clicks: '935', leads: '78', title: 'PixelToCloud Solutions | Enterprise Software & Portals' },
+      10: { ctr: '2.1%', clicks: '785', leads: '66', title: 'PixelToCloud Solutions | Web Architecture & Design' }
+    };
+
+    if (rankSlider) {
+      rankSlider.addEventListener('input', (e) => {
+        const pos = parseInt(e.target.value, 10) || 1;
+        const d = rankData[pos] || rankData[1];
+
+        if (posVal) posVal.textContent = "Position #" + pos;
+        if (rankBadge) {
+          rankBadge.textContent = "RANK #" + pos;
+          rankBadge.style.color = pos <= 3 ? '#10b981' : (pos <= 5 ? '#38bdf8' : '#f59e0b');
+          rankBadge.style.background = pos <= 3 ? 'rgba(16,185,129,0.15)' : 'rgba(56,189,248,0.15)';
+        }
+        if (ctrVal) ctrVal.textContent = d.ctr;
+        if (clicksVal) clicksVal.textContent = d.clicks;
+        if (leadsVal) leadsVal.textContent = d.leads;
+        if (serpTitle) serpTitle.textContent = d.title;
+      });
+    }
+
+    const eventStreamBox = document.getElementById('ga4-live-stream-box');
+    const triggerBtn = document.getElementById('ga4-trigger-event-btn');
+    const eventCountBadge = document.getElementById('ga4-event-count');
+    let simulatedEventCount = 12;
+
+    const sampleEvents = [
+      { tag: 'user_engagement', desc: '100/100 Core Web Vitals Pass · TTFB: 28ms', color: '#10b981' },
+      { tag: 'scroll_depth_100', desc: 'User viewed Services Hub & Estimator', color: '#38bdf8' },
+      { tag: 'custom_event', desc: 'GA4 conversion_lead fired · Value: ₹45,000', color: '#fbbf24' },
+      { tag: 'organic_search_click', desc: 'Google Search query: "top software engineer"', color: '#a855f7' },
+      { tag: 'g_business_route', desc: 'Google Map 3-Pack Directions Call Click', color: '#34d399' }
+    ];
+
+    const pushGA4Event = (customTag = null) => {
+      if (!eventStreamBox) return;
+      simulatedEventCount++;
+      if (eventCountBadge) eventCountBadge.textContent = simulatedEventCount;
+
+      const randomEvent = customTag || sampleEvents[Math.floor(Math.random() * sampleEvents.length)];
+      const eventLine = document.createElement('div');
+      eventLine.style.cssText = "color: " + randomEvent.color + "; animation: fadeIn 0.3s ease; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;";
+      eventLine.innerHTML = "● [GA4] " + randomEvent.tag + " | " + randomEvent.desc;
+
+      eventStreamBox.insertBefore(eventLine, eventStreamBox.firstChild);
+      if (eventStreamBox.children.length > 5) {
+        eventStreamBox.removeChild(eventStreamBox.lastChild);
+      }
+    };
+
+    if (triggerBtn) {
+      triggerBtn.addEventListener('click', () => {
+        pushGA4Event({
+          tag: 'interactive_pulse',
+          desc: "User clicked Discovery Pulse · Timestamp: " + new Date().toLocaleTimeString(),
+          color: '#00f0ff'
+        });
+        if (window.showToast) window.showToast('📈 GA4 Telemetry Pulse Logged & Tracked in Realtime!');
+      });
+    }
+
+    setInterval(() => {
+      if (this.currentTab === 'seo') {
+        pushGA4Event();
+      }
+    }, 3800);
+  }
+
   init3DLab() {
     if (!this.canvas3D) return;
 
