@@ -56,11 +56,11 @@ class PixelToCloudAIAdvisor {
       },
       {
         keywords: ['contact', 'whatsapp', 'call', 'phone', 'email', 'talk', 'meeting', 'hire', 'connect'],
-        response: "📲 **Direct Connect:**\nYou can reach Bhavyansh Agarwal directly on WhatsApp at **+91 82193 52124** or via email at **pppankaj2816@gmail.com**. Click the button below to start a direct chat!"
+        response: "✉️ **Direct Founder Connect:**\n• **Primary Contact (Email):** **pixeltocloud@gmail.com** (Fastest response within 2-4 hours)\n• **Phone Call:** **+91 82193 52124**\n• **WhatsApp Chat:** **+91 82193 52124**\n\nFeel free to send an email inquiry or call directly!"
       }
     ];
 
-    this.defaultResponse = "💡 **PixelToCloud AI:** I can help you with Custom Website Development, 2D/3D WebGL Software, CA & Doctor Portals, Art Boutiques, Linux VPS & AWS Server Deployments, and Pricing estimates.\n\nWould you like to connect directly with lead architect **Bhavyansh Agarwal** on WhatsApp (+91 82193 52124)?";
+    this.defaultResponse = "💡 **PixelToCloud AI:** I can help you with Custom Website Development, 2D/3D WebGL Software, CA & Doctor Portals, Art Boutiques, Linux VPS & AWS Server Deployments, and Pricing estimates.\n\nYou can reach our founders directly via email at **pixeltocloud@gmail.com** or phone/WhatsApp at **+91 82193 52124**.";
 
     this.init();
   }

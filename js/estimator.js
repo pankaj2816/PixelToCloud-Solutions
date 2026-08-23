@@ -382,7 +382,7 @@ class ProjectEstimator {
 
         <div class="footer">
           <div><strong>Founders:</strong> Bhavyansh Agarwal & Tushar Singhal</div>
-          <div><strong>WhatsApp:</strong> +91 82193 52124 | <strong>Email:</strong> pppankaj2816@gmail.com</div>
+          <div><strong>Email:</strong> pixeltocloud@gmail.com (Primary) | <strong>Phone:</strong> +91 82193 52124 | <strong>WhatsApp:</strong> +91 82193 52124</div>
         </div>
       </body>
       </html>

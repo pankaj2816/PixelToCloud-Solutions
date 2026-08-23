@@ -367,19 +367,21 @@ class AppEngine {
       return { name, email, phone, budget, message, selectedServices };
     };
 
-    // 1. Direct Priority Email Dispatch
+    // 1. Direct Priority Email Dispatch (Automated Cloud Submission + Mailto Fallback)
     const sendViaEmail = async () => {
       const data = validateForm();
       if (!data) return;
 
+      const targetEmail = 'pixeltocloud@gmail.com';
+
       if (emailBtn) {
         emailBtn.disabled = true;
-        emailBtn.innerHTML = '<span>✉️ Dispatching Inquiry to Bhavyansh Agarwal...</span>';
+        emailBtn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin" style="margin-right: 6px;"></i>Sending Inquiry to pixeltocloud@gmail.com...</span>';
       }
 
       const subject = `🚀 New Project Inquiry from ${data.name} - PixelToCloud Solutions`;
       const body = 
-        `Dear Bhavyansh Agarwal,\n\n` +
+        `Dear Bhavyansh Agarwal & Tushar Singhal,\n\n` +
         `I would like to discuss a new software project with PixelToCloud Solutions.\n\n` +
         `--- CLIENT CONTACT DETAILS ---\n` +
         `👤 Name: ${data.name}\n` +
@@ -391,18 +393,49 @@ class AppEngine {
         `${data.message}\n\n` +
         `Best regards,\n${data.name}`;
 
-      const mailtoUrl = `mailto:pppankaj2816@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      try {
+        // Direct Serverless Submission to pixeltocloud@gmail.com
+        const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: subject,
+            Name: data.name,
+            Email: data.email,
+            Phone: data.phone || 'N/A',
+            BudgetTier: data.budget,
+            Services: data.selectedServices.join(', ') || 'Custom Solution',
+            Message: data.message,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
 
-      // Execute mailto client dispatch
-      this.showToast('✉️ Opening direct email draft to pppankaj2816@gmail.com...');
-      window.location.href = mailtoUrl;
-
-      setTimeout(() => {
-        if (emailBtn) {
-          emailBtn.disabled = false;
-          emailBtn.innerHTML = '<span>✉️ Send Inquiry via Email to Bhavyansh Agarwal (Priority)</span>';
+        if (response.ok) {
+          this.showToast(`✅ Inquiry sent directly to ${targetEmail}! Founders will respond to ${data.email} within 2-4 hours.`);
+          form.reset();
+        } else {
+          // Fallback to mailto client
+          const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          window.location.href = mailtoUrl;
+          this.showToast(`✉️ Opening direct email draft to ${targetEmail}...`);
         }
-      }, 2000);
+      } catch (err) {
+        // Fallback to mailto client
+        const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+        this.showToast(`✉️ Opening direct email draft to ${targetEmail}...`);
+      } finally {
+        setTimeout(() => {
+          if (emailBtn) {
+            emailBtn.disabled = false;
+            emailBtn.innerHTML = '<span><i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i>Send Inquiry via Email (Primary)</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+          }
+        }, 2500);
+      }
     };
 
     // 2. Direct WhatsApp Dispatch
@@ -417,12 +450,12 @@ class AppEngine {
         `💼 *Estimated Budget:* ${data.budget || 'Flexible'}\n` +
         `🛠️ *Services Needed:* ${data.selectedServices.join(', ') || 'Custom Solution'}\n\n` +
         `📝 *Project Overview:*\n${data.message}\n\n` +
-        `⚡ Sent via PixelToCloud Solutions (Lead Architect: Bhavyansh Agarwal)`;
+        `⚡ Sent to PixelToCloud Solutions Founders (Bhavyansh Agarwal & Tushar Singhal)`;
 
       const encoded = encodeURIComponent(whatsappText);
       const whatsappUrl = `https://wa.me/918219352124?text=${encoded}`;
 
-      this.showToast('💬 Opening direct WhatsApp chat with Bhavyansh Agarwal...');
+      this.showToast('💬 Opening direct WhatsApp chat with Founders...');
       window.open(whatsappUrl, '_blank');
     };
 
@@ -510,7 +543,7 @@ class AppEngine {
     copyEmailBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const email = 'pppankaj2816@gmail.com';
+        const email = 'pixeltocloud@gmail.com';
         this.copyToClipboard(email, `📋 Copied "${email}" to clipboard!`);
       });
     });

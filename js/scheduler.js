@@ -127,6 +127,24 @@ class MeetingScheduler {
           slot: this.selectedSlot
         };
 
+        // Automatically notify pixeltocloud@gmail.com
+        try {
+          fetch('https://formsubmit.co/ajax/pixeltocloud@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: `📅 New Discovery Call Booked: ${name} (${this.selectedDate} at ${this.selectedSlot})`,
+              ClientName: name,
+              ClientEmail: email,
+              Date: this.selectedDate,
+              TimeSlot: this.selectedSlot,
+              DiscussionTopic: topic || 'Project Architecture & Tech Roadmap',
+              _template: 'table',
+              _captcha: 'false'
+            })
+          }).catch(() => {});
+        } catch (e) {}
+
         this.renderConfirmedState();
       });
     }
