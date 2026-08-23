@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pankaj2816.github.io/PixelToCloud-Solutions/sitemap.xml
+Sitemap: https://pixeltocloud.com/sitemap.xml
