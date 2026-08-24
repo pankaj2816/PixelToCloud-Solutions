@@ -297,7 +297,7 @@
 
           <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
             <div style="font-size: 0.72rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 3px;">
-              <div><i class="fa-solid fa-phone" style="color: var(--accent-cyan); width: 14px;"></i> +91 82193 52124 / 99281 96424</div>
+              <div><i class="fa-solid fa-phone" style="color: var(--accent-cyan); width: 14px;"></i> <span id="card-founder-phone">+91 82193 52124</span></div>
               <div><i class="fa-solid fa-envelope" style="color: var(--accent-cyan); width: 14px;"></i> pixeltocloud@gmail.com</div>
               <div><i class="fa-solid fa-globe" style="color: var(--accent-cyan); width: 14px;"></i> https://pixeltocloud.com</div>
             </div>
@@ -710,17 +710,20 @@
     function selectCardFounder(founder) {
       const nameEl = document.getElementById('card-founder-name');
       const titleEl = document.getElementById('card-founder-title');
+      const phoneEl = document.getElementById('card-founder-phone');
       const btnP = document.getElementById('btn-card-pankaj');
       const btnT = document.getElementById('btn-card-tushar');
 
       if (founder === 'pankaj') {
         nameEl.textContent = 'Pankaj Gupta';
         titleEl.textContent = 'Founder & Principal Systems Architect';
+        if (phoneEl) phoneEl.textContent = '+91 82193 52124';
         btnP.classList.add('active');
         btnT.classList.remove('active');
       } else {
         nameEl.textContent = 'Tushar Singhal';
         titleEl.textContent = 'Co-Founder & Senior Software Developer';
+        if (phoneEl) phoneEl.textContent = '+91 99281 96424';
         btnT.classList.add('active');
         btnP.classList.remove('active');
       }
