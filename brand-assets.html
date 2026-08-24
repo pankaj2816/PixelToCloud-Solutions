@@ -102,11 +102,10 @@
     .biz-card {
       width: 100%;
       max-width: 480px;
-      aspect-ratio: 1.75 / 1;
+      min-height: 270px;
       margin: 0 auto 20px;
       border-radius: 14px;
       position: relative;
-      overflow: hidden;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.15);
       background: #080c14;
       border: 1px solid rgba(0, 240, 255, 0.35);
@@ -141,7 +140,7 @@
     /* Social Posters Grid */
     .poster-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 30px;
     }
     .poster-card {
@@ -155,29 +154,29 @@
     }
     .poster-preview {
       width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
+      border-radius: 14px;
       border: 1px solid rgba(0, 240, 255, 0.25);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       margin-bottom: 16px;
       position: relative;
+      box-sizing: border-box;
     }
     .poster-square {
-      aspect-ratio: 1 / 1;
+      min-height: 480px;
       background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.2), transparent 50%),
                   radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.2), transparent 50%),
                   linear-gradient(145deg, #090e17 0%, #05080f 100%);
-      padding: 28px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-sizing: border-box;
     }
     .poster-banner {
-      aspect-ratio: 1200 / 630;
+      min-height: 340px;
       background: radial-gradient(circle at 80% 30%, rgba(0, 240, 255, 0.25), transparent 50%),
                   linear-gradient(135deg, #080c14 0%, #0d1527 100%);
-      padding: 24px 32px;
+      padding: 28px 34px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -189,13 +188,13 @@
       color: #050b14;
       font-weight: 700;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 999px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       transition: all 0.2s ease;
     }
     .btn-export:hover {
@@ -351,16 +350,16 @@
   <!-- SECTION 2: WHATSAPP & SOCIAL FLYERS (1:1 SQUARE) -->
   <section class="studio-section" id="sec-social">
     <div class="poster-grid">
-            <!-- 1. CUSTOMER-FIRST PLAIN ENGLISH POSTER (FOR EVERYDAY BUSINESS OWNERS) -->
-      <div class="poster-card" style="border: 2px solid var(--accent-cyan); background: rgba(10, 14, 23, 0.85); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15);">
+      <!-- 1. CUSTOMER-FIRST PLAIN ENGLISH POSTER (FOR EVERYDAY BUSINESS OWNERS) -->
+      <div class="poster-card" style="border: 2px solid var(--accent-cyan); background: rgba(10, 14, 23, 0.9); box-shadow: 0 0 35px rgba(0, 240, 255, 0.15);">
         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <span style="font-size: 0.82rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.05em;">
-            🌟 FEATURED: CUSTOMER-FIRST FLYER
+          <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.05em;">
+            🌟 FEATURED: GENERAL CUSTOMER FLYER
           </span>
-          <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">Square 1:1 (WhatsApp & Instagram)</span>
+          <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">Square 1:1</span>
         </div>
 
-        <div class="poster-preview poster-square" id="poster-customer-first" style="background: radial-gradient(circle at 85% 15%, rgba(0, 240, 255, 0.22) 0%, transparent 60%), radial-gradient(circle at 15% 85%, rgba(16, 185, 129, 0.22) 0%, transparent 60%), linear-gradient(145deg, #070d17 0%, #03060c 100%); border: 1px solid rgba(0,240,255,0.4);">
+        <div class="poster-preview poster-square" id="poster-customer-first" style="background: radial-gradient(circle at 90% 10%, rgba(0, 240, 255, 0.22) 0%, transparent 60%), radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.22) 0%, transparent 60%), linear-gradient(145deg, #070d17 0%, #03060c 100%); border: 1px solid rgba(0,240,255,0.4); padding: 24px;">
           <!-- Top Header -->
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -368,56 +367,56 @@
                 P2C
               </div>
               <div>
-                <div style="font-weight: 900; font-size: 1.25rem; color: #fff; letter-spacing: -0.02em;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span></div>
+                <div style="font-weight: 900; font-size: 1.2rem; color: #fff; letter-spacing: -0.02em;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span></div>
                 <div style="font-size: 0.65rem; color: #94a3b8; font-family: var(--font-mono); letter-spacing: 0.05em;">WEB &amp; SOFTWARE SOLUTIONS</div>
               </div>
             </div>
             <span style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #34d399; font-size: 0.72rem; font-family: var(--font-mono); font-weight: 700; padding: 4px 10px; border-radius: 999px;">
-              ● FREE CONSULTATION
+              ● FREE ESTIMATE
             </span>
           </div>
 
           <!-- Main Catchy Pitch -->
-          <div style="margin: 16px 0;">
-            <div style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 700; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;">
+          <div style="margin: 18px 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;">
               Grow Your Business Online
             </div>
-            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.2; color: #fff; margin: 4px 0 10px;">
+            <h2 style="font-size: 1.35rem; font-weight: 900; line-height: 1.25; color: #fff; margin: 4px 0 12px;">
               Get a Fast, High-Quality Website That Brings You More Customers!
             </h2>
 
             <!-- 4 Simple Benefit Cards -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #fff;">🛍️ Online Stores &amp; Shops</div>
-                <div style="font-size: 0.68rem; color: #cbd5e1; margin-top: 2px;">Sell products &amp; accept payments on WhatsApp &amp; Web</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div style="background: rgba(255,255,255,0.06); padding: 10px 12px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">🛍️ Online Shopping Stores</div>
+                <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 2px;">Sell products &amp; accept payments on WhatsApp &amp; Web</div>
               </div>
-              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #fff;">🩺 Clinic &amp; Doctor Portals</div>
-                <div style="font-size: 0.68rem; color: #cbd5e1; margin-top: 2px;">Patient appointment booking &amp; video consultation</div>
+              <div style="background: rgba(255,255,255,0.06); padding: 10px 12px; border-radius: 8px; border-left: 3px solid #10b981;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">🩺 Clinic &amp; Doctor Portals</div>
+                <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 2px;">Patient appointment booking &amp; video consults</div>
               </div>
-              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #fff;">💼 CA &amp; Business Websites</div>
-                <div style="font-size: 0.68rem; color: #cbd5e1; margin-top: 2px;">Build trust, showcase work &amp; get customer leads</div>
+              <div style="background: rgba(255,255,255,0.06); padding: 10px 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">💼 CA &amp; Business Portals</div>
+                <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 2px;">Build trust, showcase work &amp; get client leads</div>
               </div>
-              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #a855f7;">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #fff;">⚡ Super Fast on Mobile</div>
-                <div style="font-size: 0.68rem; color: #cbd5e1; margin-top: 2px;">Opens in 1 second + 100% lifetime code ownership</div>
+              <div style="background: rgba(255,255,255,0.06); padding: 10px 12px; border-radius: 8px; border-left: 3px solid #a855f7;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">⚡ 1-Second Speed on Mobile</div>
+                <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 2px;">100% Lifetime Code Ownership &bull; No Monthly Rent</div>
               </div>
             </div>
           </div>
 
           <!-- Bottom Contact Bar -->
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 12px; background: rgba(0,0,0,0.3); margin: 0 -28px -28px; padding: 12px 28px; border-radius: 0 0 12px 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 14px; margin-top: 6px;">
             <div>
-              <div style="font-size: 0.7rem; color: #94a3b8;">Call or WhatsApp Pankaj &amp; Tushar:</div>
-              <div style="font-size: 1.05rem; font-weight: 900; color: #fff; letter-spacing: 0.02em;">
-                <i class="fa-solid fa-phone" style="color: var(--accent-cyan); font-size: 0.85rem; margin-right: 4px;"></i>+91 82193 52124
+              <div style="font-size: 0.72rem; color: #94a3b8;">Call / WhatsApp Directly:</div>
+              <div style="font-size: 1.1rem; font-weight: 900; color: #fff;">
+                <i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 4px;"></i>+91 82193 52124
               </div>
             </div>
             <div style="text-align: right;">
-              <div style="font-size: 0.68rem; color: var(--accent-cyan); font-family: var(--font-mono);">Visit Our Website:</div>
-              <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">pixeltocloud.com</div>
+              <div style="font-size: 0.72rem; color: var(--accent-cyan); font-family: var(--font-mono);">Visit Portfolio:</div>
+              <div style="font-size: 1rem; font-weight: 800; color: #fff;">pixeltocloud.com</div>
             </div>
           </div>
         </div>
@@ -428,15 +427,15 @@
       </div>
 
       <!-- 2. WHATSAPP STATUS / INSTAGRAM STORY VERTICAL POSTER (9:16) -->
-      <div class="poster-card" style="background: rgba(10, 14, 23, 0.85);">
+      <div class="poster-card" style="background: rgba(10, 14, 23, 0.9);">
         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <span style="font-size: 0.82rem; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.05em;">
+          <span style="font-size: 0.85rem; font-weight: 800; color: #c084fc; text-transform: uppercase; letter-spacing: 0.05em;">
             📱 WHATSAPP STATUS / STORY FLYER
           </span>
-          <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">Story 9:16 Full Screen</span>
+          <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">Story 9:16</span>
         </div>
 
-        <div class="poster-preview" id="poster-customer-story" style="width: 100%; max-width: 320px; aspect-ratio: 9 / 16; background: radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.25) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.25) 0%, transparent 60%), linear-gradient(160deg, #070d18 0%, #03050a 100%); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; border: 1px solid rgba(0,240,255,0.35);">
+        <div class="poster-preview" id="poster-customer-story" style="width: 100%; max-width: 360px; min-height: 520px; background: radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.25) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.25) 0%, transparent 60%), linear-gradient(160deg, #070d18 0%, #03050a 100%); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; border: 1px solid rgba(0,240,255,0.35);">
           <!-- Top Header -->
           <div>
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -447,11 +446,11 @@
               </div>
             </div>
 
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 18px;">
               <div style="display: inline-block; background: rgba(0,240,255,0.15); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); font-size: 0.7rem; font-weight: 700; font-family: var(--font-mono); padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">
                 🚀 BOOST YOUR BUSINESS
               </div>
-              <h2 style="font-size: 1.4rem; font-weight: 900; color: #fff; line-height: 1.25;">
+              <h2 style="font-size: 1.35rem; font-weight: 900; color: #fff; line-height: 1.25;">
                 Want a Website That Actually Gets You Clients?
               </h2>
             </div>
@@ -459,31 +458,31 @@
 
           <!-- Services List -->
           <div style="display: flex; flex-direction: column; gap: 10px; margin: 16px 0;">
-            <div style="background: rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-              <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">🛍️ E-Commerce Online Stores</div>
-              <div style="font-size: 0.68rem; color: #cbd5e1;">Sell your products with zero commission fees</div>
+            <div style="background: rgba(255,255,255,0.06); padding: 9px 12px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">🛍️ E-Commerce Online Stores</div>
+              <div style="font-size: 0.72rem; color: #cbd5e1;">Sell your products with zero commission fees</div>
             </div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #10b981;">
-              <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">🩺 Doctor &amp; Clinic Portals</div>
-              <div style="font-size: 0.68rem; color: #cbd5e1;">Patient booking &amp; video telehealth system</div>
+            <div style="background: rgba(255,255,255,0.06); padding: 9px 12px; border-radius: 8px; border-left: 3px solid #10b981;">
+              <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">🩺 Doctor &amp; Clinic Portals</div>
+              <div style="font-size: 0.72rem; color: #cbd5e1;">Patient booking &amp; video telehealth system</div>
             </div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-              <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">💼 CA &amp; Business Websites</div>
-              <div style="font-size: 0.68rem; color: #cbd5e1;">Build client trust &amp; rank on Google</div>
+            <div style="background: rgba(255,255,255,0.06); padding: 9px 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+              <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">💼 CA &amp; Business Websites</div>
+              <div style="font-size: 0.72rem; color: #cbd5e1;">Build client trust &amp; rank on Google</div>
             </div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 8px; border-left: 3px solid #a855f7;">
-              <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">⚡ 1-Second Load Speed</div>
-              <div style="font-size: 0.68rem; color: #cbd5e1;">100% Code Ownership &bull; No Monthly Rent</div>
+            <div style="background: rgba(255,255,255,0.06); padding: 9px 12px; border-radius: 8px; border-left: 3px solid #a855f7;">
+              <div style="font-size: 0.82rem; font-weight: 800; color: #fff;">⚡ 1-Second Load Speed</div>
+              <div style="font-size: 0.72rem; color: #cbd5e1;">100% Code Ownership &bull; No Monthly Rent</div>
             </div>
           </div>
 
           <!-- Bottom Call to Action -->
           <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 12px; text-align: center;">
             <div style="font-size: 0.72rem; color: #94a3b8; margin-bottom: 4px;">Direct Contact:</div>
-            <div style="font-size: 1.1rem; font-weight: 900; color: #fff; letter-spacing: 0.02em;">
+            <div style="font-size: 1.15rem; font-weight: 900; color: #fff; letter-spacing: 0.02em;">
               <i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 4px;"></i>+91 82193 52124
             </div>
-            <div style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-top: 4px;">
+            <div style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700; margin-top: 4px;">
               🌐 https://pixeltocloud.com
             </div>
           </div>
@@ -508,10 +507,10 @@
             <div style="font-size: 0.78rem; color: #34d399; font-family: var(--font-mono); text-transform: uppercase;">
               For Doctors, Clinics &amp; Hospitals
             </div>
-            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+            <h2 style="font-size: 1.35rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
               Complete Clinic &amp; Patient Video Consultation Portal
             </h2>
-            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+            <ul style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
               <li>Instant 1-Click Patient Appointment Booking</li>
               <li>Secure In-Browser Telehealth Video Calling</li>
               <li>Digital Prescriptions &amp; WhatsApp Integration</li>
@@ -530,7 +529,7 @@
           </div>
         </div>
 
-        <button class="btn-export" onclick="exportCard('poster-social-doctor', 'PixelToCloud_Doctor_Portal_Flyer.png')">
+        <button class="btn-export" onclick="exportCard('poster-social-doctor', 'PixelToCloud_Doctor_Portal_Flyer.png')" style="margin-top: 14px; width: 100%; justify-content: center;">
           <i class="fa-solid fa-download"></i> Download Doctor Portal Flyer
         </button>
       </div>
@@ -603,10 +602,10 @@
             <div style="font-size: 0.78rem; color: #fbbf24; font-family: var(--font-mono); text-transform: uppercase;">
               For Chartered Accountants &amp; Tax Consultancies
             </div>
-            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+            <h2 style="font-size: 1.35rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
               Automated Tax Portal &amp; 256-Bit Encrypted Client Vault
             </h2>
-            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+            <ul style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
               <li>Automated GST, ITR &amp; Corporate Tax Estimators</li>
               <li>Secure Client Document Upload &amp; Invoice Portal</li>
               <li>Automated WhatsApp Tax Due Date Alerts</li>
@@ -625,7 +624,7 @@
           </div>
         </div>
 
-        <button class="btn-export" onclick="exportCard('poster-social-fintech', 'PixelToCloud_CA_Fintech_Poster.png')">
+        <button class="btn-export" onclick="exportCard('poster-social-fintech', 'PixelToCloud_CA_Fintech_Poster.png')" style="margin-top: 14px; width: 100%; justify-content: center;">
           <i class="fa-solid fa-download"></i> Download CA FinTech Poster
         </button>
       </div>
@@ -644,10 +643,10 @@
             <div style="font-size: 0.78rem; color: #c084fc; font-family: var(--font-mono); text-transform: uppercase;">
               For Luxury Brands, Architecture &amp; SaaS
             </div>
-            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+            <h2 style="font-size: 1.35rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
               Photorealistic 360° Interactive 3D Web Experiences
             </h2>
-            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+            <ul style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
               <li>60 FPS Hardware-Accelerated Three.js Graphics</li>
               <li>Real-time 3D Product Customizers &amp; Showcases</li>
               <li>No heavy app downloads required — runs directly in browser</li>
@@ -666,7 +665,7 @@
           </div>
         </div>
 
-        <button class="btn-export" onclick="exportCard('poster-social-3d', 'PixelToCloud_3D_WebGL_Poster.png')">
+        <button class="btn-export" onclick="exportCard('poster-social-3d', 'PixelToCloud_3D_WebGL_Poster.png')" style="margin-top: 14px; width: 100%; justify-content: center;">
           <i class="fa-solid fa-download"></i> Download 3D WebGL Poster
         </button>
       </div>
@@ -727,22 +726,27 @@
       }
     }
 
-    // High-Resolution Export via html2canvas
+    // High-Resolution Export Engine with Complete Unclipped Dimension Safety
     function exportCard(elementId, filename) {
-      const el = document.getElementById(elementId);
-      if (!el) return;
+      const originalEl = document.getElementById(elementId);
+      if (!originalEl) return;
 
       const btn = event.currentTarget;
       const originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating High-Res Image...';
       btn.disabled = true;
 
-      html2canvas(el, {
-        scale: 3, // 3x Ultra High Resolution (300 DPI equivalent)
-        backgroundColor: null,
+      // Scroll to element to ensure full render
+      originalEl.scrollIntoView({ block: 'nearest' });
+
+      html2canvas(originalEl, {
+        scale: 2.5, // 2.5x ultra sharp resolution
+        backgroundColor: '#05080f',
         useCORS: true,
         allowTaint: true,
-        logging: false
+        logging: false,
+        height: originalEl.scrollHeight,
+        windowHeight: originalEl.scrollHeight + 500
       }).then(canvas => {
         const link = document.createElement('a');
         link.download = filename;
