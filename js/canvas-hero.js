@@ -78,18 +78,18 @@ class HeroCanvas {
   createParticles() {
     this.particles = [];
     for (let i = 0; i < this.numParticles; i++) {
-      const isSpecial = Math.random() > 0.85;
+      const isSpecial = Math.random() > 0.88;
       this.particles.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: (Math.random() - 0.5) * 0.9,
-        vy: (Math.random() - 0.5) * 0.9,
-        baseRadius: isSpecial ? Math.random() * 2.8 + 2 : Math.random() * 1.8 + 1,
-        radius: isSpecial ? Math.random() * 2.8 + 2 : Math.random() * 1.8 + 1,
-        color: isSpecial ? '#00f0ff' : (Math.random() > 0.5 ? '#3b82f6' : '#8b5cf6'),
-        alpha: Math.random() * 0.6 + 0.2,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        baseRadius: isSpecial ? Math.random() * 2.2 + 1.6 : Math.random() * 1.4 + 0.8,
+        radius: isSpecial ? Math.random() * 2.2 + 1.6 : Math.random() * 1.4 + 0.8,
+        color: isSpecial ? '#00d2ff' : (Math.random() > 0.5 ? '#38bdf8' : '#818cf8'),
+        alpha: Math.random() * 0.35 + 0.12,
         isSpecial: isSpecial,
-        pulseSpeed: Math.random() * 0.03 + 0.01,
+        pulseSpeed: Math.random() * 0.02 + 0.008,
         pulseAngle: Math.random() * Math.PI * 2
       });
     }
@@ -200,11 +200,11 @@ class HeroCanvas {
       this.ctx.fillStyle = p.color;
       this.ctx.globalAlpha = p.alpha;
       this.ctx.shadowColor = p.color;
-      this.ctx.shadowBlur = p.isSpecial ? 12 : 4;
+      this.ctx.shadowBlur = p.isSpecial ? 6 : 2;
       this.ctx.fill();
       this.ctx.restore();
 
-      // Connect particles
+      // Connect particles with subtle ambient lines
       for (let j = i + 1; j < this.particles.length; j++) {
         const p2 = this.particles[j];
         const dx = p.x - p2.x;
@@ -212,14 +212,14 @@ class HeroCanvas {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.connectionDistance) {
-          const alpha = (1 - dist / this.connectionDistance) * 0.25;
+          const alpha = (1 - dist / this.connectionDistance) * 0.12;
           this.ctx.save();
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
           this.ctx.strokeStyle = p.color;
           this.ctx.globalAlpha = alpha;
-          this.ctx.lineWidth = 1;
+          this.ctx.lineWidth = 0.8;
           this.ctx.stroke();
           this.ctx.restore();
         }
