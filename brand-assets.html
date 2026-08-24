@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Assets & Business Card Studio | PixelToCloud Solutions</title>
+  <meta name="description" content="Official Brand Assets, High-Res Business Cards, and Social Media Promotional Posters for PixelToCloud Solutions.">
+  <link rel="canonical" href="https://pixeltocloud.com/brand-assets.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/main.css?v=32.0">
+  <link rel="stylesheet" href="css/animations.css?v=32.0">
+  <link rel="stylesheet" href="css/components.css?v=32.0">
+  <link rel="stylesheet" href="css/light-theme.css?v=32.0">
+  <link rel="stylesheet" href="css/mobile-responsive.css?v=32.0">
+
+  <!-- QRCode.js and html2canvas for high-res instant exports -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    .studio-hero {
+      padding: 120px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .studio-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--accent-cyan);
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      margin-bottom: 16px;
+    }
+    .studio-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px auto;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+    .studio-tab-btn {
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: rgba(14, 20, 32, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+    .studio-tab-btn:hover, .studio-tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(168, 85, 247, 0.15));
+      border-color: var(--accent-cyan);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+    .studio-section {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+    .studio-section.active {
+      display: block;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    /* Business Card 3D Preview */
+    .card-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    @media (max-width: 900px) {
+      .card-preview-grid { grid-template-columns: 1fr; }
+    }
+
+    .biz-card-wrap {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+    }
+    .biz-card {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1.75 / 1;
+      margin: 0 auto 20px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.15);
+      background: #080c14;
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 28px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .biz-card-front {
+      background: radial-gradient(circle at 90% 10%, rgba(0, 240, 255, 0.18) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 90%, rgba(168, 85, 247, 0.18) 0%, transparent 60%),
+                  linear-gradient(135deg, #070b12 0%, #0d1524 100%);
+    }
+    .biz-card-back {
+      background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.12) 0%, transparent 70%),
+                  linear-gradient(135deg, #090e18 0%, #05080e 100%);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Social Posters Grid */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .poster-card {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .poster-preview {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .poster-square {
+      aspect-ratio: 1 / 1;
+      background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.2), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.2), transparent 50%),
+                  linear-gradient(145deg, #090e17 0%, #05080f 100%);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    .poster-banner {
+      aspect-ratio: 1200 / 630;
+      background: radial-gradient(circle at 80% 30%, rgba(0, 240, 255, 0.25), transparent 50%),
+                  linear-gradient(135deg, #080c14 0%, #0d1527 100%);
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .btn-export {
+      background: linear-gradient(135deg, var(--accent-cyan), #00a3ff);
+      color: #050b14;
+      font-weight: 700;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      transition: all 0.2s ease;
+    }
+    .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-container">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">P2C</div>
+        <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+      </a>
+      <div class="nav-center-links">
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="index.html#estimator" class="nav-link">Estimator</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="brand-assets.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 4px;"></i>Brand Studio</a>
+      </div>
+      <div class="nav-right-actions">
+        <a href="https://wa.me/918219352124?text=Hello%20Pankaj%20Gupta,%20I%20would%20like%20to%20discuss%20a%20website%20and%20software%20project." target="_blank" class="btn-magnetic btn-primary" style="padding: 9px 18px; font-size: 0.85rem;">
+          <i class="fa-brands fa-whatsapp" style="margin-right: 6px;"></i>Direct WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="studio-hero">
+    <div class="studio-badge">
+      <i class="fa-solid fa-gem"></i> Official Marketing & Brand Assets Studio
+    </div>
+    <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.2; margin-bottom: 16px;">
+      Print-Ready Business Cards & <br><span class="gradient-text">Promotional Marketing Assets</span>
+    </h1>
+    <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto 24px; font-size: 1.05rem; line-height: 1.6;">
+      Download high-resolution business cards with live QR codes and ready-to-share social media flyers for WhatsApp, LinkedIn, Instagram, and client outreach.
+    </p>
+
+    <!-- Navigation Tabs -->
+    <div class="studio-tabs">
+      <button class="studio-tab-btn active" onclick="switchTab('cards')">
+        <i class="fa-solid fa-id-card"></i> Executive Business Cards
+      </button>
+      <button class="studio-tab-btn" onclick="switchTab('social')">
+        <i class="fa-solid fa-share-nodes"></i> WhatsApp & Social Flyers
+      </button>
+      <button class="studio-tab-btn" onclick="switchTab('banners')">
+        <i class="fa-solid fa-panorama"></i> LinkedIn & Twitter Banners
+      </button>
+      <button class="studio-tab-btn" onclick="switchTab('niche')">
+        <i class="fa-solid fa-bullseye"></i> Niche Client Pitch Posters
+      </button>
+    </div>
+  </header>
+
+  <!-- SECTION 1: BUSINESS CARDS -->
+  <section class="studio-section active" id="sec-cards">
+    <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 24px; align-items: center;">
+      <span style="font-size: 0.9rem; color: var(--text-secondary); font-weight: 600;">Select Executive Profile:</span>
+      <button class="studio-tab-btn active" id="btn-card-pankaj" onclick="selectCardFounder('pankaj')" style="padding: 6px 14px; font-size: 0.82rem;">
+        Pankaj Gupta (Principal Architect)
+      </button>
+      <button class="studio-tab-btn" id="btn-card-tushar" onclick="selectCardFounder('tushar')" style="padding: 6px 14px; font-size: 0.82rem;">
+        Tushar Singhal (Lead Engineer)
+      </button>
+    </div>
+
+    <div class="card-preview-grid">
+      <!-- Card Front Preview -->
+      <div class="biz-card-wrap">
+        <h3 style="font-size: 1.1rem; margin-bottom: 14px; color: #fff;"><i class="fa-solid fa-credit-card" style="color: var(--accent-cyan); margin-right: 6px;"></i>Front Side (Print 3.5" x 2")</h3>
+        
+        <div class="biz-card biz-card-front" id="biz-card-front">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-cyan), #00a3ff); color: #050b14; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                P2C
+              </div>
+              <div>
+                <div style="font-weight: 800; font-size: 1.05rem; color: #fff; letter-spacing: -0.02em;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span></div>
+                <div style="font-size: 0.65rem; color: #94a3b8; font-family: var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase;">SOLUTIONS</div>
+              </div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-cyan); border: 1px solid rgba(0,240,255,0.4); padding: 2px 8px; border-radius: 4px; background: rgba(0,240,255,0.08);">
+              2026 ARCHITECTURE
+            </div>
+          </div>
+
+          <div style="margin: 12px 0;">
+            <div id="card-founder-name" style="font-size: 1.25rem; font-weight: 800; color: #fff;">Pankaj Gupta</div>
+            <div id="card-founder-title" style="font-size: 0.76rem; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 2px;">Founder &amp; Principal Systems Architect</div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+            <div style="font-size: 0.72rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 3px;">
+              <div><i class="fa-solid fa-phone" style="color: var(--accent-cyan); width: 14px;"></i> +91 82193 52124 / 99281 96424</div>
+              <div><i class="fa-solid fa-envelope" style="color: var(--accent-cyan); width: 14px;"></i> pixeltocloud@gmail.com</div>
+              <div><i class="fa-solid fa-globe" style="color: var(--accent-cyan); width: 14px;"></i> https://pixeltocloud.com</div>
+            </div>
+            <div id="card-qr-code" style="width: 48px; height: 48px; background: #fff; padding: 3px; border-radius: 4px; display: flex; align-items: center; justify-content: center;"></div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-export" onclick="exportCard('biz-card-front', 'PixelToCloud_BusinessCard_Front.png')">
+            <i class="fa-solid fa-download"></i> Download Front (High-Res PNG)
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Back Preview -->
+      <div class="biz-card-wrap">
+        <h3 style="font-size: 1.1rem; margin-bottom: 14px; color: #fff;"><i class="fa-solid fa-layer-group" style="color: #a855f7; margin-right: 6px;"></i>Back Side (Core Capabilities)</h3>
+        
+        <div class="biz-card biz-card-back" id="biz-card-back">
+          <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-cyan), #a855f7); color: #050b14; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 8px; box-shadow: 0 0 25px rgba(0,240,255,0.4);">
+            P2C
+          </div>
+          <div style="font-weight: 800; font-size: 1.15rem; color: #fff;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span> Solutions</div>
+          <div style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono); margin-top: 3px; text-align: center;">
+            From Pixel-Perfect UI to Enterprise Cloud Systems
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 12px 0; max-width: 380px;">
+            <span style="background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.3); color: var(--accent-cyan); font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Custom Web Development</span>
+            <span style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">2D/3D WebGL Three.js</span>
+            <span style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">CA Tax Portals</span>
+            <span style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Doctor Telehealth</span>
+            <span style="background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Linux VPS &amp; DevOps</span>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #e2e8f0; font-weight: 600;">
+            https://pixeltocloud.com
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-export" onclick="exportCard('biz-card-back', 'PixelToCloud_BusinessCard_Back.png')">
+            <i class="fa-solid fa-download"></i> Download Back (High-Res PNG)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WHATSAPP & SOCIAL FLYERS (1:1 SQUARE) -->
+  <section class="studio-section" id="sec-social">
+    <div class="poster-grid">
+      <!-- General Promotional Square Poster -->
+      <div class="poster-card">
+        <div class="poster-preview poster-square" id="poster-social-general">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent-cyan); color: #050b14; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">P2C</div>
+              <span style="font-weight: 800; font-size: 1.1rem; color: #fff;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+            </div>
+            <span style="background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; font-size: 0.7rem; font-family: var(--font-mono); padding: 3px 8px; border-radius: 999px;">
+              ● 2026 LIVE PLATFORM
+            </span>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+              Custom Software &amp; Cloud Engineering
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 900; line-height: 1.25; color: #fff;">
+              Need a High-Speed Website or Custom Software?
+            </h2>
+            <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.5; margin-top: 10px;">
+              From pixel-perfect 2D/3D WebGL apps to doctor portals, CA tax suites, and dedicated Linux VPS cloud infrastructure.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px;">
+              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 2px solid var(--accent-cyan); font-size: 0.76rem; color: #fff;">
+                <strong>⚡ 0.4s Sub-Second Speed</strong><br><span style="color:#94a3b8; font-size:0.68rem;">100/100 Google PageSpeed</span>
+              </div>
+              <div style="background: rgba(255,255,255,0.05); padding: 8px 10px; border-radius: 8px; border-left: 2px solid #a855f7; font-size: 0.76rem; color: #fff;">
+                <strong>🔐 100% Code Ownership</strong><br><span style="color:#94a3b8; font-size:0.68rem;">Zero Monthly Platform Rent</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+            <div>
+              <div style="font-size: 0.72rem; color: #94a3b8;">Call / WhatsApp Directly:</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">+91 82193 52124</div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.7rem; color: var(--accent-cyan); font-family: var(--font-mono);">Visit Live Portfolio:</div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">pixeltocloud.com</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCard('poster-social-general', 'PixelToCloud_Promotional_Flyer.png')">
+          <i class="fa-solid fa-download"></i> Download Square Flyer (1080x1080)
+        </button>
+      </div>
+
+      <!-- Doctor & Clinic Specialized Flyer -->
+      <div class="poster-card">
+        <div class="poster-preview poster-square" id="poster-social-doctor" style="background: radial-gradient(circle at top right, rgba(16,185,129,0.25), transparent 60%), linear-gradient(145deg, #061311 0%, #03080c 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 800; font-size: 1.1rem; color: #fff;">PixelTo<span style="color: #34d399;">Cloud</span> Health</span>
+            <span style="background: rgba(16,185,129,0.2); color: #34d399; font-size: 0.7rem; font-family: var(--font-mono); padding: 3px 8px; border-radius: 999px;">
+              🩺 Telehealth Suite
+            </span>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div style="font-size: 0.78rem; color: #34d399; font-family: var(--font-mono); text-transform: uppercase;">
+              For Doctors, Clinics &amp; Hospitals
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+              Complete Clinic &amp; Patient Video Consultation Portal
+            </h2>
+            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+              <li>Instant 1-Click Patient Appointment Booking</li>
+              <li>Secure In-Browser Telehealth Video Calling</li>
+              <li>Digital Prescriptions &amp; WhatsApp Integration</li>
+              <li>Trusted by Leading Oncologists &amp; Surgeons</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+            <div>
+              <div style="font-size: 0.72rem; color: #94a3b8;">Book a Free Demo:</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">+91 82193 52124</div>
+            </div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #34d399;">
+              pixeltocloud.com/#doctor
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCard('poster-social-doctor', 'PixelToCloud_Doctor_Portal_Flyer.png')">
+          <i class="fa-solid fa-download"></i> Download Doctor Portal Flyer
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LINKEDIN & TWITTER BANNERS (16:9 LANDSCAPE) -->
+  <section class="studio-section" id="sec-banners">
+    <div style="max-width: 960px; margin: 0 auto;">
+      <div class="poster-card">
+        <div class="poster-preview poster-banner" id="poster-banner-linkedin">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-cyan), #a855f7); color: #050b14; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+                P2C
+              </div>
+              <div>
+                <div style="font-weight: 900; font-size: 1.3rem; color: #fff;">PixelTo<span style="color: var(--accent-cyan);">Cloud</span> Solutions</div>
+                <div style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">CUSTOM SOFTWARE &amp; ENTERPRISE CLOUD ARCHITECTURE</div>
+              </div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); border: 1px solid rgba(0,240,255,0.4); padding: 4px 12px; border-radius: 6px; background: rgba(0,240,255,0.1);">
+              https://pixeltocloud.com
+            </div>
+          </div>
+
+          <div style="margin: 24px 0;">
+            <h2 style="font-size: clamp(1.4rem, 2.5vw, 2.1rem); font-weight: 900; color: #fff; line-height: 1.2;">
+              From Pixel-Perfect UI to <span style="color: var(--accent-cyan);">Enterprise Cloud Deployments</span>
+            </h2>
+            <div style="display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap;">
+              <span style="font-size: 0.85rem; color: #cbd5e1;"><i class="fa-solid fa-check" style="color: var(--accent-cyan); margin-right: 4px;"></i> Custom Web Applications</span>
+              <span style="font-size: 0.85rem; color: #cbd5e1;"><i class="fa-solid fa-check" style="color: var(--accent-cyan); margin-right: 4px;"></i> 2D/3D WebGL Software</span>
+              <span style="font-size: 0.85rem; color: #cbd5e1;"><i class="fa-solid fa-check" style="color: var(--accent-cyan); margin-right: 4px;"></i> CA Tax &amp; Doctor Portals</span>
+              <span style="font-size: 0.85rem; color: #cbd5e1;"><i class="fa-solid fa-check" style="color: var(--accent-cyan); margin-right: 4px;"></i> Linux VPS &amp; DevOps</span>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px;">
+            <div style="font-size: 0.82rem; color: #94a3b8;">
+              Co-Founded by <strong>Pankaj Gupta</strong> &amp; <strong>Tushar Singhal</strong>
+            </div>
+            <div style="font-size: 0.86rem; color: #fff; font-weight: 700;">
+              📱 Direct: +91 82193 52124 | ✉️ pixeltocloud@gmail.com
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCard('poster-banner-linkedin', 'PixelToCloud_LinkedIn_Banner.png')" style="margin-top: 10px;">
+          <i class="fa-solid fa-download"></i> Download LinkedIn &amp; Twitter Header Banner (1200x630)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: NICHE CLIENT PITCH POSTERS -->
+  <section class="studio-section" id="sec-niche">
+    <div class="poster-grid">
+      <!-- CA FinTech Poster -->
+      <div class="poster-card">
+        <div class="poster-preview poster-square" id="poster-social-fintech" style="background: radial-gradient(circle at top right, rgba(245,158,11,0.25), transparent 60%), linear-gradient(145deg, #181105 0%, #080808 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 800; font-size: 1.1rem; color: #fff;">PixelTo<span style="color: #fbbf24;">Cloud</span> FinTech</span>
+            <span style="background: rgba(245,158,11,0.2); color: #fbbf24; font-size: 0.7rem; font-family: var(--font-mono); padding: 3px 8px; border-radius: 999px;">
+              📊 CA &amp; Tax Suite
+            </span>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div style="font-size: 0.78rem; color: #fbbf24; font-family: var(--font-mono); text-transform: uppercase;">
+              For Chartered Accountants &amp; Tax Consultancies
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+              Automated Tax Portal &amp; 256-Bit Encrypted Client Vault
+            </h2>
+            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+              <li>Automated GST, ITR &amp; Corporate Tax Estimators</li>
+              <li>Secure Client Document Upload &amp; Invoice Portal</li>
+              <li>Automated WhatsApp Tax Due Date Alerts</li>
+              <li>Zero monthly subscription fees</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+            <div>
+              <div style="font-size: 0.72rem; color: #94a3b8;">Call / WhatsApp:</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">+91 82193 52124</div>
+            </div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #fbbf24;">
+              pixeltocloud.com/#fintech
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCard('poster-social-fintech', 'PixelToCloud_CA_Fintech_Poster.png')">
+          <i class="fa-solid fa-download"></i> Download CA FinTech Poster
+        </button>
+      </div>
+
+      <!-- 3D WebGL Interactive Software Poster -->
+      <div class="poster-card">
+        <div class="poster-preview poster-square" id="poster-social-3d" style="background: radial-gradient(circle at top right, rgba(168,85,247,0.3), transparent 60%), linear-gradient(145deg, #13071f 0%, #07040d 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 800; font-size: 1.1rem; color: #fff;">PixelTo<span style="color: #c084fc;">Cloud</span> 3D</span>
+            <span style="background: rgba(168,85,247,0.2); color: #c084fc; font-size: 0.7rem; font-family: var(--font-mono); padding: 3px 8px; border-radius: 999px;">
+              🧊 3D WebGL Engine
+            </span>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <div style="font-size: 0.78rem; color: #c084fc; font-family: var(--font-mono); text-transform: uppercase;">
+              For Luxury Brands, Architecture &amp; SaaS
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight: 900; line-height: 1.25; color: #fff; margin-top: 4px;">
+              Photorealistic 360° Interactive 3D Web Experiences
+            </h2>
+            <ul style="color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-top: 10px; padding-left: 16px;">
+              <li>60 FPS Hardware-Accelerated Three.js Graphics</li>
+              <li>Real-time 3D Product Customizers &amp; Showcases</li>
+              <li>No heavy app downloads required — runs directly in browser</li>
+              <li>Boost e-commerce conversion by over 40%</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+            <div>
+              <div style="font-size: 0.72rem; color: #94a3b8;">Experience Live Demo:</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">+91 82193 52124</div>
+            </div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #c084fc;">
+              pixeltocloud.com/#3d
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCard('poster-social-3d', 'PixelToCloud_3D_WebGL_Poster.png')">
+          <i class="fa-solid fa-download"></i> Download 3D WebGL Poster
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bottom" style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.85rem;">
+    &copy; 2026 PixelToCloud Solutions. All Brand Assets &amp; Typography &copy; Pankaj Gupta &amp; Tushar Singhal.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize QR Code
+    document.addEventListener('DOMContentLoaded', () => {
+      const qrEl = document.getElementById('card-qr-code');
+      if (qrEl) {
+        new QRCode(qrEl, {
+          text: 'https://pixeltocloud.com',
+          width: 42,
+          height: 42,
+          colorDark: '#050b14',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+    });
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.studio-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.studio-section').forEach(sec => sec.classList.remove('active'));
+      
+      const targetBtn = Array.from(document.querySelectorAll('.studio-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+      if (targetBtn) targetBtn.classList.add('active');
+      
+      const targetSec = document.getElementById('sec-' + tabId);
+      if (targetSec) targetSec.classList.add('active');
+    }
+
+    // Toggle Founder Card
+    function selectCardFounder(founder) {
+      const nameEl = document.getElementById('card-founder-name');
+      const titleEl = document.getElementById('card-founder-title');
+      const btnP = document.getElementById('btn-card-pankaj');
+      const btnT = document.getElementById('btn-card-tushar');
+
+      if (founder === 'pankaj') {
+        nameEl.textContent = 'Pankaj Gupta';
+        titleEl.textContent = 'Founder & Principal Systems Architect';
+        btnP.classList.add('active');
+        btnT.classList.remove('active');
+      } else {
+        nameEl.textContent = 'Tushar Singhal';
+        titleEl.textContent = 'Co-Founder & Senior Software Developer';
+        btnT.classList.add('active');
+        btnP.classList.remove('active');
+      }
+    }
+
+    // High-Resolution Export via html2canvas
+    function exportCard(elementId, filename) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating High-Res Image...';
+      btn.disabled = true;
+
+      html2canvas(el, {
+        scale: 3, // 3x Ultra High Resolution (300 DPI equivalent)
+        backgroundColor: null,
+        useCORS: true,
+        allowTaint: true,
+        logging: false
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
+
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Downloaded!';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }).catch(err => {
+        console.error('Export error:', err);
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>
