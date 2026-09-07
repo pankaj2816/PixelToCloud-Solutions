@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="gA_Cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="gA_Blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="40" fill="#07090e" />
+
+  <!-- The Icon: A bold, iconic Big Tech cloud born from a foundational pixel -->
+  <g transform="translate(400, 340)">
+    <!-- Main Cloud Dome -->
+    <path d="M -90 40 L 95 40 A 50 50 0 0 0 110 -35 A 65 65 0 0 0 -10 -115 A 75 75 0 0 0 -115 -45 A 50 50 0 0 0 -90 40 Z" 
+          fill="url(#gA_Cyan)"/>
+    
+    <!-- The Pixel Anchor (Negative space cutout + solid square) -->
+    <rect x="-140" y="0" width="40" height="40" rx="8" fill="#38bdf8"/>
+    <rect x="-175" y="0" width="24" height="24" rx="5" fill="#0284c7" opacity="0.6"/>
+  </g>
+
+  <!-- Typography: Big Tech Clean -->
+  <text x="400" y="580" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="54" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelTo<tspan fill="#38bdf8">Cloud</tspan></text>
+  <text x="400" y="625" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#64748b" text-anchor="middle" letter-spacing="5">ENTERPRISE SOFTWARE &amp; CLOUD</text>
+</svg>

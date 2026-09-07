@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelToCloud | The Pixel Bite (4 Mastercrafted Variations)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --bg-card: #09090b;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-glow: rgba(56, 189, 248, 0.45);
+      --accent-cyan: #38bdf8;
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+    }
+    [data-theme="light"] {
+      --bg-dark: #f4f4f5;
+      --bg-card: #ffffff;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-glow: rgba(2, 132, 199, 0.35);
+      --text-primary: #09090b;
+      --text-secondary: #71717a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .container { max-width: 1240px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 48px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--accent-cyan);
+      font-size: 0.8rem; font-weight: 700; margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 12px; }
+    .subtitle { color: var(--text-secondary); font-size: 1.05rem; max-width: 680px; margin: 0 auto 24px; line-height: 1.6; }
+    .toolbar { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 40px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 12px; font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; border: 1px solid var(--border-subtle); background: var(--bg-card);
+      color: var(--text-primary); transition: all 0.2s ease; text-decoration: none;
+    }
+    .btn:hover { border-color: var(--accent-cyan); transform: translateY(-2px); }
+    .btn-primary { background: #ffffff; color: #000000; border: none; }
+    .btn-primary:hover { background: #e4e4e7; box-shadow: 0 0 25px rgba(255, 255, 255, 0.35); }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 24px; padding: 24px; display: flex; flex-direction: column;
+      justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative; overflow: hidden;
+    }
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.35); transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    .tag {
+      position: absolute; top: 18px; left: 18px;
+      padding: 4px 12px; border-radius: 8px;
+      background: rgba(0, 0, 0, 0.8); border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.72rem; font-weight: 800; color: #ffffff; z-index: 10;
+    }
+    .preview {
+      width: 100%; aspect-ratio: 1 / 1; border-radius: 18px;
+      background: #000000; display: flex; align-items: center; justify-content: center;
+      padding: 12px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+    [data-theme="light"] .preview { background: #050507; }
+    .preview img { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; transition: transform 0.4s ease; }
+    .card:hover .preview img { transform: scale(1.03); }
+    .title { font-size: 1.35rem; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
+    .desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px; }
+    .actions { display: flex; gap: 10px; }
+    .actions .btn { flex: 1; justify-content: center; font-size: 0.8rem; padding: 10px 14px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-cyan); font-weight: 700; text-decoration: none; margin-bottom: 24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../../" class="back"><i class="fa-solid fa-arrow-left"></i> Back to PixelToCloud Home</a>
+
+    <header class="header">
+      <div class="badge"><i class="fa-brands fa-apple"></i> THE PIXEL BITE • MASTERCRAFTED REFINEMENTS</div>
+      <h1>The Pixel Bite: <span style="color: var(--accent-cyan);">Smart &amp; Beautiful</span></h1>
+      <p class="subtitle">
+        Elevating your chosen concept with Apple golden-ratio geometry, precision angle physics, and luxury titanium/ceramic materials.
+      </p>
+      <div class="toolbar">
+        <button class="btn" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> Toggle Studio Theme</button>
+      </div>
+    </header>
+
+    <div class="grid">
+
+      <!-- Variation 1: The Precision Ceramic -->
+      <div class="card">
+        <div class="tag">VARIATION 01 • MASTER APPLE PRO</div>
+        <div class="preview"><img src="variation-1-precision-ceramic.png" alt="Variation 01: Precision Ceramic"></div>
+        <div class="title">
+          <span>Precision Ceramic White</span>
+          <span style="font-size: 0.75rem; color: #10b981; font-weight: 800;">Recommended</span>
+        </div>
+        <p class="desc">
+          Mathematical golden-ratio curves in matte ceramic white. The extracted pixel floats at a precise 22&deg; golden angle (like the leaf of the Apple logo), with matching laser-cut cubic notch and Apple SF Pro typography.
+        </p>
+        <div class="actions">
+          <a href="variation-1-precision-ceramic.png" download="PixelToCloud_PixelBite_Var1.png" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PNG</a>
+          <a href="variation-1-precision-ceramic.svg" download="PixelToCloud_PixelBite_Var1.svg" class="btn">SVG</a>
+        </div>
+      </div>
+
+      <!-- Variation 2: Glassmorphic Specular -->
+      <div class="card">
+        <div class="tag">VARIATION 02 • APPLE VISION PRO / MACOS</div>
+        <div class="preview"><img src="variation-2-glassmorphic-specular.png" alt="Variation 02: Glassmorphic Specular"></div>
+        <div class="title">
+          <span>Glassmorphic Specular</span>
+          <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800;">Sculpted Glass</span>
+        </div>
+        <p class="desc">
+          Sculpted with a subtle top specular rim light (like the curved glass of an iPhone). The notch reveals glowing cyan depth, and the floating pixel has an illuminated cyan core.
+        </p>
+        <div class="actions">
+          <a href="variation-2-glassmorphic-specular.png" download="PixelToCloud_PixelBite_Var2.png" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PNG</a>
+          <a href="variation-2-glassmorphic-specular.svg" download="PixelToCloud_PixelBite_Var2.svg" class="btn">SVG</a>
+        </div>
+      </div>
+
+      <!-- Variation 3: Stepped Ascension -->
+      <div class="card">
+        <div class="tag">VARIATION 03 • THE PIXEL JOURNEY</div>
+        <div class="preview"><img src="variation-3-stepped-ascension.png" alt="Variation 03: Stepped Ascension"></div>
+        <div class="title">
+          <span>Stepped Dual Ascension</span>
+          <span style="font-size: 0.75rem; color: #818cf8; font-weight: 800;">Scale &amp; Growth</span>
+        </div>
+        <p class="desc">
+          The pixel bite is stepped into 2 staggered digital voxels lifting off from the cloud. Symbolizes taking a client's business step-by-step from raw code to global cloud scale.
+        </p>
+        <div class="actions">
+          <a href="variation-3-stepped-ascension.png" download="PixelToCloud_PixelBite_Var3.png" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PNG</a>
+          <a href="variation-3-stepped-ascension.svg" download="PixelToCloud_PixelBite_Var3.svg" class="btn">SVG</a>
+        </div>
+      </div>
+
+      <!-- Variation 4: Minimal Contour Bite -->
+      <div class="card">
+        <div class="tag">VARIATION 04 • BRAUN / BAUHAUS MINIMAL</div>
+        <div class="preview"><img src="variation-4-minimal-contour-bite.png" alt="Variation 04: Minimal Contour Bite"></div>
+        <div class="title">
+          <span>Minimal Contour Bite</span>
+          <span style="font-size: 0.75rem; color: #00f0ff; font-weight: 800;">Pure Stroke</span>
+        </div>
+        <p class="desc">
+          A single 22px precision white contour stroke with an intentional architectural gap on the shoulder. The emancipated cyan pixel floats free with a central micro-dot.
+        </p>
+        <div class="actions">
+          <a href="variation-4-minimal-contour-bite.png" download="PixelToCloud_PixelBite_Var4.png" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PNG</a>
+          <a href="variation-4-minimal-contour-bite.svg" download="PixelToCloud_PixelBite_Var4.svg" class="btn">SVG</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>

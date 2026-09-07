@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="gD_Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="40" fill="#07090e" />
+
+  <!-- Solid Cloud with 'P' and 'C' elegantly subtracted inside -->
+  <g transform="translate(400, 330)">
+    <!-- Solid Master Cloud -->
+    <path d="M -120 45 L 120 45 A 50 50 0 0 0 135 -35 A 65 65 0 0 0 25 -115 A 80 80 0 0 0 -105 -50 A 55 55 0 0 0 -120 45 Z" 
+          fill="url(#gD_Grad)"/>
+    
+    <!-- Cutout 'P' (Left) -->
+    <rect x="-55" y="-45" width="14" height="60" rx="7" fill="#07090e"/>
+    <path d="M -55 -45 L -25 -45 A 18 18 0 0 1 -25 -10 L -55 -10 Z" fill="none" stroke="#07090e" stroke-width="12" stroke-linejoin="round"/>
+
+    <!-- Cutout 'C' (Right) -->
+    <path d="M 45 -40 A 25 25 0 1 0 45 10" fill="none" stroke="#07090e" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <text x="400" y="580" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="54" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelTo<tspan fill="#38bdf8">Cloud</tspan></text>
+  <text x="400" y="625" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#64748b" text-anchor="middle" letter-spacing="5">FULL-STACK SYSTEMS</text>
+</svg>

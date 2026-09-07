@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelToCloud Solutions | Official Logo Design Studio (13 Concepts)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(13, 17, 28, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(56, 189, 248, 0.4);
+      --accent-cyan: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+    }
+    [data-theme="light"] {
+      --bg-dark: #f8fafc;
+      --bg-card: #ffffff;
+      --border-subtle: rgba(15, 23, 42, 0.1);
+      --border-glow: rgba(2, 132, 199, 0.35);
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #05070c;
+      border: none;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .section-headline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-headline span {
+      color: var(--accent-cyan);
+    }
+
+    /* Logo Grid */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .logo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.12);
+    }
+    .logo-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.72rem;
+      font-family: 'Fira Code', monospace;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      z-index: 10;
+    }
+    .preview-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      background: #04060a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      position: relative;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+    [data-theme="light"] .preview-box {
+      background: #0d121f;
+    }
+    .preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+    .logo-card:hover .preview-box img {
+      transform: scale(1.04);
+    }
+    .logo-info {
+      margin-bottom: 20px;
+    }
+    .logo-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .card-actions .btn {
+      flex: 1;
+      justify-content: center;
+      padding: 9px 12px;
+      font-size: 0.8rem;
+    }
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .back-home:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="../" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to PixelToCloud Home</a>
+
+    <header class="header">
+      <div class="badge">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> 13 OFFICIAL BRAND LOGO CONCEPTS
+      </div>
+      <h1>PixelToCloud <span style="color: var(--accent-cyan);">Logo Design Studio</span></h1>
+      <p class="subtitle">
+        Compare 13 creative logos designed specifically for regular clients (Doctors, CAs, E-commerce & business owners). Every design directly communicates website development, custom software, and cloud hosting.
+      </p>
+
+      <div class="toolbar">
+        <button class="btn" onclick="toggleTheme()">
+          <i class="fa-solid fa-circle-half-stroke"></i> Toggle Light / Dark Studio
+        </button>
+        <a href="../pankaj-card.html" class="btn">
+          <i class="fa-solid fa-id-card"></i> View Executive Visiting Card
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: RELATABLE WORK & CLIENT-FRIENDLY VISUALS -->
+    <div class="section-headline">
+      <i class="fa-solid fa-lightbulb" style="color: #fbbf24;"></i>
+      <span>Creative &amp; Relatable Work Concepts</span> (Instantly Understood by Anyone)
+    </div>
+
+    <div class="logos-grid">
+
+      <!-- Concept 8: Browser to Cloud -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 08 • HIGHLY RELATABLE</div>
+        <div class="preview-box">
+          <img src="logo-8-browser-to-cloud.png" alt="Option 8: Browser to Cloud">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Browser to Cloud Portal</span>
+            <span style="font-size: 0.75rem; color: #10b981;">Web &amp; Cloud</span>
+          </div>
+          <p class="logo-desc">
+            A realistic browser window showing a website layout, with code brackets &lt; / &gt; taking flight into a glowing cloud. Anyone who sees this instantly understands: <em>"You build websites and put them online in the cloud."</em>
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-8-browser-to-cloud.png" download="PixelToCloud_Logo_Option_8.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-8-browser-to-cloud.svg" download="PixelToCloud_Logo_Option_8.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 9: Code Brackets Cloud -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 09 • SOFTWARE FOCUS</div>
+        <div class="preview-box">
+          <img src="logo-9-code-brackets-cloud.png" alt="Option 9: Code Brackets Cloud">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Code Brackets Cloud</span>
+            <span style="font-size: 0.75rem; color: #38bdf8;">Custom Code</span>
+          </div>
+          <p class="logo-desc">
+            Sleek coding brackets &lt; / &gt; forming the left and right contours of a cloud, supported by digital pixel foundation blocks. Clearly communicates clean software coding &amp; cloud infrastructure.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-9-code-brackets-cloud.png" download="PixelToCloud_Logo_Option_9.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-9-code-brackets-cloud.svg" download="PixelToCloud_Logo_Option_9.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 10: Rocket Web Launch -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 10 • GROWTH &amp; LAUNCH</div>
+        <div class="preview-box">
+          <img src="logo-10-rocket-web-launch.png" alt="Option 10: Rocket Web Launch">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Rocket Web Launch</span>
+            <span style="font-size: 0.75rem; color: #fbbf24;">Launch Online</span>
+          </div>
+          <p class="logo-desc">
+            A startup rocket blasting off from a foundation of digital pixels and soaring directly through the cloud. Communicates: <em>"We take your business idea, craft it pixel-by-pixel, and launch it to success."</em>
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-10-rocket-web-launch.png" download="PixelToCloud_Logo_Option_10.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-10-rocket-web-launch.svg" download="PixelToCloud_Logo_Option_10.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 11: Cursor Click & Cloud -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 11 • INTERACTIVE UX</div>
+        <div class="preview-box">
+          <img src="logo-11-cursor-click-cloud.png" alt="Option 11: Cursor Click & Cloud">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Interactive Cursor Click</span>
+            <span style="font-size: 0.75rem; color: #00f0ff;">UI / UX Design</span>
+          </div>
+          <p class="logo-desc">
+            A classic white mouse pointer clicking on a grid of digital pixels that expands into a cloud network. The universal visual for visiting, interacting with, and booking on a website.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-11-cursor-click-cloud.png" download="PixelToCloud_Logo_Option_11.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-11-cursor-click-cloud.svg" download="PixelToCloud_Logo_Option_11.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 12: Devices & Cloud Sync -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 12 • MULTI-DEVICE</div>
+        <div class="preview-box">
+          <img src="logo-12-devices-cloud-sync.png" alt="Option 12: Devices & Cloud Sync">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Desktop &amp; Mobile Cloud Sync</span>
+            <span style="font-size: 0.75rem; color: #818cf8;">Responsive Apps</span>
+          </div>
+          <p class="logo-desc">
+            A desktop monitor and smartphone screen seamlessly synced with a central cloud. Tells clients: <em>"Your website and doctor/CA portal will work flawlessly across computers and phones."</em>
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-12-devices-cloud-sync.png" download="PixelToCloud_Logo_Option_12.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-12-devices-cloud-sync.svg" download="PixelToCloud_Logo_Option_12.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 13: Pixel Crafted Cloud Horizon -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 13 • LITERAL METAPHOR</div>
+        <div class="preview-box">
+          <img src="logo-13-pixel-crafted-cloud.png" alt="Option 13: Pixel Crafted Cloud Horizon">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Pixel-Crafted Cloud Horizon</span>
+            <span style="font-size: 0.75rem; color: #06b6d4;">Direct Name</span>
+          </div>
+          <p class="logo-desc">
+            Geometric digital pixel blocks building upwards with a launch arrow into a clean cloud canopy. A direct, elegant visualization of the company name: <strong>Pixel &rarr; Cloud</strong>.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-13-pixel-crafted-cloud.png" download="PixelToCloud_Logo_Option_13.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-13-pixel-crafted-cloud.svg" download="PixelToCloud_Logo_Option_13.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION 2: 3D, MODERN GEOMETRIC & MONOGRAM EMBLEMS -->
+    <div class="section-headline">
+      <i class="fa-solid fa-cube" style="color: #38bdf8;"></i>
+      <span>3D, Geometric &amp; Silicon Valley Studio Concepts</span>
+    </div>
+
+    <div class="logos-grid">
+
+      <!-- Concept 1: Isometric Pixel Cube -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 01 • 3D PHOTOREALISTIC</div>
+        <div class="preview-box">
+          <img src="logo-1-isometric-pixel-cloud.png" alt="Option 1: Isometric Pixel-to-Cloud Cube">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Isometric Pixel Cube</span>
+            <span style="font-size: 0.75rem; color: #10b981;">3D Voxels</span>
+          </div>
+          <p class="logo-desc">
+            Isometric geometric cube seamlessly morphing from digital pixel voxels into a smooth luminous cloud canopy.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-1-isometric-pixel-cloud.png" download="PixelToCloud_Logo_Option_1.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 2: Cyber Hex Monogram -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 02 • TITANIUM MONOGRAM</div>
+        <div class="preview-box">
+          <img src="logo-2-cyber-hex-monogram.png" alt="Option 2: Cyber Hex Monogram P2C">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Cyber Hex Monogram P2C</span>
+            <span style="font-size: 0.75rem; color: #38bdf8;">Chiseled Metal</span>
+          </div>
+          <p class="logo-desc">
+            Bold, chiseled titanium-silver and cyan emblem intertwining P, 2, and C into an enterprise cyber shield.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-2-cyber-hex-monogram.png" download="PixelToCloud_Logo_Option_2.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 3: Infinity Pixel Loop -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 03 • CONTINUOUS DEVOPS</div>
+        <div class="preview-box">
+          <img src="logo-3-infinity-pixel-cloud.png" alt="Option 3: Infinity Pixel Cloud">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Infinity Pixel Loop</span>
+            <span style="font-size: 0.75rem; color: #818cf8;">Möbius Ribbon</span>
+          </div>
+          <p class="logo-desc">
+            An unbroken Möbius ribbon / infinity loop starting as digital pixels on the left and flowing into an aerodynamic cloud.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-3-infinity-pixel-cloud.png" download="PixelToCloud_Logo_Option_3.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 4: Linear Modular Cloud -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 04 • SILICON VALLEY</div>
+        <div class="preview-box">
+          <img src="logo-4-linear-modular-cloud.png" alt="Option 4: Linear Modular Cloud">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Linear Modular Cloud</span>
+            <span style="font-size: 0.75rem; color: #00f0ff;">Stripe Style</span>
+          </div>
+          <p class="logo-desc">
+            A surgical, clean vector design in the style of Linear and Stripe. Ascending pixel staircase condensing into a cyan canopy.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-4-linear-modular-cloud.png" download="PixelToCloud_Logo_Option_4.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-4-linear-modular-cloud.svg" download="PixelToCloud_Logo_Option_4.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 5: Quantum Hex Shield -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 05 • CLOUD DEVOPS</div>
+        <div class="preview-box">
+          <img src="logo-5-quantum-hex-shield.png" alt="Option 5: Quantum Hexagon Shield">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Quantum Hex Shield</span>
+            <span style="font-size: 0.75rem; color: #a855f7;">Security &amp; VPS</span>
+          </div>
+          <p class="logo-desc">
+            A beveled hexagonal security shield protecting an interconnected constellation of data nodes and pixel clusters.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-5-quantum-hex-shield.png" download="PixelToCloud_Logo_Option_5.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-5-quantum-hex-shield.svg" download="PixelToCloud_Logo_Option_5.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 6: Golden Ratio P2C -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 06 • MATHEMATICAL</div>
+        <div class="preview-box">
+          <img src="logo-6-golden-ratio-p2c.png" alt="Option 6: Golden Ratio Monogram">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Golden Ratio P2C</span>
+            <span style="font-size: 0.75rem; color: #10b981;">Architectural</span>
+          </div>
+          <p class="logo-desc">
+            Interlocking geometric monogram fusing the 'P' and '2' directly into the 'C' cloud loop, embraced by an orbital arc.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-6-golden-ratio-p2c.png" download="PixelToCloud_Logo_Option_6.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-6-golden-ratio-p2c.svg" download="PixelToCloud_Logo_Option_6.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Concept 7: Cyber Ascension Core -->
+      <div class="logo-card">
+        <div class="logo-tag">OPTION 07 • 3D WEBGL</div>
+        <div class="preview-box">
+          <img src="logo-7-cyber-ascension-core.png" alt="Option 7: Cyber Ascension Core">
+        </div>
+        <div class="logo-info">
+          <div class="logo-title">
+            <span>Cyber Ascension Core</span>
+            <span style="font-size: 0.75rem; color: #06b6d4;">Three.js Core</span>
+          </div>
+          <p class="logo-desc">
+            A dynamic updraft of digital isometric pixel voxels condensing into a solid cyan cloud core with central P2C mark.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="logo-7-cyber-ascension-core.png" download="PixelToCloud_Logo_Option_7.png" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PNG
+          </a>
+          <a href="logo-7-cyber-ascension-core.svg" download="PixelToCloud_Logo_Option_7.svg" class="btn">
+            SVG
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    }
+  </script>
+</body>
+</html>

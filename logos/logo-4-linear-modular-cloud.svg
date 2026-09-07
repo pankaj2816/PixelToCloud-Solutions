@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="l4Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060911" />
+      <stop offset="100%" stop-color="#0b1120" />
+    </linearGradient>
+    <linearGradient id="l4Cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="l4Indigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <filter id="l4Glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" rx="36" fill="url(#l4Bg)" />
+
+  <!-- Pixel Grid Ascending into Cloud -->
+  <g transform="translate(400, 360)">
+    <!-- Base Pixels -->
+    <rect x="-180" y="40" width="36" height="36" rx="6" fill="url(#l4Cyan)" opacity="0.8"/>
+    <rect x="-135" y="40" width="36" height="36" rx="6" fill="url(#l4Cyan)" opacity="0.9"/>
+    <rect x="-135" y="-5" width="36" height="36" rx="6" fill="url(#l4Cyan)" />
+    <rect x="-90" y="40" width="36" height="36" rx="6" fill="url(#l4Cyan)" />
+    <rect x="-90" y="-5" width="36" height="36" rx="6" fill="url(#l4Cyan)" />
+    <rect x="-90" y="-50" width="36" height="36" rx="6" fill="url(#l4Indigo)" />
+
+    <!-- Center Cloud Body -->
+    <path d="M -50 76 L 150 76 A 45 45 0 0 0 160 -12 A 55 55 0 0 0 70 -90 A 70 70 0 0 0 -45 -40 A 50 50 0 0 0 -50 76 Z" 
+          fill="url(#l4Cyan)" filter="url(#l4Glow)" opacity="0.95"/>
+    <path d="M -30 65 L 140 65 A 35 35 0 0 0 148 -2 A 45 45 0 0 0 75 -72 A 58 58 0 0 0 -25 -30 A 40 40 0 0 0 -30 65 Z" 
+          fill="#060911" opacity="0.85"/>
+    
+    <!-- Accent Floating Nodes inside -->
+    <rect x="0" y="-10" width="28" height="28" rx="6" fill="url(#l4Cyan)"/>
+    <rect x="38" y="-30" width="22" height="22" rx="5" fill="#ffffff" filter="url(#l4Glow)"/>
+    <rect x="42" y="10" width="26" height="26" rx="5" fill="url(#l4Indigo)"/>
+    <rect x="80" y="-8" width="24" height="24" rx="5" fill="url(#l4Cyan)"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="400" y="620" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="900" font-size="52" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelTo<tspan fill="#38bdf8">Cloud</tspan></text>
+  <text x="400" y="665" font-family="'Fira Code', monospace" font-weight="600" font-size="18" fill="#94a3b8" text-anchor="middle" letter-spacing="4">SYSTEMS &amp; CLOUD ARCHITECTURE</text>
+</svg>

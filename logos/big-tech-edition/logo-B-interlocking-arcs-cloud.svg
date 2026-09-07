@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="gB_1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="gB_2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="gB_3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0891b2" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="40" fill="#07090e" />
+
+  <!-- Four Pure Geometric Arcs Intersecting -->
+  <g transform="translate(400, 330)">
+    <!-- Base Horizontal Capsule -->
+    <rect x="-110" y="0" width="220" height="60" rx="30" fill="url(#gB_1)"/>
+    <!-- Left Circle -->
+    <circle cx="-65" cy="-20" r="55" fill="url(#gB_3)"/>
+    <!-- Center Top Circle (Dominant Peak) -->
+    <circle cx="10" cy="-60" r="75" fill="url(#gB_1)"/>
+    <!-- Right Circle -->
+    <circle cx="75" cy="-15" r="50" fill="url(#gB_2)"/>
+    <!-- Precision Inner Void Dot -->
+    <circle cx="10" cy="-35" r="18" fill="#07090e"/>
+  </g>
+
+  <text x="400" y="580" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="54" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelTo<tspan fill="#38bdf8">Cloud</tspan></text>
+  <text x="400" y="625" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#64748b" text-anchor="middle" letter-spacing="5">ENGINEERING STUDIO</text>
+</svg>

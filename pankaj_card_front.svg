@@ -46,11 +46,15 @@
   <circle cx="360" cy="110" r="3.5" fill="#38bdf8" filter="url(#glow)"/>
   <circle cx="990" cy="110" r="3.5" fill="#38bdf8"/>
 
-  <!-- Brand Logo Icon P2C -->
+    <!-- Official Pixel Bite Logo Emblem -->
   <g transform="translate(60, 50)">
-    <rect width="72" height="72" rx="16" fill="url(#cyanMetallic)" filter="url(#glow)"/>
-    <rect width="72" height="72" rx="16" fill="none" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5"/>
-    <text x="36" y="47" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="28" fill="#050b14" text-anchor="middle" letter-spacing="-1">P2C</text>
+    <rect width="72" height="72" rx="16" fill="#04060a" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5"/>
+    <g transform="translate(36, 44) scale(0.18)">
+      <circle cx="10" cy="-20" r="95" fill="#0284c7" opacity="0.3"/>
+      <path d="M -120 48 L 105 48 A 48 48 0 0 0 130 -32 A 62 62 0 0 0 20 -115 A 75 75 0 0 0 -105 -48 A 48 48 0 0 0 -120 48 Z" fill="url(#cyanMetallic)"/>
+      <g transform="translate(68, -75) rotate(22)"><rect x="-20" y="-20" width="40" height="40" rx="6" fill="#04060a"/></g>
+      <g transform="translate(122, -112) rotate(22)"><rect x="-17" y="-17" width="34" height="34" rx="8" fill="#00f0ff" stroke="#fff" stroke-width="3"/></g>
+    </g>
   </g>
 
   <!-- Brand Title & Tagline -->

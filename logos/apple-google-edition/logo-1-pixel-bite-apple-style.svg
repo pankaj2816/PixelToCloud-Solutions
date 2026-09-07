@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" rx="40" fill="#000000" />
+  
+  <g transform="translate(400, 330)">
+    <!-- Main Solid Cloud Silhouette (Apple Matte White) -->
+    <path d="M -115 50 
+             L 115 50 
+             A 50 50 0 0 0 135 -30 
+             A 65 65 0 0 0 20 -115 
+             A 75 75 0 0 0 -105 -50 
+             A 50 50 0 0 0 -115 50 Z" 
+          fill="#ffffff"/>
+    
+    <!-- The Pixel Bite (Apple-like negative space square bite on the upper-right shoulder) -->
+    <rect x="75" y="-70" width="38" height="38" rx="6" fill="#000000"/>
+    
+    <!-- The Floating Pixel (The extracted pixel floating gently away, like the Apple leaf) -->
+    <rect x="125" y="-95" width="28" height="28" rx="6" fill="#38bdf8"/>
+  </g>
+
+  <!-- Typography: Apple SF Pro clean aesthetic -->
+  <text x="400" y="580" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="52" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelToCloud</text>
+  <text x="400" y="625" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-weight="500" font-size="16" fill="#71717a" text-anchor="middle" letter-spacing="4">SOFTWARE &amp; CLOUD SYSTEMS</text>
+</svg>

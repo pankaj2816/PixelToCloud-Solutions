@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="gF_Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="40" fill="#07090e" />
+
+  <!-- Single Mathematical Stroke Cloud with Cyan Pixel Core -->
+  <g transform="translate(400, 330)">
+    <path d="M -95 35 
+             L 95 35 
+             A 42 42 0 0 0 110 -35 
+             A 52 52 0 0 0 15 -95 
+             A 65 65 0 0 0 -85 -40 
+             A 42 42 0 0 0 -95 35 Z" 
+          fill="rgba(56, 189, 248, 0.08)" stroke="url(#gF_Grad)" stroke-width="16" stroke-linejoin="round"/>
+    
+    <!-- Central Pixel Origin Dot (The Source of the Cloud) -->
+    <rect x="-16" y="-30" width="32" height="32" rx="8" fill="#38bdf8"/>
+    <circle cx="0" cy="-14" r="6" fill="#ffffff"/>
+  </g>
+
+  <text x="400" y="580" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="54" fill="#ffffff" text-anchor="middle" letter-spacing="-1">PixelTo<tspan fill="#38bdf8">Cloud</tspan></text>
+  <text x="400" y="625" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#64748b" text-anchor="middle" letter-spacing="5">ENTERPRISE CLOUD ARCHITECTURE</text>
+</svg>
