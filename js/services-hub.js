@@ -127,6 +127,20 @@ class AdvancedServicesHub {
     this.initAILab();
     this.initDesktopLab();
     this.startGlobalRenderLoops();
+    this.checkInitialHash();
+  }
+
+  checkInitialHash() {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && this.serviceMetadata[hash]) {
+        setTimeout(() => {
+          this.switchTab(hash, true);
+        }, 100);
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
   }
 
   // =================================================================
