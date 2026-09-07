@@ -18,6 +18,7 @@ class AppEngine {
   }
 
   init() {
+    this.cleanCanonicalUrl();
     this.initTheme();
     this.bindNavigation();
     this.bindScrollEffects();
@@ -29,6 +30,20 @@ class AppEngine {
     this.bindQuickConnect();
     this.bindLegalModals();
     this.initSmartPlatformEngine();
+  }
+
+  // ================= CANONICAL CLEAN URL NORMALIZATION =================
+  cleanCanonicalUrl() {
+    try {
+      const path = window.location.pathname;
+      if (path.endsWith('/index.html') || path === '/index.html') {
+        const cleanPath = path.replace(/\/index\.html$/, '/') || '/';
+        const cleanUrl = cleanPath + window.location.search + window.location.hash;
+        window.history.replaceState(null, document.title, cleanUrl);
+      }
+    } catch (e) {
+      // Safe fallback on strict sandbox environments
+    }
   }
 
   // ================= THEME SYSTEM (CYBER DARK / CLEAN LIGHT / EMERALD MATRIX) =================
@@ -144,6 +159,22 @@ class AppEngine {
       if (e.key === 'Escape' && this.mobileDrawer?.classList.contains('open')) {
         this.closeDrawer();
       }
+    });
+
+    // Logo click on home page scrolls to top without adding index.html
+    document.querySelectorAll('.nav-brand').forEach(brand => {
+      brand.addEventListener('click', (e) => {
+        const path = window.location.pathname;
+        const isHomePage = path === '/' || path.endsWith('/index.html') || path === '' || path.endsWith('/PixelToCloud-Solutions/') || path.endsWith('/PixelToCloud-Solutions/index.html');
+        if (isHomePage) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          try {
+            const cleanPath = path.replace(/\/index\.html$/, '/') || '/';
+            window.history.replaceState(null, document.title, cleanPath);
+          } catch (err) {}
+        }
+      });
     });
 
     // Smooth Anchor Scrolling

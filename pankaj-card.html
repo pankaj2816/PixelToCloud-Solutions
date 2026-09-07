@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pankaj Gupta - Executive Visiting Card Studio | PixelToCloud</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #060911;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .font-mono {
+      font-family: 'Fira Code', monospace;
+    }
+    /* 3D Card Flip Perspective */
+    .card-scene {
+      perspective: 1400px;
+      width: 100%;
+      max-width: 680px;
+      height: 388px;
+      margin: 20px auto;
+    }
+    .card-object {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.15);
+      cursor: pointer;
+    }
+    .card-object.flipped {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, #090e1a 0%, #060810 100%);
+      box-sizing: border-box;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-face-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #070a13 0%, #0c1222 50%, #05070d 100%);
+    }
+    /* Metallic Foil Sheen */
+    .foil-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #00f0ff 50%, #0ea5e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .foil-gold {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .foil-badge {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(14, 165, 233, 0.05));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+    /* Ambient Spot */
+    .card-glow-orb {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .card-scene {
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Controls -->
+  <div class="text-center max-w-xl mb-4 no-print">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full foil-badge text-xs font-mono text-[#38bdf8] mb-3">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      300 DPI PRINT-READY EXECUTIVE EDITION
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1">
+      Pankaj Gupta <span class="foil-text">Visiting Card</span>
+    </h1>
+    <p class="text-slate-400 text-xs sm:text-sm">
+      Founder & Principal Systems Architect • PixelToCloud Solutions
+    </p>
+  </div>
+
+  <!-- 3D Interactive Card Scene -->
+  <div class="card-scene" id="cardScene">
+    <div class="card-object" id="cardObject" onclick="flipCard()">
+      
+      <!-- ================= FRONT FACE ================= -->
+      <div class="card-face card-face-front">
+        <div class="card-glow-orb -top-20 -right-20"></div>
+
+        <!-- Top Row: Brand & Status -->
+        <div class="flex items-center justify-between z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-base shadow-lg shadow-cyan-500/30 border border-white/30">
+              P2C
+            </div>
+            <div>
+              <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                PixelTo<span class="text-[#38bdf8]">Cloud</span>
+              </div>
+              <div class="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                Systems &amp; Cloud Studio
+              </div>
+            </div>
+          </div>
+          <div class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            SYSTEMS ARCHITECT
+          </div>
+        </div>
+
+        <!-- Middle Row: Founder Credentials -->
+        <div class="my-auto z-10">
+          <h2 class="text-3xl font-black tracking-tight text-white">
+            Pankaj Gupta
+          </h2>
+          <div class="text-sm font-mono font-semibold text-[#38bdf8] mt-0.5">
+            Founder &amp; Principal Systems Architect
+          </div>
+          <p class="text-xs text-slate-400 mt-1">
+            8–10+ Years Hardware Engineering &amp; Custom Cloud Software
+          </p>
+        </div>
+
+        <!-- Bottom Row: Contact Details & Scannable QR -->
+        <div class="flex items-end justify-between border-t border-slate-800/80 pt-3 z-10">
+          <div class="space-y-1 text-xs">
+            <div class="flex items-center gap-2 text-white font-bold">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px]">📞</span>
+              +91 82193 52124 <span class="text-[10px] font-normal text-slate-400">(Call / WhatsApp)</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-300">
+              <span class="w-5 h-5 rounded-full bg-sky-500/20 text-[#38bdf8] flex items-center justify-center text-[10px]">✉️</span>
+              pixeltocloud@gmail.com
+            </div>
+            <div class="flex items-center gap-2 font-mono text-[#38bdf8] text-[11px] font-semibold">
+              <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-[10px]">🌐</span>
+              https://pixeltocloud.com
+            </div>
+          </div>
+
+          <!-- QR Code Preview -->
+          <div class="bg-white p-1.5 rounded-xl border border-cyan-400/40 shadow-md text-center flex flex-col items-center">
+            <svg width="68" height="68" viewBox="0 0 100 100" fill="#05070c">
+              <rect x="0" y="0" width="28" height="28" rx="4"/>
+              <rect x="5" y="5" width="18" height="18" fill="#fff"/>
+              <rect x="9" y="9" width="10" height="10"/>
+              <rect x="72" y="0" width="28" height="28" rx="4"/>
+              <rect x="77" y="5" width="18" height="18" fill="#fff"/>
+              <rect x="81" y="9" width="10" height="10"/>
+              <rect x="0" y="72" width="28" height="28" rx="4"/>
+              <rect x="5" y="77" width="18" height="18" fill="#fff"/>
+              <rect x="9" y="81" width="10" height="10"/>
+              <rect x="36" y="6" width="8" height="8"/>
+              <rect x="52" y="14" width="12" height="6"/>
+              <rect x="36" y="36" width="28" height="28" rx="4" fill="#00d2ff"/>
+              <text x="50" y="54" font-size="10" font-weight="900" fill="#050b14" text-anchor="middle">P2C</text>
+              <rect x="6" y="42" width="12" height="6"/>
+              <rect x="76" y="42" width="10" height="14"/>
+              <rect x="36" y="74" width="12" height="12"/>
+              <rect x="56" y="80" width="16" height="8"/>
+              <rect x="78" y="74" width="14" height="14"/>
+            </svg>
+            <span class="text-[7px] font-mono font-extrabold text-slate-900 mt-0.5 tracking-tighter">SCAN WEBSITE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= BACK FACE ================= -->
+      <div class="card-face card-face-back">
+        <div class="card-glow-orb -bottom-20 -left-20"></div>
+
+        <!-- Top Monogram -->
+        <div class="text-center z-10">
+          <div class="inline-flex items-center gap-2 mb-1">
+            <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-cyan-400 to-sky-600 flex items-center justify-center font-black text-slate-950 text-xs">P2C</div>
+            <span class="text-lg font-black text-white">PixelTo<span class="text-[#38bdf8]">Cloud</span> Solutions</span>
+          </div>
+          <div class="text-[10px] font-mono text-slate-400 tracking-wider uppercase">
+            Full-Stack Software, 3D WebGL &amp; Enterprise Cloud Architecture
+          </div>
+        </div>
+
+        <!-- 4 Core Capabilities Grid -->
+        <div class="grid grid-cols-2 gap-2.5 my-auto z-10">
+          <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-2">
+            <span class="text-base">🛍️</span>
+            <div>
+              <div class="text-xs font-bold text-white">E-Commerce &amp; Web Apps</div>
+              <div class="text-[10px] text-slate-400 leading-tight mt-0.5">0.4s fast load, zero bloat, custom UI</div>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-2">
+            <span class="text-base">🧊</span>
+            <div>
+              <div class="text-xs font-bold text-white">2D/3D WebGL Three.js</div>
+              <div class="text-[10px] text-slate-400 leading-tight mt-0.5">Interactive 3D configurators &amp; shaders</div>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-2">
+            <span class="text-base">🩺</span>
+            <div>
+              <div class="text-xs font-bold text-white">Doctor Clinic Portals</div>
+              <div class="text-[10px] text-slate-400 leading-tight mt-0.5">In-browser video &amp; appointment booking</div>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-2">
+            <span class="text-base">💼</span>
+            <div>
+              <div class="text-xs font-bold text-white">CA FinTech &amp; Cloud DevOps</div>
+              <div class="text-[10px] text-slate-400 leading-tight mt-0.5">Encrypted vaults, Linux VPS &amp; DNS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Guarantees & URL -->
+        <div class="z-10 border-t border-slate-800/80 pt-2.5 flex items-center justify-between text-[10px] font-mono">
+          <div class="flex items-center gap-3 text-slate-300">
+            <span class="text-[#38bdf8]">🔐 100% Code Ownership</span>
+            <span class="text-emerald-400">⚡ 0.4s Speed</span>
+            <span class="text-amber-400">🚫 $0 SaaS Rent</span>
+          </div>
+          <div class="text-[#38bdf8] font-bold">
+            https://pixeltocloud.com
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Actions Toolbar -->
+  <div class="mt-6 flex flex-wrap items-center justify-center gap-3 no-print z-20">
+    <button onclick="flipCard()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-xs transition flex items-center gap-2">
+      <span>🔄 Flip Card (Front / Back)</span>
+    </button>
+    <a href="pankaj_card_front.svg" download="Pankaj_Gupta_Visiting_Card_Front.svg" class="px-4 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400 text-[#38bdf8] font-bold text-xs transition flex items-center gap-2">
+      <span>⬇️ Download Front (SVG)</span>
+    </a>
+    <a href="pankaj_card_back.svg" download="Pankaj_Gupta_Visiting_Card_Back.svg" class="px-4 py-2.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-400 text-indigo-300 font-bold text-xs transition flex items-center gap-2">
+      <span>⬇️ Download Back (SVG)</span>
+    </a>
+    <button onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400 text-emerald-300 font-bold text-xs transition flex items-center gap-2">
+      <span>🖨️ Print / Save as PDF</span>
+    </button>
+  </div>
+
+  <!-- JavaScript Flip Logic -->
+  <script>
+    function flipCard() {
+      const card = document.getElementById('cardObject');
+      card.classList.toggle('flipped');
+    }
+  </script>
+</body>
+</html>
