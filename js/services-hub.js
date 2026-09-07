@@ -7,7 +7,69 @@ class AdvancedServicesHub {
   constructor() {
     this.tabs = document.querySelectorAll('.service-nav-tab');
     this.panes = document.querySelectorAll('.service-tab-pane');
+    this.bentoCards = document.querySelectorAll('.service-bento-card');
+    this.stageTitle = document.getElementById('active-stage-title');
+    this.stageBadge = document.getElementById('stage-telemetry-badge');
+    this.stageBookBtn = document.getElementById('stage-book-btn');
     this.currentTab = 'web';
+
+    this.serviceMetadata = {
+      web: {
+        title: 'Full-Stack Web Development',
+        telemetry: '60 FPS Web Architecture Active',
+        contactParam: 'Full-Stack Web Application'
+      },
+      '3d': {
+        title: '2D & 3D Interactive WebGL Software',
+        telemetry: 'WebGL 2.0 60.0 FPS Engine Active',
+        contactParam: '2D/3D WebGL Software'
+      },
+      seo: {
+        title: 'Google Services, SEO & Search Ranking',
+        telemetry: 'GA4 & Search Console Realtime Active',
+        contactParam: 'Google SEO & Search Ranking'
+      },
+      doctor: {
+        title: 'Doctor & Clinic Web Portals',
+        telemetry: 'HIPAA Shield & Telemetry Active',
+        contactParam: 'Doctor & Healthcare Portal'
+      },
+      fintech: {
+        title: 'CA & Financial Tax Portals',
+        telemetry: '18% GST Engine & AES-256 Active',
+        contactParam: 'CA & FinTech Tax Portal'
+      },
+      devops: {
+        title: 'Server Deployment & DevOps',
+        telemetry: 'Blue/Green Docker Mesh Active',
+        contactParam: 'Linux VPS & DevOps Infrastructure'
+      },
+      ecommerce: {
+        title: 'Art & E-Commerce Platforms',
+        telemetry: 'Multi-Currency Gateway Active',
+        contactParam: 'E-Commerce Platform'
+      },
+      security: {
+        title: 'Security & Proactive Maintenance',
+        telemetry: 'Zero-Trust Shield & S3 Active',
+        contactParam: '24/7 Security & SLA Maintenance'
+      },
+      mobile: {
+        title: 'Mobile App Development (iOS & Android)',
+        telemetry: 'React Native & Flutter GPU Active',
+        contactParam: 'Mobile App Development'
+      },
+      ai: {
+        title: 'AI & Machine Learning Solutions',
+        telemetry: 'Neural Synapse & LLM Agent Active',
+        contactParam: 'AI & Machine Learning Solution'
+      },
+      desktop: {
+        title: 'Desktop Software Development (Tauri/Electron)',
+        telemetry: 'Native SQLite 0.12ms Latency Active',
+        contactParam: 'Desktop Software Development'
+      }
+    };
 
     // 3D Canvas State
     this.canvas3D = document.getElementById('service-3d-canvas');
@@ -50,6 +112,8 @@ class AdvancedServicesHub {
 
   init() {
     this.bindNavigationTabs();
+    this.initBentoCards();
+    this.initCategoryFilters();
     this.initServiceNavEnhancements();
     this.initWebLab();
     this.init3DLab();
@@ -190,9 +254,65 @@ class AdvancedServicesHub {
     }
   }
 
+  initBentoCards() {
+    if (!this.bentoCards || this.bentoCards.length === 0) return;
+
+    this.bentoCards.forEach(card => {
+      // 1. Specular cursor spotlight tracking
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      // 2. Mouseenter: smoothly preview and synchronize detailing & interactive lab stage
+      card.addEventListener('mouseenter', () => {
+        const serviceId = card.getAttribute('data-service');
+        if (serviceId && serviceId !== this.currentTab) {
+          this.switchTab(serviceId, false);
+        }
+      });
+
+      // 3. Click: lock and smoothly scroll down to interactive stage
+      card.addEventListener('click', () => {
+        const serviceId = card.getAttribute('data-service');
+        if (serviceId) {
+          this.switchTab(serviceId, true);
+        }
+      });
+    });
+  }
+
+  initCategoryFilters() {
+    const filterPills = document.querySelectorAll('.srv-filter-pill');
+    if (!filterPills || filterPills.length === 0) return;
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const filter = pill.getAttribute('data-srv-filter');
+        this.bentoCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = 'flex';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
   switchTab(tabId, shouldAutoScroll = false) {
     this.currentTab = tabId;
 
+    // 1. Sync quick tabs
     this.tabs.forEach(tab => {
       if (tab.getAttribute('data-service-tab') === tabId) {
         tab.classList.add('active');
@@ -201,6 +321,29 @@ class AdvancedServicesHub {
       }
     });
 
+    // 2. Sync bento cards
+    if (this.bentoCards && this.bentoCards.length > 0) {
+      this.bentoCards.forEach(card => {
+        if (card.getAttribute('data-service') === tabId) {
+          card.classList.add('active-card');
+        } else {
+          card.classList.remove('active-card');
+        }
+      });
+    }
+
+    // 3. Sync stage header title, telemetry & CTA
+    if (this.stageTitle && this.serviceMetadata[tabId]) {
+      this.stageTitle.textContent = this.serviceMetadata[tabId].title;
+    }
+    if (this.stageBadge && this.serviceMetadata[tabId]) {
+      this.stageBadge.innerHTML = `<span class="live-status-dot"></span> ${this.serviceMetadata[tabId].telemetry}`;
+    }
+    if (this.stageBookBtn && this.serviceMetadata[tabId]) {
+      this.stageBookBtn.setAttribute('href', `#contact?service=${encodeURIComponent(this.serviceMetadata[tabId].contactParam)}`);
+    }
+
+    // 4. Sync tab panes
     this.panes.forEach(pane => {
       if (pane.getAttribute('data-pane-id') === tabId) {
         pane.classList.add('active');
@@ -209,11 +352,11 @@ class AdvancedServicesHub {
       }
     });
 
-    // Smoothly auto-scroll to the top of the hub only when next/prev footer buttons or swipes are triggered
+    // 5. Smoothly auto-scroll to the top of the hub only when requested (e.g. card click, footer next/prev, or swipes)
     if (shouldAutoScroll) {
-      const hubEl = document.querySelector('.services-hub-wrapper');
-      if (hubEl) {
-        const topOffset = hubEl.getBoundingClientRect().top + window.scrollY - 75;
+      const stageEl = document.getElementById('services-stage-header') || document.querySelector('.services-hub-wrapper');
+      if (stageEl) {
+        const topOffset = stageEl.getBoundingClientRect().top + window.scrollY - 85;
         window.scrollTo({ top: topOffset, behavior: 'smooth' });
       }
     }

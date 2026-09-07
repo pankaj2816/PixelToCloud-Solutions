@@ -376,11 +376,591 @@
           <span data-i18n="section_services_title">Everything You Need to Build, Scale & Deploy</span>
         </h2>
         <p class="section-desc" data-i18n="section_services_desc">
-          Click any technical category below to explore capabilities, core deliverables, and live interactive architecture previews.
+          Hover over any technical capability card below to inspect architecture detailing, core deliverables, and live interactive engineering sandboxes.
         </p>
       </div>
 
-      <!-- Category Filter Tabs -->
+      <!-- Smart Category Quick-Filter Bar -->
+      <div class="services-category-filter-bar reveal">
+        <button class="srv-filter-pill active" data-srv-filter="all">
+          <i class="fa-solid fa-layer-group"></i><span>All Capabilities (11)</span>
+        </button>
+        <button class="srv-filter-pill" data-srv-filter="web-3d">
+          <i class="fa-solid fa-code"></i><span>Web &amp; 3D Spatial</span>
+        </button>
+        <button class="srv-filter-pill" data-srv-filter="portals">
+          <i class="fa-solid fa-building-columns"></i><span>Industry Portals</span>
+        </button>
+        <button class="srv-filter-pill" data-srv-filter="cloud">
+          <i class="fa-solid fa-server"></i><span>DevOps &amp; Security</span>
+        </button>
+        <button class="srv-filter-pill" data-srv-filter="next-gen">
+          <i class="fa-solid fa-brain"></i><span>Mobile &amp; AI</span>
+        </button>
+      </div>
+
+      <!-- Bento Services Showcase Deck (Hover-Expanding Interactive Cards) -->
+      <div class="services-bento-deck reveal" id="services-bento-deck">
+        <!-- 1. Full-Stack Web -->
+        <div class="service-bento-card active-card" data-service="web" data-category="web-3d" style="--card-accent: #00f0ff; --card-accent-rgb: 0, 240, 255;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Web Architecture</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-bolt"></i> 100/100 Vitals</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Full-Stack Web Development</h3>
+          <p class="service-bento-desc">
+            High-speed, SEO-optimized web applications with sub-second TTFB, responsive 60 FPS interfaces, and bulletproof microservices.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Mobile-First Fluid Responsive Design (60 FPS CSS/JS)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Dynamic Database Workflows, Real-time APIs &amp; Auth</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>100/100 Core Web Vitals &amp; Production Technical SEO</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">React / Next.js</span>
+              <span class="bento-tech-chip">Node.js</span>
+              <span class="bento-tech-chip">PostgreSQL</span>
+              <span class="bento-tech-chip">Tailwind</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 2. 2D/3D WebGL -->
+        <div class="service-bento-card" data-service="3d" data-category="web-3d" style="--card-accent: #a855f7; --card-accent-rgb: 168, 85, 247;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Spatial Computing</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-cubes"></i> 60.0 FPS WebGL</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">2D &amp; 3D Interactive Software</h3>
+          <p class="service-bento-desc">
+            Hardware-accelerated browser-based 3D applications, WebGL visualizers, interactive product configurators, and Canvas 2D CAD engines.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>60 FPS Three.js &amp; Custom GLSL WebGL Shaders</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Orbit, Pan, Zoom, Lighting &amp; Material Physics</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Interactive 2D Canvas CAD &amp; Vector Editors</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Three.js</span>
+              <span class="bento-tech-chip">WebGL 2.0</span>
+              <span class="bento-tech-chip">GLSL Shaders</span>
+              <span class="bento-tech-chip">Canvas 2D</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 3. Google & SEO -->
+        <div class="service-bento-card" data-service="seo" data-category="web-3d" style="--card-accent: #4285f4; --card-accent-rgb: 66, 133, 244;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Google Ecosystem</span>
+              <span class="service-bento-metric"><i class="fa-brands fa-google"></i> Rank #1 SERP</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Google &amp; SEO Search Ranking</h3>
+          <p class="service-bento-desc">
+            Dominate organic Google search results with 100/100 Core Web Vitals, Google Search Console indexing, Local 3-Pack, and GA4 telemetry.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Search Console Indexation &amp; Zero-Error Sitemaps</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Google Business Profile &amp; Local Map Pack 3-Pack Rank</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>GA4 Real-Time Conversion &amp; JSON-LD Schema Snippets</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Search Console</span>
+              <span class="bento-tech-chip">GA4 Realtime</span>
+              <span class="bento-tech-chip">JSON-LD</span>
+              <span class="bento-tech-chip">Core Vitals</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 4. Doctor & Telehealth -->
+        <div class="service-bento-card" data-service="doctor" data-category="portals" style="--card-accent: #10b981; --card-accent-rgb: 16, 185, 129;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Healthcare Suite</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-shield-halved"></i> HIPAA Grade</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Doctor &amp; Clinic Web Portals</h3>
+          <p class="service-bento-desc">
+            Turnkey medical suites for doctors, specialty hospitals, and clinics with automated appointment slots, digital EHR, and WebRTC video.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Automated Slot-Based Appointment Scheduling</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Digital EHR Patient Records &amp; Encrypted Rx Generator</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Live Video Telehealth &amp; Automated WhatsApp Reminders</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">WebRTC HD</span>
+              <span class="bento-tech-chip">HIPAA Vault</span>
+              <span class="bento-tech-chip">PostgreSQL</span>
+              <span class="bento-tech-chip">Encrypted Rx</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 5. CA & FinTech -->
+        <div class="service-bento-card" data-service="fintech" data-category="portals" style="--card-accent: #f59e0b; --card-accent-rgb: 245, 158, 11;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">FinTech Compliance</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-file-invoice-dollar"></i> 18% GST Engine</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">CA &amp; Financial Tax Portals</h3>
+          <p class="service-bento-desc">
+            End-to-end client portals for Chartered Accountants and Tax Firms with automated GST/ITR calculators, encrypted document vaults, and fee billing.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Automated GST, TDS &amp; Income Tax Calculators</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>AES-256 Encrypted Client Vault &amp; Audit Trail</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Automated Due Date Alerts &amp; WhatsApp Updates</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">FinTech APIs</span>
+              <span class="bento-tech-chip">GST 18% Engine</span>
+              <span class="bento-tech-chip">AES-256</span>
+              <span class="bento-tech-chip">Audit Ledgers</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 6. Linux VPS & DevOps -->
+        <div class="service-bento-card" data-service="devops" data-category="cloud" style="--card-accent: #38bdf8; --card-accent-rgb: 56, 189, 248;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Zero-Downtime Cloud</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-cloud"></i> 99.99% Uptime</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Server Deployment &amp; DevOps</h3>
+          <p class="service-bento-desc">
+            Dedicated Linux VPS configuration (Ubuntu/Debian), Docker containerization, Nginx reverse proxy, and zero-downtime CI/CD deployment pipelines.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Linux VPS Hardening (UFW Firewall, Fail2ban, Root Lock)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Nginx Reverse Proxy &amp; HTTP/2 Zero-Lag Acceleration</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Blue/Green Zero-Downtime Docker Deployments</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Linux VPS</span>
+              <span class="bento-tech-chip">Docker Mesh</span>
+              <span class="bento-tech-chip">Nginx Proxy</span>
+              <span class="bento-tech-chip">CI/CD Pipeline</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 7. Art & E-Commerce -->
+        <div class="service-bento-card" data-service="ecommerce" data-category="portals" style="--card-accent: #f97316; --card-accent-rgb: 249, 115, 22;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">High-Converting Retail</span>
+              <span class="service-bento-metric"><i class="fa-brands fa-apple"></i> 1-Click Pay</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Art &amp; E-Commerce Platforms</h3>
+          <p class="service-bento-desc">
+            High-converting digital storefronts and art gallery portfolios with global payment gateway integration, automated invoicing, and 3D lighting.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>High-Resolution Zoom &amp; 3D Interactive Art Gallery</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Stripe, PayPal &amp; Razorpay Multi-Currency Checkout</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Automated GST Invoice Generation &amp; Order Tracking</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Stripe</span>
+              <span class="bento-tech-chip">Razorpay</span>
+              <span class="bento-tech-chip">Apple Pay</span>
+              <span class="bento-tech-chip">Multi-Currency</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 8. Security & SLA -->
+        <div class="service-bento-card" data-service="security" data-category="cloud" style="--card-accent: #10b981; --card-accent-rgb: 16, 185, 129;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">24/7 Zero-Trust SLA</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-lock"></i> Zero-Trust</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Security &amp; Proactive Maintenance</h3>
+          <p class="service-bento-desc">
+            Long-term proactive maintenance, automated offsite database backups, penetration protection, vulnerability patching, and 24/7 monitoring.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Daily Automated Offsite Cloud Backups (AWS S3)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Continuous Server Uptime Monitoring &amp; Instant Alerts</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Priority Emergency Bug Fixing &amp; OS Patching</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Cloudflare WAF</span>
+              <span class="bento-tech-chip">AWS S3 Vault</span>
+              <span class="bento-tech-chip">TLS 1.3 Strict</span>
+              <span class="bento-tech-chip">PenTest</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 9. Mobile App Development -->
+        <div class="service-bento-card" data-service="mobile" data-category="next-gen" style="--card-accent: #3b82f6; --card-accent-rgb: 59, 130, 246;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Native Performance</span>
+              <span class="service-bento-metric"><i class="fa-brands fa-apple"></i> iOS 18 + Android</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Mobile App Development</h3>
+          <p class="service-bento-desc">
+            Production-grade Android &amp; iOS applications from a single React Native / Flutter codebase with Dynamic Island, biometrics, and offline sync.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Single Codebase → Android + iOS (React Native / Flutter)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Dynamic Island Live Activities &amp; Interactive Widgets</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Apple Pay, Google Pay &amp; 1-Tap Biometric Auth</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">React Native</span>
+              <span class="bento-tech-chip">Flutter</span>
+              <span class="bento-tech-chip">Firebase</span>
+              <span class="bento-tech-chip">SQLite Sync</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 10. AI & Machine Learning -->
+        <div class="service-bento-card" data-service="ai" data-category="next-gen" style="--card-accent: #8b5cf6; --card-accent-rgb: 139, 92, 246;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Intelligent AI</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-network-wired"></i> Neural Engine</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">AI &amp; Machine Learning</h3>
+          <p class="service-bento-desc">
+            Custom generative AI engines, multi-modal vision classifiers, intelligent LLM chatbots with RAG vector retrieval, and predictive analytics.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Generative AI Art &amp; Multi-Modal Computer Vision</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Enterprise LLM Chatbots with Vector DB RAG Retrieval</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Predictive Business Intelligence &amp; Customer Churn AI</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Python</span>
+              <span class="bento-tech-chip">PyTorch</span>
+              <span class="bento-tech-chip">OpenAI / Claude</span>
+              <span class="bento-tech-chip">Vector RAG</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- 11. Desktop Software -->
+        <div class="service-bento-card" data-service="desktop" data-category="next-gen" style="--card-accent: #eab308; --card-accent-rgb: 234, 179, 8;">
+          <div class="service-bento-top">
+            <div class="service-bento-icon-box">
+              <i class="fa-solid fa-display"></i>
+            </div>
+            <div class="service-bento-badge-group">
+              <span class="service-bento-category">Native Desktop OS</span>
+              <span class="service-bento-metric"><i class="fa-solid fa-gauge-high"></i> 0.12ms Latency</span>
+            </div>
+          </div>
+          <h3 class="service-bento-title">Desktop Software Development</h3>
+          <p class="service-bento-desc">
+            Lightweight, blazing-fast desktop applications for Windows, macOS, and Linux built with Tauri (Rust) or Electron. POS billing &amp; offline SQLite.
+          </p>
+          <div class="service-bento-detail-panel">
+            <div class="service-bento-checklist">
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Windows, macOS &amp; Linux from One Codebase (Tauri / Electron)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Working Desktop Menu Bar (File, Edit, View, Tools, Apps)</span>
+              </div>
+              <div class="bento-check-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Offline SQLite Database Inspector with 0.12ms Query Latency</span>
+              </div>
+            </div>
+            <div class="service-bento-tech-strip">
+              <span class="bento-tech-chip">Tauri / Rust</span>
+              <span class="bento-tech-chip">Electron</span>
+              <span class="bento-tech-chip">TypeScript</span>
+              <span class="bento-tech-chip">SQLite 3</span>
+            </div>
+          </div>
+          <div class="service-bento-footer">
+            <span class="service-bento-status">
+              <span class="live-status-dot"></span>
+              <span>Hover to preview · Click to test</span>
+            </span>
+            <span class="service-bento-action-arrow">
+              <span>Inspect Lab</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Architecture Stage Header & Telemetry Strip -->
+      <div class="services-stage-header reveal" id="services-stage-header">
+        <div class="stage-inspect-info">
+          <span class="stage-inspect-label">
+            <i class="fa-solid fa-satellite-dish" style="color: var(--accent-cyan);"></i>
+            CURRENT ARCHITECTURE LAB:
+          </span>
+          <span class="active-stage-title" id="active-stage-title">Full-Stack Web Development</span>
+          <span class="stage-lock-badge" id="stage-telemetry-badge">
+            <span class="live-status-dot"></span> 60 FPS Sandbox Active
+          </span>
+        </div>
+        <div class="stage-actions-group">
+          <a href="#contact" class="btn-magnetic btn-primary" id="stage-book-btn" style="padding: 7px 18px; font-size: 0.8rem;">
+            <span>Book This Architecture &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs (Quick Switcher) -->
       <div class="services-nav-tabs reveal">
         <button class="service-nav-tab active" data-service-tab="web">
           <i class="fa-solid fa-code"></i><span data-i18n="tab_web">Full-Stack Web</span>

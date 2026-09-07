@@ -470,6 +470,38 @@
     margin-top: 2px !important;
   }
 
+  /* Services Bento Deck Mobile Responsive Rules */
+  .services-bento-deck {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .service-bento-card {
+    padding: 18px 16px 14px !important;
+  }
+
+  .services-category-filter-bar {
+    gap: 6px !important;
+    margin: 16px auto 24px auto !important;
+  }
+
+  .srv-filter-pill {
+    padding: 7px 12px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .services-stage-header {
+    padding: 10px 14px !important;
+    gap: 8px !important;
+  }
+
+  .stage-actions-group {
+    width: 100% !important;
+    justify-content: space-between !important;
+    margin-top: 6px !important;
+  }
+
   /* Services Hub Mobile Tabs (2-Column All-In-One Grid) */
   .services-nav-tabs {
     display: grid !important;
