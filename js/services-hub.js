@@ -115,6 +115,7 @@ class AdvancedServicesHub {
     this.initBentoCards();
     this.initCategoryFilters();
     this.initServiceNavEnhancements();
+    this.initMegaMenuIntegration();
     this.initWebLab();
     this.init3DLab();
     this.initSeoLab();
@@ -266,6 +267,61 @@ class AdvancedServicesHub {
         }
       }, { passive: true });
     }
+  }
+
+  initMegaMenuIntegration() {
+    const megaCards = document.querySelectorAll('.mega-menu-card');
+    megaCards.forEach(mc => {
+      mc.addEventListener('click', (e) => {
+        const target = mc.getAttribute('data-service-target');
+        if (target && this.serviceMetadata[target]) {
+          const isServicesPage = window.location.pathname.endsWith('services.html') || window.location.pathname.includes('services');
+          if (isServicesPage) {
+            e.preventDefault();
+            this.switchTab(target, true);
+            const bentoCard = document.querySelector(`.service-bento-card[data-service="${target}"]`);
+            if (bentoCard) {
+              this.bentoCards.forEach(c => c.classList.remove('active-card'));
+              bentoCard.classList.add('active-card');
+              bentoCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            window.history.replaceState(null, '', mc.getAttribute('href'));
+          }
+        }
+      });
+    });
+
+    const checkHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+      const map = {
+        'service-web': 'web',
+        'service-spatial': '3d',
+        'service-3d': '3d',
+        'service-design': 'seo',
+        'service-seo': 'seo',
+        'service-portals': 'doctor',
+        'service-doctor': 'doctor',
+        'service-fintech': 'fintech',
+        'service-devops': 'devops',
+        'service-ai': 'ai'
+      };
+      const target = map[hash] || hash;
+      if (this.serviceMetadata[target]) {
+        setTimeout(() => {
+          this.switchTab(target, false);
+          const bentoCard = document.querySelector(`.service-bento-card[data-service="${target}"]`);
+          if (bentoCard) {
+            this.bentoCards.forEach(c => c.classList.remove('active-card'));
+            bentoCard.classList.add('active-card');
+            bentoCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 180);
+      }
+    };
+
+    window.addEventListener('hashchange', checkHash);
+    checkHash();
   }
 
   initBentoCards() {

@@ -154,11 +154,30 @@ class AppEngine {
       link.addEventListener('click', () => this.closeDrawer());
     });
 
-    // Escape key closes mobile drawer
+    // Escape key closes mobile drawer and mega menu
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.mobileDrawer?.classList.contains('open')) {
-        this.closeDrawer();
+      if (e.key === 'Escape') {
+        if (this.mobileDrawer?.classList.contains('open')) {
+          this.closeDrawer();
+        }
+        if (document.activeElement && document.activeElement.closest('.nav-item-dropdown')) {
+          document.activeElement.blur();
+        }
       }
+    });
+
+    // Mobile Drawer Accordion Submenu Toggles
+    document.querySelectorAll('.drawer-accordion-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const content = btn.closest('.drawer-accordion-group')?.querySelector('.drawer-accordion-content');
+        if (content) {
+          const isExpanded = btn.classList.toggle('expanded');
+          content.classList.toggle('open', isExpanded);
+          btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        }
+      });
     });
 
     // Logo click on home page scrolls to top without adding index.html
