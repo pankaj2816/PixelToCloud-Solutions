@@ -120,6 +120,18 @@
       position: relative;
       overflow: hidden;
     }
+    .interactive-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .interactive-demo-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
     .service-overview-box::after {
       content: '';
       position: absolute;
@@ -844,7 +856,7 @@
 
         <div class="visual-diagram-box">
           
-    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center;">
+    <div class="interactive-demo-grid" style="align-items: center;">
       <div style="background: #050811; border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 14px; height: 320px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;" id="canvas-container">
         <canvas id="spatial-demo-canvas" style="width: 100%; height: 100%;"></canvas>
         <div style="position: absolute; top: 12px; left: 14px; font-family: var(--font-mono); font-size: 0.72rem; color: #a855f7; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px;">
@@ -866,9 +878,9 @@
           <input type="range" id="spatial-particles" min="20" max="200" value="80" style="width: 100%; accent-color: #a855f7;">
         </div>
 
-        <div style="display: flex; gap: 10px;">
-          <button type="button" id="spatial-color-cyan" class="btn-magnetic btn-primary" style="flex: 1; padding: 8px; font-size: 0.78rem;">Cyan Glow</button>
-          <button type="button" id="spatial-color-purple" class="btn-magnetic btn-secondary" style="flex: 1; padding: 8px; font-size: 0.78rem;">Purple Aura</button>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" id="spatial-color-cyan" class="btn-magnetic btn-primary" style="flex: 1 1 120px; padding: 11px 16px; font-size: 0.82rem; white-space: nowrap !important; text-align: center;">Cyan Glow</button>
+          <button type="button" id="spatial-color-purple" class="btn-magnetic btn-secondary" style="flex: 1 1 120px; padding: 11px 16px; font-size: 0.82rem; white-space: nowrap !important; text-align: center;">Purple Aura</button>
         </div>
       </div>
     </div>

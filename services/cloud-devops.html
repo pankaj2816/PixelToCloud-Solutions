@@ -120,6 +120,18 @@
       position: relative;
       overflow: hidden;
     }
+    .interactive-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .interactive-demo-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
     .service-overview-box::after {
       content: '';
       position: absolute;
@@ -844,7 +856,7 @@
 
         <div class="visual-diagram-box">
           
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <div class="interactive-demo-grid">
       <div>
         <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #38bdf8; margin-bottom: 8px;">INFRASTRUCTURE SIMULATOR</div>
         <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px;">Traffic Spike & Failover Test</h4>
@@ -852,9 +864,9 @@
           Simulate an instantaneous 10x traffic spike to observe automated container auto-scaling and zero-downtime traffic rebalancing.
         </p>
 
-        <div style="display: flex; gap: 12px; margin-bottom: 18px;">
-          <button type="button" id="spike-btn" class="btn-magnetic btn-primary" style="flex: 1; padding: 12px; font-size: 0.84rem;">Trigger 10x Traffic Spike</button>
-          <button type="button" id="failover-btn" class="btn-magnetic btn-secondary" style="flex: 1; padding: 12px; font-size: 0.84rem;">Simulate Node Failure</button>
+        <div class="demo-btn-row" style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;">
+          <button type="button" id="spike-btn" class="btn-magnetic btn-primary" style="flex: 1 1 140px; padding: 12px 16px; font-size: 0.84rem; white-space: nowrap !important; text-align: center;">Trigger 10x Traffic Spike</button>
+          <button type="button" id="failover-btn" class="btn-magnetic btn-secondary" style="flex: 1 1 140px; padding: 12px 16px; font-size: 0.84rem; white-space: nowrap !important; text-align: center;">Simulate Node Failure</button>
         </div>
 
         <div style="font-size: 0.82rem; color: #64748b; line-height: 1.5;">

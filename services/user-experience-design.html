@@ -120,6 +120,18 @@
       position: relative;
       overflow: hidden;
     }
+    .interactive-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .interactive-demo-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
     .service-overview-box::after {
       content: '';
       position: absolute;
@@ -844,7 +856,7 @@
 
         <div class="visual-diagram-box">
           
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <div class="interactive-demo-grid">
       <div>
         <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #ec4899; margin-bottom: 8px;">DESIGN TOKEN INSPECTOR</div>
         <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px;">Dynamic Theme Tokens</h4>
@@ -852,10 +864,10 @@
           Select a brand accent token to observe instant CSS custom property inheritance across the preview UI component.
         </p>
 
-        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-          <button type="button" id="token-cyan" class="btn-magnetic btn-primary" style="flex: 1; padding: 10px; font-size: 0.8rem; background: #00f0ff; color: #000;">Cyan #00f0ff</button>
-          <button type="button" id="token-pink" class="btn-magnetic btn-secondary" style="flex: 1; padding: 10px; font-size: 0.8rem; border-color: #ec4899; color: #ec4899;">Pink #ec4899</button>
-          <button type="button" id="token-emerald" class="btn-magnetic btn-secondary" style="flex: 1; padding: 10px; font-size: 0.8rem; border-color: #10b981; color: #10b981;">Emerald #10b981</button>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+          <button type="button" id="token-cyan" class="btn-magnetic btn-primary" style="flex: 1 1 120px; padding: 11px 16px; font-size: 0.82rem; background: #00f0ff; color: #000; white-space: nowrap !important; text-align: center;">Cyan #00f0ff</button>
+          <button type="button" id="token-pink" class="btn-magnetic btn-secondary" style="flex: 1 1 120px; padding: 11px 16px; font-size: 0.82rem; border-color: #ec4899; color: #ec4899; white-space: nowrap !important; text-align: center;">Pink #ec4899</button>
+          <button type="button" id="token-emerald" class="btn-magnetic btn-secondary" style="flex: 1 1 120px; padding: 11px 16px; font-size: 0.82rem; border-color: #10b981; color: #10b981; white-space: nowrap !important; text-align: center;">Emerald #10b981</button>
         </div>
 
         <div style="font-size: 0.82rem; color: #64748b; line-height: 1.5;">
@@ -865,11 +877,11 @@
 
       <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 14px; padding: 24px;" id="ui-token-card">
         <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #ec4899; margin-bottom: 8px;" id="token-badge-demo">UI COMPONENT PREVIEW</div>
-        <h5 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 10px;">Executive Analytics Dashboard</h5>
-        <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.55; margin-bottom: 18px;">
+        <h5 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 10px; font-family: var(--font-display);">Executive Analytics Dashboard</h5>
+        <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
           Enterprise interface displaying high-density operational telemetry with human-centred hierarchy.
         </p>
-        <button type="button" class="btn-magnetic" id="token-action-btn" style="background: #ec4899; color: #ffffff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.88rem; font-weight: 700; cursor: pointer;">
+        <button type="button" class="btn-magnetic" id="token-action-btn" style="background: #ec4899; color: #ffffff; border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.9rem; font-weight: 700; cursor: pointer; white-space: nowrap !important;">
           Inspect Metrics →
         </button>
       </div>

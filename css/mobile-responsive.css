@@ -117,15 +117,15 @@
   h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .service-title {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
-    hyphens: auto !important;
+    word-break: normal !important;
+    hyphens: manual !important;
     max-width: 100% !important;
   }
 
   p, span, .section-desc, .hero-subtitle, .service-desc {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
+    word-break: normal !important;
     max-width: 100% !important;
   }
 
@@ -1389,8 +1389,8 @@
   .why-card-title, .layer-name, .nav-brand span {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
-    hyphens: auto !important;
+    word-break: normal !important;
+    hyphens: manual !important;
     max-width: 100% !important;
     white-space: normal !important;
   }
@@ -1400,7 +1400,7 @@
   .why-card-desc, .footer-nav-title, .feature-tag-chip {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
+    word-break: normal !important;
     max-width: 100% !important;
   }
 
@@ -1471,8 +1471,32 @@
   /* Responsive Grid Adjustments */
   .coredge-features-grid,
   .why-sovereign-grid,
-  .service-directory-grid {
+  .service-directory-grid,
+  .service-features-grid,
+  .why-cards-grid,
+  .interactive-demo-grid,
+  .arch-stack-container {
     grid-template-columns: 1fr !important;
+  }
+
+  .visual-diagram-box {
+    padding: 22px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .demo-token-btn-group,
+  .demo-btn-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .demo-token-btn,
+  .demo-btn-row .btn-magnetic {
+    flex: 1 1 120px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    padding: 11px 14px !important;
   }
 }
 
