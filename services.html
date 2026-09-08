@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore PixelToCloud's specialized software engineering disciplines. Bespoke full-stack web applications, 2D/3D spatial WebGL graphics, custom ERP portals, and Linux DevOps.">
-  <meta name="keywords" content="Custom Software Engineering, Web Development, Three.js WebGL, ERP Solutions, Linux Cloud DevOps, AI Systems, PixelToCloud">
+  <meta name="description" content="PixelToCloud Services Directory. Explore our 6 core engineering disciplines: Artificial Intelligence, Digital Products, ERP Solutions, Interactive 3D, UX Design, and Cloud DevOps.">
+  <meta name="keywords" content="Software Engineering Services, AI, ERP, 3D WebGL, DevOps, UI UX, PixelToCloud">
   <meta name="theme-color" content="#080b11">
   <link rel="canonical" href="https://pixeltocloud.com/services.html">
-  <title>Engineering Disciplines &amp; Specialized Services | PixelToCloud</title>
+  <title>Engineering Disciplines &amp; Services Directory | PixelToCloud</title>
 
+  <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,107 +21,201 @@
   <link rel="stylesheet" href="css/components.css?v=43.0">
   <link rel="stylesheet" href="css/light-theme.css?v=43.0">
   <link rel="stylesheet" href="css/mobile-responsive.css?v=43.0">
+
+  <style>
+    .services-hub-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 999px;
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .service-directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .srv-directory-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(8, 12, 22, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .srv-directory-card:hover {
+      border-color: var(--card-accent, var(--accent-cyan));
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--card-glow, rgba(56, 189, 248, 0.15));
+    }
+
+    .srv-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .srv-card-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-accent, var(--accent-cyan));
+      color: var(--card-accent, var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+
+    .srv-card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--card-accent, var(--accent-cyan));
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-transform: uppercase;
+    }
+
+    .srv-card-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.25;
+      font-family: var(--font-display);
+    }
+
+    .srv-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .srv-card-deliverables {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .srv-card-deliverables li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .srv-card-deliverables li i {
+      color: var(--card-accent, var(--accent-cyan));
+      font-size: 0.8rem;
+    }
+
+    .srv-card-btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .srv-directory-card:hover .srv-card-btn {
+      background: var(--card-accent, var(--accent-cyan));
+      color: #050811;
+      border-color: var(--card-accent, var(--accent-cyan));
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
-  <div class="ambient-glow glow-cyan" style="top: 8%; left: 5%; width: 500px; height: 500px;"></div>
-  <div class="ambient-glow glow-purple" style="top: 35%; right: 5%; width: 600px; height: 600px;"></div>
+  <div class="ambient-glow glow-cyan" style="top: 5%; left: 5%; width: 550px; height: 550px;"></div>
+  <div class="ambient-glow glow-purple" style="top: 35%; right: 5%; width: 650px; height: 650px;"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Primary Header -->
   <header class="navbar" id="navbar">
     <a href="./" class="nav-brand" aria-label="PixelToCloud Solutions Home">
-      <div class="nav-logo-icon" aria-label="PixelToCloud Official Logo"><img src="logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));"></div>
+      <div class="nav-logo-icon"><img src="logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));"></div>
       <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
     </a>
 
     <nav class="nav-links" aria-label="Primary Navigation">
       <div class="nav-item-dropdown" id="services-nav-dropdown">
-        <a href="services.html" class="nav-link nav-link-dropdown" aria-expanded="false" aria-haspopup="true">
+        <a href="services.html" class="nav-link nav-link-dropdown active" aria-expanded="false" aria-haspopup="true">
           <span>Services</span>
           <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
         <div class="nav-mega-menu" role="menu" aria-label="Services Submenu" style="display: none;">
           <div class="mega-menu-grid">
-            <!-- 1. Artificial Intelligence -->
             <a href="services/artificial-intelligence.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-brain"></i></div>
                 <span class="mega-menu-title">Artificial Intelligence</span>
               </div>
               <p class="mega-menu-desc">Turning AI potential into real business impact</p>
             </a>
-
-            <!-- 2. Digital Products & Software -->
             <a href="services/digital-products.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                    <line x1="14" y1="4" x2="10" y2="20"></line>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <span class="mega-menu-title">Digital Products &amp; Software</span>
               </div>
               <p class="mega-menu-desc">Building scalable digital products from idea to launch</p>
             </a>
-
-            <!-- 3. ERP Solutions & Portals -->
             <a href="services/erp-solutions.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
                 <span class="mega-menu-title">ERP Solutions</span>
               </div>
               <p class="mega-menu-desc">Modern platforms that simplify and scale operations</p>
             </a>
-
-            <!-- 4. Interactive 2D/3D & Spatial -->
             <a href="services/interactive-3d-spatial.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-cube"></i></div>
                 <span class="mega-menu-title">Interactive 2D/3D &amp; Spatial</span>
               </div>
               <p class="mega-menu-desc">Hardware-accelerated 60 FPS graphics and digital twins</p>
             </a>
-
-            <!-- 5. User Experience & Design -->
             <a href="services/user-experience-design.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-bezier-curve"></i></div>
                 <span class="mega-menu-title">User Experience &amp; Design</span>
               </div>
               <p class="mega-menu-desc">Human-centred design that's intuitive and effective</p>
             </a>
-
-            <!-- 6. Cloud & DevOps -->
             <a href="services/cloud-devops.html" class="mega-menu-card" role="menuitem">
               <div class="mega-menu-header">
-                <div class="mega-menu-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
-                  </svg>
-                </div>
+                <div class="mega-menu-icon"><i class="fa-solid fa-cloud"></i></div>
                 <span class="mega-menu-title">Cloud &amp; DevOps</span>
               </div>
               <p class="mega-menu-desc">Secure, scalable cloud foundations for faster delivery</p>
@@ -128,7 +223,7 @@
           </div>
         </div>
       </div>
-      <a href="#process" class="nav-link">How We Work</a>
+      <a href="./#process" class="nav-link">How We Work</a>
       <a href="labs.html" class="nav-link"><i class="fa-solid fa-flask" style="font-size: 0.8rem; margin-right: 4px; color: #a855f7;"></i>Labs</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="contact.html" class="nav-link">Contact</a>
@@ -167,257 +262,178 @@
     </div>
   </aside>
 
-  <main id="main-content" style="padding-top: 130px;">
-    <!-- Hero Section -->
+  <main id="main-content" style="padding-top: 125px;">
+    <!-- Directory Hero -->
     <section class="section" style="padding-bottom: 40px;">
       <div class="container text-center">
-        <div class="section-tag reveal active">
-          <i class="fa-solid fa-microchip" style="color: var(--accent-cyan); margin-right: 6px;"></i>
-          <span>Core Engineering Disciplines</span>
+        <div class="services-hub-hero-badge">
+          <i class="fa-solid fa-layer-group"></i> <span>CORE ENGINEERING DISCIPLINES</span>
         </div>
-        <h1 class="hero-title reveal active reveal-delay-1" style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); margin-bottom: 18px;">
-          Software &amp; Spatial Architectures <span class="highlight-text">Built for Serious Businesses</span>
+        <h1 class="hero-title" style="font-size: clamp(2.4rem, 5vw, 4.2rem); margin-bottom: 20px; font-family: var(--font-display);">
+          Engineering Studio Services &amp; <br>
+          <span style="background: linear-gradient(135deg, #bedd00 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Technical Architecture Directory</span>
         </h1>
-        <p class="hero-subtitle reveal active reveal-delay-2" style="max-width: 820px; margin: 0 auto 30px auto; font-size: 1.12rem; color: var(--text-secondary); line-height: 1.65;">
-          Every project is engineered around operational realities. Click any discipline below to open its dedicated creative page, inspect technical architectures, and review deliverables.
+        <p class="hero-subtitle" style="max-width: 820px; margin: 0 auto 36px auto; font-size: 1.15rem; color: #cbd5e1; line-height: 1.7;">
+          Every project is treated as an architectural engagement. We build bespoke software, sovereign AI systems, 3D WebGL spatial environments, and hardened Linux cloud infrastructure with 100% source-code ownership.
         </p>
-
-        <!-- Trust Metric Strip -->
-        <div class="hero-metrics-bar reveal active reveal-delay-3" style="margin-bottom: 20px;">
-          <div class="metric-item">
-            <div class="metric-value">100<span class="accent">%</span></div>
-            <div class="metric-label">Full IP Ownership</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">60<span class="accent">FPS</span></div>
-            <div class="metric-label">V-Sync 3D &amp; UI</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">6</div>
-            <div class="metric-label">Dedicated Disciplines</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">99.9<span class="accent">%</span></div>
-            <div class="metric-label">Zero-Downtime SLA</div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- 6 Dedicated Services Editorial Showcase -->
+    <!-- 6-Discipline Directory Grid -->
     <section class="section" style="padding-top: 20px; padding-bottom: 80px;">
       <div class="container">
-        <div class="services-overview-grid" style="gap: 28px;">
-
+        <div class="service-directory-grid">
           <!-- 1. Artificial Intelligence -->
-          <div class="service-overview-card reveal" style="--srv-accent: #8b5cf6; padding: 36px 30px;">
+          <div class="srv-directory-card" style="--card-accent: #bedd00; --card-glow: rgba(190, 221, 0, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(139, 92, 246, 0.12); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3);">
-                  <i class="fa-solid fa-brain"></i>
-                </div>
-                <div class="srv-badge">AI Systems</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                <span class="srv-card-badge">Sovereign AI &amp; vLLM</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">Artificial Intelligence</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Turning AI potential into real business impact.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Custom RAG &amp; LLM Domain Models</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Automated Document OCR &amp; JSON Extraction</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Predictive Analytics &amp; Forecasting</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Autonomous Multi-Step API Micro-Agents</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">PyTorch</span>
-                <span class="bento-tech-chip">FastAPI</span>
-                <span class="bento-tech-chip">LangChain</span>
-                <span class="bento-tech-chip">pgvector</span>
-              </div>
+              <h2 class="srv-card-title">Artificial Intelligence &amp; Autonomous Systems</h2>
+              <p class="srv-card-desc">Domain-tuned open-weights models (Llama 3, DeepSeek), private enterprise RAG with pgvector, document intelligence OCR, and autonomous agent swarms with zero data leakage.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> Private VPC vLLM Model Serving</li>
+                <li><i class="fa-solid fa-circle-check"></i> Hybrid pgvector + BM25 Search</li>
+                <li><i class="fa-solid fa-circle-check"></i> Multimodal Document OCR Pipeline</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/artificial-intelligence.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated AI Page →</span>
-              </a>
-            </div>
+            <a href="services/artificial-intelligence.html" class="srv-card-btn">
+              <span>Explore Sovereign AI Architecture →</span>
+            </a>
           </div>
 
           <!-- 2. Digital Products & Software -->
-          <div class="service-overview-card reveal" style="--srv-accent: #3b82f6; padding: 36px 30px;">
+          <div class="srv-directory-card" style="--card-accent: #38bdf8; --card-glow: rgba(56, 189, 248, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                <div class="srv-badge">Full-Stack</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+                <span class="srv-card-badge">Enterprise SaaS</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">Digital Products &amp; Software</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Building scalable digital products from idea to launch.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>React 19 &amp; Next.js Enterprise Web Apps</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Multi-Tenant SaaS with Schema Isolation</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>High-Throughput REST &amp; GraphQL APIs</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Cross-Platform iOS &amp; Android Apps</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">React 19</span>
-                <span class="bento-tech-chip">Next.js</span>
-                <span class="bento-tech-chip">Node.js</span>
-                <span class="bento-tech-chip">PostgreSQL</span>
-              </div>
+              <h2 class="srv-card-title">Digital Products &amp; Custom Software</h2>
+              <p class="srv-card-desc">Bespoke multi-tenant SaaS platforms, reactive single-page applications, type-safe API gateways, and high-concurrency transactional portals with sub-second page loads.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> Multi-Tenant Schema Isolation</li>
+                <li><i class="fa-solid fa-circle-check"></i> Real-Time WebSocket State Engines</li>
+                <li><i class="fa-solid fa-circle-check"></i> Core Web Vitals 100/100 Benchmark</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/digital-products.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated Software Page →</span>
-              </a>
-            </div>
+            <a href="services/digital-products.html" class="srv-card-btn">
+              <span>Explore Digital Product Architecture →</span>
+            </a>
           </div>
 
-          <!-- 3. ERP Solutions & Portals -->
-          <div class="service-overview-card reveal" style="--srv-accent: #f59e0b; padding: 36px 30px;">
+          <!-- 3. ERP Solutions -->
+          <div class="srv-directory-card" style="--card-accent: #10b981; --card-glow: rgba(16, 185, 129, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">
-                  <i class="fa-solid fa-layer-group"></i>
-                </div>
-                <div class="srv-badge">Enterprise Portals</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-boxes-stacked"></i></div>
+                <span class="srv-card-badge">Operations &amp; GST</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">ERP Solutions &amp; Portals</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Modern platforms that simplify and scale operations.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Chartered Accountant &amp; Tax Portals</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Clinic Scheduling &amp; Telehealth EHR</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>B2B Multi-Currency Quotation Builders</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Granular Role Permissions &amp; Audit Logs</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">PostgreSQL</span>
-                <span class="bento-tech-chip">AES-256</span>
-                <span class="bento-tech-chip">Docker</span>
-                <span class="bento-tech-chip">WebSockets</span>
-              </div>
+              <h2 class="srv-card-title">ERP Solutions &amp; Operational Portals</h2>
+              <p class="srv-card-desc">Modern operating platforms: atomic double-entry general ledgers, multi-warehouse inventory synchronization, automated 18% GST reconciliation, and role-based portals.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> Double-Entry Accounting Core</li>
+                <li><i class="fa-solid fa-circle-check"></i> Automated 18% GST Reconciliation</li>
+                <li><i class="fa-solid fa-circle-check"></i> Multi-Location Inventory Sync</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/erp-solutions.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated ERP Page →</span>
-              </a>
-            </div>
+            <a href="services/erp-solutions.html" class="srv-card-btn">
+              <span>Explore Custom ERP Architecture →</span>
+            </a>
           </div>
 
-          <!-- 4. Interactive 2D/3D & Spatial -->
-          <div class="service-overview-card reveal" style="--srv-accent: #c084fc; padding: 36px 30px;">
+          <!-- 4. Interactive 3D & Spatial -->
+          <div class="srv-directory-card" style="--card-accent: #ec4899; --card-glow: rgba(236, 72, 153, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">
-                  <i class="fa-solid fa-cube"></i>
-                </div>
-                <div class="srv-badge">3D WebGL</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-cube"></i></div>
+                <span class="srv-card-badge">60 FPS WebGL</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">Interactive 2D/3D &amp; Spatial</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Hardware-accelerated 60 FPS graphics and digital twins.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Interactive 3D Product Configurators</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Spatial Digital Twins &amp; CAD Visualizers</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Custom GLSL Shaders &amp; Material Lighting</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>2D HTML5 Canvas Dynamic Vector Engines</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">Three.js</span>
-                <span class="bento-tech-chip">WebGL 2.0</span>
-                <span class="bento-tech-chip">GLSL Shaders</span>
-                <span class="bento-tech-chip">WebAssembly</span>
-              </div>
+              <h2 class="srv-card-title">Interactive 2D/3D &amp; Spatial Graphics</h2>
+              <p class="srv-card-desc">Hardware-accelerated 60 FPS Three.js and WebGL viewports, custom GLSL PBR shader engineering, 360° product customizers, and compressed spatial digital twins.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> 60 FPS Locked Hardware Render</li>
+                <li><i class="fa-solid fa-circle-check"></i> Draco-Compressed Sub-2MB Models</li>
+                <li><i class="fa-solid fa-circle-check"></i> Touch &amp; Mobile Orbit Controls</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/interactive-3d-spatial.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated 3D Page →</span>
-              </a>
-            </div>
+            <a href="services/interactive-3d-spatial.html" class="srv-card-btn">
+              <span>Explore Interactive 3D Architecture →</span>
+            </a>
           </div>
 
           <!-- 5. User Experience & Design -->
-          <div class="service-overview-card reveal" style="--srv-accent: #10b981; padding: 36px 30px;">
+          <div class="srv-directory-card" style="--card-accent: #a855f7; --card-glow: rgba(168, 85, 247, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3);">
-                  <i class="fa-solid fa-compass-drafting"></i>
-                </div>
-                <div class="srv-badge">UI/UX Strategy</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-bezier-curve"></i></div>
+                <span class="srv-card-badge">WCAG 2.2 AA</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">User Experience &amp; Design</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Human-centred design that's intuitive and effective.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Tokenized Design Systems in Figma</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Conversion-Rate Optimization (CRO)</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>WCAG 2.2 AA Accessibility Compliance</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Fluid 60 FPS Micro-Interactions</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">Figma Tokens</span>
-                <span class="bento-tech-chip">Storybook</span>
-                <span class="bento-tech-chip">WCAG 2.2</span>
-                <span class="bento-tech-chip">CSS Variables</span>
-              </div>
+              <h2 class="srv-card-title">User Experience &amp; Design Systems</h2>
+              <p class="srv-card-desc">Human-centered digital ergonomics, tokenized Figma-to-code component libraries, WCAG 2.2 AA accessibility audits, and conversion-engineered enterprise checkout flows.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> Tokenized Figma-to-Code Pipeline</li>
+                <li><i class="fa-solid fa-circle-check"></i> Strict WCAG 2.2 AA Accessibility</li>
+                <li><i class="fa-solid fa-circle-check"></i> Dark &amp; Light High-Contrast Theming</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/user-experience-design.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated UX Page →</span>
-              </a>
-            </div>
+            <a href="services/user-experience-design.html" class="srv-card-btn">
+              <span>Explore UX Design Architecture →</span>
+            </a>
           </div>
 
           <!-- 6. Cloud & DevOps -->
-          <div class="service-overview-card reveal" style="--srv-accent: #06b6d4; padding: 36px 30px;">
+          <div class="srv-directory-card" style="--card-accent: #38bdf8; --card-glow: rgba(56, 189, 248, 0.2);">
             <div>
               <div class="srv-card-top">
-                <div class="srv-card-icon" style="background: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3);">
-                  <i class="fa-solid fa-server"></i>
-                </div>
-                <div class="srv-badge">Infrastructure</div>
+                <div class="srv-card-icon-wrap"><i class="fa-solid fa-cloud"></i></div>
+                <span class="srv-card-badge">Hardened Linux</span>
               </div>
-              <h3 class="srv-card-title" style="font-size: 1.4rem;">Cloud &amp; DevOps</h3>
-              <p class="srv-card-desc" style="font-size: 0.95rem;">Secure, scalable cloud foundations for faster delivery.</p>
-              <div class="srv-subsections">
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Linux VPS Provisioning &amp; Server Hardening</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Docker Containerization &amp; Mesh</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>Zero-Downtime GitHub CI/CD Pipelines</span></div>
-                <div class="srv-sub-item"><i class="fa-solid fa-check"></i><span>24/7 Security Defense &amp; 99.9% Uptime SLAs</span></div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-                <span class="bento-tech-chip">Linux (Ubuntu)</span>
-                <span class="bento-tech-chip">Docker</span>
-                <span class="bento-tech-chip">Nginx</span>
-                <span class="bento-tech-chip">CI/CD Actions</span>
-              </div>
+              <h2 class="srv-card-title">Cloud Infrastructure &amp; Linux DevOps</h2>
+              <p class="srv-card-desc">Linux VPS server hardening, Docker Swarm and Kubernetes container orchestration, zero-downtime blue/green CI/CD, and automated encrypted backup vaults with zero lock-in.</p>
+              <ul class="srv-card-deliverables">
+                <li><i class="fa-solid fa-circle-check"></i> Kernel &amp; UFW / Fail2ban Hardening</li>
+                <li><i class="fa-solid fa-circle-check"></i> Zero-Downtime Blue/Green CI/CD</li>
+                <li><i class="fa-solid fa-circle-check"></i> 99.99% Uptime SLA Guarantee</li>
+              </ul>
             </div>
-            <div class="srv-card-footer">
-              <a href="services/cloud-devops.html" class="btn-magnetic btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
-                <span>Explore Dedicated Cloud Page →</span>
-              </a>
-            </div>
+            <a href="services/cloud-devops.html" class="srv-card-btn">
+              <span>Explore Sovereign Cloud Architecture →</span>
+            </a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Direct Project Scoping Call to Action -->
-    <section class="section" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--border-subtle);">
+    <!-- Bottom Consultation CTA -->
+    <section class="section" style="background: rgba(139, 92, 246, 0.05); border-top: 1px solid rgba(139, 92, 246, 0.25);">
       <div class="container text-center">
-        <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); color: #ffffff; margin-bottom: 14px;">Ready to Engineer Your System?</h2>
-        <p style="color: var(--text-secondary); max-width: 620px; margin: 0 auto 30px auto; font-size: 1.05rem;">
-          Consult directly with Lead Systems Architects Pankaj Gupta &amp; Tushar Singhal. Receive a clear technical architecture and fixed-milestone roadmap.
+        <div class="services-hub-hero-badge" style="margin-bottom: 14px;">
+          <i class="fa-solid fa-handshake"></i> <span>DIRECT ENGINEERING CONSULTATION</span>
+        </div>
+        <h2 style="font-size: clamp(2rem, 3.8vw, 3rem); color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">
+          Have a Complex Technical Challenge?
+        </h2>
+        <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 32px auto; font-size: 1.1rem; line-height: 1.6;">
+          Talk directly with Lead Systems Architects Pankaj Gupta and Tushar Singhal. We analyze your requirements, database topology, and deliver an actionable architecture review.
         </p>
-        <a href="contact.html" class="btn-magnetic btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
-          <span>Discuss Your Project Directly →</span>
-        </a>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="contact.html" class="btn-magnetic btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
+            <span>Schedule Technical Review →</span>
+          </a>
+          <a href="mailto:pixeltocloud@gmail.com" class="btn-magnetic btn-secondary" style="padding: 16px 30px; font-size: 1.05rem;">
+            <span><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i>pixeltocloud@gmail.com</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
     <div class="container">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
-        <div style="max-width: 360px;">
+        <div style="max-width: 380px;">
           <a href="./" class="nav-brand" style="margin-bottom: 14px;">
             <div class="nav-logo-icon"><img src="logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
             <span>PixelToCloud</span>
@@ -427,7 +443,7 @@
           </p>
         </div>
         <div>
-          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Core Disciplines</div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Core Services</div>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
             <li><a href="services/artificial-intelligence.html" style="color: var(--text-secondary); text-decoration: none;">Artificial Intelligence</a></li>
             <li><a href="services/digital-products.html" style="color: var(--text-secondary); text-decoration: none;">Digital Products &amp; Software</a></li>
@@ -438,9 +454,10 @@
           </ul>
         </div>
         <div>
-          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Interactive Lab</div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Studio Links</div>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
-            <li><a href="labs.html" style="color: var(--text-secondary); text-decoration: none;">PixelToCloud Labs (11 Sandboxes)</a></li>
+            <li><a href="./#process" style="color: var(--text-secondary); text-decoration: none;">How We Work</a></li>
+            <li><a href="labs.html" style="color: var(--text-secondary); text-decoration: none;">Engineering Lab</a></li>
             <li><a href="about.html" style="color: var(--text-secondary); text-decoration: none;">Founders &amp; Leadership</a></li>
             <li><a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Start a Project</a></li>
           </ul>

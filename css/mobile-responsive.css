@@ -117,15 +117,15 @@
   h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .service-title {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: normal !important;
-    hyphens: none !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
     max-width: 100% !important;
   }
 
   p, span, .section-desc, .hero-subtitle, .service-desc {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: normal !important;
+    word-break: break-word !important;
     max-width: 100% !important;
   }
 
@@ -544,9 +544,9 @@
     width: 100% !important;
     box-sizing: border-box !important;
     text-align: center !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   .service-nav-tab i {
@@ -674,9 +674,9 @@
     font-size: 0.64rem !important;
     justify-content: center !important;
     box-sizing: border-box !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   #ai-mode-stage {
@@ -730,9 +730,9 @@
 
   .footer-nav-title {
     font-size: 0.72rem !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   .service-footer-counter-pill {
@@ -772,7 +772,7 @@
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
   }
 
   .ba-case-tabs-grid .ba-case-tab:nth-child(3) {
@@ -853,7 +853,7 @@
     max-width: 140px;
     display: inline-block;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
     white-space: nowrap;
     vertical-align: middle;
   }
@@ -895,9 +895,9 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
     border-radius: var(--radius-full) !important;
   }
 
@@ -922,9 +922,9 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   .portfolio-filter-container .filter-btn:last-child {
@@ -981,9 +981,9 @@
 
   .chip-main-label {
     font-size: 0.72rem !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
     max-width: 100% !important;
   }
 
@@ -1006,7 +1006,7 @@
     color: var(--text-secondary) !important;
     max-width: 60% !important;
     line-height: 1.25 !important;
-    word-break: normal !important;
+    word-break: break-word !important;
   }
 
   .roi-slider-val {
@@ -1014,7 +1014,7 @@
     font-weight: 800 !important;
     color: #10b981 !important;
     flex-shrink: 0 !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
   }
 
   #roi-preset-items-list {
@@ -1037,14 +1037,14 @@
     min-width: 0 !important;
     flex: 1 !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
+    text-overflow: clip;
+    white-space: normal !important;
   }
 
   #roi-preset-items-list span:last-child {
     font-size: 0.75rem !important;
     flex-shrink: 0 !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     font-family: var(--font-mono) !important;
   }
 
@@ -1070,9 +1070,9 @@
     justify-content: center !important;
     padding: 8px 6px !important;
     font-size: 0.72rem !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   #topology-node-selector-pills {
@@ -1089,9 +1089,9 @@
     font-size: 0.74rem !important;
     text-align: center !important;
     justify-content: center !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    text-overflow: clip;
   }
 
   .topology-telemetry-grid {
@@ -1378,3 +1378,112 @@
   }
 }
 
+
+/* ===================================================================
+   UNIVERSAL MOBILE TEXT WRAPPING & ZERO WORD CROPPING DEFENSE
+   =================================================================== */
+@media (max-width: 768px) {
+  /* Prevent any long words from overflowing screen width */
+  h1, h2, h3, h4, h5, h6,
+  .hero-title, .section-title, .srv-card-title, .feature-card-title,
+  .why-card-title, .layer-name, .nav-brand span {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  p, span, li, a, div,
+  .hero-subtitle, .section-desc, .srv-card-desc, .feature-card-desc,
+  .why-card-desc, .footer-nav-title, .feature-tag-chip {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* Safe fluid headings clamp so enterprise words never get cropped */
+  .hero-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.5rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Badges & Pills */
+  .section-tag, .coredge-pill-badge, .ai-hero-badge {
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Responsive Metric Strips */
+  .cs-metric-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .cs-metric-card {
+    padding: 14px 10px !important;
+  }
+
+  .cs-metric-card div:first-child {
+    font-size: 1.55rem !important;
+  }
+
+  .cs-metric-card div:last-child {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Sub-nav horizontal scroll */
+  .ai-sub-nav-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .sub-nav-links {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .sub-nav-link {
+    font-size: 0.78rem !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important; /* sub-nav scrolls horizontally */
+  }
+
+  /* Buttons wrap text instead of clipping */
+  .btn-magnetic, .cta-theme {
+    white-space: normal !important;
+    text-align: center !important;
+    height: auto !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Responsive Grid Adjustments */
+  .coredge-features-grid,
+  .why-sovereign-grid,
+  .service-directory-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.65rem, 7.5vw, 2.05rem) !important;
+  }
+  .section-title {
+    font-size: clamp(1.4rem, 6.5vw, 1.8rem) !important;
+  }
+  .cs-metric-strip {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
