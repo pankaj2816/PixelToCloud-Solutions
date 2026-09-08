@@ -262,10 +262,20 @@ class PortfolioManager {
             </div>
           </div>
 
-          <div class="project-card-actions">
-            <button class="btn-outline view-demo-btn" data-id="${project.id}" style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 8px;">
-              <span>Launch Interactive Preview</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="project-card-actions" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
+            <a href="${{
+              'ca-website': 'work/easy-my-tax.html',
+              '3d-software': 'work/nebula-3d.html',
+              'doctor-website': 'work/harish-renova.html',
+              'art-craft-website': 'work/saini-handicrafts.html',
+              'cloud-devops': 'work/apex-cloud.html',
+              'corporate-saas': 'work/nexure-saas.html'
+            }[project.id] || '#'}" class="btn-magnetic btn-primary" style="flex: 1; min-width: 130px; justify-content: center; padding: 8px 12px; font-size: 0.82rem; text-decoration: none;">
+              <span>View Case Study →</span>
+            </a>
+            <button class="btn-outline view-demo-btn" data-id="${project.id}" style="flex: 1; min-width: 130px; justify-content: center; display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: 0.82rem;">
+              <span>Test Sandbox</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>

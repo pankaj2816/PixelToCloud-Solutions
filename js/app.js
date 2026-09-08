@@ -332,8 +332,8 @@ class AppEngine {
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
-      const btn = item.querySelector('.faq-question-btn');
-      const answerWrap = item.querySelector('.faq-answer-wrap');
+      const btn = item.querySelector('.faq-question-btn, .faq-question');
+      const answerWrap = item.querySelector('.faq-answer-wrap, .faq-answer');
 
       if (btn && answerWrap) {
         btn.setAttribute('aria-expanded', 'false');
@@ -344,9 +344,9 @@ class AppEngine {
           faqItems.forEach(other => {
             if (other !== item) {
               other.classList.remove('active');
-              const otherBtn = other.querySelector('.faq-question-btn');
+              const otherBtn = other.querySelector('.faq-question-btn, .faq-question');
               if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-              const otherWrap = other.querySelector('.faq-answer-wrap');
+              const otherWrap = other.querySelector('.faq-answer-wrap, .faq-answer');
               if (otherWrap) otherWrap.style.maxHeight = null;
             }
           });
@@ -496,8 +496,82 @@ class AppEngine {
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      sendViaEmail();
     });
+
+    // Global Project Inquiry Handler for Qualified Leads
+    window.handleProjectInquiry = (form) => {
+      const pType = form.querySelector('[name="projectType"]')?.value || 'Custom Project';
+      const budget = form.querySelector('[name="budget"]')?.value || 'Not specified';
+      const details = form.querySelector('[name="details"]')?.value.trim() || '';
+      const timeline = form.querySelector('[name="timeline"]')?.value || 'Flexible';
+      const name = form.querySelector('[name="name"]')?.value.trim() || '';
+      const email = form.querySelector('[name="email"]')?.value.trim() || '';
+      const phone = form.querySelector('[name="phone"]')?.value.trim() || 'N/A';
+      const feedback = document.getElementById('inquiry-feedback-msg');
+      const submitBtn = document.getElementById('inquiry-submit-btn');
+
+      if (!name || !email || !details) {
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.style.background = 'rgba(239, 68, 68, 0.15)';
+          feedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          feedback.style.color = '#fca5a5';
+          feedback.textContent = 'Please provide your name, email, and project details so we can assist you.';
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Processing Inquiry...</span>';
+      }
+
+      const payload = {
+        name,
+        email,
+        phone,
+        projectType: pType,
+        budget,
+        timeline,
+        message: details,
+        _subject: `New Project Inquiry: ${pType} from ${name}`
+      };
+
+      fetch('https://formsubmit.co/ajax/pixeltocloud@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.style.background = 'rgba(16, 185, 129, 0.15)';
+          feedback.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+          feedback.style.color = '#6ee7b7';
+          feedback.innerHTML = '<i class="fa-solid fa-circle-check" style="margin-right: 6px;"></i>Thanks — your project details have been received. We\'ll review the requirements and get back to you.';
+        }
+        form.reset();
+      }).catch(() => {
+        const mailtoUrl = `mailto:pixeltocloud@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject Type: ${pType}\nBudget: ${budget}\nTimeline: ${timeline}\n\nProject Details:\n${details}`
+        )}`;
+        window.location.href = mailtoUrl;
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.style.background = 'rgba(16, 185, 129, 0.15)';
+          feedback.style.border = '1px solid rgba(16, 185, 129, 0.3)';
+          feedback.style.color = '#6ee7b7';
+          feedback.innerHTML = '<i class="fa-solid fa-circle-check" style="margin-right: 6px;"></i>Thanks — your project details have been received. We\'ll review the requirements and get back to you.';
+        }
+        form.reset();
+      }).finally(() => {
+        setTimeout(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit Project Inquiry →</span>';
+          }
+        }, 3000);
+      });
+    };
   }
 
   // ================= LEGAL MODALS (PRIVACY & TERMS) =================
