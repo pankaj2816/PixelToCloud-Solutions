@@ -81,9 +81,59 @@
       <span>PixelToCloud</span>
     </a>
 
-        <nav class="nav-links" aria-label="Primary Navigation">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#selected-work" class="nav-link">Case Studies</a>
+            <nav class="nav-links" aria-label="Primary Navigation">
+      <div class="nav-item-dropdown" id="services-nav-dropdown">
+        <a href="#services" class="nav-link nav-link-dropdown" aria-expanded="false" aria-haspopup="true">
+          <span>Services</span>
+          <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="nav-mega-menu" role="menu" aria-label="Services Submenu" style="display: none;">
+          <div class="mega-menu-grid">
+            <a href="services/artificial-intelligence.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-brain"></i></div>
+                <span class="mega-menu-title">Artificial Intelligence</span>
+              </div>
+              <p class="mega-menu-desc">Turning AI potential into real business impact</p>
+            </a>
+            <a href="services/digital-products.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-code"></i></div>
+                <span class="mega-menu-title">Digital Products &amp; Software</span>
+              </div>
+              <p class="mega-menu-desc">Building scalable digital products from idea to launch</p>
+            </a>
+            <a href="services/erp-solutions.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <span class="mega-menu-title">ERP Solutions</span>
+              </div>
+              <p class="mega-menu-desc">Modern platforms that simplify and scale operations</p>
+            </a>
+            <a href="services/interactive-3d-spatial.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-cube"></i></div>
+                <span class="mega-menu-title">Interactive 2D/3D &amp; Spatial</span>
+              </div>
+              <p class="mega-menu-desc">Hardware-accelerated 60 FPS graphics and digital twins</p>
+            </a>
+            <a href="services/user-experience-design.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <span class="mega-menu-title">User Experience &amp; Design</span>
+              </div>
+              <p class="mega-menu-desc">Human-centred design that's intuitive and effective</p>
+            </a>
+            <a href="services/cloud-devops.html" class="mega-menu-card" role="menuitem">
+              <div class="mega-menu-header">
+                <div class="mega-menu-icon"><i class="fa-solid fa-server"></i></div>
+                <span class="mega-menu-title">Cloud &amp; DevOps</span>
+              </div>
+              <p class="mega-menu-desc">Secure, scalable cloud foundations for faster delivery</p>
+            </a>
+          </div>
+        </div>
+      </div>
       <a href="#process" class="nav-link">How We Work</a>
       <a href="labs.html" class="nav-link"><i class="fa-solid fa-flask" style="font-size: 0.8rem; margin-right: 4px; color: #a855f7;"></i>Labs</a>
       <a href="about.html" class="nav-link">About</a>
@@ -113,9 +163,8 @@
       <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Navigation Menu">✕</button>
     </div>
     <div class="drawer-body">
-            <nav class="drawer-links">
+                  <nav class="drawer-links">
         <a href="#services" class="drawer-link"><i class="fa-solid fa-layer-group"></i><span>Services</span></a>
-        <a href="#selected-work" class="drawer-link"><i class="fa-solid fa-laptop-code"></i><span>Case Studies</span></a>
         <a href="#process" class="drawer-link"><i class="fa-solid fa-diagram-project"></i><span>How We Work</span></a>
         <a href="labs.html" class="drawer-link"><i class="fa-solid fa-flask"></i><span>Engineering Lab</span></a>
         <a href="about.html" class="drawer-link"><i class="fa-solid fa-user-gear"></i><span>Founders &amp; Leadership</span></a>
@@ -156,8 +205,8 @@
           <a href="#contact-section" class="btn-magnetic btn-primary" style="padding: 14px 32px; font-size: 1.02rem;">
             <span>Discuss Your Project →</span>
           </a>
-          <a href="#selected-work" class="btn-magnetic btn-secondary" style="padding: 14px 28px; font-size: 1.02rem;">
-            <span>View Case Studies</span>
+          <a href="#services" class="btn-magnetic btn-secondary" style="padding: 14px 28px; font-size: 1.02rem;">
+            <span>Explore Core Services ↓</span>
           </a>
         </div>
 
@@ -206,216 +255,7 @@
     <!-- ===================================================================
          SECTION 3 — SELECTED CASE STUDIES (TOP 3 PROVEN PROJECTS)
          =================================================================== -->
-    <section class="section" id="selected-work">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-tag"><i class="fa-solid fa-folder-open" style="color: var(--accent-cyan); margin-right: 6px;"></i>Proven Systems</div>
-          <h2 class="section-title">Selected Case Studies</h2>
-          <p class="section-desc">Real digital platforms engineered around specific business problems and daily operations.</p>
-        </div>
-
-        <div class="featured-cs-list">
-          <!-- Case Study 1: Easy My Tax -->
-          <article class="featured-cs-card reveal">
-            <div class="featured-cs-content">
-              <div class="featured-cs-meta-bar">
-                <span class="featured-cs-tag">Finance &amp; CA Practice</span>
-                <span class="featured-cs-client">Client: CA Pradeep Agarwal</span>
-              </div>
-              <h3 class="featured-cs-title">Easy My Tax — High-Security Client Portal &amp; Tax Calculation System</h3>
-
-              <div class="featured-cs-section-label">The Challenge</div>
-              <p class="featured-cs-text">
-                Easy My Tax manages sensitive financial records, ITR filings, and GST audits for hundreds of business clients. Handling these workflows through unencrypted email attachments and manual spreadsheets created severe turnaround delays and data security vulnerabilities during filing deadlines.
-              </p>
-
-              <div class="featured-cs-section-label">What PixelToCloud Built</div>
-              <p class="featured-cs-text">
-                We engineered a dedicated client portal featuring an automated GST and tax calculation engine, encrypted client document storage, milestone return trackers, and automated client billing workflows.
-              </p>
-
-              <div class="cs-verified-outcome">
-                <div class="cs-verified-outcome-title"><i class="fa-solid fa-circle-check"></i> Verified Outcome</div>
-                <p class="cs-verified-outcome-text">
-                  Automated return calculations and structured file vaults transformed multi-day email chains into same-day review turnarounds for client returns.
-                </p>
-              </div>
-
-              <a href="work/easy-my-tax.html" class="featured-cs-link">
-                <span>Read Full Case Study</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-
-            <!-- Product Visual Mockup -->
-            <div class="featured-cs-visual">
-              <div class="cs-browser-mockup">
-                <div class="cs-mockup-bar">
-                  <div class="cs-mockup-dots">
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                  </div>
-                  <div class="cs-mockup-url">https://portal.easymytax.com/client-vault</div>
-                </div>
-                <div class="cs-mockup-body">
-                  <div class="cs-mockup-row">
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #00d2ff;">Automated</div>
-                      <div class="cs-mockup-kpi-label">ITR &amp; GST Calculation Engine</div>
-                    </div>
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #10b981;">Encrypted</div>
-                      <div class="cs-mockup-kpi-label">Role-Based Client File Vault</div>
-                    </div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px;">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px;">
-                      <span>Filing Progress Pipeline</span>
-                      <span style="color: #10b981;">Ready for Final Review</span>
-                    </div>
-                    <div style="height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden;">
-                      <div style="width: 85%; height: 100%; background: #00d2ff;"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case Study 2: Harish Renova & Revital -->
-          <article class="featured-cs-card reveal">
-            <div class="featured-cs-content">
-              <div class="featured-cs-meta-bar">
-                <span class="featured-cs-tag">Healthcare &amp; Clinical Services</span>
-                <span class="featured-cs-client">Clients: Dr. Neeraj Kumar Rathee &amp; Dr. Archit Joshi</span>
-              </div>
-              <h3 class="featured-cs-title">Harish Renova &amp; Revital — Clinical Scheduling &amp; Patient Guidance Platforms</h3>
-
-              <div class="featured-cs-section-label">The Challenge</div>
-              <p class="featured-cs-text">
-                Patients seeking oncology consultations or physical rehabilitation are often in pain or distress. Complicated booking systems, telephone hold times, and confusing forms prevented patients from securing timely consultations.
-              </p>
-
-              <div class="featured-cs-section-label">What PixelToCloud Built</div>
-              <p class="featured-cs-text">
-                We designed fast, accessible clinical platforms with clear medical content, calendar slot selection, automatic WhatsApp appointment notifications, and post-consultation exercise recovery guides.
-              </p>
-
-              <div class="cs-verified-outcome">
-                <div class="cs-verified-outcome-title"><i class="fa-solid fa-circle-check"></i> Verified Outcome</div>
-                <p class="cs-verified-outcome-text">
-                  Sub-second mobile loading speed ensures patients in urgent need can book a confirmed consultation in under 60 seconds with zero friction.
-                </p>
-              </div>
-
-              <a href="work/harish-renova.html" class="featured-cs-link">
-                <span>Read Full Case Study</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-
-            <!-- Product Visual Mockup -->
-            <div class="featured-cs-visual">
-              <div class="cs-browser-mockup">
-                <div class="cs-mockup-bar">
-                  <div class="cs-mockup-dots">
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                  </div>
-                  <div class="cs-mockup-url">https://harishrenovacancer.com/consultation</div>
-                </div>
-                <div class="cs-mockup-body">
-                  <div class="cs-mockup-row">
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #10b981;">1-Tap Slot</div>
-                      <div class="cs-mockup-kpi-label">Real-Time Calendar Sync</div>
-                    </div>
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #25d366;">Instant</div>
-                      <div class="cs-mockup-kpi-label">WhatsApp Confirmation Dispatch</div>
-                    </div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-                    <div style="font-size: 0.82rem; color: var(--text-primary);">Emergency Clinical Helpline</div>
-                    <span style="font-size: 0.76rem; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 3px 8px; border-radius: 4px;">24/7 Available</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case Study 3: Saini Handicrafts -->
-          <article class="featured-cs-card reveal">
-            <div class="featured-cs-content">
-              <div class="featured-cs-meta-bar">
-                <span class="featured-cs-tag">Artisanal Retail &amp; Commerce</span>
-                <span class="featured-cs-client">Client: Jyoti Saini (Founder)</span>
-              </div>
-              <h3 class="featured-cs-title">Saini Handicrafts — Bespoke Artisanal Boutique &amp; Multi-Currency Store</h3>
-
-              <div class="featured-cs-section-label">The Challenge</div>
-              <p class="featured-cs-text">
-                Selling luxury handmade goods requires conveying the subtle finish, texture, and workshop heritage of every piece. Generic e-commerce templates failed to reflect this craftsmanship and added unnecessary transaction fees.
-              </p>
-
-              <div class="featured-cs-section-label">What PixelToCloud Built</div>
-              <p class="featured-cs-text">
-                We engineered a bespoke digital storefront pairing editorial brand storytelling with high-resolution canvas zoom inspectors, real-time multi-currency conversion, and custom commission inquiry workflows.
-              </p>
-
-              <div class="cs-verified-outcome">
-                <div class="cs-verified-outcome-title"><i class="fa-solid fa-circle-check"></i> Verified Outcome</div>
-                <p class="cs-verified-outcome-text">
-                  Direct commission workflows and interactive material inspection generated a measurable surge in overseas inquiries and custom orders.
-                </p>
-              </div>
-
-              <a href="work/saini-handicrafts.html" class="featured-cs-link">
-                <span>Read Full Case Study</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-
-            <!-- Product Visual Mockup -->
-            <div class="featured-cs-visual">
-              <div class="cs-browser-mockup">
-                <div class="cs-mockup-bar">
-                  <div class="cs-mockup-dots">
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                    <span class="cs-mockup-dot"></span>
-                  </div>
-                  <div class="cs-mockup-url">https://sainihandicrafts.com/bespoke</div>
-                </div>
-                <div class="cs-mockup-body">
-                  <div class="cs-mockup-row">
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #f59e0b;">360° Zoom</div>
-                      <div class="cs-mockup-kpi-label">High-Res Canvas Inspector</div>
-                    </div>
-                    <div class="cs-mockup-kpi">
-                      <div class="cs-mockup-kpi-val" style="color: #38bdf8;">Multi-Currency</div>
-                      <div class="cs-mockup-kpi-label">USD · INR · EUR · GBP Localized</div>
-                    </div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; font-size: 0.82rem; color: var(--text-secondary);">
-                    Custom Commission Studio &amp; Artisan Sourcing
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="text-center" style="margin-top: 36px;">
-          <a href="portfolio.html" class="btn-magnetic btn-secondary">
-            <span>View All Client Systems &amp; Lab Demonstrations &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ===================================================================
          SECTION 4 — CORE CAPABILITIES (3 FOCUSED PILLARS)
@@ -1017,10 +857,10 @@
       <div>
         <h4 class="footer-col-title">Core Services</h4>
         <div class="footer-links-list">
-          <a href="services.html#custom-software">Custom Business Software</a>
-          <a href="services.html#interactive-3d">Interactive 2D/3D Systems</a>
-          <a href="services.html#cloud-devops">Cloud Infrastructure &amp; DevOps</a>
-          <a href="services.html#mobile-apps">Mobile App Engineering</a>
+          <a href="services/digital-products.html">Custom Business Software</a>
+          <a href="services/interactive-3d-spatial.html">Interactive 2D/3D Systems</a>
+          <a href="services/cloud-devops.html">Cloud Infrastructure &amp; DevOps</a>
+          <a href="services/digital-products.html">Mobile App Engineering</a>
         </div>
       </div>
 

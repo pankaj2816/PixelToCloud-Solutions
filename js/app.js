@@ -19,6 +19,7 @@ class AppEngine {
 
   init() {
     this.cleanCanonicalUrl();
+    this.initServicesDropdown();
     this.initTheme();
     this.bindNavigation();
     this.bindScrollEffects();
@@ -30,6 +31,35 @@ class AppEngine {
     this.bindQuickConnect();
     this.bindLegalModals();
     this.initSmartPlatformEngine();
+  }
+
+  // Dual-Layer Rock-Solid Services Mega-Menu Hover Controller
+  initServicesDropdown() {
+    const dropdownWrap = document.getElementById('services-nav-dropdown');
+    if (!dropdownWrap) return;
+    const menu = dropdownWrap.querySelector('.nav-mega-menu');
+    if (!menu) return;
+
+    let hideTimeout = null;
+
+    dropdownWrap.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      menu.style.display = 'block';
+      requestAnimationFrame(() => {
+        menu.style.opacity = '1';
+        menu.style.visibility = 'visible';
+        menu.style.transform = 'translateX(-50%) translateY(0)';
+      });
+    });
+
+    dropdownWrap.addEventListener('mouseleave', () => {
+      menu.style.opacity = '0';
+      menu.style.visibility = 'hidden';
+      menu.style.transform = 'translateX(-50%) translateY(8px)';
+      hideTimeout = setTimeout(() => {
+        menu.style.display = 'none';
+      }, 200);
+    });
   }
 
   // ================= CANONICAL CLEAN URL NORMALIZATION =================
