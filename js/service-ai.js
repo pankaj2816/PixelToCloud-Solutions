@@ -1,17 +1,152 @@
 /**
- * PixelToCloud - AI Service Page Interactive Architecture Controller
- * Powers the Live Pipeline Studio, Token Streaming Simulator,
- * Sovereign AI Economics Calculator, and FAQ Accordions.
+ * PixelToCloud - Sovereign AI Platform Controller
+ * Inspired by Coredge Dflare AI architecture & interactive controls.
+ * Manages sticky sub-nav, layered architecture inspector, use-case tabs,
+ * pipeline simulator, economics calculator, and FAQ accordion.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initStickySubNav();
+  initArchitectureLayers();
+  initUseCaseTabs();
   initPipelineStudio();
   initEconomicsCalculator();
   initAiFAQ();
 });
 
 // ==========================================
-// 1. ENTERPRISE AI PIPELINE STUDIO
+// 1. STICKY SUB-NAVIGATION & SCROLL SPY
+// ==========================================
+function initStickySubNav() {
+  const subNav = document.getElementById('ai-sub-nav');
+  const subNavLinks = document.querySelectorAll('.sub-nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  if (!subNav || !subNavLinks.length) return;
+
+  // Smooth scroll click
+  subNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          const subNavHeight = subNav.offsetHeight || 60;
+          const targetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - (subNavHeight + 80);
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // Scroll spy to highlight active section
+  window.addEventListener('scroll', () => {
+    let currentId = '';
+    const scrollPos = window.pageYOffset + 200;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    subNavLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentId) {
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
+}
+
+// ==========================================
+// 2. LAYERED SYSTEM ARCHITECTURE INSPECTOR
+// ==========================================
+function initArchitectureLayers() {
+  const layerCards = document.querySelectorAll('.arch-layer-card');
+  const inspectorTitle = document.getElementById('layer-inspector-title');
+  const inspectorDesc = document.getElementById('layer-inspector-desc');
+  const inspectorTech = document.getElementById('layer-inspector-tech');
+  const inspectorMetrics = document.getElementById('layer-inspector-metrics');
+
+  if (!layerCards.length || !inspectorTitle) return;
+
+  const layerData = {
+    '1': {
+      title: 'Layer 01 — GPU & Infrastructure Fabric',
+      desc: 'Dedicated bare-metal NVIDIA Tensor Core GPUs (H100/A100/L40S) connected via ultra-low latency InfiniBand networking with zero virtualization hypervisor penalty.',
+      tech: ['NVIDIA H100/A100', 'CUDA 12.x', 'InfiniBand / 100GbE', 'Kubernetes (K8s)', 'Linux Kernel 6.x Tuning'],
+      metrics: 'Zero Hypervisor Overhead | Direct PCIe Gen 5 Memory Access | 99.99% Hardware Uptime SLA'
+    },
+    '2': {
+      title: 'Layer 02 — Data & Vector Ingestion Pipeline',
+      desc: 'Real-time document parser and multi-tenant vector embedding pipeline. Integrates directly with PostgreSQL operational databases using pgvector HNSW indexing and cross-encoder rerankers.',
+      tech: ['pgvector (HNSW Indexing)', 'LayoutLM OCR Vision', 'Cohere Rerank-3 / BGE-M3', 'Apache Kafka / Redis', 'S3 Vault Storage'],
+      metrics: 'Sub-15ms Vector Scan | Top-K Cosine Precision: 99.2% | Automated PII Redaction at Rest'
+    },
+    '3': {
+      title: 'Layer 03 — Inference & Reasoning Runtimes',
+      desc: 'High-throughput private model execution cluster powered by vLLM and TensorRT-LLM. Supports continuous batching, PagedAttention, and custom LoRA adapter hot-swapping.',
+      tech: ['vLLM Orchestrator', 'TensorRT-LLM', 'Llama 3.3 70B', 'DeepSeek-R1', '4-bit AWQ Quantization', 'FastAPI Async'],
+      metrics: 'Sub-40ms TTFT | 94+ tokens/sec throughput per stream | 100% Isolated Private VPC'
+    },
+    '4': {
+      title: 'Layer 04 — Enterprise Gateways & Multi-Agent Swarms',
+      desc: 'Autonomous LangGraph state machines executing deterministic multi-step business logic across databases, WhatsApp, Slack, and corporate ERP systems.',
+      tech: ['LangGraph State Machine', 'Dynamic SQL Sandbox', 'REST & gRPC Gateways', 'ERP Integrators', 'Role-Based Access (RBAC)'],
+      metrics: 'Zero Hallucination Grounding | Verifiable Citation Trails | Automated Audit Reconciliation'
+    }
+  };
+
+  layerCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const layerId = card.getAttribute('data-layer');
+      layerCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      const data = layerData[layerId];
+      if (data) {
+        inspectorTitle.textContent = data.title;
+        inspectorDesc.textContent = data.desc;
+        inspectorMetrics.textContent = data.metrics;
+
+        if (inspectorTech) {
+          inspectorTech.innerHTML = data.tech.map(t => '<span class="bento-tech-chip">' + t + '</span>').join(' ');
+        }
+      }
+    });
+  });
+}
+
+// ==========================================
+// 3. INDUSTRY USE CASE TABS
+// ==========================================
+function initUseCaseTabs() {
+  const tabs = document.querySelectorAll('.use-case-tab-btn');
+  const panels = document.querySelectorAll('.use-case-panel');
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-case');
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const activePanel = document.getElementById('case-panel-' + target);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
+}
+
+// ==========================================
+// 4. ENTERPRISE PIPELINE SIMULATOR
 // ==========================================
 function initPipelineStudio() {
   const pipelineTabs = document.querySelectorAll('.pipeline-tab-btn');
@@ -25,11 +160,9 @@ function initPipelineStudio() {
 
   if (!pipelineTabs.length || !runBtn || !nodesContainer || !consoleOutput) return;
 
-  // Pipeline Blueprint Definitions
   const pipelines = {
     rag: {
       name: 'Enterprise Knowledge RAG Engine',
-      description: 'Hybrid vector search over proprietary enterprise docs with contextual reranking and citation grounding.',
       metrics: { ttft: '38 ms', tokens: '94 tok/s', latency: '142 ms', security: '100% Private VPC' },
       nodes: [
         { id: 1, label: 'Client Query Ingestion', sub: 'Sanitization & Tokenization', icon: 'fa-terminal', status: 'ready' },
@@ -40,7 +173,8 @@ function initPipelineStudio() {
       ],
       samplePayload: {
         timestamp: new Date().toISOString(),
-        pipeline: "ENTERPRISE_RAG_HYBRID_V2",
+        platform: "PIXELTOCLOUD_SOVEREIGN_AI_V4",
+        pipeline: "ENTERPRISE_RAG_HYBRID",
         query: "What is the warranty and liability protocol for clause 14.2 in vendor agreements?",
         vector_retrieval: {
           index: "pgvector_hnsw_cosine",
@@ -66,7 +200,6 @@ function initPipelineStudio() {
     },
     idp: {
       name: 'Intelligent Document Processing (IDP)',
-      description: 'Zero-shot table and field extraction from multi-page PDFs with automated ERP schema reconciliation.',
       metrics: { ttft: '52 ms', tokens: '112 tok/s', latency: '285 ms', security: 'Encrypted at Rest' },
       nodes: [
         { id: 1, label: 'PDF / Scanned Ingest', sub: 'Multi-Page High-Res Ingest', icon: 'fa-file-invoice', status: 'ready' },
@@ -77,7 +210,8 @@ function initPipelineStudio() {
       ],
       samplePayload: {
         timestamp: new Date().toISOString(),
-        pipeline: "IDP_EXTRACTION_ENGINE",
+        platform: "PIXELTOCLOUD_SOVEREIGN_AI_V4",
+        pipeline: "IDP_DOCUMENT_EXTRACTION",
         input_document: "INVOICE_TAX_2025_0981.PDF",
         ocr_confidence: 0.994,
         extracted_entities: {
@@ -97,8 +231,7 @@ function initPipelineStudio() {
       }
     },
     agent: {
-      name: 'Autonomous Agent Tool-Calling Swarm',
-      description: 'Event-driven LangGraph state machine executing multi-step business logic across databases and APIs.',
+      name: 'Autonomous Agent Swarm',
       metrics: { ttft: '42 ms', tokens: '86 tok/s', latency: '198 ms', security: 'Role-Based Auth' },
       nodes: [
         { id: 1, label: 'Incoming Event Trigger', sub: 'Webhook / Escalation Event', icon: 'fa-bolt', status: 'ready' },
@@ -109,6 +242,7 @@ function initPipelineStudio() {
       ],
       samplePayload: {
         timestamp: new Date().toISOString(),
+        platform: "PIXELTOCLOUD_SOVEREIGN_AI_V4",
         agent_runtime: "LANGGRAPH_STATE_MACHINE",
         trigger: "CUSTOMER_DISPUTE_EVENT_WHATSAPP",
         state_transitions: [
@@ -160,10 +294,6 @@ function initPipelineStudio() {
     if (tokensMetric) tokensMetric.textContent = pipeline.metrics.tokens;
     if (totalLatencyMetric) totalLatencyMetric.textContent = pipeline.metrics.latency;
     if (securityBadge) securityBadge.textContent = pipeline.metrics.security;
-  }
-
-  function displayConsole(data) {
-    consoleOutput.innerHTML = syntaxHighlightJSON(JSON.stringify(data, null, 2));
   }
 
   function syntaxHighlightJSON(json) {
@@ -223,7 +353,7 @@ function initPipelineStudio() {
       c.classList.remove('active');
     });
 
-    consoleOutput.innerHTML = `<span style="color: #64748b;">// Initializing ${pipeline.name}...</span>\n<span style="color: #a78bfa;">// Dispatching vectors to private inference engine...</span>`;
+    consoleOutput.innerHTML = `<span style="color: #64748b;">// Initializing ${pipeline.name}...</span>\n<span style="color: #bedd00;">// Dispatching vectors to private vLLM inference engine...</span>`;
 
     function advance() {
       if (step < totalSteps) {
@@ -272,18 +402,18 @@ function initPipelineStudio() {
       tab.classList.add('active');
       currentKey = tab.getAttribute('data-pipeline');
       renderNodes(pipelines[currentKey]);
-      displayConsole(pipelines[currentKey].samplePayload);
+      consoleOutput.innerHTML = syntaxHighlightJSON(JSON.stringify(pipelines[currentKey].samplePayload, null, 2));
     });
   });
 
   runBtn.addEventListener('click', runSimulation);
 
   renderNodes(pipelines.rag);
-  displayConsole(pipelines.rag.samplePayload);
+  consoleOutput.innerHTML = syntaxHighlightJSON(JSON.stringify(pipelines.rag.samplePayload, null, 2));
 }
 
 // ==========================================
-// 2. SOVEREIGN AI ECONOMICS CALCULATOR
+// 5. SOVEREIGN AI ECONOMICS CALCULATOR
 // ==========================================
 function initEconomicsCalculator() {
   const slider = document.getElementById('query-volume-slider');
@@ -291,7 +421,6 @@ function initEconomicsCalculator() {
   const publicApiCostEl = document.getElementById('public-api-cost');
   const privateVpsCostEl = document.getElementById('private-vps-cost');
   const netSavingsEl = document.getElementById('net-savings');
-  const dataRiskEl = document.getElementById('data-risk-metric');
 
   if (!slider || !volumeDisplay || !publicApiCostEl || !privateVpsCostEl || !netSavingsEl) return;
 
@@ -316,10 +445,6 @@ function initEconomicsCalculator() {
     publicApiCostEl.textContent = '$' + publicCost.toLocaleString() + '/mo';
     privateVpsCostEl.textContent = '$' + privateCost.toLocaleString() + '/mo';
     netSavingsEl.textContent = '$' + savings.toLocaleString() + '/mo (' + savingsPercent + '% saved)';
-
-    if (dataRiskEl) {
-      dataRiskEl.innerHTML = '<span style="color: #10b981; font-weight: 700;">Zero (100% On-Premise/Private VPC)</span>';
-    }
   }
 
   slider.addEventListener('input', updateEconomics);
@@ -327,7 +452,7 @@ function initEconomicsCalculator() {
 }
 
 // ==========================================
-// 3. AI ARCHITECTURE FAQ ACCORDION
+// 6. TECHNICAL FAQ ACCORDION
 // ==========================================
 function initAiFAQ() {
   const faqItems = document.querySelectorAll('.ai-faq-item');
