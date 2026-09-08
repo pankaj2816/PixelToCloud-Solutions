@@ -27,7 +27,7 @@ function initServiceSubNav() {
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
           const subNavHeight = subNav.offsetHeight || 55;
-          const targetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - (subNavHeight + 70);
+          const targetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - (subNavHeight + 74);
           window.scrollTo({ top: targetTop, behavior: 'smooth' });
         }
       }

@@ -39,24 +39,26 @@
     /* Sticky Sub-Navigation Bar */
     .ai-sub-nav-wrapper {
       position: sticky;
-      top: 72px;
-      z-index: 40;
-      background: rgba(7, 10, 18, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      top: 70px;
+      z-index: 900;
+      margin-top: 76px;
+      background: rgba(7, 10, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 4px 0;
       transition: all 0.3s ease;
     }
 
     .ai-sub-nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 10px 0;
-      gap: 16px;
+      padding: 6px 0;
+      gap: 12px;
     }
 
     .ai-sub-nav-container::-webkit-scrollbar {
@@ -917,17 +919,12 @@
         <li><a href="#use-cases" class="sub-nav-link"><i class="fa-solid fa-briefcase"></i>Use Cases</a></li>
         <li><a href="#tech-specs" class="sub-nav-link"><i class="fa-solid fa-sliders"></i>Specs &amp; FAQ</a></li>
       </ul>
-      <div class="sub-nav-cta">
-        <a href="../contact.html?service=ai" class="btn-magnetic btn-primary" style="padding: 6px 18px; font-size: 0.82rem;">
-          <span>Request Architecture Call</span>
-        </a>
       </div>
-    </div>
   </nav>
 
   <main id="main-content">
     <!-- COREDGE STYLE HERO SECTION -->
-    <section class="section" style="padding-top: 50px; padding-bottom: 40px;">
+    <section class="section" style="padding-top: 36px; padding-bottom: 40px;">
       <div class="container">
         <!-- Breadcrumbs -->
         <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">

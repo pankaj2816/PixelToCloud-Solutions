@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Enterprise Linux VPS server hardening, Docker & Kubernetes container orchestration, and zero-downtime CI/CD deployment pipelines by PixelToCloud.">
-  <meta name="keywords" content="Linux VPS, DevOps, Cloud Infrastructure, Docker, Kubernetes, CI/CD, PixelToCloud">
-  <meta name="theme-color" content="#080b11">
+  <title>Cloud Infrastructure & DevOps Engineering | PixelToCloud Solutions</title>
+  <meta name="description" content="Bare-metal Linux servers, Kubernetes orchestration, CI/CD automation, and zero-downtime cloud infrastructure engineered by PixelToCloud.">
+  <meta name="keywords" content="Cloud Architecture, DevOps, Linux Systems, Kubernetes, Docker, CI/CD, AWS, PixelToCloud">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pixeltocloud.com/services/cloud-devops.html">
-  <title>Sovereign Cloud & Linux DevOps Infrastructure | PixelToCloud</title>
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pixeltocloud.com/services/cloud-devops.html">
+  <meta property="og:title" content="Cloud Infrastructure & DevOps Engineering | PixelToCloud Solutions">
+  <meta property="og:description" content="Bare-metal Linux servers, Kubernetes orchestration, CI/CD automation, and zero-downtime cloud infrastructure engineered by PixelToCloud.">
+  <meta property="og:image" content="https://pixeltocloud.com/image/pankaj-profile.jpg">
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="icon" type="image/svg+xml" href="../logo-icon.svg">
 
+  <!-- Global Styles -->
   <link rel="stylesheet" href="../css/main.css?v=43.0">
-  <link rel="stylesheet" href="../css/animations.css?v=43.0">
   <link rel="stylesheet" href="../css/components.css?v=43.0">
-  <link rel="stylesheet" href="../css/light-theme.css?v=43.0">
   <link rel="stylesheet" href="../css/mobile-responsive.css?v=43.0">
 
   
@@ -32,23 +39,25 @@
     }
     .service-sub-nav-wrapper {
       position: sticky;
-      top: 72px;
-      z-index: 40;
-      background: rgba(7, 10, 18, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      top: 70px;
+      z-index: 900;
+      margin-top: 76px;
+      background: rgba(7, 10, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 4px 0;
       transition: all 0.3s ease;
     }
     .service-sub-nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 10px 0;
-      gap: 16px;
+      padding: 6px 0;
+      gap: 12px;
     }
     .service-sub-nav-container::-webkit-scrollbar { display: none; }
     .sub-nav-links {
@@ -230,71 +239,80 @@
     .arch-layers-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
     .arch-layer-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 18px 22px;
       cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: all 0.25s ease;
     }
     .arch-layer-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--srv-accent);
+      background: rgba(56, 189, 248, 0.06);
+      border-color: rgba(56, 189, 248, 0.3);
     }
     .arch-layer-card.active {
       background: rgba(56, 189, 248, 0.12);
       border-color: var(--srv-accent);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
     }
     .layer-card-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .layer-number {
       font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.15);
+      background: rgba(56, 189, 248, 0.1);
       padding: 4px 8px;
       border-radius: 6px;
     }
     .layer-name {
+      font-size: 1.05rem;
       font-weight: 700;
       color: #ffffff;
-      font-size: 0.95rem;
     }
     .arch-inspector-box {
-      background: #05070e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 26px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .visual-diagram-box {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
     .use-case-nav {
       display: flex;
       gap: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 14px;
-      margin-bottom: 28px;
       overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 16px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+    .use-case-nav::-webkit-scrollbar { display: none; }
     .use-case-tab-btn {
-      background: transparent;
-      border: none;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      font-size: 0.95rem;
-      font-weight: 600;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
@@ -304,25 +322,28 @@
     }
     .use-case-tab-btn:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(56, 189, 248, 0.4);
     }
     .use-case-tab-btn.active {
-      color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--srv-accent);
+      color: #ffffff;
     }
     .use-case-panel {
       display: none;
-      animation: fadeIn 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 34px;
+      animation: fadeIn 0.3s ease forwards;
     }
-    .use-case-panel.active {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
+    .use-case-panel.active { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; }
     @media (max-width: 991px) {
       .use-case-panel.active { grid-template-columns: 1fr; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .ai-faq-list {
       display: flex;
@@ -334,56 +355,46 @@
     .ai-faq-item {
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.2s ease;
+      transition: border-color 0.25s ease;
     }
     .ai-faq-item.active {
       border-color: var(--srv-accent);
-      background: rgba(15, 23, 42, 0.85);
     }
     .ai-faq-question {
       width: 100%;
-      background: transparent;
-      border: none;
-      padding: 18px 22px;
+      padding: 20px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #f8fafc;
-      font-size: 1rem;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.05rem;
       font-weight: 600;
-      text-align: left;
       cursor: pointer;
+      text-align: left;
     }
     .ai-faq-question i {
-      color: var(--srv-accent);
       transition: transform 0.25s ease;
+      color: var(--srv-accent);
     }
     .ai-faq-item.active .ai-faq-question i {
       transform: rotate(180deg);
     }
     .ai-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0 22px;
-      color: #94a3b8;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      display: none;
+      padding: 0 24px 22px 24px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
     .ai-faq-item.active .ai-faq-answer {
-      max-height: 300px;
-      padding-bottom: 20px;
-    }
-    .visual-diagram-box {
-      background: #060913;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      display: block;
     }
   </style>
+
   <style>
     :root {
       --srv-accent: #38bdf8;
@@ -493,7 +504,7 @@
     </div>
   </aside>
 
-  <!-- Sticky Sub-Nav -->
+  <!-- Sticky Sub-Nav (Aligned cleanly below floating navbar) -->
   <nav class="service-sub-nav-wrapper" id="service-sub-nav" aria-label="Cloud & DevOps Sub-Navigation">
     <div class="container service-sub-nav-container">
       <ul class="sub-nav-links">
@@ -505,17 +516,12 @@
         <li><a href="#use-cases" class="sub-nav-link"><i class="fa-solid fa-briefcase"></i>Use Cases</a></li>
         <li><a href="#tech-specs" class="sub-nav-link"><i class="fa-solid fa-sliders"></i>Specs &amp; FAQ</a></li>
       </ul>
-      <div class="sub-nav-cta">
-        <a href="../contact.html?service=cloud" class="btn-magnetic btn-primary" style="padding: 6px 18px; font-size: 0.82rem;">
-          <span>Request Architecture Call</span>
-        </a>
-      </div>
     </div>
   </nav>
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="section" style="padding-top: 50px; padding-bottom: 40px;">
+    <!-- Hero Section (Clean Top Padding) -->
+    <section class="section" style="padding-top: 36px; padding-bottom: 40px;">
       <div class="container">
         <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <a href="../" style="color: var(--text-muted); text-decoration: none;">Home</a>
@@ -527,16 +533,16 @@
 
         <div class="service-pill-badge">
           <i class="fa-solid fa-cloud"></i>
-          <span>SOVEREIGN CLOUD & LINUX DEVOPS PLATFORMS</span>
+          <span>ENTERPRISE LINUX & CLOUD PLATFORMS</span>
         </div>
 
         <h1 class="hero-title" style="font-size: clamp(2.5rem, 5.2vw, 4.4rem); margin-bottom: 24px; line-height: 1.12; font-family: var(--font-display);">
-          Sovereign Cloud & Linux Infrastructure.<br>
-          <span style="background: linear-gradient(135deg, #38bdf8 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hardened. Scalable. Unstoppable.</span>
+          Resilient Cloud Foundations.<br>
+          <span style="background: linear-gradient(135deg, #38bdf8 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Zero Downtime. Maximum Efficiency.</span>
         </h1>
 
         <p class="hero-subtitle" style="max-width: 860px; font-size: 1.18rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 38px;">
-          Enterprise Linux VPS server hardening, Docker & Kubernetes container orchestration, and zero-downtime CI/CD deployment pipelines engineered with 100% cloud sovereignty.
+          We engineer hardened bare-metal Linux server clusters, Kubernetes container orchestration, automated GitHub Actions CI/CD pipelines, and secure private VPC infrastructure with zero cloud bill shock.
         </p>
 
         <!-- Metric Strip -->
@@ -544,22 +550,22 @@
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
               <div style="font-size: 2.2rem; font-weight: 800; color: #38bdf8; font-family: var(--font-display);">99.99%</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">High-Availability Uptime SLA</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Infrastructure Uptime SLA</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">< 5 min</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Disaster Recovery RTO SLA</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #10b981; font-family: var(--font-display);">-58%</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Average Cloud Bill Reduction</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #10b981; font-family: var(--font-display);">100%</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Sovereign Private VPC Residency</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #a78bfa; font-family: var(--font-display);">< 3 min</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Automated CI/CD Deploy Time</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Zero</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Cloud Vendor Lock-In</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Full Root</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">100% Server & Data Sovereignty</div>
             </div>
           
         </div>
@@ -583,23 +589,23 @@
             <div style="max-width: 780px;">
               <div class="service-pill-badge" style="margin-bottom: 14px;"><i class="fa-solid fa-circle-nodes"></i> <span>OVERVIEW</span></div>
               <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">
-                Engineered for Total Resilience and Infrastructure Sovereignty
+                High-Performance Infrastructure Without Hyperscaler Lock-In
               </h2>
               <p style="color: #cbd5e1; font-size: 1.08rem; line-height: 1.7; margin-bottom: 24px;">
-                Relying on opaque cloud black-boxes leads to unpredictable billing surges, vendor lock-in, and security vulnerabilities. PixelToCloud architects hardened, cost-effective Linux cloud topologies where you maintain complete administrative root control.
+                Most businesses overpay by 3x to 5x on proprietary AWS/GCP managed services that lock them in while delivering mediocre server performance. PixelToCloud architects high-throughput, cost-efficient infrastructure on dedicated bare-metal Linux servers, private VPCs, and containerized Docker/Kubernetes clusters.
               </p>
               <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.65; margin: 0;">
-                From kernel-level TCP stack tuning and automated Fail2ban brute-force defense to zero-downtime container rolling deployments and encrypted S3 disaster recovery vaults, your applications run on rock-solid foundations.
+                From automated zero-downtime blue/green deployments to Prometheus/Grafana real-time telemetry monitoring and automated encrypted off-site backups, we ensure your infrastructure scales effortlessly under peak traffic spikes without exploding your monthly burn rate.
               </p>
             </div>
             <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 22px; min-width: 240px;">
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #64748b; text-transform: uppercase;">ENGINEERING BENCHMARK</div>
               <div style="display: flex; align-items: center; gap: 8px; margin: 10px 0;">
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--srv-accent); box-shadow: 0 0 10px var(--srv-accent);"></span>
-                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Infrastructure Monitored</span>
+                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Infrastructure Mesh Online</span>
               </div>
               <div style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6;">
-                Firewall: <strong>UFW + Fail2ban Hardened</strong><br>TLS: <strong>Automated Zero-Downtime Let's Encrypt</strong><br>Containers: <strong>Docker Swarm / K8s</strong><br>Backups: <strong>Encrypted Offsite Vaults</strong>
+                OS Kernel: <strong>Hardened Linux (Debian/Ubuntu)</strong><br>Deployments: <strong>Zero-Downtime Blue/Green</strong><br>Telemetry: <strong>Prometheus + Grafana</strong><br>Security: <strong>UFW / WireGuard VPN / TLS 1.3</strong>
               </div>
             </div>
           </div>
@@ -612,8 +618,8 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-cubes"></i> <span>CORE CAPABILITIES</span></div>
-          <h2 class="section-title">Key Platform Features</h2>
-          <p class="section-desc">Engineered for robust performance and operational reliability.</p>
+          <h2 class="section-title">Key Engineering Features</h2>
+          <p class="section-desc">Architected for enterprise resilience, scale, and maintainability.</p>
         </div>
 
         <div class="service-features-grid">
@@ -621,26 +627,26 @@
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                  <h3 class="feature-card-title">Linux VPS Server Hardening</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-server"></i></div>
+                  <h3 class="feature-card-title">Bare-Metal Linux Server Hardening</h3>
                 </div>
-                <p class="feature-card-desc">Kernel-level sysctl network tuning, SSH key authentication with non-standard ports, UFW firewall whitelisting, and Fail2ban brute-force bans.</p>
+                <p class="feature-card-desc">Custom kernel tuning, automated SSH key enforcement, UFW firewalls, fail2ban brute-force defense, and systemd daemon management.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Kernel Tuning</span><span class="feature-tag-chip">Fail2ban</span><span class="feature-tag-chip">SSH Hardening</span>
+                <span class="feature-tag-chip">Linux Kernel</span><span class="feature-tag-chip">UFW Firewall</span><span class="feature-tag-chip">Hardened SSH</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-docker"></i></div>
-                  <h3 class="feature-card-title">Container Orchestration (Docker & K8s)</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                  <h3 class="feature-card-title">Docker & Kubernetes Orchestration</h3>
                 </div>
-                <p class="feature-card-desc">Multi-container application stacks deployed via Docker Compose and Kubernetes with health checks, automated container restarts, and load balancing.</p>
+                <p class="feature-card-desc">Containerize monolithic applications into microservices with automated health checks, replica auto-scaling, and rolling updates.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Docker</span><span class="feature-tag-chip">Kubernetes</span><span class="feature-tag-chip">Auto-Healing</span>
+                <span class="feature-tag-chip">Kubernetes (k8s)</span><span class="feature-tag-chip">Docker Compose</span><span class="feature-tag-chip">Auto-Scale</span>
               </div>
             </div>
           
@@ -648,51 +654,51 @@
               <div>
                 <div class="feature-card-header">
                   <div class="feature-card-icon"><i class="fa-solid fa-code-branch"></i></div>
-                  <h3 class="feature-card-title">Zero-Downtime Blue/Green CI/CD</h3>
+                  <h3 class="feature-card-title">Automated CI/CD Pipelines</h3>
                 </div>
-                <p class="feature-card-desc">Automated GitHub Actions pipelines executing automated test suites, linting, Docker image packaging, and blue/green rolling deployments.</p>
+                <p class="feature-card-desc">GitHub Actions pipelines executing automated linting, unit test suites, security image scanning, and automated production rollouts.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">GitHub Actions</span><span class="feature-tag-chip">Blue/Green</span><span class="feature-tag-chip">Zero Downtime</span>
+                <span class="feature-tag-chip">GitHub Actions</span><span class="feature-tag-chip">Zero Downtime</span><span class="feature-tag-chip">Rollbacks</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-vault"></i></div>
-                  <h3 class="feature-card-title">Automated Encrypted Backup Vaults</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                  <h3 class="feature-card-title">Prometheus & Grafana Telemetry</h3>
                 </div>
-                <p class="feature-card-desc">Nightly automated PostgreSQL database dumps encrypted with AES-256 and synchronized to geographically separated S3-compatible cold storage.</p>
+                <p class="feature-card-desc">Full-stack observability with real-time dashboards monitoring CPU load, RAM saturation, network I/O, and Discord/Slack alerts.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">AES-256 Backups</span><span class="feature-tag-chip">S3 Cold Storage</span><span class="feature-tag-chip">RTO < 5m</span>
+                <span class="feature-tag-chip">Prometheus</span><span class="feature-tag-chip">Grafana</span><span class="feature-tag-chip">Real-Time Alerts</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-chart-area"></i></div>
-                  <h3 class="feature-card-title">24/7 Telemetry & Prometheus Monitoring</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <h3 class="feature-card-title">Zero-Trust Private VPC & WireGuard</h3>
                 </div>
-                <p class="feature-card-desc">Real-time server health monitoring covering CPU load, RAM memory exhaustion, disk I/O latency, and automated Slack alert escalation.</p>
+                <p class="feature-card-desc">Isolate internal databases and microservices inside private subnets accessible exclusively through encrypted WireGuard VPN tunnels.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Prometheus</span><span class="feature-tag-chip">Grafana Alerts</span><span class="feature-tag-chip">24/7 Telemetry</span>
+                <span class="feature-tag-chip">WireGuard VPN</span><span class="feature-tag-chip">Private Subnets</span><span class="feature-tag-chip">Zero Trust</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-network-wired"></i></div>
-                  <h3 class="feature-card-title">Nginx Reverse Proxy & SSL Automation</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                  <h3 class="feature-card-title">Cloud FinOps & Bill Optimization</h3>
                 </div>
-                <p class="feature-card-desc">Optimized Nginx reverse proxy configurations with HTTP/2, Brotli compression, automated SSL renewals, and DDoS request rate limiting.</p>
+                <p class="feature-card-desc">Eliminate wasteful cloud spending by migrating unneeded managed databases and load balancers to high-performance dedicated VPS instances.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Nginx</span><span class="feature-tag-chip">HTTP/2 & Brotli</span><span class="feature-tag-chip">DDoS Protection</span>
+                <span class="feature-tag-chip">FinOps</span><span class="feature-tag-chip">50%+ Savings</span><span class="feature-tag-chip">No Lock-in</span>
               </div>
             </div>
           
@@ -705,34 +711,34 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-lock"></i> <span>STRATEGIC ADVANTAGE</span></div>
-          <h2 class="section-title">Why Choose Sovereign Cloud Infrastructure?</h2>
-          <p class="section-desc">How private cloud foundations save thousands of dollars while maximizing uptime.</p>
+          <h2 class="section-title">Why Choose PixelToCloud for Cloud & DevOps</h2>
+          <p class="section-desc">Battle-tested Linux sysadmin engineering with direct lead architect access.</p>
         </div>
 
         <div class="why-cards-grid">
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-wallet"></i></div>
-              <h3 class="why-card-title">Up to 75% Cost Reduction</h3>
-              <p class="why-card-desc">Stop overpaying for managed cloud markups. A dedicated $80-$200/mo bare-metal VPS outperforms thousands of dollars in shared cloud instances.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+              <h3 class="why-card-title">Slash Cloud Bills by 50%+</h3>
+              <p class="why-card-desc">We migrate bloated managed hyperscaler services to optimized high-performance dedicated Linux compute, saving tens of thousands of dollars annually.</p>
+            </div>
+          
+            <div class="why-service-card">
+              <div class="why-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3 class="why-card-title">Hardened Security Posture</h3>
+              <p class="why-card-desc">We implement zero-trust network boundaries, automated security patches, encrypted backups, and isolated database credentials.</p>
+            </div>
+          
+            <div class="why-service-card">
+              <div class="why-card-icon"><i class="fa-solid fa-rocket"></i></div>
+              <h3 class="why-card-title">Instant Developer Productivity</h3>
+              <p class="why-card-desc">Automated deployment pipelines allow your software engineering team to push code confidently multiple times a day with instant rollbacks.</p>
             </div>
           
             <div class="why-service-card">
               <div class="why-card-icon"><i class="fa-solid fa-key"></i></div>
-              <h3 class="why-card-title">Total Root Control</h3>
-              <p class="why-card-desc">Full root access to your Linux operating system, package managers, and databases. Zero arbitrary cloud provider limitations.</p>
-            </div>
-          
-            <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-              <h3 class="why-card-title">Zero Vendor Lock-In</h3>
-              <p class="why-card-desc">Containerized architectures mean you can migrate your entire application stack between Hetzner, AWS, GCP, or on-premise hardware in minutes.</p>
-            </div>
-          
-            <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-life-ring"></i></div>
-              <h3 class="why-card-title">Guaranteed 99.99% Uptime</h3>
-              <p class="why-card-desc">Hardened Linux architectures with automatic container restart policies and redundant failover proxies.</p>
+              <h3 class="why-card-title">100% Root Credential Ownership</h3>
+              <p class="why-card-desc">You retain full root administrative control over all servers, domains, and cloud accounts. We never act as a proprietary middleman.</p>
             </div>
           
         </div>
@@ -751,45 +757,45 @@
         <div class="arch-stack-container">
           <div class="arch-layers-list">
             
-              <div class="arch-layer-card active" data-title="Layer 01 — Edge Security & Nginx Reverse Proxy" data-desc="Public entry gateway enforcing TLS 1.3, DDoS rate-limiting, Brotli compression, and upstream load-balancing." data-tech="Nginx, Let's Encrypt SSL, Fail2ban, UFW" data-metrics="Sub-2ms TLS Handshake | Automated Renewal">
+              <div class="arch-layer-card active" data-title="Layer 1: Edge Security & Ingress Proxy" data-desc="Terminates SSL/TLS 1.3 certificates, absorbs volumetric DDoS attacks at edge nodes, and routes requests to active cluster load balancers." data-tech="Cloudflare Enterprise / Anycast DNS, TLS 1.3, Brotli Compression" data-metrics="Edge Latency: < 12ms | DDoS Capacity: > 150 Tbps">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 01</span>
                   <div>
-                    <div class="layer-name">Edge Security & Reverse Proxy</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">TLS 1.3 & DDoS Rate Limiting</div>
+                    <div class="layer-name">Edge Traffic & Global DNS</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Cloudflare CDN, TLS 1.3, DDoS Shield</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: var(--srv-accent); font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 02 — Hardened Linux OS Kernel" data-desc="Hardened Linux distribution with root login disabled, fail2ban jail triggers, and sysctl TCP connection backlog tuning." data-tech="Linux Kernel 6.x, Sysctl Tuning, SSH Keys" data-metrics="Zero Open Ports | Automated Security Patches">
+              <div class="arch-layer-card " data-title="Layer 2: Reverse Proxy & Traffic Ingress" data-desc="Distributes incoming HTTP/HTTPS and WebSocket traffic across healthy application containers using round-robin and least-connection algorithms." data-tech="Nginx, HAProxy, Certbot SSL, HTTP/2 & HTTP/3" data-metrics="Proxy Overhead: < 0.8ms | Concurrent Sockets: 100,000+">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 02</span>
                   <div>
-                    <div class="layer-name">Hardened Linux OS Kernel</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Ubuntu Server LTS / Debian</div>
+                    <div class="layer-name">Ingress Routing & Load Balancing</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Nginx, HAProxy, Automated SSL Renewal</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 03 — Container Orchestration Cluster" data-desc="Isolated application containers with memory and CPU resource limits, health-check monitors, and seamless rolling deploys." data-tech="Docker Engine, Docker Compose, Kubernetes" data-metrics="Sub-Second Auto-Healing | Zero Downtime">
+              <div class="arch-layer-card " data-title="Layer 3: Container Runtime & Orchestration Mesh" data-desc="Isolated application runtimes executing in lightweight Docker containers with automated restarts, memory limits, and zero-downtime rolling updates." data-tech="Docker Engine, k3s Lightweight Kubernetes, systemd, Cgroups" data-metrics="Pod Recovery Time: < 3.2s | Memory Overhead: < 2% of host">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 03</span>
                   <div>
-                    <div class="layer-name">Container Orchestration Cluster</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Docker Swarm & Kubernetes</div>
+                    <div class="layer-name">Container Workloads & Microservices</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Docker, k8s / k3s, systemd, Autoscaling</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 04 — Encrypted Persistence & Offsite Vaults" data-desc="PostgreSQL database volume mounts with automated WAL archiving, pg_dump compression, and AES-256 S3 vault synchronization." data-tech="PostgreSQL 16, Rclone, S3 Vault, GPG Encryption" data-metrics="Point-in-Time Recovery | Disaster RTO < 5m">
+              <div class="arch-layer-card " data-title="Layer 4: Hardened Host OS & Storage Topology" data-desc="Dedicated Linux kernel tuned for network throughput, encrypted LUKS storage partitions, and automated encrypted off-site snapshots to S3." data-tech="Debian 12 / Ubuntu 24.04 LTS, WireGuard VPN, ZFS / NVMe, BorgBackup" data-metrics="Disk I/O: > 3,500 MB/s NVMe | Backup Frequency: Automated 6h">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 04</span>
                   <div>
-                    <div class="layer-name">Encrypted Persistence & Backups</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">PostgreSQL & S3 Cold Vaults</div>
+                    <div class="layer-name">Hardened Bare-Metal & Network</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Debian/Ubuntu LTS, WireGuard, NVMe Storage</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
@@ -803,19 +809,19 @@
                 <i class="fa-solid fa-microchip" style="margin-right: 6px;"></i>INSPECTED TOPOLOGY SPECIFICATION
               </div>
               <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 12px; font-family: var(--font-display);" id="layer-inspector-title">
-                Layer 01 — Edge Security & Nginx Reverse Proxy
+                Layer 1: Edge Security & Ingress Proxy
               </h3>
               <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;" id="layer-inspector-desc">
-                Public entry gateway enforcing TLS 1.3, DDoS rate-limiting, Brotli compression, and upstream load-balancing.
+                Terminates SSL/TLS 1.3 certificates, absorbs volumetric DDoS attacks at edge nodes, and routes requests to active cluster load balancers.
               </p>
               <div style="font-size: 0.8rem; font-family: var(--font-mono); color: #94a3b8; margin-bottom: 10px; text-transform: uppercase;">Engineered Components:</div>
               <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;" id="layer-inspector-tech">
-                <span class="bento-tech-chip">Nginx</span> <span class="bento-tech-chip">Let's Encrypt SSL</span> <span class="bento-tech-chip">Fail2ban</span> <span class="bento-tech-chip">UFW</span>
+                <span class="bento-tech-chip">Cloudflare Enterprise / Anycast DNS</span> <span class="bento-tech-chip">TLS 1.3</span> <span class="bento-tech-chip">Brotli Compression</span>
               </div>
             </div>
             <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 14px; font-size: 0.85rem; color: #f8fafc;">
               <i class="fa-solid fa-gauge-high" style="color: var(--srv-accent); margin-right: 8px;"></i>
-              <span id="layer-inspector-metrics">Sub-2ms TLS Handshake | Automated Renewal</span>
+              <span id="layer-inspector-metrics">Edge Latency: < 12ms | DDoS Capacity: > 150 Tbps</span>
             </div>
           </div>
         </div>
@@ -827,30 +833,47 @@
       <div class="container">
         <div class="section-header text-center reveal" style="margin-bottom: 36px;">
           <div class="service-pill-badge"><i class="fa-solid fa-desktop"></i> <span>INTERACTIVE DEMONSTRATION</span></div>
-          <h2 class="section-title">Live Server Hardening & Container Orchestration Topology</h2>
-          <p class="section-desc">Inspect our multi-layer Linux VPS defense perimeter, container mesh, and disaster recovery pipeline.</p>
+          <h2 class="section-title">Live Cloud Infrastructure Telemetry Simulator</h2>
+          <p class="section-desc">Simulate server CPU spikes, container auto-scaling triggers, and failover routing.</p>
         </div>
 
         <div class="visual-diagram-box">
           
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 22px;">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 12px;">LINUX VPS DEFENSE STATUS</div>
-        <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.7;">
-          <span style="color: #10b981;">●</span> UFW Firewall: <strong>ACTIVE (Ports 80/443 Only)</strong><br>
-          <span style="color: #10b981;">●</span> SSH Auth: <strong>Ed25519 Keys Only (Password Disabled)</strong><br>
-          <span style="color: #10b981;">●</span> Fail2ban Jail: <strong>Enabled (10-min IP Ban)</strong><br>
-          <span style="color: #10b981;">●</span> Memory Swappiness: <strong>Tuned to vm.swappiness=10</strong>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #38bdf8; margin-bottom: 8px;">INFRASTRUCTURE SIMULATOR</div>
+        <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px;">Traffic Spike & Failover Test</h4>
+        <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+          Simulate an instantaneous 10x traffic spike to observe automated container auto-scaling and zero-downtime traffic rebalancing.
+        </p>
+
+        <div style="display: flex; gap: 12px; margin-bottom: 18px;">
+          <button type="button" id="spike-btn" class="btn-magnetic btn-primary" style="flex: 1; padding: 12px; font-size: 0.84rem;">Trigger 10x Traffic Spike</button>
+          <button type="button" id="failover-btn" class="btn-magnetic btn-secondary" style="flex: 1; padding: 12px; font-size: 0.84rem;">Simulate Node Failure</button>
+        </div>
+
+        <div style="font-size: 0.82rem; color: #64748b; line-height: 1.5;">
+          *Simulates automated container replica provisioning. When CPU exceeds 75%, Kubernetes spawns additional application pods within 4 seconds.
         </div>
       </div>
 
-      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 22px;">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #10b981; margin-bottom: 12px;">CONTAINER MESH TELEMETRY</div>
-        <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.7;">
-          <span style="color: #10b981;">●</span> Active Containers: <strong>12 Running (Zero Restarts)</strong><br>
-          <span style="color: #10b981;">●</span> Blue/Green Deploy: <strong>Ready (Instant Rollback)</strong><br>
-          <span style="color: #10b981;">●</span> Nightly Encrypted Backup: <strong>Synced to S3 Vault</strong><br>
-          <span style="color: #10b981;">●</span> 30-Day Uptime: <strong>99.992% Verified</strong>
+      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px; padding: 22px;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #38bdf8; margin-bottom: 12px;">LIVE CLUSTER METRICS</div>
+        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.92rem;">
+          <span style="color: #94a3b8;">Active Container Replicas:</span>
+          <span style="font-family: var(--font-mono); color: #ffffff; font-weight: 700;" id="replicas-display">3 Pods (Nominal)</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.92rem;">
+          <span style="color: #94a3b8;">Cluster CPU Utilization:</span>
+          <span style="font-family: var(--font-mono); color: #10b981; font-weight: 700;" id="cpu-display">24.5%</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.92rem;">
+          <span style="color: #94a3b8;">HTTP 5xx Error Rate:</span>
+          <span style="font-family: var(--font-mono); color: #10b981; font-weight: 700;" id="error-display">0.000%</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0 4px 0; font-size: 1.05rem; font-weight: 700;">
+          <span style="color: #ffffff;">Cluster Operational Health:</span>
+          <span style="font-family: var(--font-mono); color: #10b981;" id="health-display">HEALTHY (100%)</span>
         </div>
       </div>
     </div>
@@ -870,88 +893,139 @@
 
         <div class="use-case-nav">
           
-            <button type="button" class="use-case-tab-btn active" data-case="fintech">
-              <i class="fa-solid fa-shield-halved"></i> Financial Platforms
+            <button type="button" class="use-case-tab-btn active" data-case="finops">
+              <i class="fa-solid fa-chart-pie"></i> FinOps Cloud Migration
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="ecommerce">
-              <i class="fa-solid fa-cart-shopping"></i> High-Volume E-Commerce
+            <button type="button" class="use-case-tab-btn " data-case="cicd">
+              <i class="fa-solid fa-arrows-split-up-and-left"></i> Automated CI/CD DevOps
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="saas">
-              <i class="fa-solid fa-cloud"></i> Multi-Tenant SaaS
+            <button type="button" class="use-case-tab-btn " data-case="security">
+              <i class="fa-solid fa-shield-virus"></i> SOC2 / Zero-Trust VPC
             </button>
           
         </div>
 
         
-          <div class="use-case-panel active" id="case-panel-fintech">
+          <div class="use-case-panel active" id="case-panel-finops">
             <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">HIGH-SECURITY BANKING</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Hardened Financial Infrastructure</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Secure high-concurrency payment gateways and ledger databases with air-tight firewall rules and encrypted offsite vaulting.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Isolated database network with zero public internet routing</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Continuous audit logging and intrusion detection with AIDE</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Automated failover proxies with sub-second health checks</li>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                COST OPTIMIZATION AUDIT
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Slashing AWS Cloud Spending by 65%</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Migrated an over-engineered AWS setup (RDS, ECS, NAT Gateways) to dedicated high-performance Linux instances with automated backups.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Replaced costly NAT Gateways with native iptables routing</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Self-hosted PostgreSQL clusters matching Aurora performance at 1/5th cost</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Automated nightly staging shutdown routines</span>
+                  </li>
+                
               </ul>
             </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">$48,000+</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Annual cloud savings</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">2.5x</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Faster database disk I/O</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="use-case-panel " id="case-panel-cicd">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                CONTINUOUS DELIVERY PIPELINE
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Zero-Downtime Blue/Green Delivery</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Implemented GitHub Actions continuous integration with automated Docker build caching, lint checks, and zero-downtime rolling updates.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Automated PR staging environments for QA review</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Container image vulnerability scanning with Trivy</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Instant one-click rollback on telemetry alert triggers</span>
+                  </li>
+                
+              </ul>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">14 min → 2 min</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Deploy pipeline speedup</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">Zero</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Customer deployment downtime</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="use-case-panel " id="case-panel-security">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                INFRASTRUCTURE COMPLIANCE
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Hardened Zero-Trust Linux Environment</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Configured private subnet architectures with strict firewall isolation, WireGuard peer-to-peer encryption, and immutable centralized logging.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>SSH key rotation and automated root login disabling</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Encrypted off-site BorgBackup snapshots sent to cold storage</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Centralized audit logging with fail2ban intrusion blocking</span>
+                  </li>
+                
+              </ul>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
                   <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">100%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">VPC data isolation</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Security audit compliance</div>
                 </div>
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">99.99%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Transactional uptime</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="use-case-panel " id="case-panel-ecommerce">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">TRAFFIC SURGE SCALING</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Flash-Sale & Spike Tolerant Infrastructure</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Survive massive traffic spikes during seasonal promotions with Redis session caching, connection pooling, and Brotli compression.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>PgBouncer connection pool handling 10,000+ simultaneous checkouts</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Static asset edge caching with Nginx micro-caching</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Automated resource scaling during marketing campaigns</li>
-              </ul>
-            </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">< 15ms</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Cache response latency</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">Zero</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Downtime during traffic spikes</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="use-case-panel " id="case-panel-saas">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">ENTERPRISE SAAS DEPLOYMENT</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Zero-Downtime Rolling Deployment Pipelines</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Deploy new feature releases multiple times a day without kicking active users off their sessions or dropping active webhooks.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>GitHub Actions CI/CD with automated unit test gates</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Blue/green rolling Docker deployments with zero dropped packets</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Centralized Grafana observability with Slack threshold alerts</li>
-              </ul>
-            </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">< 2 min</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">CI/CD pipeline speed</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">Zero</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">User-facing deployment downtime</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">0 Breaches</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Zero unauthorized attempts</div>
                 </div>
               </div>
             </div>
@@ -973,31 +1047,31 @@
           
             <div class="ai-faq-item active">
               <button type="button" class="ai-faq-question">
-                <span>Can you migrate our application from expensive AWS to a cost-effective Linux VPS?</span>
+                <span>Can you manage our existing AWS, GCP, or Azure infrastructure?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. We routinely migrate production architectures from bloated AWS/GCP bills to high-performance dedicated VPS providers (Hetzner, DigitalOcean, Linode) reducing monthly infrastructure overhead by 60% to 80% while increasing raw CPU performance.
+                Yes. While we often help companies optimize costs by moving toward high-performance bare-metal or hybrid setups, we manage and optimize AWS, Google Cloud, and DigitalOcean infrastructure daily.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>How do you handle backups and disaster recovery?</span>
+                <span>How do you guarantee zero downtime during application deployments?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Every server deployment includes automated nightly database dumps encrypted with AES-256 and pushed to geographically separated S3 cold storage vaults. We test disaster recovery restorations regularly to guarantee recovery time objectives (RTO) under 5 minutes.
+                We use blue/green and canary deployment architectures with health-check gateways. New container versions must pass internal health probes before live user traffic is gracefully routed to them.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>Do you provide ongoing DevOps server management?</span>
+                <span>What happens if a server crashes at 2 AM on a Sunday?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. We offer dedicated monthly infrastructure retainers covering operating system security patches, SSL renewal monitoring, firewall rule audits, and 24/7 uptime alerting.
+                Our automated systemd and container supervisor services automatically reboot failed processes within seconds. For catastrophic hardware faults, automated DNS failover reroutes traffic to a secondary standby node while alerting our engineering team.
               </div>
             </div>
           
@@ -1010,10 +1084,10 @@
       <div class="container text-center">
         <div class="service-pill-badge" style="margin-bottom: 14px;"><i class="fa-solid fa-rocket"></i> <span>START YOUR PROJECT</span></div>
         <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); color: #ffffff; margin-bottom: 18px; font-family: var(--font-display);">
-          Ready to Harden Your Cloud Infrastructure?
+          Ready to Modernize Your Cloud Infrastructure?
         </h2>
         <p style="color: #cbd5e1; max-width: 720px; margin: 0 auto 34px auto; font-size: 1.15rem; line-height: 1.65;">
-          Schedule an infrastructure architecture review directly with Lead Systems Architect Pankaj Gupta to evaluate server performance and security.
+          Schedule a comprehensive infrastructure review directly with Lead Systems Architect Pankaj Gupta to eliminate downtime and reduce monthly cloud costs.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="../contact.html?service=cloud" class="btn-magnetic btn-primary" style="padding: 16px 38px; font-size: 1.05rem;">
@@ -1028,12 +1102,12 @@
   </main>
 
     <!-- Footer -->
-  <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
+  <footer class="footer" style="background: #050811; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 70px 0 30px;">
     <div class="container">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
-        <div style="max-width: 380px;">
-          <a href="../" class="nav-brand" style="margin-bottom: 14px;">
-            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        <div>
+          <a href="../" class="nav-brand" style="margin-bottom: 16px; display: inline-flex;">
+            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px;"></div>
             <span>PixelToCloud</span>
           </a>
           <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
@@ -1076,6 +1150,44 @@
 
   <script src="../js/app.js?v=43.0"></script>
   <script src="../js/service-pages.js?v=43.0"></script>
+  
+    <script>
+      const spikeBtn = document.getElementById('spike-btn');
+      const failoverBtn = document.getElementById('failover-btn');
+      const replicasDisplay = document.getElementById('replicas-display');
+      const cpuDisplay = document.getElementById('cpu-display');
+      const healthDisplay = document.getElementById('health-display');
+
+      if (spikeBtn) {
+        spikeBtn.addEventListener('click', () => {
+          cpuDisplay.textContent = '84.2% (Spike!)';
+          cpuDisplay.style.color = '#f59e0b';
+          replicasDisplay.textContent = 'Auto-scaling...';
+          spikeBtn.disabled = true;
+
+          setTimeout(() => {
+            replicasDisplay.textContent = '8 Pods (Scaled)';
+            cpuDisplay.textContent = '38.0% (Stabilized)';
+            cpuDisplay.style.color = '#10b981';
+            spikeBtn.disabled = false;
+          }, 1800);
+        });
+      }
+
+      if (failoverBtn) {
+        failoverBtn.addEventListener('click', () => {
+          healthDisplay.textContent = 'FAILOVER IN PROGRESS...';
+          healthDisplay.style.color = '#f59e0b';
+          failoverBtn.disabled = true;
+
+          setTimeout(() => {
+            healthDisplay.textContent = 'RE-ROUTED TO STANDBY (100%)';
+            healthDisplay.style.color = '#10b981';
+            failoverBtn.disabled = false;
+          }, 1500);
+        });
+      }
+    </script>
   
 </body>
 </html>

@@ -1487,3 +1487,20 @@
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+
+@media (max-width: 768px) {
+  .ai-sub-nav-wrapper,
+  .service-sub-nav-wrapper {
+    margin-top: 68px !important;
+    top: 62px !important;
+    padding: 4px 0 !important;
+  }
+  .ai-sub-nav-container,
+  .service-sub-nav-container {
+    justify-content: flex-start !important;
+    padding: 6px 12px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}

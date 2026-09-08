@@ -33,7 +33,7 @@ function initStickySubNav() {
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
           const subNavHeight = subNav.offsetHeight || 60;
-          const targetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - (subNavHeight + 80);
+          const targetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - (subNavHeight + 74);
           window.scrollTo({ top: targetTop, behavior: 'smooth' });
         }
       }

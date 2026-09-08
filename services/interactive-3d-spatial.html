@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hardware-accelerated 60 FPS WebGL 3D graphics, interactive product configurators, and spatial digital twins by PixelToCloud.">
-  <meta name="keywords" content="Three.js, WebGL, 3D Product Configurator, Spatial Web, GLSL Shaders, PixelToCloud">
-  <meta name="theme-color" content="#080b11">
+  <title>Interactive 2D/3D WebGL & Spatial Systems | PixelToCloud Solutions</title>
+  <meta name="description" content="Hardware-accelerated 60 FPS 3D web applications, WebGL visualizers, and interactive spatial digital twins engineered by PixelToCloud.">
+  <meta name="keywords" content="Three.js, WebGL, WebGPU, 3D Web, Interactive Graphics, Digital Twin, PixelToCloud">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pixeltocloud.com/services/interactive-3d-spatial.html">
-  <title>Interactive 3D & Spatial Web Graphics | PixelToCloud</title>
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pixeltocloud.com/services/interactive-3d-spatial.html">
+  <meta property="og:title" content="Interactive 2D/3D WebGL & Spatial Systems | PixelToCloud Solutions">
+  <meta property="og:description" content="Hardware-accelerated 60 FPS 3D web applications, WebGL visualizers, and interactive spatial digital twins engineered by PixelToCloud.">
+  <meta property="og:image" content="https://pixeltocloud.com/image/pankaj-profile.jpg">
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="icon" type="image/svg+xml" href="../logo-icon.svg">
 
+  <!-- Global Styles -->
   <link rel="stylesheet" href="../css/main.css?v=43.0">
-  <link rel="stylesheet" href="../css/animations.css?v=43.0">
   <link rel="stylesheet" href="../css/components.css?v=43.0">
-  <link rel="stylesheet" href="../css/light-theme.css?v=43.0">
   <link rel="stylesheet" href="../css/mobile-responsive.css?v=43.0">
 
   
@@ -32,23 +39,25 @@
     }
     .service-sub-nav-wrapper {
       position: sticky;
-      top: 72px;
-      z-index: 40;
-      background: rgba(7, 10, 18, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      top: 70px;
+      z-index: 900;
+      margin-top: 76px;
+      background: rgba(7, 10, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 4px 0;
       transition: all 0.3s ease;
     }
     .service-sub-nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 10px 0;
-      gap: 16px;
+      padding: 6px 0;
+      gap: 12px;
     }
     .service-sub-nav-container::-webkit-scrollbar { display: none; }
     .sub-nav-links {
@@ -230,71 +239,80 @@
     .arch-layers-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
     .arch-layer-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 18px 22px;
       cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: all 0.25s ease;
     }
     .arch-layer-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--srv-accent);
+      background: rgba(56, 189, 248, 0.06);
+      border-color: rgba(56, 189, 248, 0.3);
     }
     .arch-layer-card.active {
       background: rgba(56, 189, 248, 0.12);
       border-color: var(--srv-accent);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
     }
     .layer-card-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .layer-number {
       font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.15);
+      background: rgba(56, 189, 248, 0.1);
       padding: 4px 8px;
       border-radius: 6px;
     }
     .layer-name {
+      font-size: 1.05rem;
       font-weight: 700;
       color: #ffffff;
-      font-size: 0.95rem;
     }
     .arch-inspector-box {
-      background: #05070e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 26px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .visual-diagram-box {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
     .use-case-nav {
       display: flex;
       gap: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 14px;
-      margin-bottom: 28px;
       overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 16px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+    .use-case-nav::-webkit-scrollbar { display: none; }
     .use-case-tab-btn {
-      background: transparent;
-      border: none;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      font-size: 0.95rem;
-      font-weight: 600;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
@@ -304,25 +322,28 @@
     }
     .use-case-tab-btn:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(56, 189, 248, 0.4);
     }
     .use-case-tab-btn.active {
-      color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--srv-accent);
+      color: #ffffff;
     }
     .use-case-panel {
       display: none;
-      animation: fadeIn 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 34px;
+      animation: fadeIn 0.3s ease forwards;
     }
-    .use-case-panel.active {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
+    .use-case-panel.active { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; }
     @media (max-width: 991px) {
       .use-case-panel.active { grid-template-columns: 1fr; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .ai-faq-list {
       display: flex;
@@ -334,59 +355,49 @@
     .ai-faq-item {
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.2s ease;
+      transition: border-color 0.25s ease;
     }
     .ai-faq-item.active {
       border-color: var(--srv-accent);
-      background: rgba(15, 23, 42, 0.85);
     }
     .ai-faq-question {
       width: 100%;
-      background: transparent;
-      border: none;
-      padding: 18px 22px;
+      padding: 20px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #f8fafc;
-      font-size: 1rem;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.05rem;
       font-weight: 600;
-      text-align: left;
       cursor: pointer;
+      text-align: left;
     }
     .ai-faq-question i {
-      color: var(--srv-accent);
       transition: transform 0.25s ease;
+      color: var(--srv-accent);
     }
     .ai-faq-item.active .ai-faq-question i {
       transform: rotate(180deg);
     }
     .ai-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0 22px;
-      color: #94a3b8;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      display: none;
+      padding: 0 24px 22px 24px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
     .ai-faq-item.active .ai-faq-answer {
-      max-height: 300px;
-      padding-bottom: 20px;
-    }
-    .visual-diagram-box {
-      background: #060913;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      display: block;
     }
   </style>
+
   <style>
     :root {
-      --srv-accent: #ec4899;
+      --srv-accent: #a855f7;
     }
   </style>
 </head>
@@ -493,7 +504,7 @@
     </div>
   </aside>
 
-  <!-- Sticky Sub-Nav -->
+  <!-- Sticky Sub-Nav (Aligned cleanly below floating navbar) -->
   <nav class="service-sub-nav-wrapper" id="service-sub-nav" aria-label="Interactive 2D/3D & Spatial Sub-Navigation">
     <div class="container service-sub-nav-container">
       <ul class="sub-nav-links">
@@ -505,17 +516,12 @@
         <li><a href="#use-cases" class="sub-nav-link"><i class="fa-solid fa-briefcase"></i>Use Cases</a></li>
         <li><a href="#tech-specs" class="sub-nav-link"><i class="fa-solid fa-sliders"></i>Specs &amp; FAQ</a></li>
       </ul>
-      <div class="sub-nav-cta">
-        <a href="../contact.html?service=spatial" class="btn-magnetic btn-primary" style="padding: 6px 18px; font-size: 0.82rem;">
-          <span>Request Architecture Call</span>
-        </a>
-      </div>
     </div>
   </nav>
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="section" style="padding-top: 50px; padding-bottom: 40px;">
+    <!-- Hero Section (Clean Top Padding) -->
+    <section class="section" style="padding-top: 36px; padding-bottom: 40px;">
       <div class="container">
         <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <a href="../" style="color: var(--text-muted); text-decoration: none;">Home</a>
@@ -527,39 +533,39 @@
 
         <div class="service-pill-badge">
           <i class="fa-solid fa-cube"></i>
-          <span>HARDWARE-ACCELERATED 3D & SPATIAL SYSTEMS</span>
+          <span>HARDWARE-ACCELERATED WEBGL & 3D</span>
         </div>
 
         <h1 class="hero-title" style="font-size: clamp(2.5rem, 5.2vw, 4.4rem); margin-bottom: 24px; line-height: 1.12; font-family: var(--font-display);">
           Interactive 3D & Spatial Graphics.<br>
-          <span style="background: linear-gradient(135deg, #ec4899 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hardware-Accelerated. Photorealistic. Unstoppable.</span>
+          <span style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hardware Accelerated. 60 FPS.</span>
         </h1>
 
         <p class="hero-subtitle" style="max-width: 860px; font-size: 1.18rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 38px;">
-          High-fidelity 60 FPS WebGL 3D graphics, interactive product configurators, and spatial digital twins built directly in the browser with zero heavy app downloads.
+          We engineer interactive Three.js 3D web experiences, digital product configurators, architectural walkthroughs, and spatial simulations that run natively inside standard web browsers without downloads.
         </p>
 
         <!-- Metric Strip -->
         <div class="cs-metric-strip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 40px;">
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #ec4899; font-family: var(--font-display);">60 FPS</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Smooth Hardware-Accelerated Rendering</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #a855f7; font-family: var(--font-display);">60 FPS</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Silky Smooth Frame Rate</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">< 2.5MB</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Draco-Compressed Asset Payloads</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">< 3.5MB</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Ultra-Compressed GLTF Meshes</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
               <div style="font-size: 2.2rem; font-weight: 800; color: #10b981; font-family: var(--font-display);">100%</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Mobile Touch & Orbit Compatible</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Cross-Device WebGL Support</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Full IP</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">100% Shaders & 3D Asset Ownership</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">WebGPU</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Next-Gen Compute Ready</div>
             </div>
           
         </div>
@@ -583,23 +589,23 @@
             <div style="max-width: 780px;">
               <div class="service-pill-badge" style="margin-bottom: 14px;"><i class="fa-solid fa-circle-nodes"></i> <span>OVERVIEW</span></div>
               <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">
-                Bringing Spatial Experiences Directly to Web Browsers
+                Interactive Spatial Computing on the Open Web
               </h2>
               <p style="color: #cbd5e1; font-size: 1.08rem; line-height: 1.7; margin-bottom: 24px;">
-                Modern consumers and enterprise buyers expect interactive visual engagement before committing to high-value decisions. We engineer hardware-accelerated 3D WebGL configurators and spatial environments that load instantly on any mobile phone or desktop.
+                Most interactive 3D web apps suffer from agonizing load times, stuttering frame drops, and poor battery optimization on mobile devices. PixelToCloud architects lightweight 3D graphic pipelines using custom Draco mesh compression, PBR shaders, and instanced draw-call batching.
               </p>
               <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.65; margin: 0;">
-                Using custom GLSL shaders, procedural lighting, and Draco/KTX2 texture compression, our 3D scenes achieve photorealistic fidelity at a fraction of traditional polygon payload sizes.
+                Whether you need a real-time 3D product customizer, an industrial digital twin monitoring live factory IoT telemetry, or a physics-based educational sandbox, we ensure instantaneous loading and fluid user engagement.
               </p>
             </div>
             <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 22px; min-width: 240px;">
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #64748b; text-transform: uppercase;">ENGINEERING BENCHMARK</div>
               <div style="display: flex; align-items: center; gap: 8px; margin: 10px 0;">
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--srv-accent); box-shadow: 0 0 10px var(--srv-accent);"></span>
-                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">WebGL 2.0 Viewport Active</span>
+                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">WebGL 2.0 Engine Active</span>
               </div>
               <div style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6;">
-                Render Loop: <strong>60.0 FPS Locked</strong><br>Compression: <strong>Draco Geometry (70% reduction)</strong><br>Textures: <strong>KTX2 / Basis Universal</strong><br>Hardware: <strong>GPU Accelerated</strong>
+                Render Target: <strong>60 FPS Native</strong><br>Compression: <strong>Draco / KTX2 Textures</strong><br>Fallback: <strong>Dynamic Canvas 2D</strong><br>GPU Memory: <strong>< 120MB VRAM</strong>
               </div>
             </div>
           </div>
@@ -612,8 +618,8 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-cubes"></i> <span>CORE CAPABILITIES</span></div>
-          <h2 class="section-title">Key Platform Features</h2>
-          <p class="section-desc">Engineered for robust performance and operational reliability.</p>
+          <h2 class="section-title">Key Engineering Features</h2>
+          <p class="section-desc">Architected for enterprise resilience, scale, and maintainability.</p>
         </div>
 
         <div class="service-features-grid">
@@ -621,78 +627,78 @@
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
+                  <div class="feature-card-icon"><i class="fa-solid fa-cube"></i></div>
+                  <h3 class="feature-card-title">Real-Time 3D Product Configurator</h3>
+                </div>
+                <p class="feature-card-desc">Interactive 360-degree rotation, procedural material swapping, and instant dimension measurements directly in browser.</p>
+              </div>
+              <div class="feature-card-tags">
+                <span class="feature-tag-chip">Three.js</span><span class="feature-tag-chip">Draco Mesh</span><span class="feature-tag-chip">PBR Materials</span>
+              </div>
+            </div>
+          
+            <div class="service-feature-card">
+              <div>
+                <div class="feature-card-header">
+                  <div class="feature-card-icon"><i class="fa-solid fa-microchip"></i></div>
+                  <h3 class="feature-card-title">Industrial Digital Twin Systems</h3>
+                </div>
+                <p class="feature-card-desc">Map live temperature, pressure, and vibration telemetry onto 3D factory equipment models in real time.</p>
+              </div>
+              <div class="feature-card-tags">
+                <span class="feature-tag-chip">IoT Streams</span><span class="feature-tag-chip">WebSockets</span><span class="feature-tag-chip">Instanced Mesh</span>
+              </div>
+            </div>
+          
+            <div class="service-feature-card">
+              <div>
+                <div class="feature-card-header">
                   <div class="feature-card-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
-                  <h3 class="feature-card-title">60 FPS WebGL & Three.js Runtimes</h3>
+                  <h3 class="feature-card-title">WebXR Spatial Experiences</h3>
                 </div>
-                <p class="feature-card-desc">Hardware-accelerated 3D viewports utilizing Three.js and WebGL 2.0 with custom render loops and occlusion culling.</p>
+                <p class="feature-card-desc">Immersive virtual reality and augmented reality walkthroughs accessible directly through Meta Quest and mobile browsers.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Three.js</span><span class="feature-tag-chip">WebGL 2.0</span><span class="feature-tag-chip">60 FPS</span>
+                <span class="feature-tag-chip">WebXR</span><span class="feature-tag-chip">AR QuickLook</span><span class="feature-tag-chip">Zero Plugins</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                  <h3 class="feature-card-title">Custom GLSL Shaders & PBR Materials</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-atom"></i></div>
+                  <h3 class="feature-card-title">Physics & Particle Simulations</h3>
                 </div>
-                <p class="feature-card-desc">Bespoke GLSL vertex and fragment shaders for photorealistic metals, glass refraction, liquid dynamics, and holographic glows.</p>
+                <p class="feature-card-desc">Hardware-accelerated compute shaders rendering fluid dynamics, collision physics, and kinetic particle clouds.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">GLSL Shaders</span><span class="feature-tag-chip">PBR Materials</span><span class="feature-tag-chip">Dynamic Light</span>
+                <span class="feature-tag-chip">Rapier.js</span><span class="feature-tag-chip">Compute Shaders</span><span class="feature-tag-chip">Particle FX</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-sliders"></i></div>
-                  <h3 class="feature-card-title">Real-Time Product Configurators</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                  <h3 class="feature-card-title">Automated 3D Asset Optimization</h3>
                 </div>
-                <p class="feature-card-desc">Interactive 360-degree product customizers allowing buyers to swap materials, colors, and components in real-time.</p>
+                <p class="feature-card-desc">Automated CI/CD optimization pipelines converting high-poly CAD/Blender models into lightweight web-ready GLTF files.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Product Configurator</span><span class="feature-tag-chip">Instant Swaps</span><span class="feature-tag-chip">Cart Sync</span>
+                <span class="feature-tag-chip">GLTF 2.0</span><span class="feature-tag-chip">KTX2</span><span class="feature-tag-chip">DRACO Batching</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-city"></i></div>
-                  <h3 class="feature-card-title">Architectural Digital Twins</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                  <h3 class="feature-card-title">Universal Mobile GPU Adaptation</h3>
                 </div>
-                <p class="feature-card-desc">Bespoke spatial digital twins for real estate campuses, manufacturing plants, and IoT telemetry overlays.</p>
+                <p class="feature-card-desc">Dynamic level-of-detail (LOD) and shader degradation algorithms maintaining 60 FPS on mid-range Android devices.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Digital Twins</span><span class="feature-tag-chip">IoT Overlays</span><span class="feature-tag-chip">Spatial CAD</span>
-              </div>
-            </div>
-          
-            <div class="service-feature-card">
-              <div>
-                <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-file-zipper"></i></div>
-                  <h3 class="feature-card-title">Draco & KTX2 Asset Compression</h3>
-                </div>
-                <p class="feature-card-desc">Reduce 50MB CAD models down to under 2MB web-friendly GLTF packages using Draco geometry compression.</p>
-              </div>
-              <div class="feature-card-tags">
-                <span class="feature-tag-chip">Draco Compression</span><span class="feature-tag-chip">KTX2 Textures</span><span class="feature-tag-chip">Sub-2MB Assets</span>
-              </div>
-            </div>
-          
-            <div class="service-feature-card">
-              <div>
-                <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-hand-pointer"></i></div>
-                  <h3 class="feature-card-title">Cross-Device Touch & Orbit Controls</h3>
-                </div>
-                <p class="feature-card-desc">Intuitive pinch-to-zoom, two-finger pan, and gyroscope orientation controls optimized for iOS and Android browsers.</p>
-              </div>
-              <div class="feature-card-tags">
-                <span class="feature-tag-chip">Touch Orbit</span><span class="feature-tag-chip">Gyroscope Controls</span><span class="feature-tag-chip">Zero Lag</span>
+                <span class="feature-tag-chip">Dynamic LOD</span><span class="feature-tag-chip">Mobile 60FPS</span><span class="feature-tag-chip">Touch Gestures</span>
               </div>
             </div>
           
@@ -705,34 +711,34 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-lock"></i> <span>STRATEGIC ADVANTAGE</span></div>
-          <h2 class="section-title">Why Invest in Interactive 3D Web?</h2>
-          <p class="section-desc">How spatial interactive graphics drive conversion and premium brand authority.</p>
+          <h2 class="section-title">Why Choose PixelToCloud for Spatial Experiences</h2>
+          <p class="section-desc">Silky smooth 60 FPS graphics with sub-3 second initial load times.</p>
         </div>
 
         <div class="why-cards-grid">
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-              <h3 class="why-card-title">40%+ Higher Conversion Rates</h3>
-              <p class="why-card-desc">Interactive 3D configurators dramatically increase buyer confidence, reducing cart abandonment and return rates.</p>
-            </div>
-          
-            <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-              <h3 class="why-card-title">Zero App Store Friction</h3>
-              <p class="why-card-desc">Runs natively in Chrome, Safari, and Edge. No 500MB app store downloads required for your customers.</p>
-            </div>
-          
-            <div class="why-service-card">
               <div class="why-card-icon"><i class="fa-solid fa-gauge-high"></i></div>
-              <h3 class="why-card-title">Instant Sub-2s Load Times</h3>
-              <p class="why-card-desc">Advanced texture streaming ensures users interact with 3D scenes in seconds even on 4G cellular networks.</p>
+              <h3 class="why-card-title">Sub-3 Second Asset Delivery</h3>
+              <p class="why-card-desc">We utilize Draco geometry compression and basis-universal KTX2 texture encoding to shrink massive 100MB 3D models down to lightweight 3MB bundles.</p>
             </div>
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-palette"></i></div>
-              <h3 class="why-card-title">Complete Asset Ownership</h3>
-              <p class="why-card-desc">Receive all optimized GLTF assets, custom GLSL shader code, and lighting configurations with zero lock-in.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-battery-half"></i></div>
+              <h3 class="why-card-title">Battery-Conscious Shaders</h3>
+              <p class="why-card-desc">We pause animation loops when the canvas is off-screen and optimize fragment shaders to prevent laptop fans spinning and phone batteries draining.</p>
+            </div>
+          
+            <div class="why-service-card">
+              <div class="why-card-icon"><i class="fa-solid fa-display"></i></div>
+              <h3 class="why-card-title">Seamless Web Integration</h3>
+              <p class="why-card-desc">Our 3D canvases seamlessly integrate into your existing React, Vue, or HTML layout without iframe clunkiness or layout shifts.</p>
+            </div>
+          
+            <div class="why-service-card">
+              <div class="why-card-icon"><i class="fa-solid fa-code-branch"></i></div>
+              <h3 class="why-card-title">100% Code & Asset Ownership</h3>
+              <p class="why-card-desc">You receive all GLTF models, Three.js shaders, lighting presets, and web source code with zero recurring engine royalties.</p>
             </div>
           
         </div>
@@ -751,45 +757,45 @@
         <div class="arch-stack-container">
           <div class="arch-layers-list">
             
-              <div class="arch-layer-card active" data-title="Layer 01 — WebGL 2.0 Hardware Canvas" data-desc="Direct GPU binding with depth buffer allocation, stencil masks, and hardware anti-aliasing." data-tech="WebGL 2.0, Canvas API, GPU Pipeline" data-metrics="60 FPS | Hardware VSync Locked">
+              <div class="arch-layer-card active" data-title="Layer 1: Viewport & User Gesture Mesh" data-desc="Responsive WebGL canvas mounting into DOM containers with multi-touch gestures, orbit controls, pinch-to-zoom, and accessibility fallbacks." data-tech="HTML5 Canvas, OrbitControls, Gesture Handler, ResizeObserver" data-metrics="Render Latency: 16.6ms (60 FPS) | Touch Response: < 8ms">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 01</span>
                   <div>
-                    <div class="layer-name">WebGL 2.0 Canvas Context</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">GPU Hardware Binding</div>
+                    <div class="layer-name">Canvas & DOM Presentation</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">HTML5 Canvas, React Three Fiber, Touch Mesh</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: var(--srv-accent); font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 02 — Three.js Scene Graph Engine" data-desc="Hierarchical node tree managing geometry meshes, perspective cameras, and smooth damping orbit controls." data-tech="Three.js, OrbitControls, Damping State" data-metrics="Sub-5ms Frame Compute | Zero Jitter">
+              <div class="arch-layer-card " data-title="Layer 2: Scene Graph & Illumination Engine" data-desc="Manages scene trees, perspective cameras, directional soft shadows, HDR environment reflections, and post-processing bloom passes." data-tech="Three.js, WebGL 2.0, ACESFilmic Tone Mapping, PBR Shaders" data-metrics="Draw Calls: < 40 batched | Shader Compile: < 80ms">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 02</span>
                   <div>
-                    <div class="layer-name">Three.js Scene Graph</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Mesh Hierarchy & Camera Controls</div>
+                    <div class="layer-name">3D Scene Graph & Lighting</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Three.js / WebGPU, HDR Environments, Cameras</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 03 — Custom GLSL Shader Pipeline" data-desc="Physically based rendering (PBR) shaders calculating roughness, metalness, and environment map reflections." data-tech="GLSL, Fragment Shaders, Environment Maps" data-metrics="Photorealistic Surface Sheen | PBR Standards">
+              <div class="arch-layer-card " data-title="Layer 3: Optimized Asset Streaming Pipeline" data-desc="Streams compressed binary buffers asynchronously, unpacking 3D vertices via Web Workers so the UI main thread never stutters." data-tech="DRACOLoader, KTX2Loader, WebAssembly (Wasm) Unpacker" data-metrics="Compression Ratio: 85% reduction | Memory Footprint: < 90MB">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 03</span>
                   <div>
-                    <div class="layer-name">Custom GLSL PBR Shaders</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Real-Time Lighting & Reflections</div>
+                    <div class="layer-name">Asset Streaming & Geometry</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Draco Compression, KTX2 Textures, LOD Mesh</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 04 — Draco Asset Compression" data-desc="Asynchronous streaming loader decompressing quantized geometry and Basis Universal textures on web workers." data-tech="Draco Decompressor, KTX2 Loader, Web Workers" data-metrics="75% Payload Reduction | Instant Mobile Parse">
+              <div class="arch-layer-card " data-title="Layer 4: Real-Time Compute & Simulation Bus" data-desc="Rigid body physics collision engine and WebSocket telemetry bridge animating digital twins based on live sensor packets." data-tech="Rapier.js (Rust Wasm), WebSocket Client, State Store" data-metrics="Physics Step: 60Hz deterministic | Sensor Lag: < 25ms">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 04</span>
                   <div>
-                    <div class="layer-name">Asset Streaming & Draco Loader</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Sub-2MB Payload Pipeline</div>
+                    <div class="layer-name">Physics & Telemetry Bus</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Rapier Physics, WebSockets, Sensor Data</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
@@ -803,19 +809,19 @@
                 <i class="fa-solid fa-microchip" style="margin-right: 6px;"></i>INSPECTED TOPOLOGY SPECIFICATION
               </div>
               <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 12px; font-family: var(--font-display);" id="layer-inspector-title">
-                Layer 01 — WebGL 2.0 Hardware Canvas
+                Layer 1: Viewport & User Gesture Mesh
               </h3>
               <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;" id="layer-inspector-desc">
-                Direct GPU binding with depth buffer allocation, stencil masks, and hardware anti-aliasing.
+                Responsive WebGL canvas mounting into DOM containers with multi-touch gestures, orbit controls, pinch-to-zoom, and accessibility fallbacks.
               </p>
               <div style="font-size: 0.8rem; font-family: var(--font-mono); color: #94a3b8; margin-bottom: 10px; text-transform: uppercase;">Engineered Components:</div>
               <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;" id="layer-inspector-tech">
-                <span class="bento-tech-chip">WebGL 2.0</span> <span class="bento-tech-chip">Canvas API</span> <span class="bento-tech-chip">GPU Pipeline</span>
+                <span class="bento-tech-chip">HTML5 Canvas</span> <span class="bento-tech-chip">OrbitControls</span> <span class="bento-tech-chip">Gesture Handler</span> <span class="bento-tech-chip">ResizeObserver</span>
               </div>
             </div>
             <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 14px; font-size: 0.85rem; color: #f8fafc;">
               <i class="fa-solid fa-gauge-high" style="color: var(--srv-accent); margin-right: 8px;"></i>
-              <span id="layer-inspector-metrics">60 FPS | Hardware VSync Locked</span>
+              <span id="layer-inspector-metrics">Render Latency: 16.6ms (60 FPS) | Touch Response: < 8ms</span>
             </div>
           </div>
         </div>
@@ -827,22 +833,38 @@
       <div class="container">
         <div class="section-header text-center reveal" style="margin-bottom: 36px;">
           <div class="service-pill-badge"><i class="fa-solid fa-desktop"></i> <span>INTERACTIVE DEMONSTRATION</span></div>
-          <h2 class="section-title">Live 3D WebGL Orbit Canvas Viewport</h2>
-          <p class="section-desc">Interact with real-time 3D geometry rendered at 60 FPS. Rotate, switch shapes, and toggle wireframe shaders.</p>
+          <h2 class="section-title">Interactive 3D Geometry & Material Controller</h2>
+          <p class="section-desc">Inspect live 3D shader parameters, wireframe topologies, and particle densities in real time.</p>
         </div>
 
         <div class="visual-diagram-box">
           
-    <div style="position: relative; width: 100%; height: 380px; background: #050811; border-radius: 12px; overflow: hidden;">
-      <canvas id="spatial-canvas" style="width: 100%; height: 100%; display: block; cursor: grab;"></canvas>
-      <div style="position: absolute; bottom: 16px; left: 16px; display: flex; gap: 8px; flex-wrap: wrap; z-index: 10;">
-        <button type="button" id="shape-torus-btn" class="btn-magnetic btn-primary" style="padding: 6px 14px; font-size: 0.78rem;">Torus Knot</button>
-        <button type="button" id="shape-cube-btn" class="btn-magnetic btn-secondary" style="padding: 6px 14px; font-size: 0.78rem;">Cyber Cube</button>
-        <button type="button" id="shape-sphere-btn" class="btn-magnetic btn-secondary" style="padding: 6px 14px; font-size: 0.78rem;">Sphere Core</button>
-        <button type="button" id="toggle-wireframe-btn" class="btn-magnetic btn-secondary" style="padding: 6px 14px; font-size: 0.78rem;">Toggle Wireframe</button>
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center;">
+      <div style="background: #050811; border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 14px; height: 320px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;" id="canvas-container">
+        <canvas id="spatial-demo-canvas" style="width: 100%; height: 100%;"></canvas>
+        <div style="position: absolute; top: 12px; left: 14px; font-family: var(--font-mono); font-size: 0.72rem; color: #a855f7; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px;">
+          RENDERER: CANVAS 2D/WEBGL SIMULATOR
+        </div>
       </div>
-      <div style="position: absolute; top: 16px; right: 16px; font-family: var(--font-mono); font-size: 0.75rem; color: #ec4899; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(236, 72, 153, 0.3);">
-        FPS: 60.0 | GLSL PBR
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #a855f7; margin-bottom: 8px;">LIVE SHADER CONTROLS</div>
+        <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 16px;">Tweak Mesh Topology</h4>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.82rem; color: #94a3b8; margin-bottom: 6px;">Rotation Speed:</label>
+          <input type="range" id="spatial-speed" min="1" max="10" value="3" style="width: 100%; accent-color: #a855f7;">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.82rem; color: #94a3b8; margin-bottom: 6px;">Particle Count:</label>
+          <input type="range" id="spatial-particles" min="20" max="200" value="80" style="width: 100%; accent-color: #a855f7;">
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button type="button" id="spatial-color-cyan" class="btn-magnetic btn-primary" style="flex: 1; padding: 8px; font-size: 0.78rem;">Cyan Glow</button>
+          <button type="button" id="spatial-color-purple" class="btn-magnetic btn-secondary" style="flex: 1; padding: 8px; font-size: 0.78rem;">Purple Aura</button>
+        </div>
       </div>
     </div>
   
@@ -861,88 +883,139 @@
 
         <div class="use-case-nav">
           
-            <button type="button" class="use-case-tab-btn active" data-case="product">
-              <i class="fa-solid fa-glasses"></i> Product Configurators
+            <button type="button" class="use-case-tab-btn active" data-case="arch">
+              <i class="fa-solid fa-building"></i> Real Estate & Architecture
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="industrial">
-              <i class="fa-solid fa-gear"></i> Industrial Machinery
+            <button type="button" class="use-case-tab-btn " data-case="auto">
+              <i class="fa-solid fa-car"></i> Automotive & Machinery
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="arch">
-              <i class="fa-solid fa-building"></i> Architecture & Real Estate
+            <button type="button" class="use-case-tab-btn " data-case="gaming">
+              <i class="fa-solid fa-gamepad"></i> Brand Experiences & Web3
             </button>
           
         </div>
 
         
-          <div class="use-case-panel active" id="case-panel-product">
+          <div class="use-case-panel active" id="case-panel-arch">
             <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">COMMERCIAL E-COMMERCE</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">360° Customizers for Luxury & Tech Goods</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Empower customers to personalize finishes, engrave text, and inspect microscopic detail with photorealistic lighting.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Dynamic material swapping with sub-frame texture updates</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Direct integration with Shopify, WooCommerce, and custom checkout flows</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Automated high-resolution image rendering for order receipts</li>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                SPATIAL PROPERTY WALKTHROUGHS
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Interactive 3D Architectural Walkthroughs</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Allow prospective buyers to explore 3D apartment floorplans, customize interior finishes, and inspect sunlight exposure at different times of day.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Photorealistic physically based rendering (PBR)</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Day / night sunlight simulation based on geo-coordinates</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Interactive material swatches for flooring and cabinets</span>
+                  </li>
+                
               </ul>
             </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
                   <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">3.8x</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Longer time-on-page</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Longer user engagement</div>
                 </div>
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">44%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Decrease in return rates</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="use-case-panel " id="case-panel-industrial">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">INDUSTRIAL DIGITAL TWINS</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Heavy Equipment & Aerospace Visualizers</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Exploded-view component inspections, maintenance training simulations, and operational telemetry overlays.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Exploded-part animation rigs with interactive hotspot callouts</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Live sensor telemetry mapped directly to 3D gauge meshes</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Offline-capable progressive web apps for factory floor tablets</li>
-              </ul>
-            </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">100%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Touch tablet compatible</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">< 2.5MB</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Complete model payload</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">< 2.8s</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Model initial load time</div>
                 </div>
               </div>
             </div>
           </div>
         
-          <div class="use-case-panel " id="case-panel-arch">
+          <div class="use-case-panel " id="case-panel-auto">
             <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">SPATIAL DIGITAL TWINS</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Virtual Campus & Luxury Property Walkthroughs</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Interactive 3D masterplans, sunlight angle simulations, and spatial unit visualizers for premier real estate developers.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Day/night sunlight angle simulation with shadow casting</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Floor-plan to 3D unit transition animations</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Interactive floor-selector with real-time availability status</li>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                PRODUCT CONFIGURATORS
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">360° Industrial Machinery Configurator</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Interactive visual inspection of industrial equipment with exploded engineering views, component specifications, and custom colorways.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Animated exploded component assembly views</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Integrated spec sheets and quotation requests</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>High-res screenshot export for engineering teams</span>
+                  </li>
+                
               </ul>
             </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">60 FPS</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Mobile walkthrough speed</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">42%</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Inquiry conversion uplift</div>
                 </div>
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">85%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Higher qualified lead rate</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">60 FPS</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Smooth touch rotation</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="use-case-panel " id="case-panel-gaming">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                IMMERSIVE MICROSITES
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Gamified Brand Experiences & WebGL Worlds</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Memorable marketing microsites with physics-driven spatial mini-games, dynamic audio synthesis, and interactive particle animations.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Custom WebGL compute particle systems</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>3D spatial audio based on listener camera orientation</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Zero-lag touch gestures optimized for iPhone & Android</span>
+                  </li>
+                
+              </ul>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">85%+</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Full walkthrough completion</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">0 Drops</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Zero frame stuttering</div>
                 </div>
               </div>
             </div>
@@ -964,31 +1037,31 @@
           
             <div class="ai-faq-item active">
               <button type="button" class="ai-faq-question">
-                <span>Will 3D WebGL scenes work smoothly on budget mobile smartphones?</span>
+                <span>Will 3D experiences slow down our company website?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. We apply level-of-detail (LOD) mesh decimation and dynamic pixel ratio scaling. If a user visits on a lower-powered device, the engine automatically adjusts shadow passes to lock performance at 60 FPS.
+                No. We load 3D assets asynchronously only when the user scrolls near the canvas viewport. The initial page load remains blazing fast with perfect Core Web Vitals scores.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>Can we integrate custom 3D configurators with our existing shopping cart?</span>
+                <span>Do visitors need to install any app or plugin to view 3D models?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. Our 3D viewports emit standardized JavaScript state events on every customer modification, seamlessly passing configuration IDs and pricing parameters to your cart and checkout backend.
+                None whatsoever. Everything runs natively inside Safari, Chrome, Edge, and Firefox using standard browser WebGL hardware acceleration.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>What 3D file formats do you work with?</span>
+                <span>Can you work with existing CAD, OBJ, or Blender models?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                We accept standard CAD files (STEP, IGES, SolidWorks) and 3D packages (Blender, Maya, FBX, OBJ). We optimize and convert all assets into web-optimized GLB/GLTF containers with Draco geometry compression.
+                Yes. We accept CAD models (STEP, IGES), Blender files, FBX, and OBJ files. Our technical artists clean topologies, optimize polygon counts, and bake textures into web-ready GLTF files.
               </div>
             </div>
           
@@ -1001,10 +1074,10 @@
       <div class="container text-center">
         <div class="service-pill-badge" style="margin-bottom: 14px;"><i class="fa-solid fa-rocket"></i> <span>START YOUR PROJECT</span></div>
         <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); color: #ffffff; margin-bottom: 18px; font-family: var(--font-display);">
-          Ready to Bring Spatial 3D to Your Platform?
+          Ready to Bring Your Products into 3D Space?
         </h2>
         <p style="color: #cbd5e1; max-width: 720px; margin: 0 auto 34px auto; font-size: 1.15rem; line-height: 1.65;">
-          Discuss your 3D product visualizer or digital twin requirements with Senior Systems Architect Pankaj Gupta for an interactive prototype roadmap.
+          Schedule an interactive technical consultation with Senior Systems Architect Pankaj Gupta to evaluate your 3D assets and build a working prototype.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="../contact.html?service=spatial" class="btn-magnetic btn-primary" style="padding: 16px 38px; font-size: 1.05rem;">
@@ -1019,12 +1092,12 @@
   </main>
 
     <!-- Footer -->
-  <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
+  <footer class="footer" style="background: #050811; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 70px 0 30px;">
     <div class="container">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
-        <div style="max-width: 380px;">
-          <a href="../" class="nav-brand" style="margin-bottom: 14px;">
-            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        <div>
+          <a href="../" class="nav-brand" style="margin-bottom: 16px; display: inline-flex;">
+            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px;"></div>
             <span>PixelToCloud</span>
           </a>
           <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
@@ -1068,103 +1141,83 @@
   <script src="../js/app.js?v=43.0"></script>
   <script src="../js/service-pages.js?v=43.0"></script>
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-      // Live Three.js 3D Viewport
-      const canvas = document.getElementById('spatial-canvas');
-      if (canvas && typeof THREE !== 'undefined') {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(45, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-        camera.position.z = 4.5;
-
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const light1 = new THREE.DirectionalLight(0x38bdf8, 1.5);
-        light1.position.set(2, 4, 3);
-        scene.add(light1);
-
-        const light2 = new THREE.DirectionalLight(0xec4899, 1.8);
-        light2.position.set(-2, -3, -2);
-        scene.add(light2);
-
-        scene.add(new THREE.AmbientLight(0x1e293b, 1));
-
-        let currentMesh;
-        let isWireframe = false;
-
-        function setMesh(geometry) {
-          if (currentMesh) scene.remove(currentMesh);
-          const material = new THREE.MeshStandardMaterial({
-            color: 0xec4899,
-            metalness: 0.7,
-            roughness: 0.2,
-            wireframe: isWireframe
-          });
-          currentMesh = new THREE.Mesh(geometry, material);
-          scene.add(currentMesh);
-        }
-
-        setMesh(new THREE.TorusKnotGeometry(1, 0.35, 100, 16));
-
-        document.getElementById('shape-torus-btn')?.addEventListener('click', () => {
-          setMesh(new THREE.TorusKnotGeometry(1, 0.35, 100, 16));
-        });
-        document.getElementById('shape-cube-btn')?.addEventListener('click', () => {
-          setMesh(new THREE.BoxGeometry(1.6, 1.6, 1.6));
-        });
-        document.getElementById('shape-sphere-btn')?.addEventListener('click', () => {
-          setMesh(new THREE.SphereGeometry(1.3, 32, 32));
-        });
-        document.getElementById('toggle-wireframe-btn')?.addEventListener('click', () => {
-          isWireframe = !isWireframe;
-          if (currentMesh) currentMesh.material.wireframe = isWireframe;
-        });
-
-        // Mouse Drag Orbit
-        let isDragging = false;
-        let prevMousePos = { x: 0, y: 0 };
-
-        canvas.addEventListener('mousedown', (e) => {
-          isDragging = true;
-          prevMousePos = { x: e.clientX, y: e.clientY };
-          canvas.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mouseup', () => {
-          isDragging = false;
-          if (canvas) canvas.style.cursor = 'grab';
-        });
-
-        canvas.addEventListener('mousemove', (e) => {
-          if (isDragging && currentMesh) {
-            const deltaX = e.clientX - prevMousePos.x;
-            const deltaY = e.clientY - prevMousePos.y;
-            currentMesh.rotation.y += deltaX * 0.01;
-            currentMesh.rotation.x += deltaY * 0.01;
-            prevMousePos = { x: e.clientX, y: e.clientY };
-          }
-        });
-
-        function animate() {
-          requestAnimationFrame(animate);
-          if (currentMesh && !isDragging) {
-            currentMesh.rotation.y += 0.008;
-            currentMesh.rotation.x += 0.004;
-          }
-          renderer.render(scene, camera);
-        }
-
-        animate();
+      // 3D Canvas Simulator
+      const canvas = document.getElementById('spatial-demo-canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = canvas.parentElement.clientWidth;
+        let height = canvas.height = canvas.parentElement.clientHeight;
+        let angle = 0;
+        let speed = 0.02;
+        let particleCount = 80;
+        let colorTheme = '#a855f7';
 
         window.addEventListener('resize', () => {
-          if (canvas) {
-            camera.aspect = canvas.offsetWidth / canvas.offsetHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+          if (canvas.parentElement) {
+            width = canvas.width = canvas.parentElement.clientWidth;
+            height = canvas.height = canvas.parentElement.clientHeight;
           }
         });
+
+        const speedSlider = document.getElementById('spatial-speed');
+        if (speedSlider) {
+          speedSlider.addEventListener('input', (e) => {
+            speed = parseFloat(e.target.value) * 0.008;
+          });
+        }
+
+        const countSlider = document.getElementById('spatial-particles');
+        if (countSlider) {
+          countSlider.addEventListener('input', (e) => {
+            particleCount = parseInt(e.target.value);
+          });
+        }
+
+        const cyanBtn = document.getElementById('spatial-color-cyan');
+        const purpleBtn = document.getElementById('spatial-color-purple');
+        if (cyanBtn && purpleBtn) {
+          cyanBtn.addEventListener('click', () => { colorTheme = '#38bdf8'; });
+          purpleBtn.addEventListener('click', () => { colorTheme = '#a855f7'; });
+        }
+
+        function render() {
+          ctx.clearRect(0, 0, width, height);
+          angle += speed;
+
+          const cx = width / 2;
+          const cy = height / 2;
+          const radius = Math.min(width, height) * 0.28;
+
+          ctx.strokeStyle = colorTheme;
+          ctx.lineWidth = 1.5;
+
+          // Wireframe Sphere representation
+          ctx.beginPath();
+          for (let i = 0; i < particleCount; i++) {
+            const theta = (i / particleCount) * Math.PI * 2 + angle;
+            const phi = Math.sin(angle + i * 0.1) * Math.PI;
+            const x = cx + radius * Math.cos(theta) * Math.sin(phi);
+            const y = cy + radius * Math.cos(phi);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+
+          // Particle dots
+          for (let j = 0; j < 24; j++) {
+            const pAngle = angle * 1.5 + (j / 24) * Math.PI * 2;
+            const px = cx + (radius * 1.2) * Math.cos(pAngle);
+            const py = cy + (radius * 0.6) * Math.sin(pAngle);
+            ctx.fillStyle = colorTheme;
+            ctx.beginPath();
+            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          requestAnimationFrame(render);
+        }
+        render();
       }
     </script>
   

@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Human-centered enterprise UX design, WCAG 2.2 AA accessibility standards, and tokenized Figma-to-code design systems by PixelToCloud.">
-  <meta name="keywords" content="UI UX Design, Design Systems, WCAG Accessibility, Figma to Code, Enterprise UX, PixelToCloud">
-  <meta name="theme-color" content="#080b11">
+  <title>User Experience & Product Design Systems | PixelToCloud Solutions</title>
+  <meta name="description" content="Human-centred UX research, Figma design systems, and conversion-engineered interfaces built by PixelToCloud Solutions.">
+  <meta name="keywords" content="UX Design, UI Design, Design Systems, Figma, User Research, PixelToCloud">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pixeltocloud.com/services/user-experience-design.html">
-  <title>Enterprise UX & Tokenized Design Systems | PixelToCloud</title>
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pixeltocloud.com/services/user-experience-design.html">
+  <meta property="og:title" content="User Experience & Product Design Systems | PixelToCloud Solutions">
+  <meta property="og:description" content="Human-centred UX research, Figma design systems, and conversion-engineered interfaces built by PixelToCloud Solutions.">
+  <meta property="og:image" content="https://pixeltocloud.com/image/pankaj-profile.jpg">
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="icon" type="image/svg+xml" href="../logo-icon.svg">
 
+  <!-- Global Styles -->
   <link rel="stylesheet" href="../css/main.css?v=43.0">
-  <link rel="stylesheet" href="../css/animations.css?v=43.0">
   <link rel="stylesheet" href="../css/components.css?v=43.0">
-  <link rel="stylesheet" href="../css/light-theme.css?v=43.0">
   <link rel="stylesheet" href="../css/mobile-responsive.css?v=43.0">
 
   
@@ -32,23 +39,25 @@
     }
     .service-sub-nav-wrapper {
       position: sticky;
-      top: 72px;
-      z-index: 40;
-      background: rgba(7, 10, 18, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      top: 70px;
+      z-index: 900;
+      margin-top: 76px;
+      background: rgba(7, 10, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 4px 0;
       transition: all 0.3s ease;
     }
     .service-sub-nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 10px 0;
-      gap: 16px;
+      padding: 6px 0;
+      gap: 12px;
     }
     .service-sub-nav-container::-webkit-scrollbar { display: none; }
     .sub-nav-links {
@@ -230,71 +239,80 @@
     .arch-layers-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
     .arch-layer-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 18px 22px;
       cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: all 0.25s ease;
     }
     .arch-layer-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--srv-accent);
+      background: rgba(56, 189, 248, 0.06);
+      border-color: rgba(56, 189, 248, 0.3);
     }
     .arch-layer-card.active {
       background: rgba(56, 189, 248, 0.12);
       border-color: var(--srv-accent);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
     }
     .layer-card-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .layer-number {
       font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.15);
+      background: rgba(56, 189, 248, 0.1);
       padding: 4px 8px;
       border-radius: 6px;
     }
     .layer-name {
+      font-size: 1.05rem;
       font-weight: 700;
       color: #ffffff;
-      font-size: 0.95rem;
     }
     .arch-inspector-box {
-      background: #05070e;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 26px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .visual-diagram-box {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
     .use-case-nav {
       display: flex;
       gap: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 14px;
-      margin-bottom: 28px;
       overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 16px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+    .use-case-nav::-webkit-scrollbar { display: none; }
     .use-case-tab-btn {
-      background: transparent;
-      border: none;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      font-size: 0.95rem;
-      font-weight: 600;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
@@ -304,25 +322,28 @@
     }
     .use-case-tab-btn:hover {
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(56, 189, 248, 0.4);
     }
     .use-case-tab-btn.active {
-      color: var(--srv-accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--srv-accent);
+      color: #ffffff;
     }
     .use-case-panel {
       display: none;
-      animation: fadeIn 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 34px;
+      animation: fadeIn 0.3s ease forwards;
     }
-    .use-case-panel.active {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
+    .use-case-panel.active { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; }
     @media (max-width: 991px) {
       .use-case-panel.active { grid-template-columns: 1fr; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .ai-faq-list {
       display: flex;
@@ -334,59 +355,49 @@
     .ai-faq-item {
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.2s ease;
+      transition: border-color 0.25s ease;
     }
     .ai-faq-item.active {
       border-color: var(--srv-accent);
-      background: rgba(15, 23, 42, 0.85);
     }
     .ai-faq-question {
       width: 100%;
-      background: transparent;
-      border: none;
-      padding: 18px 22px;
+      padding: 20px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #f8fafc;
-      font-size: 1rem;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.05rem;
       font-weight: 600;
-      text-align: left;
       cursor: pointer;
+      text-align: left;
     }
     .ai-faq-question i {
-      color: var(--srv-accent);
       transition: transform 0.25s ease;
+      color: var(--srv-accent);
     }
     .ai-faq-item.active .ai-faq-question i {
       transform: rotate(180deg);
     }
     .ai-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0 22px;
-      color: #94a3b8;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      display: none;
+      padding: 0 24px 22px 24px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
     .ai-faq-item.active .ai-faq-answer {
-      max-height: 300px;
-      padding-bottom: 20px;
-    }
-    .visual-diagram-box {
-      background: #060913;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      display: block;
     }
   </style>
+
   <style>
     :root {
-      --srv-accent: #a855f7;
+      --srv-accent: #ec4899;
     }
   </style>
 </head>
@@ -493,7 +504,7 @@
     </div>
   </aside>
 
-  <!-- Sticky Sub-Nav -->
+  <!-- Sticky Sub-Nav (Aligned cleanly below floating navbar) -->
   <nav class="service-sub-nav-wrapper" id="service-sub-nav" aria-label="User Experience & Design Sub-Navigation">
     <div class="container service-sub-nav-container">
       <ul class="sub-nav-links">
@@ -505,17 +516,12 @@
         <li><a href="#use-cases" class="sub-nav-link"><i class="fa-solid fa-briefcase"></i>Use Cases</a></li>
         <li><a href="#tech-specs" class="sub-nav-link"><i class="fa-solid fa-sliders"></i>Specs &amp; FAQ</a></li>
       </ul>
-      <div class="sub-nav-cta">
-        <a href="../contact.html?service=design" class="btn-magnetic btn-primary" style="padding: 6px 18px; font-size: 0.82rem;">
-          <span>Request Architecture Call</span>
-        </a>
-      </div>
     </div>
   </nav>
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="section" style="padding-top: 50px; padding-bottom: 40px;">
+    <!-- Hero Section (Clean Top Padding) -->
+    <section class="section" style="padding-top: 36px; padding-bottom: 40px;">
       <div class="container">
         <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <a href="../" style="color: var(--text-muted); text-decoration: none;">Home</a>
@@ -527,39 +533,39 @@
 
         <div class="service-pill-badge">
           <i class="fa-solid fa-bezier-curve"></i>
-          <span>ENTERPRISE UX & TOKENIZED DESIGN SYSTEMS</span>
+          <span>HUMAN-CENTRED PRODUCT DESIGN</span>
         </div>
 
         <h1 class="hero-title" style="font-size: clamp(2.5rem, 5.2vw, 4.4rem); margin-bottom: 24px; line-height: 1.12; font-family: var(--font-display);">
-          Enterprise UX & Tokenized Design Systems.<br>
-          <span style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Human-Centered. Scalable. Unstoppable.</span>
+          Intuitive Digital Design.<br>
+          <span style="background: linear-gradient(135deg, #ec4899 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Engineered for Conversion.</span>
         </h1>
 
         <p class="hero-subtitle" style="max-width: 860px; font-size: 1.18rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 38px;">
-          Figma-to-code design systems, WCAG 2.2 AA accessibility compliance, and conversion-engineered enterprise workflows designed to eliminate cognitive friction.
+          We craft human-centred product interfaces, atomic Figma design systems, and rapid interactive prototypes that eliminate user friction and turn complex workflows into delightful software.
         </p>
 
         <!-- Metric Strip -->
         <div class="cs-metric-strip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 40px;">
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #a855f7; font-family: var(--font-display);">WCAG AA</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Strict 2.2 Accessibility Compliance</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #ec4899; font-family: var(--font-display);">3.2x</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Average Conversion Lift</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">3.4x</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Faster Engineering Feature Velocity</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">< 2.5s</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Task Completion Speedup</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
               <div style="font-size: 2.2rem; font-weight: 800; color: #10b981; font-family: var(--font-display);">100%</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Tokenized Figma-to-Code System</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">WCAG 2.1 AA Accessibility</div>
             </div>
           
             <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 22px;">
-              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Zero</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Design System Technical Debt</div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Figma</div>
+              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Production Design Tokens</div>
             </div>
           
         </div>
@@ -583,23 +589,23 @@
             <div style="max-width: 780px;">
               <div class="service-pill-badge" style="margin-bottom: 14px;"><i class="fa-solid fa-circle-nodes"></i> <span>OVERVIEW</span></div>
               <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">
-                Eliminating Cognitive Friction in Complex Enterprise Software
+                Design Grounded in Cognitive Psychology and Code Reality
               </h2>
               <p style="color: #cbd5e1; font-size: 1.08rem; line-height: 1.7; margin-bottom: 24px;">
-                Enterprise software does not have to be painful or ugly. We bridge the gap between high-complexity technical workflows and intuitive, joyful digital ergonomics. Every interface is tested against real end-user task completion times and error rates.
+                Great design is more than superficial aesthetic veneer. It is the invisible architecture that guides a user effortlessly toward their goal. Many design agencies deliver beautiful Figma mockups that fall apart during technical implementation because they ignore edge cases and performance budgets.
               </p>
               <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.65; margin: 0;">
-                By tokenizing your design variables—colors, typography scales, elevation depths, and border radiuses—we create a shared single source of truth between Figma and your frontend codebase that saves hundreds of developer hours.
+                At PixelToCloud, our designers are seasoned frontend engineers. Every layout, typography scale, and micro-interaction is conceived with responsive CSS grids, state machines, and accessibility compliance baked in from wireframe zero.
               </p>
             </div>
             <div style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 22px; min-width: 240px;">
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #64748b; text-transform: uppercase;">ENGINEERING BENCHMARK</div>
               <div style="display: flex; align-items: center; gap: 8px; margin: 10px 0;">
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--srv-accent); box-shadow: 0 0 10px var(--srv-accent);"></span>
-                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Design Tokens Synchronized</span>
+                <span style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Design System Synchronized</span>
               </div>
               <div style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6;">
-                Compliance: <strong>WCAG 2.2 Level AA</strong><br>Color Contrast: <strong>4.5:1 Minimum Ratio</strong><br>Dark Mode: <strong>Built-In Tokens</strong><br>Handover: <strong>Figma + TypeScript</strong>
+                Figma Tokens: <strong>Auto-Exported to CSS</strong><br>Accessibility: <strong>WCAG 2.1 AA Compliant</strong><br>Usability Testing: <strong>Quantitative Task Audits</strong><br>Component Density: <strong>Atomic System</strong>
               </div>
             </div>
           </div>
@@ -612,8 +618,8 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-cubes"></i> <span>CORE CAPABILITIES</span></div>
-          <h2 class="section-title">Key Platform Features</h2>
-          <p class="section-desc">Engineered for robust performance and operational reliability.</p>
+          <h2 class="section-title">Key Engineering Features</h2>
+          <p class="section-desc">Architected for enterprise resilience, scale, and maintainability.</p>
         </div>
 
         <div class="service-features-grid">
@@ -621,78 +627,78 @@
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
+                  <div class="feature-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                  <h3 class="feature-card-title">User Research & Journey Mapping</h3>
+                </div>
+                <p class="feature-card-desc">Quantitative telemetry analysis, user interview synthesis, and actionable journey mapping identifying critical friction drop-offs.</p>
+              </div>
+              <div class="feature-card-tags">
+                <span class="feature-tag-chip">User Research</span><span class="feature-tag-chip">Friction Audits</span><span class="feature-tag-chip">Journey Maps</span>
+              </div>
+            </div>
+          
+            <div class="service-feature-card">
+              <div>
+                <div class="feature-card-header">
+                  <div class="feature-card-icon"><i class="fa-solid fa-swatchbook"></i></div>
+                  <h3 class="feature-card-title">Atomic Figma Design Systems</h3>
+                </div>
+                <p class="feature-card-desc">Comprehensive component libraries with auto-layout, dark/light theme tokens, and direct automated CSS variable synchronization.</p>
+              </div>
+              <div class="feature-card-tags">
+                <span class="feature-tag-chip">Figma Tokens</span><span class="feature-tag-chip">Atomic Components</span><span class="feature-tag-chip">Dark Mode</span>
+              </div>
+            </div>
+          
+            <div class="service-feature-card">
+              <div>
+                <div class="feature-card-header">
+                  <div class="feature-card-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                  <h3 class="feature-card-title">Interactive Rapid Prototyping</h3>
+                </div>
+                <p class="feature-card-desc">Clickable high-fidelity prototypes allowing stakeholder validation and realistic user usability testing before writing code.</p>
+              </div>
+              <div class="feature-card-tags">
+                <span class="feature-tag-chip">Figma Prototypes</span><span class="feature-tag-chip">User Testing</span><span class="feature-tag-chip">Micro-Interactions</span>
+              </div>
+            </div>
+          
+            <div class="service-feature-card">
+              <div>
+                <div class="feature-card-header">
                   <div class="feature-card-icon"><i class="fa-solid fa-universal-access"></i></div>
-                  <h3 class="feature-card-title">WCAG 2.2 AA Accessibility Audits</h3>
+                  <h3 class="feature-card-title">WCAG 2.1 AA Accessibility</h3>
                 </div>
-                <p class="feature-card-desc">Ensure your enterprise applications are accessible to all users with strict contrast verification, keyboard navigation, and ARIA labels.</p>
+                <p class="feature-card-desc">Strict contrast verification, screen-reader semantic hierarchies, and keyboard navigation compliance for inclusive enterprise reach.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">WCAG 2.2</span><span class="feature-tag-chip">Screen Readers</span><span class="feature-tag-chip">Keyboard Nav</span>
+                <span class="feature-tag-chip">WCAG 2.1 AA</span><span class="feature-tag-chip">Screen Readers</span><span class="feature-tag-chip">Accessible Color</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-cubes"></i></div>
-                  <h3 class="feature-card-title">Tokenized Figma-to-Code Pipeline</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                  <h3 class="feature-card-title">Conversion Rate Optimization (CRO)</h3>
                 </div>
-                <p class="feature-card-desc">Sync color tokens, spacing scales, and typography hierarchies directly between Figma variables and Tailwind CSS / CSS custom properties.</p>
+                <p class="feature-card-desc">Scientific A/B multivariate testing structures, checkout funnel streamlining, and data-driven landing page optimization.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Design Tokens</span><span class="feature-tag-chip">Tailwind CSS</span><span class="feature-tag-chip">Figma Variables</span>
+                <span class="feature-tag-chip">CRO Analysis</span><span class="feature-tag-chip">A/B Funnels</span><span class="feature-tag-chip">Heatmaps</span>
               </div>
             </div>
           
             <div class="service-feature-card">
               <div>
                 <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-layer-group"></i></div>
-                  <h3 class="feature-card-title">Modular UI Component Libraries</h3>
+                  <div class="feature-card-icon"><i class="fa-solid fa-code-merge"></i></div>
+                  <h3 class="feature-card-title">Developer-Ready Handover</h3>
                 </div>
-                <p class="feature-card-desc">Reusable, strongly-typed component libraries with accessible states: default, hover, focused, disabled, loading, and error boundaries.</p>
+                <p class="feature-card-desc">Pixel-perfect component specifications with flexbox layouts, spacing tokens, and asset exports ready for instant developer build.</p>
               </div>
               <div class="feature-card-tags">
-                <span class="feature-tag-chip">Component Library</span><span class="feature-tag-chip">Accessible States</span><span class="feature-tag-chip">Storybook</span>
-              </div>
-            </div>
-          
-            <div class="service-feature-card">
-              <div>
-                <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                  <h3 class="feature-card-title">Conversion & Funnel Optimization</h3>
-                </div>
-                <p class="feature-card-desc">Streamline multi-step checkout and onboarding funnels with progressive disclosure and field-level validation feedback.</p>
-              </div>
-              <div class="feature-card-tags">
-                <span class="feature-tag-chip">Progressive Disclosure</span><span class="feature-tag-chip">Funnel UX</span><span class="feature-tag-chip">Zero Friction</span>
-              </div>
-            </div>
-          
-            <div class="service-feature-card">
-              <div>
-                <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-circle-half-stroke"></i></div>
-                  <h3 class="feature-card-title">Dark & Light Mode Theming</h3>
-                </div>
-                <p class="feature-card-desc">Automated semantic color contrast adjustments ensuring crystal-clear legibility across ambient dark and high-contrast light environments.</p>
-              </div>
-              <div class="feature-card-tags">
-                <span class="feature-tag-chip">Dark Mode</span><span class="feature-tag-chip">Semantic Tokens</span><span class="feature-tag-chip">OLED Contrast</span>
-              </div>
-            </div>
-          
-            <div class="service-feature-card">
-              <div>
-                <div class="feature-card-header">
-                  <div class="feature-card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                  <h3 class="feature-card-title">Design QA & Interaction Specs</h3>
-                </div>
-                <p class="feature-card-desc">Detailed micro-interaction specifications, motion curves (cubic-bezier), and comprehensive design QA before production release.</p>
-              </div>
-              <div class="feature-card-tags">
-                <span class="feature-tag-chip">Motion Specs</span><span class="feature-tag-chip">Design QA</span><span class="feature-tag-chip">Zero Drift</span>
+                <span class="feature-tag-chip">Token Export</span><span class="feature-tag-chip">CSS Handover</span><span class="feature-tag-chip">Zero Rework</span>
               </div>
             </div>
           
@@ -705,34 +711,34 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <div class="service-pill-badge"><i class="fa-solid fa-lock"></i> <span>STRATEGIC ADVANTAGE</span></div>
-          <h2 class="section-title">Why Invest in a Custom Design System?</h2>
-          <p class="section-desc">How structured design systems eliminate development bottlenecks.</p>
+          <h2 class="section-title">Why Choose PixelToCloud for UX/UI Design</h2>
+          <p class="section-desc">Design engineered by developers who understand real-world frontend execution.</p>
         </div>
 
         <div class="why-cards-grid">
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-bolt"></i></div>
-              <h3 class="why-card-title">Ship Features 3x Faster</h3>
-              <p class="why-card-desc">Frontend engineers stop reinventing buttons and tables. Pre-built, tested tokens assemble into new screens in hours instead of weeks.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <h3 class="why-card-title">Zero Developer Friction</h3>
+              <p class="why-card-desc">Because our designers understand CSS and responsive flexbox constraints, our designs translate directly into code without compromises or redesigns.</p>
             </div>
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <h3 class="why-card-title">Legally Compliant Accessibility</h3>
-              <p class="why-card-desc">Protect your enterprise from accessibility lawsuits while serving government, healthcare, and enterprise accounts requiring WCAG compliance.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-cubes"></i></div>
+              <h3 class="why-card-title">Maintainable Design Tokens</h3>
+              <p class="why-card-desc">We structure design tokens in JSON so typography, colors, and border radii sync directly between Figma and your GitHub codebase.</p>
             </div>
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-paint-roller"></i></div>
-              <h3 class="why-card-title">Unified Brand Cohesion</h3>
-              <p class="why-card-desc">Ensure every internal tool, customer portal, and marketing page feels unmistakably part of your premium brand family.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h3 class="why-card-title">Data-Driven Validation</h3>
+              <p class="why-card-desc">We test our interface flows with real users before deployment, guaranteeing measurable usability and conversion improvements.</p>
             </div>
           
             <div class="why-service-card">
-              <div class="why-card-icon"><i class="fa-solid fa-file-code"></i></div>
-              <h3 class="why-card-title">Zero Design-Code Drift</h3>
-              <p class="why-card-desc">When a brand color or spacing token updates in Figma, it updates in code automatically without broken pull requests.</p>
+              <div class="why-card-icon"><i class="fa-solid fa-file-signature"></i></div>
+              <h3 class="why-card-title">Complete Asset Ownership</h3>
+              <p class="why-card-desc">You receive all Figma source files, vector illustrations, icon sets, and component specifications with full commercial IP transfer.</p>
             </div>
           
         </div>
@@ -751,45 +757,45 @@
         <div class="arch-stack-container">
           <div class="arch-layers-list">
             
-              <div class="arch-layer-card active" data-title="Layer 01 — Primitive Design Tokens" data-desc="Raw foundational values defined in JSON: hex codes, font families, base-8 spacing units, and border-radius presets." data-tech="Design Tokens JSON, Style Dictionary, CSS Vars" data-metrics="Single Source of Truth | Zero Hardcoded Values">
+              <div class="arch-layer-card active" data-title="Layer 1: User Discovery & Heuristic Research" data-desc="Uncovering friction points through quantitative analytics audits, user surveys, competitive benchmarking, and cognitive walkthroughs." data-tech="Hotjar Analytics, User Interviews, Heuristic Evaluation, Persona Matrices" data-metrics="Friction Insights: 15+ per audit | Task Completion Target: > 92%">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 01</span>
                   <div>
-                    <div class="layer-name">Primitive Design Tokens</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Color, Spacing, Typography Scales</div>
+                    <div class="layer-name">Research & Behavioral Discovery</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Interviews, Funnel Analytics, Heuristic Review</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: var(--srv-accent); font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 02 — Semantic Color & Contrast Layer" data-desc="Abstracted tokens assigning meaning (e.g. surface-primary, text-muted, border-focus, action-accent)." data-tech="WCAG Contrast Math, Theming Variables" data-metrics="4.5:1 AA Contrast Verified | Dynamic Dark Mode">
+              <div class="arch-layer-card " data-title="Layer 2: Structural Information Architecture" data-desc="Structuring intuitive navigation hierarchies, content relationships, and low-fidelity structural wireframes that optimize cognitive clarity." data-tech="Whimsical, FigJam, Tree Testing, Rapid Wireframing" data-metrics="Hierarchy Depth: < 3 clicks | Cognitive Load: Minimized">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 02</span>
                   <div>
-                    <div class="layer-name">Semantic Token Layer</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Role & State Based Context</div>
+                    <div class="layer-name">Information Architecture & Wireframes</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Sitemaps, User Flows, Low-Fi Scaffolds</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 03 — Atomic UI Components" data-desc="Accessible building blocks built with complete ARIA attributes, focus rings, and keyboard event handlers." data-tech="React, Headless UI, Tailwind CSS" data-metrics="100% Keyboard Accessible | Zero Accessibility Bugs">
+              <div class="arch-layer-card " data-title="Layer 3: Atomic Design System & Visual Identity" data-desc="Crafting scalable atomic design tokens (colors, typography scales, elevation states, form controls) with interactive Figma variants." data-tech="Figma Auto-Layout 5.0, Design Tokens (JSON), Style Dictionary" data-metrics="Component Reusability: > 88% | Consistency Errors: 0">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 03</span>
                   <div>
-                    <div class="layer-name">Atomic Component Library</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Buttons, Inputs, Badges, Modals</div>
+                    <div class="layer-name">Design System & Component Library</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Figma Auto-Layout, Tokens, Dark/Light Specs</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
               </div>
             
-              <div class="arch-layer-card " data-title="Layer 04 — Enterprise Layout Templates" data-desc="High-density data tables with sorting, filtering, multi-column search, and multi-step wizard layouts." data-tech="Data Grids, Wizard State Machine, Toast Notifications" data-metrics="Tested under 10,000 Row Virtualization">
+              <div class="arch-layer-card " data-title="Layer 4: Validation & Engineering Handover" data-desc="Running moderated usability tests with interactive prototypes, conducting accessibility audits, and delivering code-ready CSS variables." data-tech="Figma Interactive Components, Axe Accessibility, Storybook" data-metrics="WCAG Compliance: 100% AA | Developer Handoff Time: -60%">
                 <div class="layer-card-left">
                   <span class="layer-number">LAYER 04</span>
                   <div>
-                    <div class="layer-name">Composite Enterprise Templates</div>
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Dashboards, Data Tables, Forms</div>
+                    <div class="layer-name">Usability Testing & Code Alignment</div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; font-family: var(--font-mono);">Clickable Prototypes, WCAG Audits, CSS Export</div>
                   </div>
                 </div>
                 <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.85rem;"></i>
@@ -803,19 +809,19 @@
                 <i class="fa-solid fa-microchip" style="margin-right: 6px;"></i>INSPECTED TOPOLOGY SPECIFICATION
               </div>
               <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 12px; font-family: var(--font-display);" id="layer-inspector-title">
-                Layer 01 — Primitive Design Tokens
+                Layer 1: User Discovery & Heuristic Research
               </h3>
               <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;" id="layer-inspector-desc">
-                Raw foundational values defined in JSON: hex codes, font families, base-8 spacing units, and border-radius presets.
+                Uncovering friction points through quantitative analytics audits, user surveys, competitive benchmarking, and cognitive walkthroughs.
               </p>
               <div style="font-size: 0.8rem; font-family: var(--font-mono); color: #94a3b8; margin-bottom: 10px; text-transform: uppercase;">Engineered Components:</div>
               <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;" id="layer-inspector-tech">
-                <span class="bento-tech-chip">Design Tokens JSON</span> <span class="bento-tech-chip">Style Dictionary</span> <span class="bento-tech-chip">CSS Vars</span>
+                <span class="bento-tech-chip">Hotjar Analytics</span> <span class="bento-tech-chip">User Interviews</span> <span class="bento-tech-chip">Heuristic Evaluation</span> <span class="bento-tech-chip">Persona Matrices</span>
               </div>
             </div>
             <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 14px; font-size: 0.85rem; color: #f8fafc;">
               <i class="fa-solid fa-gauge-high" style="color: var(--srv-accent); margin-right: 8px;"></i>
-              <span id="layer-inspector-metrics">Single Source of Truth | Zero Hardcoded Values</span>
+              <span id="layer-inspector-metrics">Friction Insights: 15+ per audit | Task Completion Target: > 92%</span>
             </div>
           </div>
         </div>
@@ -827,36 +833,40 @@
       <div class="container">
         <div class="section-header text-center reveal" style="margin-bottom: 36px;">
           <div class="service-pill-badge"><i class="fa-solid fa-desktop"></i> <span>INTERACTIVE DEMONSTRATION</span></div>
-          <h2 class="section-title">Interactive Tokenized Design System Showcase</h2>
-          <p class="section-desc">Inspect live design token variables, accessible contrast ratios, and modular enterprise component states.</p>
+          <h2 class="section-title">Interactive Design Token & Theme Customizer</h2>
+          <p class="section-desc">Test real-time brand color palette swapping and UI contrast ratios directly in browser.</p>
         </div>
 
         <div class="visual-diagram-box">
           
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 22px;">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #a855f7; margin-bottom: 12px;">DESIGN TOKEN PALETTE (BASE-8)</div>
-        <div style="display: flex; gap: 8px; margin-bottom: 14px;">
-          <div style="flex: 1; height: 36px; background: #38bdf8; border-radius: 6px;" title="Cyan Primary"></div>
-          <div style="flex: 1; height: 36px; background: #a855f7; border-radius: 6px;" title="Purple Accent"></div>
-          <div style="flex: 1; height: 36px; background: #10b981; border-radius: 6px;" title="Emerald Success"></div>
-          <div style="flex: 1; height: 36px; background: #f59e0b; border-radius: 6px;" title="Amber Warning"></div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #ec4899; margin-bottom: 8px;">DESIGN TOKEN INSPECTOR</div>
+        <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px;">Dynamic Theme Tokens</h4>
+        <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+          Select a brand accent token to observe instant CSS custom property inheritance across the preview UI component.
+        </p>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <button type="button" id="token-cyan" class="btn-magnetic btn-primary" style="flex: 1; padding: 10px; font-size: 0.8rem; background: #00f0ff; color: #000;">Cyan #00f0ff</button>
+          <button type="button" id="token-pink" class="btn-magnetic btn-secondary" style="flex: 1; padding: 10px; font-size: 0.8rem; border-color: #ec4899; color: #ec4899;">Pink #ec4899</button>
+          <button type="button" id="token-emerald" class="btn-magnetic btn-secondary" style="flex: 1; padding: 10px; font-size: 0.8rem; border-color: #10b981; color: #10b981;">Emerald #10b981</button>
         </div>
-        <div style="font-size: 0.82rem; color: #94a3b8; font-family: var(--font-mono);">
-          --color-cyan: #38bdf8;<br>
-          --color-purple: #a855f7;<br>
-          --spacing-unit: 8px;<br>
-          --radius-card: 14px;
+
+        <div style="font-size: 0.82rem; color: #64748b; line-height: 1.5;">
+          *Demonstrates atomic token binding. When primary accent tokens shift, all buttons, badges, and focus rings update synchronously.
         </div>
       </div>
 
-      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 22px;">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 12px;">WCAG 2.2 AA CONTRAST RATIO</div>
-        <div style="font-size: 2.4rem; font-weight: 800; color: #ffffff; font-family: var(--font-display); margin-bottom: 6px;">7.2 : 1</div>
-        <div style="font-size: 0.84rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
-          <i class="fa-solid fa-circle-check"></i> Passes AAA Enhanced Contrast Standards
-        </div>
-        <div style="font-size: 0.78rem; color: #64748b; margin-top: 8px;">Minimum required for normal text: 4.5:1</div>
+      <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 14px; padding: 24px;" id="ui-token-card">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #ec4899; margin-bottom: 8px;" id="token-badge-demo">UI COMPONENT PREVIEW</div>
+        <h5 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 10px;">Executive Analytics Dashboard</h5>
+        <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.55; margin-bottom: 18px;">
+          Enterprise interface displaying high-density operational telemetry with human-centred hierarchy.
+        </p>
+        <button type="button" class="btn-magnetic" id="token-action-btn" style="background: #ec4899; color: #ffffff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.88rem; font-weight: 700; cursor: pointer;">
+          Inspect Metrics →
+        </button>
       </div>
     </div>
   
@@ -876,15 +886,15 @@
         <div class="use-case-nav">
           
             <button type="button" class="use-case-tab-btn active" data-case="fintech">
-              <i class="fa-solid fa-chart-line"></i> Financial Dashboards
+              <i class="fa-solid fa-wallet"></i> FinTech & Banking
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="health">
-              <i class="fa-solid fa-user-doctor"></i> Clinical Portals
+            <button type="button" class="use-case-tab-btn " data-case="b2b">
+              <i class="fa-solid fa-table-cells"></i> Complex B2B Dashboards
             </button>
           
-            <button type="button" class="use-case-tab-btn " data-case="saas">
-              <i class="fa-solid fa-terminal"></i> Developer & B2B SaaS
+            <button type="button" class="use-case-tab-btn " data-case="healthapp">
+              <i class="fa-solid fa-notes-medical"></i> Healthcare & Patient Apps
             </button>
           
         </div>
@@ -892,71 +902,122 @@
         
           <div class="use-case-panel active" id="case-panel-fintech">
             <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">COMPLEX DATA DENSITY</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">High-Velocity Trading & Accounting Portals</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Organize high-density financial tables, transaction filters, and real-time ledger updates with zero visual clutter.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Custom data-table virtualization for 50,000+ rows</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Sticky summary headers and multi-column freeze frames</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>High-contrast color-coded debit and credit indicators</li>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                FINANCIAL DASHBOARD UX
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">High-Trust Wealth & Payment Workflows</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Streamlined payment checkout interfaces, automated fraud warning cues, and clean transaction histories that build user trust.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Biometric authentication feedback loops</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Clear fee transparency disclosures avoiding drop-off</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>High-contrast mobile banking dark theme</span>
+                  </li>
+                
               </ul>
             </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">72%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Faster transaction auditing</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">+44%</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Mobile checkout completion</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">< 3 clicks</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Fund transfer completion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="use-case-panel " id="case-panel-b2b">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                ENTERPRISE DATA DENSITY
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">High-Density Analytical Control Center</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Transform overwhelming data tables into actionable dashboards with customized filtering, column pinning, and instant data previews.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Keyboard shortcut navigation for power operators</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Contextual tooltips explaining complex KPIs</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Saved custom views and export preferences</span>
+                  </li>
+                
+              </ul>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">-55%</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Operator training time</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">99.4%</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Task accuracy rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="use-case-panel " id="case-panel-healthapp">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--srv-accent); margin-bottom: 8px; text-transform: uppercase;">
+                PATIENT-CENTRED UX
+              </div>
+              <h3 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 14px; font-family: var(--font-display);">Accessible Patient Consultation App</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.65; margin-bottom: 22px;">Stress-free medical consultation scheduling, clear lab report breakdowns with visual health indicators, and high accessibility compliance.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Large touch targets and accessible font scaling</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Visual triage symptom selector before appointments</span>
+                  </li>
+                
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #e2e8f0;">
+                    <i class="fa-solid fa-check-circle" style="color: var(--srv-accent); font-size: 0.9rem;"></i>
+                    <span>Multi-language support (English, Hindi, regional)</span>
+                  </li>
+                
+              </ul>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;">VERIFIED SYSTEM METRICS</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">96%</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">Patient satisfaction rating</div>
                 </div>
                 <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
                   <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">100%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">WCAG AA contrast verified</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="use-case-panel " id="case-panel-health">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">HEALTHCARE ERGONOMICS</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Doctor & Patient Consultation Interfaces</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Accessible telehealth scheduling, clinical charting, and prescription generation designed for rapid bedside tablet interaction.</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Large touch target radiuses for medical tablets</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Audio-visual alert feedback for critical lab test thresholds</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Color-blind safe diagnostic chart color scales</li>
-              </ul>
-            </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">3.2s</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Average prescription issuance</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">Zero</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Touch target mis-clicks</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div class="use-case-panel " id="case-panel-saas">
-            <div>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--srv-accent); text-transform: uppercase; margin-bottom: 10px;">DEVELOPER EXPERIENCE</div>
-              <h3 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 16px; font-family: var(--font-display);">Command Consoles & Workflow Builders</h3>
-              <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin-bottom: 20px;">Node-based workflow builders, syntax-highlighted code editors, and keyboard-first command palettes (Cmd+K).</p>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: #e2e8f0;">
-                <li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Frictionless Cmd+K global search palette</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Interactive drag-and-drop workflow canvas nodes</li><li><i class="fa-solid fa-circle-check" style="color: var(--srv-accent); margin-right: 8px;"></i>Monospaced telemetry logs with search filters</li>
-              </ul>
-            </div>
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 28px;">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8; margin-bottom: 12px;">IMPACT METRICS:</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--srv-accent);">4.8/5</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">User CSAT score</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 10px;">
-                  <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;">88%</div>
-                  <div style="font-size: 0.8rem; color: #94a3b8;">Feature adoption velocity</div>
+                  <div style="font-size: 0.8rem; color: #94a3b8;">WCAG AA contrast pass</div>
                 </div>
               </div>
             </div>
@@ -978,31 +1039,31 @@
           
             <div class="ai-faq-item active">
               <button type="button" class="ai-faq-question">
-                <span>How do you coordinate design handovers with our frontend developers?</span>
+                <span>How does your UX design team collaborate with our developers?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                We deliver comprehensive Figma design files paired with automated design token exports (Tailwind config / CSS variables). Every component includes exact interaction specs, state documentation, and production-ready React component code.
+                We provide structured Figma files with auto-layout, complete design tokens exported in CSS/JSON formats, and walk developers through component behaviors in joint technical handover sessions.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>Can you redesign our existing legacy software without breaking user habits?</span>
+                <span>Do you design for both dark and light modes?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. We conduct heuristic usability evaluations to identify pain points while preserving muscle-memory keyboard shortcuts and core information architectures that your staff or customers rely on.
+                Yes. All design systems are architected with dual dark/light token mappings from day one, ensuring consistent contrast ratios and accessibility in either mode.
               </div>
             </div>
           
             <div class="ai-faq-item ">
               <button type="button" class="ai-faq-question">
-                <span>Do you design for both mobile responsive web and native apps?</span>
+                <span>What is the typical timeline for an end-to-end product UX redesign?</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="ai-faq-answer">
-                Yes. Our design systems are platform-agnostic, providing responsive breakpoints for desktop, tablet, and mobile browsers alongside design tokens compatible with React Native and mobile native components.
+                A standard comprehensive UX/UI redesign typically spans 3 to 6 weeks, covering research discovery, wireframes, atomic design systems, high-fidelity prototypes, and usability testing.
               </div>
             </div>
           
@@ -1018,7 +1079,7 @@
           Ready to Elevate Your Digital User Experience?
         </h2>
         <p style="color: #cbd5e1; max-width: 720px; margin: 0 auto 34px auto; font-size: 1.15rem; line-height: 1.65;">
-          Schedule a design review with Lead Systems Architect Pankaj Gupta to audit your existing UI/UX and plan a scalable tokenized design system.
+          Schedule a discovery session directly with Lead Systems Architect Pankaj Gupta to audit your current product flows and unlock higher conversion.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="../contact.html?service=design" class="btn-magnetic btn-primary" style="padding: 16px 38px; font-size: 1.05rem;">
@@ -1033,12 +1094,12 @@
   </main>
 
     <!-- Footer -->
-  <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
+  <footer class="footer" style="background: #050811; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 70px 0 30px;">
     <div class="container">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
-        <div style="max-width: 380px;">
-          <a href="../" class="nav-brand" style="margin-bottom: 14px;">
-            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        <div>
+          <a href="../" class="nav-brand" style="margin-bottom: 16px; display: inline-flex;">
+            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px;"></div>
             <span>PixelToCloud</span>
           </a>
           <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
@@ -1081,6 +1142,36 @@
 
   <script src="../js/app.js?v=43.0"></script>
   <script src="../js/service-pages.js?v=43.0"></script>
+  
+    <script>
+      const btnCyan = document.getElementById('token-cyan');
+      const btnPink = document.getElementById('token-pink');
+      const btnEmerald = document.getElementById('token-emerald');
+      const actionBtn = document.getElementById('token-action-btn');
+      const badgeDemo = document.getElementById('token-badge-demo');
+      const cardDemo = document.getElementById('ui-token-card');
+
+      if (btnCyan && actionBtn) {
+        btnCyan.addEventListener('click', () => {
+          actionBtn.style.background = '#00f0ff';
+          actionBtn.style.color = '#000';
+          badgeDemo.style.color = '#00f0ff';
+          cardDemo.style.borderColor = 'rgba(0, 240, 255, 0.4)';
+        });
+        btnPink.addEventListener('click', () => {
+          actionBtn.style.background = '#ec4899';
+          actionBtn.style.color = '#fff';
+          badgeDemo.style.color = '#ec4899';
+          cardDemo.style.borderColor = 'rgba(236, 72, 153, 0.4)';
+        });
+        btnEmerald.addEventListener('click', () => {
+          actionBtn.style.background = '#10b981';
+          actionBtn.style.color = '#fff';
+          badgeDemo.style.color = '#10b981';
+          cardDemo.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        });
+      }
+    </script>
   
 </body>
 </html>
