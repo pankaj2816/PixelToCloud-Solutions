@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dedicated Linux VPS Provisioning, Docker Orchestration & Zero-Downtime DevOps by PixelToCloud. Hardened servers, automated CI/CD pipelines, and 99.9% uptime SLAs.">
+  <meta name="keywords" content="Cloud DevOps, Linux VPS, Docker, CI/CD Pipelines, Nginx Reverse Proxy, Server Hardening, PixelToCloud">
+  <meta name="theme-color" content="#080b11">
+  <link rel="canonical" href="https://pixeltocloud.com/services/cloud-devops.html">
+  <title>Cloud Infrastructure &amp; DevOps Engineering | PixelToCloud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <link rel="stylesheet" href="../css/main.css?v=42.0">
+  <link rel="stylesheet" href="../css/animations.css?v=42.0">
+  <link rel="stylesheet" href="../css/components.css?v=42.0">
+  <link rel="stylesheet" href="../css/light-theme.css?v=42.0">
+  <link rel="stylesheet" href="../css/mobile-responsive.css?v=42.0">
+</head>
+<body>
+  <div class="ambient-glow glow-cyan" style="top: 10%; left: 5%; width: 500px; height: 500px;"></div>
+  <div class="ambient-glow glow-purple" style="top: 40%; right: 5%; width: 600px; height: 600px;"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <a href="../" class="nav-brand" aria-label="PixelToCloud Solutions Home">
+      <div class="nav-logo-icon" aria-label="PixelToCloud Official Logo"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));"></div>
+      <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../services.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">Services</a>
+      <a href="../portfolio.html" class="nav-link">Work</a>
+      <a href="../#solutions" class="nav-link">Solutions</a>
+      <a href="../labs.html" class="nav-link"><i class="fa-solid fa-flask" style="font-size: 0.8rem; margin-right: 4px; color: #a855f7;"></i>Labs</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="../contact.html" class="btn-magnetic btn-primary nav-cta-btn">
+        <span>Start Your Project</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <a href="../" class="nav-brand">
+        <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px;"></div>
+        <span>PixelToCloud</span>
+      </a>
+      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Menu">✕</button>
+    </div>
+    <div class="drawer-body">
+      <nav class="drawer-links">
+        <a href="../services.html" class="drawer-link active"><i class="fa-solid fa-rocket"></i><span>All Services</span></a>
+        <a href="../portfolio.html" class="drawer-link"><i class="fa-solid fa-laptop-code"></i><span>Case Studies</span></a>
+        <a href="../#process" class="drawer-link"><i class="fa-solid fa-diagram-project"></i><span>How We Work</span></a>
+        <a href="../labs.html" class="drawer-link"><i class="fa-solid fa-flask"></i><span>Engineering Lab</span></a>
+        <a href="../about.html" class="drawer-link"><i class="fa-solid fa-user-gear"></i><span>Founders &amp; Leadership</span></a>
+        <a href="../contact.html" class="drawer-link"><i class="fa-solid fa-paper-plane"></i><span>Start a Project</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="main-content" style="padding-top: 125px;">
+    <!-- Breadcrumb & Hero -->
+    <section class="section" style="padding-bottom: 20px;">
+      <div class="container">
+        <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+          <a href="../" style="color: var(--text-muted); text-decoration: none;">Home</a>
+          <span>/</span>
+          <a href="../services.html" style="color: var(--text-muted); text-decoration: none;">Services</a>
+          <span>/</span>
+          <span style="color: #22d3ee; font-weight: 600;">Cloud &amp; DevOps</span>
+        </nav>
+
+        <div class="section-tag" style="background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.3); color: #67e8f9;">
+          <i class="fa-solid fa-server" style="margin-right: 6px;"></i>Linux Cloud &amp; Site Reliability Engineering
+        </div>
+        <h1 class="hero-title" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); margin-bottom: 20px;">
+          Secure, Scalable Cloud Foundations for <span class="highlight-text" style="background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Faster, Safer Delivery</span>
+        </h1>
+        <p class="hero-subtitle" style="max-width: 820px; font-size: 1.12rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px;">
+          Escape unpredictable cloud bills and fragile shared hosting. We provision dedicated Linux VPS nodes, orchestrate Docker containers, configure automated GitHub Actions CI/CD, and harden security firewalls for 99.9% uptime.
+        </p>
+
+        <!-- Metric Proof Bar -->
+        <div class="cs-metric-strip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px;">
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #22d3ee; font-family: var(--font-display);">99.9%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Uptime SLA Guarantee</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-emerald); font-family: var(--font-display);">Zero</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Deployment Downtime</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #a78bfa; font-family: var(--font-display);">100%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Root Server Transfer</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">Daily</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Off-Site S3 Backups</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="../contact.html?service=devops" class="btn-magnetic btn-primary" style="padding: 14px 30px;">
+            <span>Architect Your Cloud Infrastructure →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subsections -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-tag">DevOps Disciplines</div>
+          <h2 class="section-title">Production Cloud Infrastructure Services</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div class="service-overview-card" style="--srv-accent: #06b6d4;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(6, 182, 212, 0.12); color: #22d3ee;"><i class="fa-solid fa-server"></i></div>
+              <div class="srv-badge">Dedicated VPS</div>
+            </div>
+            <h3 class="srv-card-title">Linux VPS Hardening &amp; Nginx</h3>
+            <p class="srv-card-desc">Clean Ubuntu/Debian provisioning with non-root SSH keys, UFW firewalls, Fail2ban intrusion defense, and SSL certificates.</p>
+          </div>
+          <div class="service-overview-card" style="--srv-accent: #3b82f6;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(59, 130, 246, 0.12); color: #60a5fa;"><i class="fa-brands fa-docker"></i></div>
+              <div class="srv-badge">Containerization</div>
+            </div>
+            <h3 class="srv-card-title">Docker &amp; Microservice Mesh</h3>
+            <p class="srv-card-desc">Containerized production stacks with Docker Compose, automated health checks, persistent volume backups, and isolated networks.</p>
+          </div>
+          <div class="service-overview-card" style="--srv-accent: #10b981;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399;"><i class="fa-solid fa-code-commit"></i></div>
+              <div class="srv-badge">CI/CD Pipelines</div>
+            </div>
+            <h3 class="srv-card-title">Automated GitHub Actions CI/CD</h3>
+            <p class="srv-card-desc">Zero-downtime deployment pipelines that build, test, and hot-swap production containers seamlessly upon git push to master.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Link -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;">
+          <div>
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); color: #22d3ee; text-transform: uppercase;">PROVEN IN PRODUCTION</div>
+            <h3 style="font-size: 1.6rem; color: #ffffff; margin-top: 6px;">Apex Cloud Systems — Linux VPS Infrastructure</h3>
+            <p style="color: var(--text-muted); max-width: 680px; font-size: 0.92rem; margin-top: 6px;">
+              See how we achieved 99.9% uptime with automated Docker clustering and daily encrypted backups.
+            </p>
+          </div>
+          <a href="../work/apex-cloud.html" class="btn-magnetic btn-primary">
+            <span>Read DevOps Case Study →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background: rgba(6, 182, 212, 0.04); border-top: 1px solid rgba(6, 182, 212, 0.2);">
+      <div class="container text-center">
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); color: #ffffff; margin-bottom: 14px;">Ready for High-Uptime Cloud Infrastructure?</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem;">
+          Consult directly with Lead Cloud Systems Architect Pankaj Gupta.
+        </p>
+        <a href="../contact.html?service=devops" class="btn-magnetic btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
+          <span>Schedule Infrastructure Call →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
+        <div style="max-width: 360px;">
+          <a href="../" class="nav-brand" style="margin-bottom: 14px;">
+            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
+            <span>PixelToCloud</span>
+          </a>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Custom software engineering studio. We build bespoke business web applications, 2D/3D interactive spatial graphics, and scalable Linux cloud infrastructure.
+          </p>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Core Services</div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
+            <li><a href="artificial-intelligence.html" style="color: var(--text-secondary); text-decoration: none;">Artificial Intelligence</a></li>
+            <li><a href="digital-products.html" style="color: var(--text-secondary); text-decoration: none;">Digital Products &amp; Software</a></li>
+            <li><a href="erp-solutions.html" style="color: var(--text-secondary); text-decoration: none;">ERP Solutions &amp; Portals</a></li>
+            <li><a href="interactive-3d-spatial.html" style="color: var(--text-secondary); text-decoration: none;">Interactive 2D/3D &amp; Spatial</a></li>
+            <li><a href="user-experience-design.html" style="color: var(--text-secondary); text-decoration: none;">User Experience &amp; Design</a></li>
+            <li><a href="cloud-devops.html" style="color: var(--text-secondary); text-decoration: none;">Cloud &amp; DevOps</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Proven Case Studies</div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
+            <li><a href="../work/easy-my-tax.html" style="color: var(--text-secondary); text-decoration: none;">Easy My Tax (CA Portal)</a></li>
+            <li><a href="../work/harish-renova.html" style="color: var(--text-secondary); text-decoration: none;">Harish Renova (Healthcare)</a></li>
+            <li><a href="../work/saini-handicrafts.html" style="color: var(--text-secondary); text-decoration: none;">Saini Handicrafts (E-Commerce)</a></li>
+            <li><a href="../work/apex-cloud.html" style="color: var(--text-secondary); text-decoration: none;">Apex Cloud (Linux VPS)</a></li>
+            <li><a href="../work/nebula-3d.html" style="color: var(--text-secondary); text-decoration: none;">Nebula3D (Spatial Graphics)</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Connect With Founders</div>
+          <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">Direct communication with senior engineering leadership:</p>
+          <a href="mailto:pixeltocloud@gmail.com" style="color: var(--accent-cyan); font-size: 0.88rem; text-decoration: none; display: block; margin-bottom: 6px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>pixeltocloud@gmail.com</a>
+          <a href="tel:+918219352124" style="color: var(--text-secondary); font-size: 0.88rem; text-decoration: none; display: block;"><i class="fa-solid fa-phone" style="margin-right: 6px;"></i>+91 82193 52124</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; font-size: 0.8rem; color: var(--text-muted);">
+        <div>&copy; 2026 PixelToCloud Solutions. All rights reserved. Full source-code &amp; IP ownership.</div>
+        <div>Engineered with precision by Lead Systems Architects Pankaj Gupta &amp; Tushar Singhal.</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/app.js?v=42.0"></script>
+</body>
+</html>

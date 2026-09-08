@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Custom Full-Stack Digital Products, Web Applications & Mobile Software engineered by PixelToCloud. High-concurrency microservices, sub-second TTFB, and multi-tenant SaaS.">
+  <meta name="keywords" content="Digital Products, Web Development, Full-Stack, React, Next.js, Node.js, Mobile Apps, SaaS Engineering, PixelToCloud">
+  <meta name="theme-color" content="#080b11">
+  <link rel="canonical" href="https://pixeltocloud.com/services/digital-products.html">
+  <title>Digital Products &amp; Software Engineering | PixelToCloud</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css?v=42.0">
+  <link rel="stylesheet" href="../css/animations.css?v=42.0">
+  <link rel="stylesheet" href="../css/components.css?v=42.0">
+  <link rel="stylesheet" href="../css/light-theme.css?v=42.0">
+  <link rel="stylesheet" href="../css/mobile-responsive.css?v=42.0">
+</head>
+<body>
+  <div class="ambient-glow glow-cyan" style="top: 10%; left: 5%; width: 500px; height: 500px;"></div>
+  <div class="ambient-glow glow-purple" style="top: 40%; right: 5%; width: 600px; height: 600px;"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <a href="../" class="nav-brand" aria-label="PixelToCloud Solutions Home">
+      <div class="nav-logo-icon" aria-label="PixelToCloud Official Logo"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));"></div>
+      <span>PixelTo<span style="color: var(--accent-cyan);">Cloud</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../services.html" class="nav-link active" style="color: var(--accent-cyan); font-weight: 700;">Services</a>
+      <a href="../portfolio.html" class="nav-link">Work</a>
+      <a href="../#solutions" class="nav-link">Solutions</a>
+      <a href="../labs.html" class="nav-link"><i class="fa-solid fa-flask" style="font-size: 0.8rem; margin-right: 4px; color: #a855f7;"></i>Labs</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="../contact.html" class="btn-magnetic btn-primary nav-cta-btn">
+        <span>Start Your Project</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <a href="../" class="nav-brand">
+        <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 26px; height: 26px;"></div>
+        <span>PixelToCloud</span>
+      </a>
+      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close Menu">✕</button>
+    </div>
+    <div class="drawer-body">
+      <nav class="drawer-links">
+        <a href="../services.html" class="drawer-link active"><i class="fa-solid fa-rocket"></i><span>All Services</span></a>
+        <a href="../portfolio.html" class="drawer-link"><i class="fa-solid fa-laptop-code"></i><span>Case Studies</span></a>
+        <a href="../#process" class="drawer-link"><i class="fa-solid fa-diagram-project"></i><span>How We Work</span></a>
+        <a href="../labs.html" class="drawer-link"><i class="fa-solid fa-flask"></i><span>Engineering Lab</span></a>
+        <a href="../about.html" class="drawer-link"><i class="fa-solid fa-user-gear"></i><span>Founders &amp; Leadership</span></a>
+        <a href="../contact.html" class="drawer-link"><i class="fa-solid fa-paper-plane"></i><span>Start a Project</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="main-content" style="padding-top: 125px;">
+    <!-- Breadcrumb & Hero -->
+    <section class="section" style="padding-bottom: 20px;">
+      <div class="container">
+        <nav aria-label="Breadcrumb" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+          <a href="../" style="color: var(--text-muted); text-decoration: none;">Home</a>
+          <span>/</span>
+          <a href="../services.html" style="color: var(--text-muted); text-decoration: none;">Services</a>
+          <span>/</span>
+          <span style="color: #60a5fa; font-weight: 600;">Digital Products &amp; Software</span>
+        </nav>
+
+        <div class="section-tag" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); color: #93c5fd;">
+          <i class="fa-solid fa-code" style="margin-right: 6px;"></i>Full-Stack Architecture &amp; SaaS Systems
+        </div>
+        <h1 class="hero-title" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); margin-bottom: 20px;">
+          Building Scalable Digital Products from <span class="highlight-text" style="background: linear-gradient(135deg, #60a5fa 0%, #00f0ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Idea to Launch</span>
+        </h1>
+        <p class="hero-subtitle" style="max-width: 820px; font-size: 1.12rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px;">
+          We build bespoke web applications, high-concurrency APIs, and cross-platform mobile software. Engineered for sub-second page loads, modular microservice scalability, and complete source-code ownership.
+        </p>
+
+        <!-- Metric Proof Bar -->
+        <div class="cs-metric-strip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px;">
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #60a5fa; font-family: var(--font-display);">100/100</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Core Web Vitals</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-display);">&lt; 180ms</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Time To First Byte</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-emerald); font-family: var(--font-display);">60 FPS</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Fluid UI Rendering</div>
+          </div>
+          <div class="cs-metric-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #f59e0b; font-family: var(--font-display);">100%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Full Source Ownership</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="../contact.html?service=software" class="btn-magnetic btn-primary" style="padding: 14px 30px;">
+            <span>Consult on Your Digital Product →</span>
+          </a>
+          <a href="#interactive-sandbox" class="btn-magnetic btn-secondary" style="padding: 14px 26px;">
+            <span>Inspect Web Vitals Bench</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Web Vitals & Microservices Bench -->
+    <section class="section" id="interactive-sandbox" style="background: rgba(0, 0, 0, 0.2); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-tag"><i class="fa-solid fa-gauge-high" style="color: #60a5fa; margin-right: 6px;"></i>Live Telemetry Simulator</div>
+          <h2 class="section-title">Core Web Vitals &amp; API Bench</h2>
+          <p class="section-desc">Test real-time microservice latency, payload compression, and rendering speeds.</p>
+        </div>
+
+        <div style="background: #090e1a; border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 20px; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px;">
+              <div style="font-size: 0.88rem; font-weight: 700; color: #ffffff; margin-bottom: 14px; display: flex; justify-content: space-between;">
+                <span>React 19 Server Component (SSR)</span>
+                <span style="color: var(--accent-emerald);">48ms</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                <div style="width: 95%; height: 100%; background: var(--accent-emerald);"></div>
+              </div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">Zero client-side JS bundle overhead for static markup.</div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px;">
+              <div style="font-size: 0.88rem; font-weight: 700; color: #ffffff; margin-bottom: 14px; display: flex; justify-content: space-between;">
+                <span>PostgreSQL Connection Pooling</span>
+                <span style="color: var(--accent-cyan);">1.8ms</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                <div style="width: 98%; height: 100%; background: var(--accent-cyan);"></div>
+              </div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">Sub-2ms query response via PgBouncer and indexed schemas.</div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px;">
+              <div style="font-size: 0.88rem; font-weight: 700; color: #ffffff; margin-bottom: 14px; display: flex; justify-content: space-between;">
+                <span>Edge Microservices &amp; CDN</span>
+                <span style="color: #a78bfa;">18ms</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                <div style="width: 92%; height: 100%; background: #a78bfa;"></div>
+              </div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">Global distributed edge caching with instantaneous gzip/brotli delivery.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Specialized Subsections -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-tag">Core Disciplines</div>
+          <h2 class="section-title">What We Build in Digital Products &amp; Software</h2>
+          <p class="section-desc">From initial wireframe architecture to multi-tenant production platforms.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <!-- 1. Custom Web Applications -->
+          <div class="service-overview-card" style="--srv-accent: #3b82f6;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">
+                <i class="fa-solid fa-window-maximize"></i>
+              </div>
+              <div class="srv-badge">Web Architecture</div>
+            </div>
+            <h3 class="srv-card-title">Enterprise Web Applications</h3>
+            <p class="srv-card-desc">Modern web apps built with React 19, TypeScript, Next.js, and Node.js. Sub-second page loads with complete SEO indexability.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem; color: #cbd5e1;">
+              <li><i class="fa-solid fa-circle-check" style="color: #60a5fa; margin-right: 8px;"></i>Server-Side Rendering (SSR) &amp; Static Generation</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #60a5fa; margin-right: 8px;"></i>Type-safe end-to-end APIs (tRPC, GraphQL, REST)</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #60a5fa; margin-right: 8px;"></i>Dynamic client dashboards with real-time WebSockets</li>
+            </ul>
+          </div>
+
+          <!-- 2. Multi-Tenant SaaS Platforms -->
+          <div class="service-overview-card" style="--srv-accent: #00f0ff;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(0, 240, 255, 0.12); color: var(--accent-cyan); border: 1px solid rgba(0, 240, 255, 0.3);">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <div class="srv-badge">SaaS Systems</div>
+            </div>
+            <h3 class="srv-card-title">Multi-Tenant SaaS Platforms</h3>
+            <p class="srv-card-desc">Architected for rapid multi-tenant scaling with isolated database schemas, subscription billing, and fine-grained permissions.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem; color: #cbd5e1;">
+              <li><i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); margin-right: 8px;"></i>Schema-based tenant isolation &amp; data privacy</li>
+              <li><i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); margin-right: 8px;"></i>Stripe &amp; Razorpay automated subscription billing</li>
+              <li><i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); margin-right: 8px;"></i>Audit logging, team invites, and SSO integration</li>
+            </ul>
+          </div>
+
+          <!-- 3. Cross-Platform Mobile Apps -->
+          <div class="service-overview-card" style="--srv-accent: #10b981;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div class="srv-badge">Mobile Engineering</div>
+            </div>
+            <h3 class="srv-card-title">Cross-Platform Mobile Apps</h3>
+            <p class="srv-card-desc">Deliver polished, 60 FPS native iOS and Android apps from a single unified codebase with React Native and Flutter.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem; color: #cbd5e1;">
+              <li><i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 8px;"></i>Smooth native gestures and hardware camera/GPS access</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 8px;"></i>Offline-first synchronization with SQLite &amp; WatermelonDB</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #34d399; margin-right: 8px;"></i>App Store &amp; Google Play automated deployment</li>
+            </ul>
+          </div>
+
+          <!-- 4. High-Concurrency REST & GraphQL APIs -->
+          <div class="service-overview-card" style="--srv-accent: #f59e0b;">
+            <div class="srv-card-top">
+              <div class="srv-card-icon" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <div class="srv-badge">API Engineering</div>
+            </div>
+            <h3 class="srv-card-title">High-Concurrency Microservices &amp; APIs</h3>
+            <p class="srv-card-desc">Resilient backend services capable of sustaining thousands of concurrent requests with Redis caching and connection pooling.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem; color: #cbd5e1;">
+              <li><i class="fa-solid fa-circle-check" style="color: #fbbf24; margin-right: 8px;"></i>Sub-20ms cached endpoint latency with Redis</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #fbbf24; margin-right: 8px;"></i>Swagger / OpenAPI 3.0 interactive documentation</li>
+              <li><i class="fa-solid fa-circle-check" style="color: #fbbf24; margin-right: 8px;"></i>JWT authentication with rate limiting &amp; CORS defense</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Banner -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;">
+          <div>
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-cyan); text-transform: uppercase;">FEATURED WORK</div>
+            <h3 style="font-size: 1.6rem; color: #ffffff; margin-top: 6px;">Nexure Enterprise — Multi-Tenant Cloud Architecture</h3>
+            <p style="color: var(--text-muted); max-width: 680px; font-size: 0.92rem; margin-top: 6px;">
+              Discover how we architected a high-load multi-tenant platform with 99.9% uptime and granular RBAC security.
+            </p>
+          </div>
+          <a href="../work/nexure-saas.html" class="btn-magnetic btn-primary">
+            <span>Read Case Study →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-tag">Stack &amp; Frameworks</div>
+          <h2 class="section-title">Production Software Engineering Stack</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 800px; margin: 0 auto;">
+          <span class="bento-tech-chip">React 19</span>
+          <span class="bento-tech-chip">Next.js</span>
+          <span class="bento-tech-chip">TypeScript</span>
+          <span class="bento-tech-chip">Node.js</span>
+          <span class="bento-tech-chip">PostgreSQL</span>
+          <span class="bento-tech-chip">Redis</span>
+          <span class="bento-tech-chip">TailwindCSS</span>
+          <span class="bento-tech-chip">React Native</span>
+          <span class="bento-tech-chip">GraphQL</span>
+          <span class="bento-tech-chip">Docker</span>
+          <span class="bento-tech-chip">Prisma ORM</span>
+          <span class="bento-tech-chip">AWS S3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background: rgba(59, 130, 246, 0.04); border-top: 1px solid rgba(59, 130, 246, 0.2);">
+      <div class="container text-center">
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); color: #ffffff; margin-bottom: 14px;">Ready to Engineer Your Next Digital Product?</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem;">
+          Consult directly with Senior Engineers Pankaj Gupta &amp; Tushar Singhal. Receive a detailed technical blueprint, database schema, and fixed-price milestones.
+        </p>
+        <a href="../contact.html?service=software" class="btn-magnetic btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">
+          <span>Discuss Your Project →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding: 60px 0 30px 0; border-top: 1px solid var(--border-subtle); background: rgba(5, 7, 12, 0.95);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; margin-bottom: 40px;">
+        <div style="max-width: 360px;">
+          <a href="../" class="nav-brand" style="margin-bottom: 14px;">
+            <div class="nav-logo-icon"><img src="../logo-icon.svg" alt="PixelToCloud" style="width: 24px; height: 24px;"></div>
+            <span>PixelToCloud</span>
+          </a>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Custom software engineering studio. We build bespoke business web applications, 2D/3D interactive spatial graphics, and scalable Linux cloud infrastructure.
+          </p>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Core Services</div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
+            <li><a href="artificial-intelligence.html" style="color: var(--text-secondary); text-decoration: none;">Artificial Intelligence</a></li>
+            <li><a href="digital-products.html" style="color: var(--text-secondary); text-decoration: none;">Digital Products &amp; Software</a></li>
+            <li><a href="erp-solutions.html" style="color: var(--text-secondary); text-decoration: none;">ERP Solutions &amp; Portals</a></li>
+            <li><a href="interactive-3d-spatial.html" style="color: var(--text-secondary); text-decoration: none;">Interactive 2D/3D &amp; Spatial</a></li>
+            <li><a href="user-experience-design.html" style="color: var(--text-secondary); text-decoration: none;">User Experience &amp; Design</a></li>
+            <li><a href="cloud-devops.html" style="color: var(--text-secondary); text-decoration: none;">Cloud &amp; DevOps</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Proven Case Studies</div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.86rem;">
+            <li><a href="../work/easy-my-tax.html" style="color: var(--text-secondary); text-decoration: none;">Easy My Tax (CA Portal)</a></li>
+            <li><a href="../work/harish-renova.html" style="color: var(--text-secondary); text-decoration: none;">Harish Renova (Healthcare)</a></li>
+            <li><a href="../work/saini-handicrafts.html" style="color: var(--text-secondary); text-decoration: none;">Saini Handicrafts (E-Commerce)</a></li>
+            <li><a href="../work/apex-cloud.html" style="color: var(--text-secondary); text-decoration: none;">Apex Cloud (Linux VPS)</a></li>
+            <li><a href="../work/nebula-3d.html" style="color: var(--text-secondary); text-decoration: none;">Nebula3D (Spatial Graphics)</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 14px; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em;">Connect With Founders</div>
+          <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">Direct communication with senior engineering leadership:</p>
+          <a href="mailto:pixeltocloud@gmail.com" style="color: var(--accent-cyan); font-size: 0.88rem; text-decoration: none; display: block; margin-bottom: 6px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i>pixeltocloud@gmail.com</a>
+          <a href="tel:+918219352124" style="color: var(--text-secondary); font-size: 0.88rem; text-decoration: none; display: block;"><i class="fa-solid fa-phone" style="margin-right: 6px;"></i>+91 82193 52124</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; font-size: 0.8rem; color: var(--text-muted);">
+        <div>&copy; 2026 PixelToCloud Solutions. All rights reserved. Full source-code &amp; IP ownership.</div>
+        <div>Engineered with precision by Lead Systems Architects Pankaj Gupta &amp; Tushar Singhal.</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/app.js?v=42.0"></script>
+</body>
+</html>
