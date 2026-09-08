@@ -43,7 +43,7 @@ class PixelToCloudAIAdvisor {
       {
         id: 'founders',
         keywords: ['founder', 'who', 'Pankaj', 'tushar', 'pankaj', 'team', 'experience', 'architect', 'developer', 'background', 'engineer', 'lead', 'owners', 'credentials'],
-        response: "👨‍💻 **Engineered Directly by Senior Founders:**\n\n• **Pankaj Gupta (Lead Systems Architect):** 8–10+ Years of Dual Mastery across Hardware, Full-Stack Architecture, and Linux Cloud DevOps.\n• **Tushar Singhal (Co-Founder & Senior Software Developer):** 5+ Years of mastery in React, Python, Rust, high-concurrency microservices, and database performance.\n\n🌟 **The PixelToCloud Difference:** No junior delegates or inexperienced middlemen—your software is engineered directly by experienced architects.",
+        response: "👨‍💻 **Engineered Directly by Senior Founders:**\n\n• **Pankaj Gupta (Lead Systems Architect):** Over 8 Years of Mastery across Systems Engineering, Full-Stack Architecture, and Linux Cloud DevOps.\n• **Tushar Singhal (Co-Founder & Senior Software Developer):** 5+ Years of mastery in React, Python, Rust, high-concurrency microservices, and database performance.\n\n🌟 **The PixelToCloud Difference:** No junior delegates or inexperienced middlemen—your software is engineered directly by experienced architects.",
         actions: ['email', 'call', 'whatsapp'],
         chips: ["📞 How do I talk to Pankaj & Tushar?", "💼 View CA & Doctor Portals", "💰 What are your payment terms?"]
       },
