@@ -1498,9 +1498,42 @@
     text-align: center !important;
     padding: 11px 14px !important;
   }
+
+  /* Dark Systems Studio Homepage Overrides */
+  .proof-strip-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .work-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .capability-matrix-container {
+    grid-template-columns: 1fr !important;
+    padding: 20px 16px !important;
+    gap: 20px !important;
+  }
+
+  .matrix-deliverables-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .process-timeline-horizontal {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .process-timeline-horizontal::before {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
+  .proof-strip-grid {
+    grid-template-columns: 1fr !important;
+  }
   .hero-title {
     font-size: clamp(1.65rem, 7.5vw, 2.05rem) !important;
   }
